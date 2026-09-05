@@ -78,7 +78,66 @@ Locator bisa dirangkai seperti rantai untuk makin spesifik:
 self.field_container.filter(has_text="Employee Name").get_by_role("listbox").locator("div")
 `
 
+## 6. Container Scoping (Bilik Terkecil) ⭐ Teknik Paling Penting!
+
+Ini adalah strategi **paling umum dan paling stabil** saat berhadapan dengan form/filter yang field-fieldnya susah dibedakan.
+
+### Analogi:
+Bayangkan sebuah form sebagai **Ruang Kantor Bersama**. Di ruangan itu ada 4 meja (field). Kalau kita bilang *"tolong isi kotak yang ada di ruangan ini"*, Playwright bingung karena ada 4 kotak. **Solusinya: Kunci dulu ke bilik/meja spesifiknya, baru cari input di dalamnya.**
+
+### Kapan Pakai Ini?
+Saat `page.get_by_label()` tidak bisa dipakai (artinya developer tidak menghubungkan `<label>` dan `<input>` secara proper di HTML, seperti di OrangeHRM).
+
+### Cara Kerjanya:
+```python
+# 1. Definisikan wadah bilik (wrapper terkecil per field)
+self.field_container = page.locator(".oxd-input-group")  # atau .oxd-grid-item
+
+# 2. Kunci ke bilik spesifik, lalu ambil input di dalamnya
+self.username_filter = self.field_container.filter(has_text="Username").get_by_role("textbox")
+self.user_role_filter = self.field_container.filter(has_text="User Role").locator(".oxd-select-text")
+```
+
+### Cara Membaca Locator (Kiri ke Kanan):
+`self.field_container.filter(has_text="User Role").locator(".oxd-select-text")`
+1. `self.field_container` ➜ *"Kumpulkan SEMUA bilik yang ada di halaman."*
+2. `.filter(has_text="User Role")` ➜ *"Saring, ambil HANYA bilik yang ada tulisan 'User Role'."*
+3. `.locator(".oxd-select-text")` ➜ *"Di DALAM bilik itu, ambil dropdown-nya."*
+
+### Cara Menemukan Class Wrapper di Browser:
+1. Klik kanan elemen input ➜ **Inspect**.
+2. Di tab Elements, **gerakkan mata ke atas** (lihat elemen *parent*-nya).
+3. Berhenti saat menemukan elemen yang membungkus **sekaligus label + input** dalam 1 kotak kecil.
+4. Catat class-nya (misal `oxd-input-group`, `oxd-grid-item`). Itulah bilik-nya!
+
+### Keuntungan vs Pakai Form Container Besar:
+| | Form Container Besar | Bilik Terkecil ✅ |
+|---|---|---|
+| Berisi | Semua field (5 textbox, 3 dropdown) | 1 label + 1 input |
+| Risiko | Strict Mode Error karena banyak elemen kembar | Dijamin unik, tidak mungkin salah sasaran |
+| Kegunaan Tambahan | - | Bisa cek error message spesifik per field |
+
+---
+
+## 7. `to_have_count()` — Assertion untuk Elemen Kembar
+
+Dipakai saat kita ingin memastikan **jumlah** elemen yang muncul, bukan cuma 1 elemen.
+
+```python
+# Pastikan ada tepat 5 pesan error "Required" (karena ada 5 field yang wajib diisi)
+expect(page.get_by_text("Required", exact=True)).to_have_count(5)
+```
+
+**Perbedaan dengan `to_be_visible()`:**
+- `to_be_visible()` ➜ Dipakai kalau elemen yang dimaksud **hanya ada 1** di layar.
+- `to_have_count(N)` ➜ Dipakai kalau elemen **ada banyak / kembar** dan kita ingin memastikan jumlahnya.
+
+Kalau pakai `to_be_visible()` pada elemen yang ternyata ada 5 buah, Playwright akan *crash* karena **Strict Mode Error** (tidak tahu harus ngecek yang mana).
+
+---
+
 ## Tips Penting
-- **Prioritaskan `get_by_role()`** — paling stabil dan paling mirip cara user berinteraksi.
-- Kalau `get_by_role()` nggak cukup, baru pakai `locator()` + `.filter()`.
-- Kalau nemu error **Strict Mode**, gunakan `.first`, `.last`, atau `.nth()`.
+- **Prioritaskan `get_by_label()`** — paling ideal kalau developer membuat HTML yang accessible.
+- Kalau `get_by_label()` nggak ada, pakai teknik **Bilik Terkecil** (Container Scoping).
+- **Jangan pakai `nth()`** sebagai locator utama — rapuh dan mudah berubah kalau layout berubah.
+- Kalau nemu **Strict Mode Error** di assertion, ganti `to_be_visible()` ➜ `to_have_count(N)`.

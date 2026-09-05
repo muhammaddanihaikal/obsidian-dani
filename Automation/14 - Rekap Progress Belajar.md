@@ -29,3 +29,11 @@ Dokumen ini melacak perjalanan belajar *QA Automation* menggunakan Playwright da
 - **Logika Error 404:** Belajar trik QA senior (`if != 404`) agar sistem tidak memberi *error* palsu saat mencoba menghapus user yang sudah terhapus di UI.
 - **Frontend State Desync:** Belajar sifat aplikasi React/Vue yang bisa *nge-bug* atau *invalid* bila *input autocomplete* dipaksa mengetik data yang persis sama dengan yang sudah terpilih.
 - **Headless Mode:** Menjalankan browser di latar belakang tanpa UI (`HEADLESS = True`) yang sukses menembus 10 UI test hanya dalam 22 detik! 🚀
+
+### 📅 5 September 2026
+**Fokus: Negative Test & Locator Lanjutan (Container Scoping)**
+- **Negative Test (Empty Form):** Membuat `test_add_user_empty` — klik Save tanpa isi form, lalu validasi pesan "Required" muncul.
+- **`to_have_count(N)`:** Belajar assertion baru saat elemen kembar > 1 di layar. Kalau pakai `to_be_visible()` pada elemen kembar, Playwright crash (*Strict Mode Error*).
+- **`exact=True`:** Trik supaya `get_by_text()` hanya mencocokkan teks yang *persis sama*, bukan yang *mengandung* kata tersebut (contoh: memfilter catatan `* Required` dari halaman agar tidak ikut terhitung).
+- **Container Scoping (Bilik Terkecil):** Teknik paling penting saat form/filter punya banyak field yang susah dibedakan. Kunci ke wrapper terkecil per field (`oxd-input-group` / `oxd-grid-item`), bukan ke form container besar yang berisi semua field.
+- **Cara Mencari Wrapper:** Klik kanan elemen ➜ Inspect ➜ Naik ke atas (lihat *parent*) sampai ketemu elemen yang membungkus pasangan label + input dalam 1 kotak kecil.
