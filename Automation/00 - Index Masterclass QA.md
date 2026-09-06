@@ -26,7 +26,7 @@ Selamat datang di pusat komando! Ini adalah *Map of Content* (Peta Konten) dari 
 
 ### 🛠️ Troubleshooting & Rekap
 - [[10 - Tips Praktis & Troubleshooting Automation]]
-- [[14 - Rekap Progress Belajar]]
+- [[Rekap Progress Belajar]]
 - [[Playwright]]
 
 ---
