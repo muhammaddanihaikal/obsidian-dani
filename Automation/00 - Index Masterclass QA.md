@@ -22,6 +22,7 @@ Selamat datang di pusat komando! Ini adalah *Map of Content* (Peta Konten) dari 
 - [[12 - Test Independence (Data Isolation) via API]]
 - [[13 - Tips Lanjutan API Teardown & UI Desync]]
 - [[15 - Strategi Pengujian (E2E vs Independent) & Markers]]
+- [[16 - Race Condition & Network Waiting Strategy]]
 
 ### 🛠️ Troubleshooting & Rekap
 - [[10 - Tips Praktis & Troubleshooting Automation]]
