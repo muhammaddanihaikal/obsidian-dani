@@ -9,7 +9,6 @@ Dokumen ini melacak perjalanan belajar *QA Automation* menggunakan Playwright da
 - **Filter Kombinasi**: Validasi multi-kriteria (Role + Employee + Status) sekaligus per baris tabel.
 - **Allure Report**: Integrasi visual dashboard, judul `@allure.title("[TC-XX] ...")`, dan format seragam AAA.
 - **Sinkronisasi Excel**: Format 7 kolom murni (Rule-001) & penyiapan 9 test case modul PIM.
-- **Rekor Pengujian**: 17 test suite lulus 100% hijau dalam 35 detik! 🚀
 
 ### 📅 6 September 2026
 **Filter/Search, Loop Validation & Race Condition**
@@ -25,12 +24,11 @@ Dokumen ini melacak perjalanan belajar *QA Automation* menggunakan Playwright da
 ### 📅 4 September 2026
 **Test Independence via API Injection**
 - **Isolasi Data**: Setup & Teardown user tumbal via API (`yield`) agar test edit & delete mandiri.
-- **UI Desync & Headless**: Atasi desync pada autocomplete dan optimasi eksekusi headless mode (22 detik).
+- **UI Desync**: Atasi desync pada autocomplete saat pengujian.
 
 ### 📅 3 September 2026
 **Optimasi Kecepatan (Authentication State)**
 - **Global Auth**: Login hanya 1x per sesi, cookies disimpan ke `.auth/state.json`.
-- Waktu eksekusi seluruh test terpangkas drastis.
 
 ### 📅 1 September 2026
 **Troubleshooting & Maintenance**
