@@ -46,4 +46,5 @@ Dokumen ini melacak perjalanan belajar *QA Automation* menggunakan Playwright da
 - Atasi Strict Mode Violation: Menambahkan `.first` untuk membedakan label tabel dengan toast popup.
 - Filter Kombinasi: Validasi multi-kriteria (Role + Employee + Status) sekaligus per baris tabel.
 - Standar Docstring: Wajib `""" """` 1 baris di setiap method Page & fungsi Test.
+- Allure Report: Integrasi reporting interaktif Allure (`allure-pytest`) dan dekorator `@allure.title` untuk judul Test Case resmi.
 - Rekor Pengujian: Seluruh 17 test suite lulus hijau 100% dalam 35 detik! 🚀
