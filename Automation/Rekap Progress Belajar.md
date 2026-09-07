@@ -38,3 +38,12 @@ Dokumen ini melacak perjalanan belajar *QA Automation* menggunakan Playwright da
 - Satpam Loop: `expect(rows.first).to_be_visible()` wajib sebelum loop agar tidak *False Positive*.
 - **Race Condition**: Robot lebih cepat dari loading ➜ membaca data lama/stale ➜ test error palsu.
 - **`with page.expect_response("**/api/*")`**: Solusi race condition — tahan robot sampai respon API mendarat.
+
+### 📅 7 September 2026
+**Decoupling POM, Dynamic State Reset & Multi-Criteria Filter**
+- Decoupling POM: Memisahkan pengisian field dan penekanan tombol `search()` & `reset()` agar modular.
+- Dynamic State Reset: Menangkap teks jumlah data awal (`initial_records`) untuk validasi pemulihan tabel secara dinamis.
+- Atasi Strict Mode Violation: Menambahkan `.first` untuk membedakan label tabel dengan toast popup.
+- Filter Kombinasi: Validasi multi-kriteria (Role + Employee + Status) sekaligus per baris tabel.
+- Standar Docstring: Wajib `""" """` 1 baris di setiap method Page & fungsi Test.
+- Rekor Pengujian: Seluruh 17 test suite lulus hijau 100% dalam 35 detik! 🚀
