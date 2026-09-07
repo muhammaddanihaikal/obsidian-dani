@@ -40,11 +40,16 @@ Dokumen ini melacak perjalanan belajar *QA Automation* menggunakan Playwright da
 - **`with page.expect_response("**/api/*")`**: Solusi race condition — tahan robot sampai respon API mendarat.
 
 ### 📅 7 September 2026
-**Decoupling POM, Dynamic State Reset & Multi-Criteria Filter**
+**Decoupling POM, Dynamic State Reset, Multi-Criteria Filter & Allure Reporting**
 - Decoupling POM: Memisahkan pengisian field dan penekanan tombol `search()` & `reset()` agar modular.
 - Dynamic State Reset: Menangkap teks jumlah data awal (`initial_records`) untuk validasi pemulihan tabel secara dinamis.
 - Atasi Strict Mode Violation: Menambahkan `.first` untuk membedakan label tabel dengan toast popup.
 - Filter Kombinasi: Validasi multi-kriteria (Role + Employee + Status) sekaligus per baris tabel.
-- Standar Docstring: Wajib `""" """` 1 baris di setiap method Page & fungsi Test.
-- Allure Report: Integrasi reporting interaktif Allure (`allure-pytest`) dan dekorator `@allure.title` untuk judul Test Case resmi.
+- Allure Report: Integrasi reporting visual modern Allure (`allure-pytest` & Allure CLI).
+- Standardisasi Test Case & ID:
+  - Menerapkan `@allure.title("[TC-MODUL-XX] Judul Bahasa Manusia")` agar mudah dicari di dashboard Allure dan rapi di panel suites.
+  - Menghapus docstring redundant pada fungsi test, tetap mempertahankan docstring pada Page Object (POM) untuk tooltip IDE.
+  - Membedakan `@allure.id` (metadata internal Allure TestOps) dengan `@allure.tag` (badge visual).
+  - Memahami sinergi Pytest Markers (`@pytest.mark.smoke`) sebagai pengontrol eksekusi terminal dengan visualisasi otomatis Allure.
+- Sinkronisasi Excel (`tc_orangehrm.xlsx`): Mematuhi Rule-001 Obsidian (7 kolom murni, No Border, Freeze Header A2, Auto Filter, dan penambahan 9 test case PIM).
 - Rekor Pengujian: Seluruh 17 test suite lulus hijau 100% dalam 35 detik! 🚀

@@ -24,6 +24,9 @@ Selamat datang di pusat komando! Ini adalah *Map of Content* (Peta Konten) dari 
 - [[15 - Strategi Pengujian (E2E vs Independent) & Markers]]
 - [[16 - Race Condition & Network Waiting Strategy]]
 
+### 📊 Reporting & Standardisasi
+- [[17 - Allure Reporting & Standardisasi Test Case]]
+
 ### 🛠️ Troubleshooting & Rekap
 - [[10 - Tips Praktis & Troubleshooting Automation]]
 - [[Rekap Progress Belajar]]
