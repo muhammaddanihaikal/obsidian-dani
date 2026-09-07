@@ -45,3 +45,10 @@ Pencarian elemen **WAJIB** mengikuti urutan prioritas di bawah ini (dari yang pa
   - page.wait_for_selector()
   - with page.expect_response("**/endpoint") (sangat direkomendasikan untuk menghindari *flaky tests* akibat *loading* jaringan).
 - **Haram:** **DILARANG KERAS** menggunakan waktu tunggu statis (contoh: page.wait_for_timeout(5000) atau 	ime.sleep()).
+
+## 7. Standar Komentar & Dokumentasi (Docstring vs Comment)
+- **Docstring (`""" """`):**
+  - **WAJIB** ada di setiap fungsi Page dan fungsi Test (cukup 1 baris ringkas).
+  - Tujuannya agar saat kursor di-hover di VS Code, muncul *tooltip* penjelasan fungsi tersebut tanpa perlu membuka file aslinya.
+- **Komentar Biasa (`#`):**
+  - Digunakan untuk pembatas pola **AAA** (`# 1. Arrange`, `# 2. Act`, `# 3. Assert`) dan catatan teknis langkah demi langkah di dalam baris kodingan.
