@@ -2,6 +2,13 @@
 
 Dokumen ini melacak perjalanan belajar *QA Automation* menggunakan Playwright dan Pytest.
 
+### 📅 10 September 2026
+**Bulk Action, Batch Fixture & DOM Pointer Events**
+- **Bulk Action POM**: Aksi hapus massal (`bulk_delete`) menerima list user dan konfirmasi modal.
+- **Batch Fixture Isolation**: Setup 2 user tumbal via API & efisiensi teardown 1x request `DELETE`.
+- **DOM Pointer Events**: Mengatasi `subtree intercepts pointer events` via tag `<label>`.
+- **Validasi Multi-Row**: Assertion baris spesifik `to_be_hidden()` tanpa mengganggu data lain.
+
 ### 📅 7 September 2026
 **Decoupling POM, Multi-Filter & Allure Reporting**
 - **Decoupling POM**: Tombol `search()` & `reset()` dipisah dari input filter agar modular.
