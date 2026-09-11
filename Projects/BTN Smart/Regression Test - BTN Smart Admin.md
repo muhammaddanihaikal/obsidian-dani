@@ -25,7 +25,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 14 | Overview | Overview Lend | Alam | ⬜ Belum |
 | 15 | Overview | Pengaturan Overview | Alam | ⬜ Belum |
 | 16 | User Authority | User | Alam | 🐛 Bug |
-| 17 | User Authority | Group Role | Alam | ⬜ Belum |
+| 17 | User Authority | Group Role | Alam | 🐛 Bug |
 | 18 | User Authority | Tipe Karyawan | Alam | ⬜ Belum |
 | 19 | User Authority | Hak Akses Role | Alam | ⬜ Belum |
 | 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | ⬜ Belum |
@@ -220,6 +220,45 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Expected**: Fitur *"Resend Activation Link"* hanya tersedia khusus untuk user bertipe **AD**. User Non-AD tidak boleh memiliki aksi ini karena password dibuat langsung saat input user baru.
 > * **Actual**: Tombol *"Resend Activation Link"* muncul pada user Non-AD dan dapat mentrigger pengiriman email aktivasi.
 > * **Evidence**: [https://files.catbox.moe/lyl9gn.png](https://files.catbox.moe/lyl9gn.png)
+<br>
+
+> **[BUG] [Web] Fitur Search Group Role Tidak Berfungsi untuk Kolom Kantor dan Keterangan**
+> 
+> * **Menu**: User Authority → Group Role
+> * **Deskripsi**: Fitur pencarian pada tabel Group Role tidak memfilter data berdasarkan kolom **Kantor** dan **Keterangan**.
+> * **Expected**: Field search dapat memfilter data secara akurat saat user memasukkan keyword Kantor maupun Keterangan.
+> * **Actual**: 
+>   * Pencarian keyword kolom Kantor (misal: *"Kantor Cabang"*) tidak menyaring data di kolom Kantor.
+>   * Pencarian keyword kolom Keterangan (misal: *"Pimpinan Kantor Cabang"*) menghasilkan *"No data"*.
+> * **Evidence**:
+>   * **Kolom Kantor (Kantor Cabang)**:
+>     * Data Ada: [https://files.catbox.moe/mmj7x6.png](https://files.catbox.moe/mmj7x6.png)
+>     * Hasil Search (Kolom Kantor tidak terfilter): [https://files.catbox.moe/xtuyo2.png](https://files.catbox.moe/xtuyo2.png)
+>   * **Kolom Keterangan (Pimpinan Kantor Cabang)**:
+>     * Data Ada: [https://files.catbox.moe/0iz476.png](https://files.catbox.moe/0iz476.png)
+>     * Hasil Search (No data): [https://files.catbox.moe/b6ihis.png](https://files.catbox.moe/b6ihis.png)
+<br>
+
+> **[BUG] [Web] Export Group Role Tidak Tercatat di Riwayat Export dan Aktivitas Export**
+> 
+> * **Menu**: User Authority → Group Role / Export Center
+> * **Deskripsi**: Aktivitas export data dari daftar Group Role tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
+> * **Expected**: Setiap kali user melakukan export data Group Role, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
+> * **Actual**: Log export Group Role tidak muncul di kedua menu Export Center tersebut.
+> * **Evidence**: [https://files.catbox.moe/4yb9kj.png](https://files.catbox.moe/4yb9kj.png)
+<br>
+
+> **[PENDING KONFIRMASI / BUG] [Web] Role yang Masih Digunakan User Bisa Dihapus (Role Kosong tapi Akses Menu Masih Aktif)**
+> 
+> * **Menu**: User Authority → Group Role / User
+> * **Catatan**: *Menunggu konfirmasi tim/dev terkait flow bisnis saat role dihapus.*
+> * **Deskripsi**: Sistem mengizinkan penghapusan Group Role yang masih aktif digunakan oleh user. Akibatnya, kolom Job Role pada user menjadi kosong (blank), namun user tersebut masih bisa mengakses modul menu sesuai role lamanya.
+> * **Expected**: Sistem memblokir penghapusan role jika masih terdapat user yang terhubung (*"Role tidak dapat dihapus karena masih digunakan oleh user"*), atau mewajibkan re-assign user terlebih dahulu.
+> * **Actual**: Role sukses terhapus, data user kehilangan role (Job Role kosong), dan privilege akses menu lama tidak tercabut.
+> * **Evidence**:
+>   * Konfirmasi Hapus Role: [https://files.catbox.moe/6psigl.png](https://files.catbox.moe/6psigl.png)
+>   * Alert Sukses Hapus: [https://files.catbox.moe/b0i66d.png](https://files.catbox.moe/b0i66d.png)
+>   * Job Role User Menjadi Kosong: [https://files.catbox.moe/x7yxhi.png](https://files.catbox.moe/x7yxhi.png)
 
 ---
 
@@ -250,4 +289,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 
 | 2026-09-11 | User Authority - User | Temuan bug muncul opsi Resend Activation Link pada user Non-AD |
+
+| 2026-09-11 | User Authority - User | Pengetesan seluruh skenario selesai (Total 6 temuan bug tercatat) |
+
+
+| 2026-09-11 | User Authority - Group Role | Temuan bug search group role kolom Kantor & Keterangan |
+
+| 2026-09-11 | User Authority - Group Role / Export Center | Temuan bug export group role tidak tercatat di riwayat & aktivitas export |
+
+| 2026-09-11 | User Authority - Group Role | Temuan role yang digunakan user bisa dihapus (Pending konfirmasi) |
 
