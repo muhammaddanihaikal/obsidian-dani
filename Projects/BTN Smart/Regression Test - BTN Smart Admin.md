@@ -12,10 +12,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | Authentication | Login | Fito | 🐛 Bug |
 | 2 | Authentication | Verifikasi Email OTP | Fito | 🐛 Bug |
 | 3 | Authentication | Verifikasi TOTP | Fito | 🐛 Bug |
-| 4 | Authentication | Perangkat Terpercaya | Fito | ⬜ Belum |
-| 5 | Authentication | Kode Pemulihan | Fito | ⬜ Belum |
-| 6 | Authentication | Reset MFA | Fito | ⬜ Belum |
-| 7 | Authentication | Logout | Fito | ⬜ Belum |
+| 4 | Authentication | Perangkat Terpercaya | Fito | ✅ Done |
+| 5 | Authentication | Kode Pemulihan | Fito | 🐛 Bug |
+| 6 | Authentication | Reset MFA | Fito | ✅ Done |
+| 7 | Authentication | Logout | Fito | ✅ Done |
 | 8 | Profile | Biodata diri | Alam | ⬜ Belum |
 | 9 | Profile | Ganti kata sandi | Alam | ⬜ Belum |
 | 10 | Profile | Keamanan | Alam | 🐛 Bug |
@@ -139,6 +139,16 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Login ulang langsung mengirimkan OTP baru dan me-reset timer cooldown.
 > * **Evidence**: [https://files.catbox.moe/hawwr9.png](https://files.catbox.moe/hawwr9.png)
 
+<br>
+
+> **[BUG] [Web] Inkonsistensi Judul Header pada Halaman Kode Pemulihan**
+> 
+> * **Menu**: Autentikasi / Kode Pemulihan
+> * **Deskripsi**: Judul header halaman masih menampilkan teks "Verifikasi OTP" saat user berada di form input kode pemulihan.
+> * **Expected**: Judul header disesuaikan dengan konteks halaman menjadi **"Verifikasi Kode Pemulihan"**.
+> * **Actual**: Judul header masih tertulis "Verifikasi OTP".
+> * **Evidence**: [https://files.catbox.moe/q976oa.png](https://files.catbox.moe/q976oa.png)
+
 ---
 
 ## 📅 Sesi Testing
@@ -147,3 +157,12 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 |---------|------------------|---------|
 | 2026-09-10 | - | Inisiasi file tracking |
 | 2026-09-10 | Authentication / Keamanan | Temuan bug bypass mandatory 2FA di beberapa menu |
+| 2026-09-11 | Pengaturan Profile - Keamanan | Testing Setup Email OTP (Aman, email tampil) |
+| 2026-09-11 | Authentication - Kode Pemulihan | Konfirmasi dev: Kuota habis (by design / bukan issue) |
+
+| 2026-09-11 | Authentication - Kode Pemulihan | Temuan bug inkonsistensi judul header (Verifikasi OTP -> Verifikasi Kode Pemulihan) |
+
+
+| 2026-09-11 | Authentication (Perangkat Terpercaya, Reset MFA, Logout) | Testing selesai - Status PASS / Aman |
+
+
