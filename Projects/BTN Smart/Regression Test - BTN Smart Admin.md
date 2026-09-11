@@ -26,8 +26,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 15 | Overview | Pengaturan Overview | Alam | ⬜ Belum |
 | 16 | User Authority | User | Alam | 🐛 Bug |
 | 17 | User Authority | Group Role | Alam | 🐛 Bug |
-| 18 | User Authority | Tipe Karyawan | Alam | ⬜ Belum |
-| 19 | User Authority | Hak Akses Role | Alam | ⬜ Belum |
+| 18 | User Authority | Tipe Karyawan | Alam | 🐛 Bug |
+| 19 | User Authority | Hak Akses Role | Alam | ✅ Done |
 | 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | ⬜ Belum |
 | 21 | User Authority | Keamanan Akun - Permintaan Reset MFA | Alam | ⬜ Belum |
 | 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | ⬜ Belum |
@@ -259,6 +259,36 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Konfirmasi Hapus Role: [https://files.catbox.moe/6psigl.png](https://files.catbox.moe/6psigl.png)
 >   * Alert Sukses Hapus: [https://files.catbox.moe/b0i66d.png](https://files.catbox.moe/b0i66d.png)
 >   * Job Role User Menjadi Kosong: [https://files.catbox.moe/x7yxhi.png](https://files.catbox.moe/x7yxhi.png)
+<br>
+
+> **[BUG] [Web] Lolos Validasi Nama Duplikat Saat Edit Group Role**
+> 
+> * **Menu**: User Authority → Group Role
+> * **Deskripsi**: Validasi nama unik hanya aktif saat tambah role baru. Ketika melakukan ubah data (*edit*), sistem tidak mengecek duplikasi sehingga nama role bisa disimpan sama persis dengan role lain yang sudah ada.
+> * **Expected**: Sistem tetap memvalidasi keunikan nama saat edit data, dan menolak simpan jika nama role sudah digunakan oleh role lain.
+> * **Actual**: Sistem berhasil menyimpan perubahan, sehingga muncul data role ganda dengan nama yang identik di tabel.
+> * **Evidence**: [https://files.catbox.moe/z6e6hl.png](https://files.catbox.moe/z6e6hl.png)
+<br>
+
+> **[BUG] [Web] Lolos Validasi Nama Duplikat Saat Edit Tipe Karyawan**
+> 
+> * **Menu**: User Authority → Tipe Karyawan
+> * **Deskripsi**: Validasi nama unik hanya aktif saat tambah tipe karyawan baru. Ketika melakukan ubah data (*edit*), sistem tidak mengecek duplikasi sehingga nama tipe karyawan bisa disimpan sama persis dengan yang sudah ada.
+> * **Expected**: Sistem tetap memvalidasi keunikan nama saat edit data, dan menolak simpan jika nama tipe karyawan sudah digunakan.
+> * **Actual**: Sistem berhasil menyimpan perubahan, sehingga muncul data tipe karyawan ganda dengan nama yang identik di tabel.
+> * **Evidence**: [https://files.catbox.moe/edw9td.png](https://files.catbox.moe/edw9td.png)
+<br>
+
+> **[PENDING KONFIRMASI / BUG] [Web] Tipe Karyawan yang Digunakan Role Bisa Dihapus (Menyebabkan Kolom Tipe Karyawan di Role Kosong)**
+> 
+> * **Menu**: User Authority → Tipe Karyawan / Group Role
+> * **Catatan**: *Menunggu konfirmasi tim/dev terkait aturan bisnis saat master tipe karyawan dihapus.*
+> * **Deskripsi**: Sistem mengizinkan penghapusan Tipe Karyawan yang masih aktif terikat dengan Group Role. Akibatnya, kolom Tipe Karyawan pada tabel Group Role yang terkait menjadi kosong (blank).
+> * **Expected**: Sistem memblokir penghapusan tipe karyawan jika masih digunakan oleh Group Role (*"Tipe karyawan tidak dapat dihapus karena masih digunakan oleh role"*), atau mewajibkan re-assign terlebih dahulu.
+> * **Actual**: Tipe karyawan sukses terhapus dan menyisakan data kosong (blank) pada kolom Tipe Karyawan di daftar Group Role terkait.
+> * **Evidence**:
+>   * Hapus Tipe Karyawan: [https://files.catbox.moe/erkto3.png](https://files.catbox.moe/erkto3.png)
+>   * Tipe Karyawan Menjadi Kosong di Group Role: [https://files.catbox.moe/w899ks.png](https://files.catbox.moe/w899ks.png)
 
 ---
 
@@ -298,4 +328,12 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2026-09-11 | User Authority - Group Role / Export Center | Temuan bug export group role tidak tercatat di riwayat & aktivitas export |
 
 | 2026-09-11 | User Authority - Group Role | Temuan role yang digunakan user bisa dihapus (Pending konfirmasi) |
+
+| 2026-09-11 | User Authority - Group Role | Temuan bug lolos validasi nama duplikat saat edit group role |
+| 2026-09-11 | User Authority - Group Role | Pengetesan seluruh skenario selesai (3 bug + 1 pending dicatat) |
+| 2026-09-11 | User Authority - Hak Akses Role | Pengetesan seluruh skenario selesai - Status PASS / Aman |
+
+| 2026-09-11 | User Authority - Tipe Karyawan | Temuan bug lolos validasi nama duplikat saat edit tipe karyawan |
+
+| 2026-09-11 | User Authority - Tipe Karyawan | Temuan tipe karyawan digunakan role bisa dihapus (Pending konfirmasi) |
 
