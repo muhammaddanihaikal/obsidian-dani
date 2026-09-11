@@ -24,7 +24,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 13 | Overview | Overview Fund | Alam | ⬜ Belum |
 | 14 | Overview | Overview Lend | Alam | ⬜ Belum |
 | 15 | Overview | Pengaturan Overview | Alam | ⬜ Belum |
-| 16 | User Authority | User | Alam | ⬜ Belum |
+| 16 | User Authority | User | Alam | 🐛 Bug |
 | 17 | User Authority | Group Role | Alam | ⬜ Belum |
 | 18 | User Authority | Tipe Karyawan | Alam | ⬜ Belum |
 | 19 | User Authority | Hak Akses Role | Alam | ⬜ Belum |
@@ -148,6 +148,78 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Expected**: Judul header disesuaikan dengan konteks halaman menjadi **"Verifikasi Kode Pemulihan"**.
 > * **Actual**: Judul header masih tertulis "Verifikasi OTP".
 > * **Evidence**: [https://files.catbox.moe/q976oa.png](https://files.catbox.moe/q976oa.png)
+<br>
+
+> **[BUG] [Web] Bulk Delete User Menyisakan Ghost Record di Tabel (Data Terhapus tapi Masih Muncul di List)**
+> 
+> * **Menu**: User Authority → User
+> * **Deskripsi**: Setelah user dihapus melalui fitur *bulk delete*, data profil sebenarnya sudah terhapus (terbukti saat klik Edit, seluruh form kosong/blank). Namun, baris user tersebut masih tertinggal dan tetap muncul di tabel Master User (*ghost record*).
+> * **Expected**: Data yang berhasil dihapus wajib langsung hilang sepenuhnya dari daftar tabel Master User, dan URL Edit tidak menampilkan form kosong.
+> * **Actual**: Baris data user masih muncul di tabel list, dan jika dibuka menu Edit, semua field form kosong melompong.
+> * **Evidence**:
+>   * Konfirmasi Hapus: [https://files.catbox.moe/chl9g0.png](https://files.catbox.moe/chl9g0.png)
+>   * Alert Sukses tapi Data Masih di List: [https://files.catbox.moe/et9jb9.png](https://files.catbox.moe/et9jb9.png)
+>   * Form Edit Blank/Kosong: [https://files.catbox.moe/vwszeh.png](https://files.catbox.moe/vwszeh.png)
+>   * User Masih Muncul di Pencarian Tabel: [https://files.catbox.moe/i26rzg.png](https://files.catbox.moe/i26rzg.png)
+<br>
+
+> **[BUG] [Web] Urutan Sorting Data Hasil Export Excel Tidak Sesuai dengan Web**
+> 
+> * **Menu**: User Authority → User (Export Data)
+> * **Deskripsi**: Urutan data pada file Excel hasil export berbeda dengan urutan yang tampil di tabel web (data di Excel tersortir alfabet A-Z).
+> * **Expected**: Urutan data pada file Excel hasil export konsisten mengikuti urutan sorting tampilan web.
+> * **Actual**: Data pada file Excel diurutkan berdasarkan abjad A-Z nama user, tidak sesuai dengan urutan web.
+> * **Evidence**:
+>   * Tampilan Web: [https://files.catbox.moe/2ltipm.png](https://files.catbox.moe/2ltipm.png)
+>   * Hasil Export Excel (A-Z): [https://files.catbox.moe/g6pou7.png](https://files.catbox.moe/g6pou7.png)
+<br>
+
+> **[BUG] [Web] Export User Tidak Tercatat di Riwayat Export dan Aktivitas Export**
+> 
+> * **Menu**: User Authority → User / Export Center
+> * **Deskripsi**: Aktivitas export data dari Master User tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
+> * **Expected**: Setiap kali user melakukan export data Master User, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
+> * **Actual**: Log export Master User tidak muncul di kedua menu Export Center tersebut.
+> * **Evidence**:
+>   * Export User: [https://files.catbox.moe/98mabj.png](https://files.catbox.moe/98mabj.png)
+>   * Riwayat Export: [https://files.catbox.moe/tbg8zj.png](https://files.catbox.moe/tbg8zj.png)
+>   * Aktivitas Export: [https://files.catbox.moe/squkas.png](https://files.catbox.moe/squkas.png)
+<br>
+
+> **[BUG] [Web] Fitur Search User Tidak Berfungsi untuk Kolom Tipe Pengguna, Sales Code, dan Created At**
+> 
+> * **Menu**: User Authority → User
+> * **Deskripsi**: Pencarian data pada tabel Master User tidak dapat menemukan/memfilter data berdasarkan kolom **Tipe Pengguna**, **Sales Code**, dan **Created At** (hasil pencarian menampilkan "No data" padahal data ada).
+> * **Expected**: Field search dapat memfilter data secara akurat saat user memasukkan keyword Tipe Pengguna (misal: Non-AD / AD), Sales Code, maupun tanggal Created At.
+> * **Actual**: Pencarian menggunakan nilai dari ketiga kolom tersebut selalu menghasilkan "No data".
+> * **Evidence**:
+>   * **Kolom Tipe Pengguna (Non-AD)**:
+>     * Data Ada: [https://files.catbox.moe/o0285r.png](https://files.catbox.moe/o0285r.png)
+>     * Hasil Search (No data): [https://files.catbox.moe/h3li5e.png](https://files.catbox.moe/h3li5e.png)
+>   * **Kolom Sales Code (00015BFS15)**:
+>     * Data Ada: [https://files.catbox.moe/abzlds.png](https://files.catbox.moe/abzlds.png)
+>     * Hasil Search (No data): [https://files.catbox.moe/mp74ll.png](https://files.catbox.moe/mp74ll.png)
+>   * **Kolom Created At (11-02-2019)**:
+>     * Data Ada: [https://files.catbox.moe/8da0om.png](https://files.catbox.moe/8da0om.png)
+>     * Hasil Search (No data): [https://files.catbox.moe/siizar.png](https://files.catbox.moe/siizar.png)
+<br>
+
+> **[BUG] [Web] User AD Gagal Login Setelah Berhasil Buat Password via Link Email**
+> 
+> * **Menu**: User Authority → User / Authentication (Login Employee AD)
+> * **Deskripsi**: User baru bertipe **AD** yang sudah berhasil membuat password melalui link email tetap tidak bisa login pada tab Employee (*"Username atau password AD tidak valid!"*).
+> * **Expected**: Setelah user AD selesai membuat password via email aktivasi, user dapat langsung login di tab Employee dengan kredensial tersebut.
+> * **Actual**: Muncul pesan error *"Username atau password AD tidak valid!"* meskipun password baru saja dibuat.
+> * **Evidence**: [https://files.catbox.moe/emn91y.png](https://files.catbox.moe/emn91y.png)
+<br>
+
+> **[BUG] [Web] Muncul Opsi "Resend Activation Link" pada User Bertipe Non-AD**
+> 
+> * **Menu**: User Authority → User
+> * **Deskripsi**: Pada menu aksi user bertipe **Non-AD** (data ghost record sisa delete), muncul opsi *"Resend Activation Link"* dan saat diklik sistem tetap mengirimkan email untuk buat password.
+> * **Expected**: Fitur *"Resend Activation Link"* hanya tersedia khusus untuk user bertipe **AD**. User Non-AD tidak boleh memiliki aksi ini karena password dibuat langsung saat input user baru.
+> * **Actual**: Tombol *"Resend Activation Link"* muncul pada user Non-AD dan dapat mentrigger pengiriman email aktivasi.
+> * **Evidence**: [https://files.catbox.moe/lyl9gn.png](https://files.catbox.moe/lyl9gn.png)
 
 ---
 
@@ -165,4 +237,17 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 | 2026-09-11 | Authentication (Perangkat Terpercaya, Reset MFA, Logout) | Testing selesai - Status PASS / Aman |
 
+
+| 2026-09-11 | User Authority - User | Temuan bug bulk delete muncul alert sukses tapi data tidak terhapus |
+
+| 2026-09-11 | User Authority - User | Temuan bug sorting export Excel berbeda dengan web (A-Z) |
+
+| 2026-09-11 | User Authority - User / Export Center | Temuan bug export user tidak tercatat di riwayat & aktivitas export |
+
+| 2026-09-11 | User Authority - User | Temuan bug search user kolom Tipe Pengguna, Sales Code, Created At |
+
+| 2026-09-11 | User Authority - User / Login | Temuan bug user AD gagal login setelah buat password via email |
+
+
+| 2026-09-11 | User Authority - User | Temuan bug muncul opsi Resend Activation Link pada user Non-AD |
 
