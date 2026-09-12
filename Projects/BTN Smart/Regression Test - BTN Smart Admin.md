@@ -30,7 +30,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 19 | User Authority | Hak Akses Role | Alam | ✅ Done |
 | 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | 🐛 Bug |
 | 21 | User Authority | Keamanan Akun - Permintaan Reset MFA | Alam | 🐛 Bug |
-| 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | ⬜ Belum |
+| 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | 🐛 Bug |
 | 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | ⬜ Belum |
 | 24 | Profile Nasabah & Sales | Sales | Fito | ⬜ Belum |
 | 25 | Profile Nasabah & Sales | Nasabah Perorangan | Fito | ⬜ Belum |
@@ -336,6 +336,26 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence**:
 >   * Filter Status MFA: [https://iili.io/nfPRdKB.png](https://iili.io/nfPRdKB.png)
 >   * Filter Metode MFA: [https://iili.io/nfPRqNa.png](https://iili.io/nfPRqNa.png)
+<br>
+
+> **[BUG] [Web] Export Tab Perangkat & Sesi Tidak Masuk ke Drawer Download Maupun Riwayat & Aktivitas Export**
+> 
+> * **Menu**: User Authority → Keamanan Akun (Tab Perangkat & Sesi) / Export Center
+> * **Deskripsi**: Setelah menekan tombol **Export Data** pada tab Perangkat & Sesi, file export tidak muncul di dalam drawer *Download Export* serta tidak tercatat di menu `Export Center → Riwayat Export` maupun `Aktivitas Export`.
+> * **Expected**: Saat klik Export Data, antrean/file download langsung masuk ke drawer *Download Export* dan tercatat pada menu *Export Center*.
+> * **Actual**: File export tidak muncul di drawer *Download Export* dan aktivitas export tidak tercatat sama sekali di Export Center.
+> * **Evidence**:
+>   * Tombol Export di Tab Perangkat & Sesi: [https://iili.io/nfPVZB9.png](https://iili.io/nfPVZB9.png)
+>   * Drawer Download Export Tidak Mencatat File: [https://iili.io/nfPVDru.png](https://iili.io/nfPVDru.png)
+<br>
+
+> **[BUG] [Web] Fitur Search Tab Perangkat & Sesi Hanya Berfungsi untuk Kolom Pengguna, Perangkat, IP Address, dan Lokasi**
+> 
+> * **Menu**: User Authority → Keamanan Akun (Tab Perangkat & Sesi)
+> * **Deskripsi**: Kolom pencarian pada tab Perangkat & Sesi hanya membaca dan memfilter data berdasarkan kolom **Pengguna**, **Perangkat**, **IP Address**, dan **Lokasi**. Pencarian kata kunci dari kolom lain (seperti Kantor Wilayah, Kantor Cabang, Outlet, Kode Outlet, dan Job Title) belum berfungsi.
+> * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tabel Perangkat & Sesi.
+> * **Actual**: Pencarian hanya merespons kata kunci dari 4 kolom tersebut, sedangkan kolom kantor dan job title diabaikan (*tidak terfilter*).
+> * **Evidence**: [https://iili.io/nfPsTJf.png](https://iili.io/nfPsTJf.png)
 
 ---
 
@@ -348,8 +368,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 5. **Resend Link Non-AD**: Kenapa opsi *Resend Activation Link* muncul di user Non-AD? (Bukannya ini khusus user AD?).
 6. **Selisih Total Data User**: Kenapa total user di *Master User* (12.059 data) beda dengan di *Keamanan Akun - Daftar Akun* (12.030 data)? Ada selisih 29 data, apakah ada filter khusus?
    * Evidence: [Keamanan Akun (12.030)](https://iili.io/nf60YcQ.png) | [Master User (12.059)](https://iili.io/nf60jlR.png)
-7. **Kolom Kode Outlet di Daftar Akun & Permintaan Reset MFA**: Apakah kolom *Kode Outlet* pada kedua tab ini memang perlu ditampilkan sesuai kebutuhan bisnis, atau redundan dengan kolom *Outlet*?
-   * Evidence: [Tab Daftar Akun](https://iili.io/nf6GItt.png) | [Tab Permintaan Reset MFA](https://iili.io/nf6vzOu.png)
+7. **Kolom Kode Outlet di Seluruh Tab Keamanan Akun**: Di semua tab menu Keamanan Akun terdapat kolom *Kode Outlet*. Apakah kolom ini memang perlu ditampilkan di tabel sesuai kebutuhan bisnis, atau redundan dengan kolom *Outlet*?
+   * Evidence: [Tab Daftar Akun](https://iili.io/nf6GItt.png) | [Tab Permintaan Reset MFA](https://iili.io/nf6vzOu.png) | [Tab Perangkat & Sesi](https://iili.io/nfPvmMv.png)
+8. **Filter User Aktif & Perangkat Terpercaya (Tab Perangkat & Sesi)**: Tidak ada filter berdasarkan *User Aktif (Sesi Aktif)* maupun *Perangkat Terpercaya*, sehingga admin harus mencari manual satu per satu dari 869 data. Apakah perlu ditambahkan filter status tersebut? *(Serta kolom header kosong tanpa judul di samping kolom Perangkat apakah kolom yang tertinggal?)*
+   * Evidence: [https://iili.io/nfPvmMv.png](https://iili.io/nfPvmMv.png)
 
 ---
 
@@ -401,3 +423,4 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2026-09-12 | User Authority / General | Penambahan daftar catatan konfirmasi Dev / BA |
 | 2026-09-12 | User Authority - Keamanan Akun (Permintaan Reset MFA) | Temuan bug search hanya pengguna & alasan, dan bug filter status multi-select |
 | 2026-09-12 | User Authority - Keamanan Akun (Daftar Akun) | Temuan bug export tidak tercatat di Export Center & bug filter multi-select Status/Metode MFA |
+| 2026-09-12 | User Authority - Keamanan Akun (Perangkat & Sesi) | Temuan bug export tidak masuk drawer/Export Center & bug search hanya kolom tertentu |
