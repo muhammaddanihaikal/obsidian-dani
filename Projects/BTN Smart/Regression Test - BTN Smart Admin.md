@@ -397,6 +397,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
    * Evidence: [Tab Daftar Akun](https://iili.io/nf6GItt.png) | [Tab Permintaan Reset MFA](https://iili.io/nf6vzOu.png) | [Tab Perangkat & Sesi](https://iili.io/nfPvmMv.png)
 8. **Filter User Aktif & Perangkat Terpercaya (Tab Perangkat & Sesi)**: Tidak ada filter berdasarkan *User Aktif (Sesi Aktif)* maupun *Perangkat Terpercaya*, sehingga admin harus mencari manual satu per satu dari 869 data. Apakah perlu ditambahkan filter status tersebut? *(Serta kolom header kosong tanpa judul di samping kolom Perangkat apakah kolom yang tertinggal?)*
    * Evidence: [https://iili.io/nfPvmMv.png](https://iili.io/nfPvmMv.png)
+9. **Batas Waktu Idle Logout (Logout Karena Tidak Aktif)**: Berapa lama batas waktu (*idle session timeout*) untuk memicu aktivitas *Logout karena tidak aktif*? Saat ditest membiarkan web idle selama 23+ menit, sistem masih belum melakukan logout otomatis.
 
 ---
 
