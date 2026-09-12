@@ -346,10 +346,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 3. **Hapus Tipe Karyawan**: Tipe karyawan yang masih dipakai role apakah boleh dihapus? (Sekarang bisa dihapus & kolom tipe karyawan di role jadi blank).
 4. **Login User AD**: Kenapa user AD gagal login (*password tidak valid*) padahal baru selesai aktivasi password via email?
 5. **Resend Link Non-AD**: Kenapa opsi *Resend Activation Link* muncul di user Non-AD? (Bukannya ini khusus user AD?).
-6. **Export Center**: Export data User, Group Role, dan Tab Daftar Akun apakah memang tidak masuk ke menu *Export Center (Riwayat & Aktivitas)*?
-7. **Selisih Total Data User**: Kenapa total user di *Master User* (12.059 data) beda dengan di *Keamanan Akun - Daftar Akun* (12.030 data)? Ada selisih 29 data, apakah ada filter khusus?
+6. **Selisih Total Data User**: Kenapa total user di *Master User* (12.059 data) beda dengan di *Keamanan Akun - Daftar Akun* (12.030 data)? Ada selisih 29 data, apakah ada filter khusus?
    * Evidence: [Keamanan Akun (12.030)](https://iili.io/nf60YcQ.png) | [Master User (12.059)](https://iili.io/nf60jlR.png)
-8. **Kolom Kode Outlet di Daftar Akun & Permintaan Reset MFA**: Apakah kolom *Kode Outlet* pada kedua tab ini memang perlu ditampilkan sesuai kebutuhan bisnis, atau redundan dengan kolom *Outlet*?
+7. **Kolom Kode Outlet di Daftar Akun & Permintaan Reset MFA**: Apakah kolom *Kode Outlet* pada kedua tab ini memang perlu ditampilkan sesuai kebutuhan bisnis, atau redundan dengan kolom *Outlet*?
    * Evidence: [Tab Daftar Akun](https://iili.io/nf6GItt.png) | [Tab Permintaan Reset MFA](https://iili.io/nf6vzOu.png)
 
 ---
