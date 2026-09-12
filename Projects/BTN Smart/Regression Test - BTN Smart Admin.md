@@ -31,7 +31,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | 🐛 Bug |
 | 21 | User Authority | Keamanan Akun - Permintaan Reset MFA | Alam | 🐛 Bug |
 | 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | 🐛 Bug |
-| 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | ⬜ Belum |
+| 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | 🐛 Bug |
 | 24 | Profile Nasabah & Sales | Sales | Fito | ⬜ Belum |
 | 25 | Profile Nasabah & Sales | Nasabah Perorangan | Fito | ⬜ Belum |
 | 26 | Bisnis dan Produk | Unit Bisnis | Fito | ⬜ Belum |
@@ -356,6 +356,15 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tabel Perangkat & Sesi.
 > * **Actual**: Pencarian hanya merespons kata kunci dari 4 kolom tersebut, sedangkan kolom kantor dan job title diabaikan (*tidak terfilter*).
 > * **Evidence**: [https://iili.io/nfPsTJf.png](https://iili.io/nfPsTJf.png)
+<br>
+
+> **[BUG] [Web] Fitur Search Tab Log Aktivitas Tidak Berfungsi untuk Kolom Tanggal/Waktu dan Status**
+> 
+> * **Menu**: User Authority → Keamanan Akun (Tab Log Aktivitas)
+> * **Deskripsi**: Fitur pencarian pada tab Log Aktivitas sudah dapat memfilter sebagian besar kolom (Pengguna, Kantor, Job Title, Aktivitas, IP). Namun pencarian menggunakan kata kunci dari kolom **Tanggal/Waktu** dan **Status** belum berfungsi (*data tidak terfilter*).
+> * **Expected**: Field search dapat memfilter data secara menyeluruh termasuk berdasarkan tanggal/waktu (misal: *"12 September 2026"*) dan status (misal: *"Sukses"* atau *"Gagal"*).
+> * **Actual**: Pencarian dengan kata kunci dari kolom Tanggal/Waktu dan Status diabaikan sehingga data tidak terfilter.
+> * **Evidence**: [https://iili.io/nfs6kdJ.png](https://iili.io/nfs6kdJ.png)
 
 ---
 
@@ -424,3 +433,4 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2026-09-12 | User Authority - Keamanan Akun (Permintaan Reset MFA) | Temuan bug search hanya pengguna & alasan, dan bug filter status multi-select |
 | 2026-09-12 | User Authority - Keamanan Akun (Daftar Akun) | Temuan bug export tidak tercatat di Export Center & bug filter multi-select Status/Metode MFA |
 | 2026-09-12 | User Authority - Keamanan Akun (Perangkat & Sesi) | Temuan bug export tidak masuk drawer/Export Center & bug search hanya kolom tertentu |
+| 2026-09-12 | User Authority - Keamanan Akun (Log Aktivitas) | Temuan bug search tidak berfungsi untuk kolom Tanggal/Waktu & Status |
