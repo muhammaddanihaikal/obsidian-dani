@@ -1,4 +1,4 @@
-﻿# Regression Test - BTN Smart System Admin
+# Regression Test - BTN Smart System Admin
 
 Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 **PIC QA**: Dani | **Tanggal Mulai**: 2026-09-10
@@ -28,8 +28,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 17 | User Authority | Group Role | Alam | 🐛 Bug |
 | 18 | User Authority | Tipe Karyawan | Alam | 🐛 Bug |
 | 19 | User Authority | Hak Akses Role | Alam | ✅ Done |
-| 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | ⬜ Belum |
-| 21 | User Authority | Keamanan Akun - Permintaan Reset MFA | Alam | ⬜ Belum |
+| 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | 🐛 Bug |
+| 21 | User Authority | Keamanan Akun - Permintaan Reset MFA | Alam | 🐛 Bug |
 | 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | ⬜ Belum |
 | 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | ⬜ Belum |
 | 24 | Profile Nasabah & Sales | Sales | Fito | ⬜ Belum |
@@ -289,6 +289,48 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence**:
 >   * Hapus Tipe Karyawan: [https://files.catbox.moe/erkto3.png](https://files.catbox.moe/erkto3.png)
 >   * Tipe Karyawan Menjadi Kosong di Group Role: [https://files.catbox.moe/w899ks.png](https://files.catbox.moe/w899ks.png)
+<br>
+
+> **[BUG] [Web] Fitur Search Tab Daftar Akun Hanya Berfungsi untuk Kolom Nama Pengguna**
+> 
+> * **Menu**: User Authority → Keamanan Akun (Tab Daftar Akun)
+> * **Deskripsi**: Kolom pencarian pada tab Daftar Akun hanya membaca dan memfilter data berdasarkan kolom **Nama Pengguna**. Pencarian menggunakan nilai kolom lain (seperti Email, Kantor Wilayah, Kantor Cabang, Outlet, Job Title, dll) belum berfungsi.
+> * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tab Daftar Akun.
+> * **Actual**: Pencarian hanya merespons kata kunci dari kolom Nama Pengguna, sedangkan kolom lainnya diabaikan (*tidak terfilter*).
+> * **Evidence**: [https://files.catbox.moe/plm47j.png](https://files.catbox.moe/plm47j.png)
+<br>
+
+> **[BUG] [Web] Fitur Search Tab Permintaan Reset MFA Hanya Berfungsi untuk Kolom Pengguna dan Alasan**
+> 
+> * **Menu**: User Authority → Keamanan Akun (Tab Permintaan Reset MFA)
+> * **Deskripsi**: Kolom pencarian pada tab Permintaan Reset MFA hanya membaca dan memfilter data berdasarkan kolom **Pengguna** dan **Alasan**. Pencarian kata kunci dari kolom lain (seperti Kantor Wilayah, Kantor Cabang, Outlet, Kode Outlet, Job Title, dll) belum berfungsi.
+> * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tabel Permintaan Reset MFA.
+> * **Actual**: Pencarian hanya merespons kata kunci dari kolom Pengguna dan Alasan, sedangkan kolom lainnya diabaikan (*tidak terfilter*).
+> * **Evidence**: [https://iili.io/nf6vzOu.png](https://iili.io/nf6vzOu.png)
+<br>
+
+> **[BUG] [Web] Multi-Select Filter Kolom Status Tidak Berfungsi (Hanya Menampilkan Satu Status Teratas)**
+> 
+> * **Menu**: User Authority → Keamanan Akun (Tab Permintaan Reset MFA)
+> * **Deskripsi**: Filter kolom Status menyediakan pilihan *multi-select* (*checkbox*). Namun saat memilih lebih dari satu status (contoh: mencentang **Ditolak** dan **Pending**), sistem hanya menampilkan data status teratas yang dipilih (**Ditolak**), sedangkan data **Pending** tidak ikut ditampilkan.
+> * **Expected**: Filter mendukung *multi-select*, sehingga saat mencentang *Ditolak* dan *Pending*, data dengan kedua status tersebut muncul bersamaan di tabel.
+> * **Actual**: Sistem hanya memfilter salah satu status (*Ditolak*), data dengan status *Pending* diabaikan.
+> * **Evidence**: [https://iili.io/nfPHQv1.png](https://iili.io/nfPHQv1.png)
+
+---
+
+## ❓ Catatan Konfirmasi Dev / BA
+
+1. **Role User AD**: Katanya User AD otomatis pakai role `'User Login'` tanpa pilihan role, tapi kenapa di form input masih ada pilihan dropdown role?
+2. **Hapus Role Dipakai User**: Katanya kalau role dihapus otomatis *fallback* ke `'User Login'`, tapi faktanya role user malah jadi kosong (blank) & akses menu lamanya masih aktif.
+3. **Hapus Tipe Karyawan**: Tipe karyawan yang masih dipakai role apakah boleh dihapus? (Sekarang bisa dihapus & kolom tipe karyawan di role jadi blank).
+4. **Login User AD**: Kenapa user AD gagal login (*password tidak valid*) padahal baru selesai aktivasi password via email?
+5. **Resend Link Non-AD**: Kenapa opsi *Resend Activation Link* muncul di user Non-AD? (Bukannya ini khusus user AD?).
+6. **Export Center**: Export data User & Group Role apakah memang tidak masuk ke menu *Export Center (Riwayat & Aktivitas)*?
+7. **Selisih Total Data User**: Kenapa total user di *Master User* (12.059 data) beda dengan di *Keamanan Akun - Daftar Akun* (12.030 data)? Ada selisih 29 data, apakah ada filter khusus?
+   * Evidence: [Keamanan Akun (12.030)](https://iili.io/nf60YcQ.png) | [Master User (12.059)](https://iili.io/nf60jlR.png)
+8. **Kolom Kode Outlet di Daftar Akun & Permintaan Reset MFA**: Apakah kolom *Kode Outlet* pada kedua tab ini memang perlu ditampilkan sesuai kebutuhan bisnis, atau redundan dengan kolom *Outlet*?
+   * Evidence: [Tab Daftar Akun](https://iili.io/nf6GItt.png) | [Tab Permintaan Reset MFA](https://iili.io/nf6vzOu.png)
 
 ---
 
@@ -336,4 +378,6 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2026-09-11 | User Authority - Tipe Karyawan | Temuan bug lolos validasi nama duplikat saat edit tipe karyawan |
 
 | 2026-09-11 | User Authority - Tipe Karyawan | Temuan tipe karyawan digunakan role bisa dihapus (Pending konfirmasi) |
-
+| 2026-09-11 | User Authority - Keamanan Akun (Daftar Akun) | Temuan bug search hanya bisa nama pengguna |
+| 2026-09-12 | User Authority / General | Penambahan daftar catatan konfirmasi Dev / BA |
+| 2026-09-12 | User Authority - Keamanan Akun (Permintaan Reset MFA) | Temuan bug search hanya pengguna & alasan, dan bug filter status multi-select |
