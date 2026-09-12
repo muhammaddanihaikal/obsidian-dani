@@ -365,6 +365,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Expected**: Field search dapat memfilter data secara menyeluruh termasuk berdasarkan tanggal/waktu (misal: *"12 September 2026"*) dan status (misal: *"Sukses"* atau *"Gagal"*).
 > * **Actual**: Pencarian dengan kata kunci dari kolom Tanggal/Waktu dan Status diabaikan sehingga data tidak terfilter.
 > * **Evidence**: [https://iili.io/nfs6kdJ.png](https://iili.io/nfs6kdJ.png)
+<br>
+
+> **[BUG] [Web] Beberapa Tipe Aktivitas MFA Tidak Tercatat atau Keliru di Tab Log Aktivitas**
+> 
+> * **Menu**: User Authority → Keamanan Akun (Tab Log Aktivitas)
+> * **Deskripsi**: Terdapat inkonsistensi pencatatan log audit di mana beberapa event MFA tidak tercatat sama sekali atau keliru labelnya:
+>   1. **Verifikasi MFA Berhasil (OTP)**: *Actual* malah tercatat *"Login berhasil tanpa verifikasi MFA"*.
+>   2. **Verifikasi MFA dengan Kode Cadangan**: *Actual* malah tercatat *"Login berhasil tanpa verifikasi MFA"*.
+>   3. **Verifikasi MFA Gagal**: *Actual* tidak memicu log verifikasi MFA gagal, melainkan tercatat *"Percobaan login gagal"*.
+>   4. **Permintaan Reset MFA Disetujui**: *Actual* tidak masuk ke log sama sekali saat admin menyetujui.
+>   5. **Permintaan Reset MFA Ditolak**: *Actual* tidak masuk ke log sama sekali saat admin menolak.
+>   6. **Reset MFA**: *Actual* tidak tercatat di log saat MFA di-reset.
+>   7. **Mengubah Metode MFA**: *Actual* prematur, sudah tercatat sukses saat baru input password padahal metode baru belum dipilih/disimpan.
+> * **Expected**: Seluruh aktivitas MFA tercatat akurat dan sesuai dengan aksi nyata yang dilakukan user/admin.
+> * **Actual**: Sebagian aktivitas hilang dari log dan sebagian lainnya salah label / prematur.
+> * **Evidence**: [https://iili.io/nfLrybV.png](https://iili.io/nfLrybV.png)
 
 ---
 
@@ -433,4 +449,4 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2026-09-12 | User Authority - Keamanan Akun (Permintaan Reset MFA) | Temuan bug search hanya pengguna & alasan, dan bug filter status multi-select |
 | 2026-09-12 | User Authority - Keamanan Akun (Daftar Akun) | Temuan bug export tidak tercatat di Export Center & bug filter multi-select Status/Metode MFA |
 | 2026-09-12 | User Authority - Keamanan Akun (Perangkat & Sesi) | Temuan bug export tidak masuk drawer/Export Center & bug search hanya kolom tertentu |
-| 2026-09-12 | User Authority - Keamanan Akun (Log Aktivitas) | Temuan bug search tidak berfungsi untuk kolom Tanggal/Waktu & Status |
+| 2026-09-12 | User Authority - Keamanan Akun (Log Aktivitas) | Temuan bug search kolom Tanggal & Status, serta ketidaksesuaian/kehilangan log aktivitas MFA |
