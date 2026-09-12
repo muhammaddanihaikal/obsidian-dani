@@ -316,6 +316,26 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Expected**: Filter mendukung *multi-select*, sehingga saat mencentang *Ditolak* dan *Pending*, data dengan kedua status tersebut muncul bersamaan di tabel.
 > * **Actual**: Sistem hanya memfilter salah satu status (*Ditolak*), data dengan status *Pending* diabaikan.
 > * **Evidence**: [https://iili.io/nfPHQv1.png](https://iili.io/nfPHQv1.png)
+<br>
+
+> **[BUG] [Web] Export Tab Daftar Akun Tidak Tercatat di Riwayat Export dan Aktivitas Export**
+> 
+> * **Menu**: User Authority → Keamanan Akun (Tab Daftar Akun) / Export Center
+> * **Deskripsi**: Aktivitas export data pada tab Daftar Akun tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
+> * **Expected**: Setiap kali user melakukan export data tab Daftar Akun, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
+> * **Actual**: Log export tab Daftar Akun tidak muncul di kedua menu Export Center tersebut.
+> * **Evidence**: [https://iili.io/nfPAyox.png](https://iili.io/nfPAyox.png)
+<br>
+
+> **[BUG] [Web] Multi-Select Filter Kolom Status MFA dan Metode MFA Tidak Berfungsi (Hanya Menampilkan Satu Pilihan Teratas)**
+> 
+> * **Menu**: User Authority → Keamanan Akun (Tab Daftar Akun)
+> * **Deskripsi**: Filter kolom **Status MFA** dan **Metode MFA** menyediakan opsi *multi-select* (*checkbox*). Namun saat memilih lebih dari satu opsi (contoh: mencentang *Aktif* & *Tidak Aktif*, atau *Email* & *TOTP*), sistem hanya menampilkan data opsi teratas (*Aktif* saja, atau *Email* saja), sedangkan opsi kedua diabaikan.
+> * **Expected**: Filter mendukung *multi-select*, sehingga seluruh opsi yang dicentang muncul bersamaan di tabel.
+> * **Actual**: Sistem hanya memfilter opsi teratas (*Aktif* pada Status MFA, *Email* pada Metode MFA), data dari opsi lainnya tidak muncul di tabel.
+> * **Evidence**:
+>   * Filter Status MFA: [https://iili.io/nfPRdKB.png](https://iili.io/nfPRdKB.png)
+>   * Filter Metode MFA: [https://iili.io/nfPRqNa.png](https://iili.io/nfPRqNa.png)
 
 ---
 
@@ -326,7 +346,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 3. **Hapus Tipe Karyawan**: Tipe karyawan yang masih dipakai role apakah boleh dihapus? (Sekarang bisa dihapus & kolom tipe karyawan di role jadi blank).
 4. **Login User AD**: Kenapa user AD gagal login (*password tidak valid*) padahal baru selesai aktivasi password via email?
 5. **Resend Link Non-AD**: Kenapa opsi *Resend Activation Link* muncul di user Non-AD? (Bukannya ini khusus user AD?).
-6. **Export Center**: Export data User & Group Role apakah memang tidak masuk ke menu *Export Center (Riwayat & Aktivitas)*?
+6. **Export Center**: Export data User, Group Role, dan Tab Daftar Akun apakah memang tidak masuk ke menu *Export Center (Riwayat & Aktivitas)*?
 7. **Selisih Total Data User**: Kenapa total user di *Master User* (12.059 data) beda dengan di *Keamanan Akun - Daftar Akun* (12.030 data)? Ada selisih 29 data, apakah ada filter khusus?
    * Evidence: [Keamanan Akun (12.030)](https://iili.io/nf60YcQ.png) | [Master User (12.059)](https://iili.io/nf60jlR.png)
 8. **Kolom Kode Outlet di Daftar Akun & Permintaan Reset MFA**: Apakah kolom *Kode Outlet* pada kedua tab ini memang perlu ditampilkan sesuai kebutuhan bisnis, atau redundan dengan kolom *Outlet*?
@@ -381,3 +401,4 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2026-09-11 | User Authority - Keamanan Akun (Daftar Akun) | Temuan bug search hanya bisa nama pengguna |
 | 2026-09-12 | User Authority / General | Penambahan daftar catatan konfirmasi Dev / BA |
 | 2026-09-12 | User Authority - Keamanan Akun (Permintaan Reset MFA) | Temuan bug search hanya pengguna & alasan, dan bug filter status multi-select |
+| 2026-09-12 | User Authority - Keamanan Akun (Daftar Akun) | Temuan bug export tidak tercatat di Export Center & bug filter multi-select Status/Metode MFA |
