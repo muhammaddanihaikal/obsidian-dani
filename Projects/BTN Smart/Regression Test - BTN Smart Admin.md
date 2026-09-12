@@ -381,6 +381,20 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Expected**: Seluruh aktivitas MFA tercatat akurat dan sesuai dengan aksi nyata yang dilakukan user/admin.
 > * **Actual**: Sebagian aktivitas hilang dari log dan sebagian lainnya salah label / prematur.
 > * **Evidence**: [https://iili.io/nfLrybV.png](https://iili.io/nfLrybV.png)
+<br>
+
+> **[BUG] [Web] Seluruh Tipe Aktivitas Kategori Perangkat & Sesi Tidak Tercatat di Tab Log Aktivitas**
+> 
+> * **Menu**: User Authority → Keamanan Akun (Tab Log Aktivitas)
+> * **Deskripsi**: Ketika user atau admin melakukan aksi seputar manajemen perangkat dan sesi, sistem tidak mencatat aktivitas tersebut ke dalam tabel Log Aktivitas:
+>   1. **Mempercayai Perangkat**: Tidak masuk ke log setelah login dengan opsi percaya perangkat.
+>   2. **Menghapus Perangkat Terpercaya**: Tidak masuk ke log saat perangkat dihapus.
+>   3. **Memberi Label Perangkat**: Tidak masuk ke log saat mengubah nama/label perangkat.
+>   4. **Mencabut Sesi Perangkat**: Tidak masuk ke log saat melakukan logout paksa pada sesi tertentu.
+>   5. **Mencabut Semua Sesi Perangkat**: Tidak masuk ke log saat tombol cabut semua sesi ditekan.
+> * **Expected**: Setiap aksi terkait perangkat dan sesi otomatis tercatat ke log audit dengan tipe aktivitas yang sesuai.
+> * **Actual**: Kelima aktivitas kategori Perangkat & Sesi tersebut tidak pernah tercatat (hilang dari log audit).
+> * **Evidence**: [https://iili.io/nfs6kdJ.png](https://iili.io/nfs6kdJ.png)
 
 ---
 
@@ -398,6 +412,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 8. **Filter User Aktif & Perangkat Terpercaya (Tab Perangkat & Sesi)**: Tidak ada filter berdasarkan *User Aktif (Sesi Aktif)* maupun *Perangkat Terpercaya*, sehingga admin harus mencari manual satu per satu dari 869 data. Apakah perlu ditambahkan filter status tersebut? *(Serta kolom header kosong tanpa judul di samping kolom Perangkat apakah kolom yang tertinggal?)*
    * Evidence: [https://iili.io/nfPvmMv.png](https://iili.io/nfPvmMv.png)
 9. **Batas Waktu Idle Logout (Logout Karena Tidak Aktif)**: Berapa lama batas waktu (*idle session timeout*) untuk memicu aktivitas *Logout karena tidak aktif*? Saat ditest membiarkan web idle selama 23+ menit, sistem masih belum melakukan logout otomatis.
+10. **Trigger Tipe Aktivitas "MFA diaktifkan" & "MFA dinonaktifkan"**: Bagaimana flow atau skenario untuk memicu kedua tipe aktivitas ini? Apakah ada fitur khusus untuk turn off / turn on MFA, atau kedua label ini redundan dengan *"Mengaktifkan MFA"* dan *"Reset MFA"*?
 
 ---
 
@@ -450,4 +465,4 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2026-09-12 | User Authority - Keamanan Akun (Permintaan Reset MFA) | Temuan bug search hanya pengguna & alasan, dan bug filter status multi-select |
 | 2026-09-12 | User Authority - Keamanan Akun (Daftar Akun) | Temuan bug export tidak tercatat di Export Center & bug filter multi-select Status/Metode MFA |
 | 2026-09-12 | User Authority - Keamanan Akun (Perangkat & Sesi) | Temuan bug export tidak masuk drawer/Export Center & bug search hanya kolom tertentu |
-| 2026-09-12 | User Authority - Keamanan Akun (Log Aktivitas) | Temuan bug search kolom Tanggal & Status, serta ketidaksesuaian/kehilangan log aktivitas MFA |
+| 2026-09-12 | User Authority - Keamanan Akun (Log Aktivitas) | Temuan bug search kolom Tanggal & Status, serta kehilangan log aktivitas MFA dan Perangkat & Sesi |
