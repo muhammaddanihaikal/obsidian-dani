@@ -56,7 +56,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 50 | Sales Tracking Activity | Client Visit List | Gaza | ⬜ Belum |
 | 51 | Sales Tracking Activity | Rekap Visit | Gaza | ⬜ Belum |
 | 52 | Sales Tracking Activity | Rekap Monthly Visit | Gaza | ⬜ Belum |
-| 53 | Setting Absent | Attendance Spot | Gaza | ⬜ Belum |
+| 53 | Setting Absent | Attendance Spot | Gaza | 🐛 Bug |
 | 54 | Setting Absent | Work Pattern | Gaza | ⬜ Belum |
 | 55 | Setting Absent | Holiday | Gaza | ⬜ Belum |
 | 56 | Sales Force | Sales code | Ahrul | ⬜ Belum |
@@ -306,7 +306,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Deskripsi**: Kolom pencarian pada tab Permintaan Reset MFA hanya membaca dan memfilter data berdasarkan kolom **Pengguna** dan **Alasan**. Pencarian kata kunci dari kolom lain (seperti Kantor Wilayah, Kantor Cabang, Outlet, Kode Outlet, Job Title, dll) belum berfungsi.
 > * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tabel Permintaan Reset MFA.
 > * **Actual**: Pencarian hanya merespons kata kunci dari kolom Pengguna dan Alasan, sedangkan kolom lainnya diabaikan (*tidak terfilter*).
-> * **Evidence**: [https://iili.io/nf6vzOu.png](https://iili.io/nf6vzOu.png)
+> * **Evidence**: [https://files.catbox.moe/50rv0y.png](https://files.catbox.moe/50rv0y.png)
 <br>
 
 > **[BUG] [Web] Multi-Select Filter Kolom Status Tidak Berfungsi (Hanya Menampilkan Satu Status Teratas)**
@@ -315,7 +315,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Deskripsi**: Filter kolom Status menyediakan pilihan *multi-select* (*checkbox*). Namun saat memilih lebih dari satu status (contoh: mencentang **Ditolak** dan **Pending**), sistem hanya menampilkan data status teratas yang dipilih (**Ditolak**), sedangkan data **Pending** tidak ikut ditampilkan.
 > * **Expected**: Filter mendukung *multi-select*, sehingga saat mencentang *Ditolak* dan *Pending*, data dengan kedua status tersebut muncul bersamaan di tabel.
 > * **Actual**: Sistem hanya memfilter salah satu status (*Ditolak*), data dengan status *Pending* diabaikan.
-> * **Evidence**: [https://iili.io/nfPHQv1.png](https://iili.io/nfPHQv1.png)
+> * **Evidence**: [https://files.catbox.moe/iky99j.png](https://files.catbox.moe/iky99j.png)
 <br>
 
 > **[BUG] [Web] Export Tab Daftar Akun Tidak Tercatat di Riwayat Export dan Aktivitas Export**
@@ -324,7 +324,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Deskripsi**: Aktivitas export data pada tab Daftar Akun tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
 > * **Expected**: Setiap kali user melakukan export data tab Daftar Akun, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
 > * **Actual**: Log export tab Daftar Akun tidak muncul di kedua menu Export Center tersebut.
-> * **Evidence**: [https://iili.io/nfPAyox.png](https://iili.io/nfPAyox.png)
+> * **Evidence**: [https://files.catbox.moe/qrvkpx.png](https://files.catbox.moe/qrvkpx.png)
 <br>
 
 > **[BUG] [Web] Multi-Select Filter Kolom Status MFA dan Metode MFA Tidak Berfungsi (Hanya Menampilkan Satu Pilihan Teratas)**
@@ -334,8 +334,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Expected**: Filter mendukung *multi-select*, sehingga seluruh opsi yang dicentang muncul bersamaan di tabel.
 > * **Actual**: Sistem hanya memfilter opsi teratas (*Aktif* pada Status MFA, *Email* pada Metode MFA), data dari opsi lainnya tidak muncul di tabel.
 > * **Evidence**:
->   * Filter Status MFA: [https://iili.io/nfPRdKB.png](https://iili.io/nfPRdKB.png)
->   * Filter Metode MFA: [https://iili.io/nfPRqNa.png](https://iili.io/nfPRqNa.png)
+>   * Filter Status MFA: [https://files.catbox.moe/lrygri.png](https://files.catbox.moe/lrygri.png)
+>   * Filter Metode MFA: [https://files.catbox.moe/0wwndq.png](https://files.catbox.moe/0wwndq.png)
 <br>
 
 > **[BUG] [Web] Export Tab Perangkat & Sesi Tidak Masuk ke Drawer Download Maupun Riwayat & Aktivitas Export**
@@ -345,8 +345,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Expected**: Saat klik Export Data, antrean/file download langsung masuk ke drawer *Download Export* dan tercatat pada menu *Export Center*.
 > * **Actual**: File export tidak muncul di drawer *Download Export* dan aktivitas export tidak tercatat sama sekali di Export Center.
 > * **Evidence**:
->   * Tombol Export di Tab Perangkat & Sesi: [https://iili.io/nfPVZB9.png](https://iili.io/nfPVZB9.png)
->   * Drawer Download Export Tidak Mencatat File: [https://iili.io/nfPVDru.png](https://iili.io/nfPVDru.png)
+>   * Tombol Export di Tab Perangkat & Sesi: [https://files.catbox.moe/8t8d5v.png](https://files.catbox.moe/8t8d5v.png)
+>   * Drawer Download Export Tidak Mencatat File: [https://files.catbox.moe/viut76.png](https://files.catbox.moe/viut76.png)
 <br>
 
 > **[BUG] [Web] Fitur Search Tab Perangkat & Sesi Hanya Berfungsi untuk Kolom Pengguna, Perangkat, IP Address, dan Lokasi**
@@ -355,7 +355,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Deskripsi**: Kolom pencarian pada tab Perangkat & Sesi hanya membaca dan memfilter data berdasarkan kolom **Pengguna**, **Perangkat**, **IP Address**, dan **Lokasi**. Pencarian kata kunci dari kolom lain (seperti Kantor Wilayah, Kantor Cabang, Outlet, Kode Outlet, dan Job Title) belum berfungsi.
 > * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tabel Perangkat & Sesi.
 > * **Actual**: Pencarian hanya merespons kata kunci dari 4 kolom tersebut, sedangkan kolom kantor dan job title diabaikan (*tidak terfilter*).
-> * **Evidence**: [https://iili.io/nfPsTJf.png](https://iili.io/nfPsTJf.png)
+> * **Evidence**: [https://files.catbox.moe/c66vyp.png](https://files.catbox.moe/c66vyp.png)
 <br>
 
 > **[BUG] [Web] Fitur Search Tab Log Aktivitas Tidak Berfungsi untuk Kolom Tanggal/Waktu dan Status**
@@ -364,7 +364,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Deskripsi**: Fitur pencarian pada tab Log Aktivitas sudah dapat memfilter sebagian besar kolom (Pengguna, Kantor, Job Title, Aktivitas, IP). Namun pencarian menggunakan kata kunci dari kolom **Tanggal/Waktu** dan **Status** belum berfungsi (*data tidak terfilter*).
 > * **Expected**: Field search dapat memfilter data secara menyeluruh termasuk berdasarkan tanggal/waktu (misal: *"12 September 2026"*) dan status (misal: *"Sukses"* atau *"Gagal"*).
 > * **Actual**: Pencarian dengan kata kunci dari kolom Tanggal/Waktu dan Status diabaikan sehingga data tidak terfilter.
-> * **Evidence**: [https://iili.io/nfs6kdJ.png](https://iili.io/nfs6kdJ.png)
+> * **Evidence**: [https://files.catbox.moe/rycqzj.png](https://files.catbox.moe/rycqzj.png)
 <br>
 
 > **[BUG] [Web] Beberapa Tipe Aktivitas MFA Tidak Tercatat atau Keliru di Tab Log Aktivitas**
@@ -380,7 +380,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   7. **Mengubah Metode MFA**: *Actual* prematur, sudah tercatat sukses saat baru input password padahal metode baru belum dipilih/disimpan.
 > * **Expected**: Seluruh aktivitas MFA tercatat akurat dan sesuai dengan aksi nyata yang dilakukan user/admin.
 > * **Actual**: Sebagian aktivitas hilang dari log dan sebagian lainnya salah label / prematur.
-> * **Evidence**: [https://iili.io/nfLrybV.png](https://iili.io/nfLrybV.png)
+> * **Evidence**: [https://files.catbox.moe/u37vxx.png](https://files.catbox.moe/u37vxx.png)
 <br>
 
 > **[BUG] [Web] Seluruh Tipe Aktivitas Kategori Perangkat & Sesi Tidak Tercatat di Tab Log Aktivitas**
@@ -394,7 +394,23 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   5. **Mencabut Semua Sesi Perangkat**: Tidak masuk ke log saat tombol cabut semua sesi ditekan.
 > * **Expected**: Setiap aksi terkait perangkat dan sesi otomatis tercatat ke log audit dengan tipe aktivitas yang sesuai.
 > * **Actual**: Kelima aktivitas kategori Perangkat & Sesi tersebut tidak pernah tercatat (hilang dari log audit).
-> * **Evidence**: [https://iili.io/nfs6kdJ.png](https://iili.io/nfs6kdJ.png)
+> * **Evidence**: [https://files.catbox.moe/rycqzj.png](https://files.catbox.moe/rycqzj.png)
+<br>
+
+> **[BUG] [Web] Saran Lokasi (Autocomplete) Google Maps Tidak Muncul Saat Mode Layar Penuh (Fullscreen Map)**
+> 
+> * **Menu**: Setting Absent → Attendance Spot (Add New Attendance Spot)
+> * **Deskripsi**: Fitur pencarian lokasi pada peta Google Maps tidak memunculkan *dropdown* rekomendasi/autocomplete lokasi ketika peta dibuka dalam mode layar penuh (*fullscreen map*), setelah sebelumnya melakukan pengubahan nilai radius.
+> * **Langkah Reproduksi**:
+>   1. Masuk ke menu Setting Absent → Attendance Spot, lalu klik tombol **+ Add New Location**.
+>   2. Ubah nilai pada kolom **Radius** (contoh: ubah ke 70 meter).
+>   3. Klik icon **Layar Penuh (Fullscreen)** di pojok kanan atas peta untuk memperbesar peta.
+>   4. Ketik kata kunci lokasi pada kolom pencarian Google Maps di dalam mode layar penuh.
+> * **Expected**: *Dropdown* saran lokasi / autocomplete Google Maps tetap muncul dan dapat dipilih saat peta dalam mode layar penuh (*fullscreen*).
+> * **Actual**: *Dropdown* saran lokasi tidak muncul sama sekali (*terhalang z-index mode fullscreen*), sehingga user tidak bisa memilih lokasi yang dicari.
+> * **Evidence**:
+>   * Tahapan Ubah Radius & Klik Layar Penuh: [https://files.catbox.moe/0i3fpy.png](https://files.catbox.moe/0i3fpy.png)
+>   * Saran Lokasi Tidak Muncul Saat Layar Penuh: [https://files.catbox.moe/p5ti6b.png](https://files.catbox.moe/p5ti6b.png)
 
 ---
 
@@ -406,11 +422,11 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 4. **Login User AD**: Kenapa user AD gagal login (*password tidak valid*) padahal baru selesai aktivasi password via email?
 5. **Resend Link Non-AD**: Kenapa opsi *Resend Activation Link* muncul di user Non-AD? (Bukannya ini khusus user AD?).
 6. **Selisih Total Data User**: Kenapa total user di *Master User* (12.059 data) beda dengan di *Keamanan Akun - Daftar Akun* (12.030 data)? Ada selisih 29 data, apakah ada filter khusus?
-   * Evidence: [Keamanan Akun (12.030)](https://iili.io/nf60YcQ.png) | [Master User (12.059)](https://iili.io/nf60jlR.png)
+   * Evidence: [Keamanan Akun (12.030)](https://files.catbox.moe/wkvcqa.png) | [Master User (12.059)](https://files.catbox.moe/5z0oga.png)
 7. **Kolom Kode Outlet di Seluruh Tab Keamanan Akun**: Di semua tab menu Keamanan Akun terdapat kolom *Kode Outlet*. Apakah kolom ini memang perlu ditampilkan di tabel sesuai kebutuhan bisnis, atau redundan dengan kolom *Outlet*?
-   * Evidence: [Tab Daftar Akun](https://iili.io/nf6GItt.png) | [Tab Permintaan Reset MFA](https://iili.io/nf6vzOu.png) | [Tab Perangkat & Sesi](https://iili.io/nfPvmMv.png)
+   * Evidence: [Tab Daftar Akun](https://files.catbox.moe/rn2u2h.png) | [Tab Permintaan Reset MFA](https://files.catbox.moe/50rv0y.png) | [Tab Perangkat & Sesi](https://files.catbox.moe/bclinl.png)
 8. **Filter User Aktif & Perangkat Terpercaya (Tab Perangkat & Sesi)**: Tidak ada filter berdasarkan *User Aktif (Sesi Aktif)* maupun *Perangkat Terpercaya*, sehingga admin harus mencari manual satu per satu dari 869 data. Apakah perlu ditambahkan filter status tersebut? *(Serta kolom header kosong tanpa judul di samping kolom Perangkat apakah kolom yang tertinggal?)*
-   * Evidence: [https://iili.io/nfPvmMv.png](https://iili.io/nfPvmMv.png)
+   * Evidence: [https://files.catbox.moe/bclinl.png](https://files.catbox.moe/bclinl.png)
 9. **Batas Waktu Idle Logout (Logout Karena Tidak Aktif)**: Berapa lama batas waktu (*idle session timeout*) untuk memicu aktivitas *Logout karena tidak aktif*? Saat ditest membiarkan web idle selama 23+ menit, sistem masih belum melakukan logout otomatis.
 10. **Trigger Tipe Aktivitas "MFA diaktifkan" & "MFA dinonaktifkan"**: Bagaimana flow atau skenario untuk memicu kedua tipe aktivitas ini? Apakah ada fitur khusus untuk turn off / turn on MFA, atau kedua label ini redundan dengan *"Mengaktifkan MFA"* dan *"Reset MFA"*?
 
@@ -466,3 +482,4 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2026-09-12 | User Authority - Keamanan Akun (Daftar Akun) | Temuan bug export tidak tercatat di Export Center & bug filter multi-select Status/Metode MFA |
 | 2026-09-12 | User Authority - Keamanan Akun (Perangkat & Sesi) | Temuan bug export tidak masuk drawer/Export Center & bug search hanya kolom tertentu |
 | 2026-09-12 | User Authority - Keamanan Akun (Log Aktivitas) | Temuan bug search kolom Tanggal & Status, serta kehilangan log aktivitas MFA dan Perangkat & Sesi |
+| 2026-09-14 | Setting Absent - Attendance Spot | Temuan bug saran lokasi Google Maps tidak muncul saat mode layar penuh |
