@@ -397,18 +397,19 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence**: [https://files.catbox.moe/rycqzj.png](https://files.catbox.moe/rycqzj.png)
 <br>
 
-> **[BUG] [Web] Saran Lokasi (Autocomplete) Google Maps Tidak Muncul Saat Mode Layar Penuh (Fullscreen Map)**
+> **[BUG] [Web] Saran Lokasi (Autocomplete) Google Maps Tidak Muncul Saat Mode Layar Penuh (Fullscreen Map) pada Form Tambah & Edit**
 > 
-> * **Menu**: Setting Absent → Attendance Spot (Add New Attendance Spot)
-> * **Deskripsi**: Fitur pencarian lokasi pada peta Google Maps tidak memunculkan *dropdown* rekomendasi/autocomplete lokasi ketika peta dibuka dalam mode layar penuh (*fullscreen map*), setelah sebelumnya melakukan pengubahan nilai radius.
+> * **Menu**: Setting Absent → Attendance Spot (Add & Edit Attendance Spot)
+> * **Deskripsi**: Fitur pencarian lokasi pada peta Google Maps tidak memunculkan *dropdown* rekomendasi/autocomplete lokasi ketika peta dibuka dalam mode layar penuh (*fullscreen map*), baik pada form Tambah (*Add New Attendance Spot*) maupun form Edit (*Edit Attendance Spot*), setelah sebelumnya melakukan pengubahan nilai radius.
 > * **Langkah Reproduksi**:
->   1. Masuk ke menu Setting Absent → Attendance Spot, lalu klik tombol **+ Add New Location**.
+>   1. Masuk ke menu Setting Absent → Attendance Spot, lalu buka form **Add New Location** atau **Edit Location**.
 >   2. Ubah nilai pada kolom **Radius** (contoh: ubah ke 70 meter).
 >   3. Klik icon **Layar Penuh (Fullscreen)** di pojok kanan atas peta untuk memperbesar peta.
 >   4. Ketik kata kunci lokasi pada kolom pencarian Google Maps di dalam mode layar penuh.
 > * **Expected**: *Dropdown* saran lokasi / autocomplete Google Maps tetap muncul dan dapat dipilih saat peta dalam mode layar penuh (*fullscreen*).
 > * **Actual**: *Dropdown* saran lokasi tidak muncul sama sekali (*terhalang z-index mode fullscreen*), sehingga user tidak bisa memilih lokasi yang dicari.
 > * **Evidence**:
+>   * Form Tambah & Edit Attendance Spot: [https://files.catbox.moe/u4l66y.png](https://files.catbox.moe/u4l66y.png)
 >   * Tahapan Ubah Radius & Klik Layar Penuh: [https://files.catbox.moe/0i3fpy.png](https://files.catbox.moe/0i3fpy.png)
 >   * Saran Lokasi Tidak Muncul Saat Layar Penuh: [https://files.catbox.moe/p5ti6b.png](https://files.catbox.moe/p5ti6b.png)
 
@@ -429,6 +430,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
    * Evidence: [https://files.catbox.moe/bclinl.png](https://files.catbox.moe/bclinl.png)
 9. **Batas Waktu Idle Logout (Logout Karena Tidak Aktif)**: Berapa lama batas waktu (*idle session timeout*) untuk memicu aktivitas *Logout karena tidak aktif*? Saat ditest membiarkan web idle selama 23+ menit, sistem masih belum melakukan logout otomatis.
 10. **Trigger Tipe Aktivitas "MFA diaktifkan" & "MFA dinonaktifkan"**: Bagaimana flow atau skenario untuk memicu kedua tipe aktivitas ini? Apakah ada fitur khusus untuk turn off / turn on MFA, atau kedua label ini redundan dengan *"Mengaktifkan MFA"* dan *"Reset MFA"*?
+11. **Fungsi Opsi "Terdaftar di Kantor BTN" (Setting Absent - Attendance Spot)**: Pada form tambah titik absensi (*Add New Attendance Spot*), apa maksud dan dampak bisnis dari opsi checkbox *"Terdaftar di Kantor BTN"* beserta pilihan kantornya? Apakah semua karyawan yang terdaftar di kantor tersebut otomatis di-assign ke spot ini, atau ada aturan absensi lain?
+    * Evidence: [https://files.catbox.moe/p7oy0i.png](https://files.catbox.moe/p7oy0i.png)
 
 ---
 
