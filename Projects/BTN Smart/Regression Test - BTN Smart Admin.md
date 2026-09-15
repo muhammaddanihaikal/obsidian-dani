@@ -513,6 +513,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 16. **Peran Solver & Hak Ubah Status Issue**: Apa peran utama dari *Solver*? Apakah hanya user yang ditugaskan sebagai Solver yang boleh mengubah status issue? Karena saat ini, user lain (seperti akun *monitoring*) yang bukan solver dari tiket tersebut tetap bisa mengubah status issue.
     * Evidence: [https://files.catbox.moe/vcumta.png](https://files.catbox.moe/vcumta.png)
 
+17. **Cakupan Tombol "Delete Issue" pada Tiket Re-Issue**: Pada tiket yang memiliki tab re-issue (misal ada tab *Issue* dan *Re-Issue - 2*), saat tombol **Delete Issue** ditekan, apakah yang terhapus hanya tab re-issue yang sedang aktif, atau menghapus seluruh tiket issue beserta seluruh riwayatnya?
+    * Evidence: [https://files.catbox.moe/dwtel8.png](https://files.catbox.moe/dwtel8.png)
+
 ---
 
 ## 📅 Sesi Testing
