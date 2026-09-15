@@ -111,307 +111,546 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ## 🐛 Bug Report / Isu Temuan
 
-> **🐞 [BUG] | Beberapa Menu Masih Bisa Diakses Tanpa Setup 2FA**
-> 
-> * **Menu**: Autentikasi / Keamanan Akun
-> * **Deskripsi**: User yang belum setup 2FA masih bisa mengakses beberapa menu tertentu.
-> * **Expected**: Semua menu — termasuk tab di Pengaturan Profile (Biodata Diri, Ganti Kata Sandi, Notifikasi) — tidak bisa dibuka dan wajib mental/redirect ke halaman Pengaturan Profile → Keamanan sebelum 2FA aktif.
-> * **Actual**: Hanya sebagian menu yang redirect, sisanya masih bisa dibuka bebas.
-> * **Evidence**: [https://files.catbox.moe/plcjix.png](https://files.catbox.moe/plcjix.png)
+### 🐞 [BUG] | Beberapa Menu Masih Bisa Diakses Tanpa Setup 2FA
+
+**Menu**: Autentikasi / Keamanan Akun
+
+**Deskripsi**:
+User yang belum setup 2FA masih bisa mengakses beberapa menu tertentu.
+
+**Expected**:
+Semua menu — termasuk tab di Pengaturan Profile (Biodata Diri, Ganti Kata Sandi, Notifikasi) — tidak bisa dibuka dan wajib mental/redirect ke halaman Pengaturan Profile → Keamanan sebelum 2FA aktif.
+
+**Actual**:
+Hanya sebagian menu yang redirect, sisanya masih bisa dibuka bebas.
+
+**Evidence**:
+[https://files.catbox.moe/plcjix.png](https://files.catbox.moe/plcjix.png)
 
 <br>
 
-> **🐞 [BUG] | Bypass Cooldown Kirim Ulang OTP Saat Modal Ditutup dan Dibuka Kembali**
-> 
-> * **Menu**: Pengaturan Profile → Keamanan (Setup Email OTP / TOTP)
-> * **Deskripsi**: Timer cooldown kirim ulang OTP ter-reset jika modal pop-up ditutup (tombol X) lalu diklik/dibuka kembali.
-> * **Expected**: Cooldown tetap berjalan sesuai durasi waktu. User tidak bisa spam/kirim kode baru sebelum timer cooldown benar-benar habis, meskipun modal ditutup-buka.
-> * **Actual**: Menutup dan membuka kembali modal memicu pengiriman kode baru dan me-reset timer cooldown.
-> * **Evidence**: [https://files.catbox.moe/x0odwz.png](https://files.catbox.moe/x0odwz.png)
+### 🐞 [BUG] | Bypass Cooldown Kirim Ulang OTP Saat Modal Ditutup dan Dibuka Kembali
+
+**Menu**: Pengaturan Profile → Keamanan (Setup Email OTP / TOTP)
+
+**Deskripsi**:
+Timer cooldown kirim ulang OTP ter-reset jika modal pop-up ditutup (tombol X) lalu diklik/dibuka kembali.
+
+**Expected**:
+Cooldown tetap berjalan sesuai durasi waktu. User tidak bisa spam/kirim kode baru sebelum timer cooldown benar-benar habis, meskipun modal ditutup-buka.
+
+**Actual**:
+Menutup dan membuka kembali modal memicu pengiriman kode baru dan me-reset timer cooldown.
+
+**Evidence**:
+[https://files.catbox.moe/x0odwz.png](https://files.catbox.moe/x0odwz.png)
 
 <br>
 
-> **🐞 [BUG] | Bypass Cooldown OTP Saat Melakukan Login Ulang**
-> 
-> * **Menu**: Autentikasi / Verifikasi Email OTP dan TOTP
-> * **Deskripsi**: User bisa memicu kirim kode OTP baru dengan login ulang meski timer cooldown sebelumnya (2 menit) masih berjalan.
-> * **Expected**: Cooldown OTP tersimpan di sisi backend sehingga login ulang tidak bisa kirim OTP baru sebelum waktu cooldown habis.
-> * **Actual**: Login ulang langsung mengirimkan OTP baru dan me-reset timer cooldown.
-> * **Evidence**: [https://files.catbox.moe/hawwr9.png](https://files.catbox.moe/hawwr9.png)
+### 🐞 [BUG] | Bypass Cooldown OTP Saat Melakukan Login Ulang
+
+**Menu**: Autentikasi / Verifikasi Email OTP dan TOTP
+
+**Deskripsi**:
+User bisa memicu kirim kode OTP baru dengan login ulang meski timer cooldown sebelumnya (2 menit) masih berjalan.
+
+**Expected**:
+Cooldown OTP tersimpan di sisi backend sehingga login ulang tidak bisa kirim OTP baru sebelum waktu cooldown habis.
+
+**Actual**:
+Login ulang langsung mengirimkan OTP baru dan me-reset timer cooldown.
+
+**Evidence**:
+[https://files.catbox.moe/hawwr9.png](https://files.catbox.moe/hawwr9.png)
 
 <br>
 
-> **🐞 [BUG] | Inkonsistensi Judul Header pada Halaman Kode Pemulihan**
-> 
-> * **Menu**: Autentikasi / Kode Pemulihan
-> * **Deskripsi**: Judul header halaman masih menampilkan teks "Verifikasi OTP" saat user berada di form input kode pemulihan.
-> * **Expected**: Judul header disesuaikan dengan konteks halaman menjadi **"Verifikasi Kode Pemulihan"**.
-> * **Actual**: Judul header masih tertulis "Verifikasi OTP".
-> * **Evidence**: [https://files.catbox.moe/q976oa.png](https://files.catbox.moe/q976oa.png)
+### 🐞 [BUG] | Inkonsistensi Judul Header pada Halaman Kode Pemulihan
+
+**Menu**: Autentikasi / Kode Pemulihan
+
+**Deskripsi**:
+Judul header halaman masih menampilkan teks "Verifikasi OTP" saat user berada di form input kode pemulihan.
+
+**Expected**:
+Judul header disesuaikan dengan konteks halaman menjadi **"Verifikasi Kode Pemulihan"**.
+
+**Actual**:
+Judul header masih tertulis "Verifikasi OTP".
+
+**Evidence**:
+[https://files.catbox.moe/q976oa.png](https://files.catbox.moe/q976oa.png)
+
 <br>
 
-> **🐞 [BUG] | Bulk Delete User Menyisakan Ghost Record di Tabel**
-> 
-> * **Menu**: User Authority → User
-> * **Deskripsi**: Setelah user dihapus melalui fitur *bulk delete*, data profil sebenarnya sudah terhapus (terbukti saat klik Edit, seluruh form kosong/blank). Namun, baris user tersebut masih tertinggal dan tetap muncul di tabel Master User (*ghost record*).
-> * **Expected**: Data yang berhasil dihapus wajib langsung hilang sepenuhnya dari daftar tabel Master User, dan URL Edit tidak menampilkan form kosong.
-> * **Actual**: Baris data user masih muncul di tabel list, dan jika dibuka menu Edit, semua field form kosong melompong.
-> * **Evidence**:
->   * Konfirmasi Hapus: [https://files.catbox.moe/chl9g0.png](https://files.catbox.moe/chl9g0.png)
->   * Alert Sukses tapi Data Masih di List: [https://files.catbox.moe/et9jb9.png](https://files.catbox.moe/et9jb9.png)
->   * Form Edit Blank/Kosong: [https://files.catbox.moe/vwszeh.png](https://files.catbox.moe/vwszeh.png)
->   * User Masih Muncul di Pencarian Tabel: [https://files.catbox.moe/i26rzg.png](https://files.catbox.moe/i26rzg.png)
+### 🐞 [BUG] | Bulk Delete User Menyisakan Ghost Record di Tabel
+
+**Menu**: User Authority → User
+
+**Deskripsi**:
+Setelah user dihapus melalui fitur *bulk delete*, data profil sebenarnya sudah terhapus (terbukti saat klik Edit, seluruh form kosong/blank). Namun, baris user tersebut masih tertinggal dan tetap muncul di tabel Master User (*ghost record*).
+
+**Expected**:
+Data yang berhasil dihapus wajib langsung hilang sepenuhnya dari daftar tabel Master User, dan URL Edit tidak menampilkan form kosong.
+
+**Actual**:
+Baris data user masih muncul di tabel list, dan jika dibuka menu Edit, semua field form kosong melompong.
+
+**Evidence**:
+* Konfirmasi Hapus: [https://files.catbox.moe/chl9g0.png](https://files.catbox.moe/chl9g0.png)
+* Alert Sukses tapi Data Masih di List: [https://files.catbox.moe/et9jb9.png](https://files.catbox.moe/et9jb9.png)
+* Form Edit Blank/Kosong: [https://files.catbox.moe/vwszeh.png](https://files.catbox.moe/vwszeh.png)
+* User Masih Muncul di Pencarian Tabel: [https://files.catbox.moe/i26rzg.png](https://files.catbox.moe/i26rzg.png)
+
 <br>
 
-> **🐞 [BUG] | Urutan Sorting Hasil Export Excel Tidak Sesuai Web**
-> 
-> * **Menu**: User Authority → User (Export Data)
-> * **Deskripsi**: Urutan data pada file Excel hasil export berbeda dengan urutan yang tampil di tabel web (data di Excel tersortir alfabet A-Z).
-> * **Expected**: Urutan data pada file Excel hasil export konsisten mengikuti urutan sorting tampilan web.
-> * **Actual**: Data pada file Excel diurutkan berdasarkan abjad A-Z nama user, tidak sesuai dengan urutan web.
-> * **Evidence**:
->   * Tampilan Web: [https://files.catbox.moe/2ltipm.png](https://files.catbox.moe/2ltipm.png)
->   * Hasil Export Excel (A-Z): [https://files.catbox.moe/g6pou7.png](https://files.catbox.moe/g6pou7.png)
+### 🐞 [BUG] | Urutan Sorting Hasil Export Excel Tidak Sesuai Web
+
+**Menu**: User Authority → User (Export Data)
+
+**Deskripsi**:
+Urutan data pada file Excel hasil export berbeda dengan urutan yang tampil di tabel web (data di Excel tersortir alfabet A-Z).
+
+**Expected**:
+Urutan data pada file Excel hasil export konsisten mengikuti urutan sorting tampilan web.
+
+**Actual**:
+Data pada file Excel diurutkan berdasarkan abjad A-Z nama user, tidak sesuai dengan urutan web.
+
+**Evidence**:
+* Tampilan Web: [https://files.catbox.moe/2ltipm.png](https://files.catbox.moe/2ltipm.png)
+* Hasil Export Excel (A-Z): [https://files.catbox.moe/g6pou7.png](https://files.catbox.moe/g6pou7.png)
+
 <br>
 
-> **🐞 [BUG] | Export User Tidak Tercatat di Riwayat dan Aktivitas Export**
-> 
-> * **Menu**: User Authority → User / Export Center
-> * **Deskripsi**: Aktivitas export data dari Master User tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
-> * **Expected**: Setiap kali user melakukan export data Master User, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
-> * **Actual**: Log export Master User tidak muncul di kedua menu Export Center tersebut.
-> * **Evidence**:
->   * Export User: [https://files.catbox.moe/98mabj.png](https://files.catbox.moe/98mabj.png)
->   * Riwayat Export: [https://files.catbox.moe/tbg8zj.png](https://files.catbox.moe/tbg8zj.png)
->   * Aktivitas Export: [https://files.catbox.moe/squkas.png](https://files.catbox.moe/squkas.png)
+### 🐞 [BUG] | Export User Tidak Tercatat di Riwayat dan Aktivitas Export
+
+**Menu**: User Authority → User / Export Center
+
+**Deskripsi**:
+Aktivitas export data dari Master User tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
+
+**Expected**:
+Setiap kali user melakukan export data Master User, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
+
+**Actual**:
+Log export Master User tidak muncul di kedua menu Export Center tersebut.
+
+**Evidence**:
+* Export User: [https://files.catbox.moe/98mabj.png](https://files.catbox.moe/98mabj.png)
+* Riwayat Export: [https://files.catbox.moe/tbg8zj.png](https://files.catbox.moe/tbg8zj.png)
+* Aktivitas Export: [https://files.catbox.moe/squkas.png](https://files.catbox.moe/squkas.png)
+
 <br>
 
-> **🐞 [BUG] | Fitur Search User Tidak Berfungsi untuk Kolom Tipe Pengguna, Sales Code, dan Created At**
-> 
-> * **Menu**: User Authority → User
-> * **Deskripsi**: Pencarian data pada tabel Master User tidak dapat menemukan/memfilter data berdasarkan kolom **Tipe Pengguna**, **Sales Code**, dan **Created At** (hasil pencarian menampilkan "No data" padahal data ada).
-> * **Expected**: Field search dapat memfilter data secara akurat saat user memasukkan keyword Tipe Pengguna (misal: Non-AD / AD), Sales Code, maupun tanggal Created At.
-> * **Actual**: Pencarian menggunakan nilai dari ketiga kolom tersebut selalu menghasilkan "No data".
-> * **Evidence**:
->   * **Kolom Tipe Pengguna (Non-AD)**:
->     * Data Ada: [https://files.catbox.moe/o0285r.png](https://files.catbox.moe/o0285r.png)
->     * Hasil Search (No data): [https://files.catbox.moe/h3li5e.png](https://files.catbox.moe/h3li5e.png)
->   * **Kolom Sales Code (00015BFS15)**:
->     * Data Ada: [https://files.catbox.moe/abzlds.png](https://files.catbox.moe/abzlds.png)
->     * Hasil Search (No data): [https://files.catbox.moe/mp74ll.png](https://files.catbox.moe/mp74ll.png)
->   * **Kolom Created At (11-02-2019)**:
->     * Data Ada: [https://files.catbox.moe/8da0om.png](https://files.catbox.moe/8da0om.png)
->     * Hasil Search (No data): [https://files.catbox.moe/siizar.png](https://files.catbox.moe/siizar.png)
+### 🐞 [BUG] | Fitur Search User Tidak Berfungsi untuk Kolom Tipe Pengguna, Sales Code, dan Created At
+
+**Menu**: User Authority → User
+
+**Deskripsi**:
+Pencarian data pada tabel Master User tidak dapat menemukan/memfilter data berdasarkan kolom **Tipe Pengguna**, **Sales Code**, dan **Created At** (hasil pencarian menampilkan "No data" padahal data ada).
+
+**Expected**:
+Field search dapat memfilter data secara akurat saat user memasukkan keyword Tipe Pengguna (misal: Non-AD / AD), Sales Code, maupun tanggal Created At.
+
+**Actual**:
+Pencarian menggunakan nilai dari ketiga kolom tersebut selalu menghasilkan "No data".
+
+**Evidence**:
+
+**Kolom Tipe Pengguna (Non-AD)**:
+* Data Ada: [https://files.catbox.moe/o0285r.png](https://files.catbox.moe/o0285r.png)
+    * Hasil Search (No data): [https://files.catbox.moe/h3li5e.png](https://files.catbox.moe/h3li5e.png)
+
+**Kolom Sales Code (00015BFS15)**:
+* Data Ada: [https://files.catbox.moe/abzlds.png](https://files.catbox.moe/abzlds.png)
+    * Hasil Search (No data): [https://files.catbox.moe/mp74ll.png](https://files.catbox.moe/mp74ll.png)
+
+**Kolom Created At (11-02-2019)**:
+* Data Ada: [https://files.catbox.moe/8da0om.png](https://files.catbox.moe/8da0om.png)
+    * Hasil Search (No data): [https://files.catbox.moe/siizar.png](https://files.catbox.moe/siizar.png)
+
 <br>
 
-> **🐞 [BUG] | User AD Gagal Login Setelah Aktivasi Password via Link Email**
-> 
-> * **Menu**: User Authority → User / Authentication (Login Employee AD)
-> * **Deskripsi**: User baru bertipe **AD** yang sudah berhasil membuat password melalui link email tetap tidak bisa login pada tab Employee (*"Username atau password AD tidak valid!"*).
-> * **Expected**: Setelah user AD selesai membuat password via email aktivasi, user dapat langsung login di tab Employee dengan kredensial tersebut.
-> * **Actual**: Muncul pesan error *"Username atau password AD tidak valid!"* meskipun password baru saja dibuat.
-> * **Evidence**: [https://files.catbox.moe/emn91y.png](https://files.catbox.moe/emn91y.png)
+### 🐞 [BUG] | User AD Gagal Login Setelah Aktivasi Password via Link Email
+
+**Menu**: User Authority → User / Authentication (Login Employee AD)
+
+**Deskripsi**:
+User baru bertipe **AD** yang sudah berhasil membuat password melalui link email tetap tidak bisa login pada tab Employee (*"Username atau password AD tidak valid!"*).
+
+**Expected**:
+Setelah user AD selesai membuat password via email aktivasi, user dapat langsung login di tab Employee dengan kredensial tersebut.
+
+**Actual**:
+Muncul pesan error *"Username atau password AD tidak valid!"* meskipun password baru saja dibuat.
+
+**Evidence**:
+[https://files.catbox.moe/emn91y.png](https://files.catbox.moe/emn91y.png)
+
 <br>
 
-> **🐞 [BUG] | Muncul Opsi "Resend Activation Link" pada User Non-AD**
-> 
-> * **Menu**: User Authority → User
-> * **Deskripsi**: Pada menu aksi user bertipe **Non-AD** (data ghost record sisa delete), muncul opsi *"Resend Activation Link"* dan saat diklik sistem tetap mengirimkan email untuk buat password.
-> * **Expected**: Fitur *"Resend Activation Link"* hanya tersedia khusus untuk user bertipe **AD**. User Non-AD tidak boleh memiliki aksi ini karena password dibuat langsung saat input user baru.
-> * **Actual**: Tombol *"Resend Activation Link"* muncul pada user Non-AD dan dapat mentrigger pengiriman email aktivasi.
-> * **Evidence**: [https://files.catbox.moe/lyl9gn.png](https://files.catbox.moe/lyl9gn.png)
+### 🐞 [BUG] | Muncul Opsi "Resend Activation Link" pada User Non-AD
+
+**Menu**: User Authority → User
+
+**Deskripsi**:
+Pada menu aksi user bertipe **Non-AD** (data ghost record sisa delete), muncul opsi *"Resend Activation Link"* dan saat diklik sistem tetap mengirimkan email untuk buat password.
+
+**Expected**:
+Fitur *"Resend Activation Link"* hanya tersedia khusus untuk user bertipe **AD**. User Non-AD tidak boleh memiliki aksi ini karena password dibuat langsung saat input user baru.
+
+**Actual**:
+Tombol *"Resend Activation Link"* muncul pada user Non-AD dan dapat mentrigger pengiriman email aktivasi.
+
+**Evidence**:
+[https://files.catbox.moe/lyl9gn.png](https://files.catbox.moe/lyl9gn.png)
+
 <br>
 
-> **🐞 [BUG] | Fitur Search Group Role Tidak Berfungsi untuk Kolom Kantor dan Keterangan**
-> 
-> * **Menu**: User Authority → Group Role
-> * **Deskripsi**: Fitur pencarian pada tabel Group Role tidak memfilter data berdasarkan kolom **Kantor** dan **Keterangan**.
-> * **Expected**: Field search dapat memfilter data secara akurat saat user memasukkan keyword Kantor maupun Keterangan.
-> * **Actual**: 
->   * Pencarian keyword kolom Kantor (misal: *"Kantor Cabang"*) tidak menyaring data di kolom Kantor.
->   * Pencarian keyword kolom Keterangan (misal: *"Pimpinan Kantor Cabang"*) menghasilkan *"No data"*.
-> * **Evidence**:
->   * **Kolom Kantor (Kantor Cabang)**:
->     * Data Ada: [https://files.catbox.moe/mmj7x6.png](https://files.catbox.moe/mmj7x6.png)
->     * Hasil Search (Kolom Kantor tidak terfilter): [https://files.catbox.moe/xtuyo2.png](https://files.catbox.moe/xtuyo2.png)
->   * **Kolom Keterangan (Pimpinan Kantor Cabang)**:
->     * Data Ada: [https://files.catbox.moe/0iz476.png](https://files.catbox.moe/0iz476.png)
->     * Hasil Search (No data): [https://files.catbox.moe/b6ihis.png](https://files.catbox.moe/b6ihis.png)
+### 🐞 [BUG] | Fitur Search Group Role Tidak Berfungsi untuk Kolom Kantor dan Keterangan
+
+**Menu**: User Authority → Group Role
+
+**Deskripsi**:
+Fitur pencarian pada tabel Group Role tidak memfilter data berdasarkan kolom **Kantor** dan **Keterangan**.
+
+**Expected**:
+Field search dapat memfilter data secara akurat saat user memasukkan keyword Kantor maupun Keterangan.
+
+**Actual**:
+* Pencarian keyword kolom Kantor (misal: *"Kantor Cabang"*) tidak menyaring data di kolom Kantor.
+* Pencarian keyword kolom Keterangan (misal: *"Pimpinan Kantor Cabang"*) menghasilkan *"No data"*.
+
+**Evidence**:
+
+**Kolom Kantor (Kantor Cabang)**:
+* Data Ada: [https://files.catbox.moe/mmj7x6.png](https://files.catbox.moe/mmj7x6.png)
+    * Hasil Search (Kolom Kantor tidak terfilter): [https://files.catbox.moe/xtuyo2.png](https://files.catbox.moe/xtuyo2.png)
+
+**Kolom Keterangan (Pimpinan Kantor Cabang)**:
+* Data Ada: [https://files.catbox.moe/0iz476.png](https://files.catbox.moe/0iz476.png)
+    * Hasil Search (No data): [https://files.catbox.moe/b6ihis.png](https://files.catbox.moe/b6ihis.png)
+
 <br>
 
-> **🐞 [BUG] | Export Group Role Tidak Tercatat di Riwayat dan Aktivitas Export**
-> 
-> * **Menu**: User Authority → Group Role / Export Center
-> * **Deskripsi**: Aktivitas export data dari daftar Group Role tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
-> * **Expected**: Setiap kali user melakukan export data Group Role, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
-> * **Actual**: Log export Group Role tidak muncul di kedua menu Export Center tersebut.
-> * **Evidence**: [https://files.catbox.moe/4yb9kj.png](https://files.catbox.moe/4yb9kj.png)
+### 🐞 [BUG] | Export Group Role Tidak Tercatat di Riwayat dan Aktivitas Export
+
+**Menu**: User Authority → Group Role / Export Center
+
+**Deskripsi**:
+Aktivitas export data dari daftar Group Role tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
+
+**Expected**:
+Setiap kali user melakukan export data Group Role, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
+
+**Actual**:
+Log export Group Role tidak muncul di kedua menu Export Center tersebut.
+
+**Evidence**:
+[https://files.catbox.moe/4yb9kj.png](https://files.catbox.moe/4yb9kj.png)
+
 <br>
 
-> **🐞 [BUG] | Role yang Masih Digunakan User Bisa Dihapus**
-> 
-> * **Menu**: User Authority → Group Role / User
-> * **Catatan**: *Menunggu konfirmasi tim/dev terkait flow bisnis saat role dihapus.*
-> * **Deskripsi**: Sistem mengizinkan penghapusan Group Role yang masih aktif digunakan oleh user. Akibatnya, kolom Job Role pada user menjadi kosong (blank), namun user tersebut masih bisa mengakses modul menu sesuai role lamanya.
-> * **Expected**: Sistem memblokir penghapusan role jika masih terdapat user yang terhubung (*"Role tidak dapat dihapus karena masih digunakan oleh user"*), atau mewajibkan re-assign user terlebih dahulu.
-> * **Actual**: Role sukses terhapus, data user kehilangan role (Job Role kosong), dan privilege akses menu lama tidak tercabut.
-> * **Evidence**:
->   * Konfirmasi Hapus Role: [https://files.catbox.moe/6psigl.png](https://files.catbox.moe/6psigl.png)
->   * Alert Sukses Hapus: [https://files.catbox.moe/b0i66d.png](https://files.catbox.moe/b0i66d.png)
->   * Job Role User Menjadi Kosong: [https://files.catbox.moe/x7yxhi.png](https://files.catbox.moe/x7yxhi.png)
+### 🐞 [BUG] | Role yang Masih Digunakan User Bisa Dihapus
+
+**Menu**: User Authority → Group Role / User
+
+**Catatan**:
+*Menunggu konfirmasi tim/dev terkait flow bisnis saat role dihapus.*
+
+**Deskripsi**:
+Sistem mengizinkan penghapusan Group Role yang masih aktif digunakan oleh user. Akibatnya, kolom Job Role pada user menjadi kosong (blank), namun user tersebut masih bisa mengakses modul menu sesuai role lamanya.
+
+**Expected**:
+Sistem memblokir penghapusan role jika masih terdapat user yang terhubung (*"Role tidak dapat dihapus karena masih digunakan oleh user"*), atau mewajibkan re-assign user terlebih dahulu.
+
+**Actual**:
+Role sukses terhapus, data user kehilangan role (Job Role kosong), dan privilege akses menu lama tidak tercabut.
+
+**Evidence**:
+* Konfirmasi Hapus Role: [https://files.catbox.moe/6psigl.png](https://files.catbox.moe/6psigl.png)
+* Alert Sukses Hapus: [https://files.catbox.moe/b0i66d.png](https://files.catbox.moe/b0i66d.png)
+* Job Role User Menjadi Kosong: [https://files.catbox.moe/x7yxhi.png](https://files.catbox.moe/x7yxhi.png)
+
 <br>
 
-> **🐞 [BUG] | Lolos Validasi Nama Duplikat Saat Edit Group Role**
-> 
-> * **Menu**: User Authority → Group Role
-> * **Deskripsi**: Validasi nama unik hanya aktif saat tambah role baru. Ketika melakukan ubah data (*edit*), sistem tidak mengecek duplikasi sehingga nama role bisa disimpan sama persis dengan role lain yang sudah ada.
-> * **Expected**: Sistem tetap memvalidasi keunikan nama saat edit data, dan menolak simpan jika nama role sudah digunakan oleh role lain.
-> * **Actual**: Sistem berhasil menyimpan perubahan, sehingga muncul data role ganda dengan nama yang identik di tabel.
-> * **Evidence**: [https://files.catbox.moe/z6e6hl.png](https://files.catbox.moe/z6e6hl.png)
+### 🐞 [BUG] | Lolos Validasi Nama Duplikat Saat Edit Group Role
+
+**Menu**: User Authority → Group Role
+
+**Deskripsi**:
+Validasi nama unik hanya aktif saat tambah role baru. Ketika melakukan ubah data (*edit*), sistem tidak mengecek duplikasi sehingga nama role bisa disimpan sama persis dengan role lain yang sudah ada.
+
+**Expected**:
+Sistem tetap memvalidasi keunikan nama saat edit data, dan menolak simpan jika nama role sudah digunakan oleh role lain.
+
+**Actual**:
+Sistem berhasil menyimpan perubahan, sehingga muncul data role ganda dengan nama yang identik di tabel.
+
+**Evidence**:
+[https://files.catbox.moe/z6e6hl.png](https://files.catbox.moe/z6e6hl.png)
+
 <br>
 
-> **🐞 [BUG] | Lolos Validasi Nama Duplikat Saat Edit Tipe Karyawan**
-> 
-> * **Menu**: User Authority → Tipe Karyawan
-> * **Deskripsi**: Validasi nama unik hanya aktif saat tambah tipe karyawan baru. Ketika melakukan ubah data (*edit*), sistem tidak mengecek duplikasi sehingga nama tipe karyawan bisa disimpan sama persis dengan yang sudah ada.
-> * **Expected**: Sistem tetap memvalidasi keunikan nama saat edit data, dan menolak simpan jika nama tipe karyawan sudah digunakan.
-> * **Actual**: Sistem berhasil menyimpan perubahan, sehingga muncul data tipe karyawan ganda dengan nama yang identik di tabel.
-> * **Evidence**: [https://files.catbox.moe/edw9td.png](https://files.catbox.moe/edw9td.png)
+### 🐞 [BUG] | Lolos Validasi Nama Duplikat Saat Edit Tipe Karyawan
+
+**Menu**: User Authority → Tipe Karyawan
+
+**Deskripsi**:
+Validasi nama unik hanya aktif saat tambah tipe karyawan baru. Ketika melakukan ubah data (*edit*), sistem tidak mengecek duplikasi sehingga nama tipe karyawan bisa disimpan sama persis dengan yang sudah ada.
+
+**Expected**:
+Sistem tetap memvalidasi keunikan nama saat edit data, dan menolak simpan jika nama tipe karyawan sudah digunakan.
+
+**Actual**:
+Sistem berhasil menyimpan perubahan, sehingga muncul data tipe karyawan ganda dengan nama yang identik di tabel.
+
+**Evidence**:
+[https://files.catbox.moe/edw9td.png](https://files.catbox.moe/edw9td.png)
+
 <br>
 
-> **🐞 [BUG] | Tipe Karyawan yang Digunakan Role Bisa Dihapus**
-> 
-> * **Menu**: User Authority → Tipe Karyawan / Group Role
-> * **Catatan**: *Menunggu konfirmasi tim/dev terkait aturan bisnis saat master tipe karyawan dihapus.*
-> * **Deskripsi**: Sistem mengizinkan penghapusan Tipe Karyawan yang masih aktif terikat dengan Group Role. Akibatnya, kolom Tipe Karyawan pada tabel Group Role yang terkait menjadi kosong (blank).
-> * **Expected**: Sistem memblokir penghapusan tipe karyawan jika masih digunakan oleh Group Role (*"Tipe karyawan tidak dapat dihapus karena masih digunakan oleh role"*), atau mewajibkan re-assign terlebih dahulu.
-> * **Actual**: Tipe karyawan sukses terhapus dan menyisakan data kosong (blank) pada kolom Tipe Karyawan di daftar Group Role terkait.
-> * **Evidence**:
->   * Hapus Tipe Karyawan: [https://files.catbox.moe/erkto3.png](https://files.catbox.moe/erkto3.png)
->   * Tipe Karyawan Menjadi Kosong di Group Role: [https://files.catbox.moe/w899ks.png](https://files.catbox.moe/w899ks.png)
+### 🐞 [BUG] | Tipe Karyawan yang Digunakan Role Bisa Dihapus
+
+**Menu**: User Authority → Tipe Karyawan / Group Role
+
+**Catatan**:
+*Menunggu konfirmasi tim/dev terkait aturan bisnis saat master tipe karyawan dihapus.*
+
+**Deskripsi**:
+Sistem mengizinkan penghapusan Tipe Karyawan yang masih aktif terikat dengan Group Role. Akibatnya, kolom Tipe Karyawan pada tabel Group Role yang terkait menjadi kosong (blank).
+
+**Expected**:
+Sistem memblokir penghapusan tipe karyawan jika masih digunakan oleh Group Role (*"Tipe karyawan tidak dapat dihapus karena masih digunakan oleh role"*), atau mewajibkan re-assign terlebih dahulu.
+
+**Actual**:
+Tipe karyawan sukses terhapus dan menyisakan data kosong (blank) pada kolom Tipe Karyawan di daftar Group Role terkait.
+
+**Evidence**:
+* Hapus Tipe Karyawan: [https://files.catbox.moe/erkto3.png](https://files.catbox.moe/erkto3.png)
+* Tipe Karyawan Menjadi Kosong di Group Role: [https://files.catbox.moe/w899ks.png](https://files.catbox.moe/w899ks.png)
+
 <br>
 
-> **🐞 [BUG] | Fitur Search Tab Daftar Akun Hanya Berfungsi untuk Kolom Nama Pengguna**
-> 
-> * **Menu**: User Authority → Keamanan Akun (Tab Daftar Akun)
-> * **Deskripsi**: Kolom pencarian pada tab Daftar Akun hanya membaca dan memfilter data berdasarkan kolom **Nama Pengguna**. Pencarian menggunakan nilai kolom lain (seperti Email, Kantor Wilayah, Kantor Cabang, Outlet, Job Title, dll) belum berfungsi.
-> * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tab Daftar Akun.
-> * **Actual**: Pencarian hanya merespons kata kunci dari kolom Nama Pengguna, sedangkan kolom lainnya diabaikan (*tidak terfilter*).
-> * **Evidence**: [https://files.catbox.moe/plm47j.png](https://files.catbox.moe/plm47j.png)
+### 🐞 [BUG] | Fitur Search Tab Daftar Akun Hanya Berfungsi untuk Kolom Nama Pengguna
+
+**Menu**: User Authority → Keamanan Akun (Tab Daftar Akun)
+
+**Deskripsi**:
+Kolom pencarian pada tab Daftar Akun hanya membaca dan memfilter data berdasarkan kolom **Nama Pengguna**. Pencarian menggunakan nilai kolom lain (seperti Email, Kantor Wilayah, Kantor Cabang, Outlet, Job Title, dll) belum berfungsi.
+
+**Expected**:
+Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tab Daftar Akun.
+
+**Actual**:
+Pencarian hanya merespons kata kunci dari kolom Nama Pengguna, sedangkan kolom lainnya diabaikan (*tidak terfilter*).
+
+**Evidence**:
+[https://files.catbox.moe/plm47j.png](https://files.catbox.moe/plm47j.png)
+
 <br>
 
-> **🐞 [BUG] | Fitur Search Tab Permintaan Reset MFA Hanya Berfungsi untuk Kolom Pengguna dan Alasan**
-> 
-> * **Menu**: User Authority → Keamanan Akun (Tab Permintaan Reset MFA)
-> * **Deskripsi**: Kolom pencarian pada tab Permintaan Reset MFA hanya membaca dan memfilter data berdasarkan kolom **Pengguna** dan **Alasan**. Pencarian kata kunci dari kolom lain (seperti Kantor Wilayah, Kantor Cabang, Outlet, Kode Outlet, Job Title, dll) belum berfungsi.
-> * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tabel Permintaan Reset MFA.
-> * **Actual**: Pencarian hanya merespons kata kunci dari kolom Pengguna dan Alasan, sedangkan kolom lainnya diabaikan (*tidak terfilter*).
-> * **Evidence**: [https://files.catbox.moe/50rv0y.png](https://files.catbox.moe/50rv0y.png)
+### 🐞 [BUG] | Fitur Search Tab Permintaan Reset MFA Hanya Berfungsi untuk Kolom Pengguna dan Alasan
+
+**Menu**: User Authority → Keamanan Akun (Tab Permintaan Reset MFA)
+
+**Deskripsi**:
+Kolom pencarian pada tab Permintaan Reset MFA hanya membaca dan memfilter data berdasarkan kolom **Pengguna** dan **Alasan**. Pencarian kata kunci dari kolom lain (seperti Kantor Wilayah, Kantor Cabang, Outlet, Kode Outlet, Job Title, dll) belum berfungsi.
+
+**Expected**:
+Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tabel Permintaan Reset MFA.
+
+**Actual**:
+Pencarian hanya merespons kata kunci dari kolom Pengguna dan Alasan, sedangkan kolom lainnya diabaikan (*tidak terfilter*).
+
+**Evidence**:
+[https://files.catbox.moe/50rv0y.png](https://files.catbox.moe/50rv0y.png)
+
 <br>
 
-> **🐞 [BUG] | Multi-Select Filter Kolom Status Tidak Berfungsi**
-> 
-> * **Menu**: User Authority → Keamanan Akun (Tab Permintaan Reset MFA)
-> * **Deskripsi**: Filter kolom Status menyediakan pilihan *multi-select* (*checkbox*). Namun saat memilih lebih dari satu status (contoh: mencentang **Ditolak** dan **Pending**), sistem hanya menampilkan data status teratas yang dipilih (**Ditolak**), sedangkan data **Pending** tidak ikut ditampilkan.
-> * **Expected**: Filter mendukung *multi-select*, sehingga saat mencentang *Ditolak* dan *Pending*, data dengan kedua status tersebut muncul bersamaan di tabel.
-> * **Actual**: Sistem hanya memfilter salah satu status (*Ditolak*), data dengan status *Pending* diabaikan.
-> * **Evidence**: [https://files.catbox.moe/iky99j.png](https://files.catbox.moe/iky99j.png)
+### 🐞 [BUG] | Multi-Select Filter Kolom Status Tidak Berfungsi
+
+**Menu**: User Authority → Keamanan Akun (Tab Permintaan Reset MFA)
+
+**Deskripsi**:
+Filter kolom Status menyediakan pilihan *multi-select* (*checkbox*). Namun saat memilih lebih dari satu status (contoh: mencentang **Ditolak** dan **Pending**), sistem hanya menampilkan data status teratas yang dipilih (**Ditolak**), sedangkan data **Pending** tidak ikut ditampilkan.
+
+**Expected**:
+Filter mendukung *multi-select*, sehingga saat mencentang *Ditolak* dan *Pending*, data dengan kedua status tersebut muncul bersamaan di tabel.
+
+**Actual**:
+Sistem hanya memfilter salah satu status (*Ditolak*), data dengan status *Pending* diabaikan.
+
+**Evidence**:
+[https://files.catbox.moe/iky99j.png](https://files.catbox.moe/iky99j.png)
+
 <br>
 
-> **🐞 [BUG] | Export Tab Daftar Akun Tidak Tercatat di Riwayat dan Aktivitas Export**
-> 
-> * **Menu**: User Authority → Keamanan Akun (Tab Daftar Akun) / Export Center
-> * **Deskripsi**: Aktivitas export data pada tab Daftar Akun tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
-> * **Expected**: Setiap kali user melakukan export data tab Daftar Akun, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
-> * **Actual**: Log export tab Daftar Akun tidak muncul di kedua menu Export Center tersebut.
-> * **Evidence**: [https://files.catbox.moe/qrvkpx.png](https://files.catbox.moe/qrvkpx.png)
+### 🐞 [BUG] | Export Tab Daftar Akun Tidak Tercatat di Riwayat dan Aktivitas Export
+
+**Menu**: User Authority → Keamanan Akun (Tab Daftar Akun) / Export Center
+
+**Deskripsi**:
+Aktivitas export data pada tab Daftar Akun tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
+
+**Expected**:
+Setiap kali user melakukan export data tab Daftar Akun, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
+
+**Actual**:
+Log export tab Daftar Akun tidak muncul di kedua menu Export Center tersebut.
+
+**Evidence**:
+[https://files.catbox.moe/qrvkpx.png](https://files.catbox.moe/qrvkpx.png)
+
 <br>
 
-> **🐞 [BUG] | Multi-Select Filter Kolom Status MFA dan Metode MFA Tidak Berfungsi**
-> 
-> * **Menu**: User Authority → Keamanan Akun (Tab Daftar Akun)
-> * **Deskripsi**: Filter kolom **Status MFA** dan **Metode MFA** menyediakan opsi *multi-select* (*checkbox*). Namun saat memilih lebih dari satu opsi (contoh: mencentang *Aktif* & *Tidak Aktif*, atau *Email* & *TOTP*), sistem hanya menampilkan data opsi teratas (*Aktif* saja, atau *Email* saja), sedangkan opsi kedua diabaikan.
-> * **Expected**: Filter mendukung *multi-select*, sehingga seluruh opsi yang dicentang muncul bersamaan di tabel.
-> * **Actual**: Sistem hanya memfilter opsi teratas (*Aktif* pada Status MFA, *Email* pada Metode MFA), data dari opsi lainnya tidak muncul di tabel.
-> * **Evidence**:
->   * Filter Status MFA: [https://files.catbox.moe/lrygri.png](https://files.catbox.moe/lrygri.png)
->   * Filter Metode MFA: [https://files.catbox.moe/0wwndq.png](https://files.catbox.moe/0wwndq.png)
+### 🐞 [BUG] | Multi-Select Filter Kolom Status MFA dan Metode MFA Tidak Berfungsi
+
+**Menu**: User Authority → Keamanan Akun (Tab Daftar Akun)
+
+**Deskripsi**:
+Filter kolom **Status MFA** dan **Metode MFA** menyediakan opsi *multi-select* (*checkbox*). Namun saat memilih lebih dari satu opsi (contoh: mencentang *Aktif* & *Tidak Aktif*, atau *Email* & *TOTP*), sistem hanya menampilkan data opsi teratas (*Aktif* saja, atau *Email* saja), sedangkan opsi kedua diabaikan.
+
+**Expected**:
+Filter mendukung *multi-select*, sehingga seluruh opsi yang dicentang muncul bersamaan di tabel.
+
+**Actual**:
+Sistem hanya memfilter opsi teratas (*Aktif* pada Status MFA, *Email* pada Metode MFA), data dari opsi lainnya tidak muncul di tabel.
+
+**Evidence**:
+* Filter Status MFA: [https://files.catbox.moe/lrygri.png](https://files.catbox.moe/lrygri.png)
+* Filter Metode MFA: [https://files.catbox.moe/0wwndq.png](https://files.catbox.moe/0wwndq.png)
+
 <br>
 
-> **🐞 [BUG] | Export Tab Perangkat & Sesi Tidak Masuk Drawer Maupun Riwayat & Aktivitas Export**
-> 
-> * **Menu**: User Authority → Keamanan Akun (Tab Perangkat & Sesi) / Export Center
-> * **Deskripsi**: Setelah menekan tombol **Export Data** pada tab Perangkat & Sesi, file export tidak muncul di dalam drawer *Download Export* serta tidak tercatat di menu `Export Center → Riwayat Export` maupun `Aktivitas Export`.
-> * **Expected**: Saat klik Export Data, antrean/file download langsung masuk ke drawer *Download Export* dan tercatat pada menu *Export Center*.
-> * **Actual**: File export tidak muncul di drawer *Download Export* dan aktivitas export tidak tercatat sama sekali di Export Center.
-> * **Evidence**:
->   * Tombol Export di Tab Perangkat & Sesi: [https://files.catbox.moe/8t8d5v.png](https://files.catbox.moe/8t8d5v.png)
->   * Drawer Download Export Tidak Mencatat File: [https://files.catbox.moe/viut76.png](https://files.catbox.moe/viut76.png)
+### 🐞 [BUG] | Export Tab Perangkat & Sesi Tidak Masuk Drawer Maupun Riwayat & Aktivitas Export
+
+**Menu**: User Authority → Keamanan Akun (Tab Perangkat & Sesi) / Export Center
+
+**Deskripsi**:
+Setelah menekan tombol **Export Data** pada tab Perangkat & Sesi, file export tidak muncul di dalam drawer *Download Export* serta tidak tercatat di menu `Export Center → Riwayat Export` maupun `Aktivitas Export`.
+
+**Expected**:
+Saat klik Export Data, antrean/file download langsung masuk ke drawer *Download Export* dan tercatat pada menu *Export Center*.
+
+**Actual**:
+File export tidak muncul di drawer *Download Export* dan aktivitas export tidak tercatat sama sekali di Export Center.
+
+**Evidence**:
+* Tombol Export di Tab Perangkat & Sesi: [https://files.catbox.moe/8t8d5v.png](https://files.catbox.moe/8t8d5v.png)
+* Drawer Download Export Tidak Mencatat File: [https://files.catbox.moe/viut76.png](https://files.catbox.moe/viut76.png)
+
 <br>
 
-> **🐞 [BUG] | Fitur Search Tab Perangkat & Sesi Hanya Berfungsi untuk Kolom Tertentu**
-> 
-> * **Menu**: User Authority → Keamanan Akun (Tab Perangkat & Sesi)
-> * **Deskripsi**: Kolom pencarian pada tab Perangkat & Sesi hanya membaca dan memfilter data berdasarkan kolom **Pengguna**, **Perangkat**, **IP Address**, dan **Lokasi**. Pencarian kata kunci dari kolom lain (seperti Kantor Wilayah, Kantor Cabang, Outlet, Kode Outlet, dan Job Title) belum berfungsi.
-> * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tabel Perangkat & Sesi.
-> * **Actual**: Pencarian hanya merespons kata kunci dari 4 kolom tersebut, sedangkan kolom kantor dan job title diabaikan (*tidak terfilter*).
-> * **Evidence**: [https://files.catbox.moe/c66vyp.png](https://files.catbox.moe/c66vyp.png)
+### 🐞 [BUG] | Fitur Search Tab Perangkat & Sesi Hanya Berfungsi untuk Kolom Tertentu
+
+**Menu**: User Authority → Keamanan Akun (Tab Perangkat & Sesi)
+
+**Deskripsi**:
+Kolom pencarian pada tab Perangkat & Sesi hanya membaca dan memfilter data berdasarkan kolom **Pengguna**, **Perangkat**, **IP Address**, dan **Lokasi**. Pencarian kata kunci dari kolom lain (seperti Kantor Wilayah, Kantor Cabang, Outlet, Kode Outlet, dan Job Title) belum berfungsi.
+
+**Expected**:
+Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tabel Perangkat & Sesi.
+
+**Actual**:
+Pencarian hanya merespons kata kunci dari 4 kolom tersebut, sedangkan kolom kantor dan job title diabaikan (*tidak terfilter*).
+
+**Evidence**:
+[https://files.catbox.moe/c66vyp.png](https://files.catbox.moe/c66vyp.png)
+
 <br>
 
-> **🐞 [BUG] | Fitur Search Tab Log Aktivitas Tidak Berfungsi untuk Kolom Tanggal/Waktu dan Status**
-> 
-> * **Menu**: User Authority → Keamanan Akun (Tab Log Aktivitas)
-> * **Deskripsi**: Fitur pencarian pada tab Log Aktivitas sudah dapat memfilter sebagian besar kolom (Pengguna, Kantor, Job Title, Aktivitas, IP). Namun pencarian menggunakan kata kunci dari kolom **Tanggal/Waktu** dan **Status** belum berfungsi (*data tidak terfilter*).
-> * **Expected**: Field search dapat memfilter data secara menyeluruh termasuk berdasarkan tanggal/waktu (misal: *"12 September 2026"*) dan status (misal: *"Sukses"* atau *"Gagal"*).
-> * **Actual**: Pencarian dengan kata kunci dari kolom Tanggal/Waktu dan Status diabaikan sehingga data tidak terfilter.
-> * **Evidence**: [https://files.catbox.moe/rycqzj.png](https://files.catbox.moe/rycqzj.png)
+### 🐞 [BUG] | Fitur Search Tab Log Aktivitas Tidak Berfungsi untuk Kolom Tanggal/Waktu dan Status
+
+**Menu**: User Authority → Keamanan Akun (Tab Log Aktivitas)
+
+**Deskripsi**:
+Fitur pencarian pada tab Log Aktivitas sudah dapat memfilter sebagian besar kolom (Pengguna, Kantor, Job Title, Aktivitas, IP). Namun pencarian menggunakan kata kunci dari kolom **Tanggal/Waktu** dan **Status** belum berfungsi (*data tidak terfilter*).
+
+**Expected**:
+Field search dapat memfilter data secara menyeluruh termasuk berdasarkan tanggal/waktu (misal: *"12 September 2026"*) dan status (misal: *"Sukses"* atau *"Gagal"*).
+
+**Actual**:
+Pencarian dengan kata kunci dari kolom Tanggal/Waktu dan Status diabaikan sehingga data tidak terfilter.
+
+**Evidence**:
+[https://files.catbox.moe/rycqzj.png](https://files.catbox.moe/rycqzj.png)
+
 <br>
 
-> **🐞 [BUG] | Beberapa Tipe Aktivitas MFA Tidak Tercatat atau Keliru di Tab Log Aktivitas**
-> 
-> * **Menu**: User Authority → Keamanan Akun (Tab Log Aktivitas)
-> * **Deskripsi**: Terdapat inkonsistensi pencatatan log audit di mana beberapa event MFA tidak tercatat sama sekali atau keliru labelnya:
->   1. **Verifikasi MFA Berhasil (OTP)**: *Actual* malah tercatat *"Login berhasil tanpa verifikasi MFA"*.
->   2. **Verifikasi MFA dengan Kode Cadangan**: *Actual* malah tercatat *"Login berhasil tanpa verifikasi MFA"*.
->   3. **Verifikasi MFA Gagal**: *Actual* tidak memicu log verifikasi MFA gagal, melainkan tercatat *"Percobaan login gagal"*.
->   4. **Permintaan Reset MFA Disetujui**: *Actual* tidak masuk ke log sama sekali saat admin menyetujui.
->   5. **Permintaan Reset MFA Ditolak**: *Actual* tidak masuk ke log sama sekali saat admin menolak.
->   6. **Reset MFA**: *Actual* tidak tercatat di log saat MFA di-reset.
->   7. **Mengubah Metode MFA**: *Actual* prematur, sudah tercatat sukses saat baru input password padahal metode baru belum dipilih/disimpan.
-> * **Expected**: Seluruh aktivitas MFA tercatat akurat dan sesuai dengan aksi nyata yang dilakukan user/admin.
-> * **Actual**: Sebagian aktivitas hilang dari log dan sebagian lainnya salah label / prematur.
-> * **Evidence**: [https://files.catbox.moe/u37vxx.png](https://files.catbox.moe/u37vxx.png)
+### 🐞 [BUG] | Beberapa Tipe Aktivitas MFA Tidak Tercatat atau Keliru di Tab Log Aktivitas
+
+**Menu**: User Authority → Keamanan Akun (Tab Log Aktivitas)
+
+**Deskripsi**:
+Terdapat inkonsistensi pencatatan log audit di mana beberapa event MFA tidak tercatat sama sekali atau keliru labelnya:
+1. **Verifikasi MFA Berhasil (OTP)**: *Actual* malah tercatat *"Login berhasil tanpa verifikasi MFA"*.
+  2. **Verifikasi MFA dengan Kode Cadangan**: *Actual* malah tercatat *"Login berhasil tanpa verifikasi MFA"*.
+  3. **Verifikasi MFA Gagal**: *Actual* tidak memicu log verifikasi MFA gagal, melainkan tercatat *"Percobaan login gagal"*.
+  4. **Permintaan Reset MFA Disetujui**: *Actual* tidak masuk ke log sama sekali saat admin menyetujui.
+  5. **Permintaan Reset MFA Ditolak**: *Actual* tidak masuk ke log sama sekali saat admin menolak.
+  6. **Reset MFA**: *Actual* tidak tercatat di log saat MFA di-reset.
+  7. **Mengubah Metode MFA**: *Actual* prematur, sudah tercatat sukses saat baru input password padahal metode baru belum dipilih/disimpan.
+
+**Expected**:
+Seluruh aktivitas MFA tercatat akurat dan sesuai dengan aksi nyata yang dilakukan user/admin.
+
+**Actual**:
+Sebagian aktivitas hilang dari log dan sebagian lainnya salah label / prematur.
+
+**Evidence**:
+[https://files.catbox.moe/u37vxx.png](https://files.catbox.moe/u37vxx.png)
+
 <br>
 
-> **🐞 [BUG] | Seluruh Tipe Aktivitas Kategori Perangkat & Sesi Tidak Tercatat di Tab Log Aktivitas**
-> 
-> * **Menu**: User Authority → Keamanan Akun (Tab Log Aktivitas)
-> * **Deskripsi**: Ketika user atau admin melakukan aksi seputar manajemen perangkat dan sesi, sistem tidak mencatat aktivitas tersebut ke dalam tabel Log Aktivitas:
->   1. **Mempercayai Perangkat**: Tidak masuk ke log setelah login dengan opsi percaya perangkat.
->   2. **Menghapus Perangkat Terpercaya**: Tidak masuk ke log saat perangkat dihapus.
->   3. **Memberi Label Perangkat**: Tidak masuk ke log saat mengubah nama/label perangkat.
->   4. **Mencabut Sesi Perangkat**: Tidak masuk ke log saat melakukan logout paksa pada sesi tertentu.
->   5. **Mencabut Semua Sesi Perangkat**: Tidak masuk ke log saat tombol cabut semua sesi ditekan.
-> * **Expected**: Setiap aksi terkait perangkat dan sesi otomatis tercatat ke log audit dengan tipe aktivitas yang sesuai.
-> * **Actual**: Kelima aktivitas kategori Perangkat & Sesi tersebut tidak pernah tercatat (hilang dari log audit).
-> * **Evidence**: [https://files.catbox.moe/rycqzj.png](https://files.catbox.moe/rycqzj.png)
+### 🐞 [BUG] | Seluruh Tipe Aktivitas Kategori Perangkat & Sesi Tidak Tercatat di Tab Log Aktivitas
+
+**Menu**: User Authority → Keamanan Akun (Tab Log Aktivitas)
+
+**Deskripsi**:
+Ketika user atau admin melakukan aksi seputar manajemen perangkat dan sesi, sistem tidak mencatat aktivitas tersebut ke dalam tabel Log Aktivitas:
+1. **Mempercayai Perangkat**: Tidak masuk ke log setelah login dengan opsi percaya perangkat.
+  2. **Menghapus Perangkat Terpercaya**: Tidak masuk ke log saat perangkat dihapus.
+  3. **Memberi Label Perangkat**: Tidak masuk ke log saat mengubah nama/label perangkat.
+  4. **Mencabut Sesi Perangkat**: Tidak masuk ke log saat melakukan logout paksa pada sesi tertentu.
+  5. **Mencabut Semua Sesi Perangkat**: Tidak masuk ke log saat tombol cabut semua sesi ditekan.
+
+**Expected**:
+Setiap aksi terkait perangkat dan sesi otomatis tercatat ke log audit dengan tipe aktivitas yang sesuai.
+
+**Actual**:
+Kelima aktivitas kategori Perangkat & Sesi tersebut tidak pernah tercatat (hilang dari log audit).
+
+**Evidence**:
+[https://files.catbox.moe/rycqzj.png](https://files.catbox.moe/rycqzj.png)
+
 <br>
 
-> **🐞 [BUG] | Saran Lokasi Google Maps Tidak Muncul Saat Mode Layar Penuh pada Form Tambah & Edit**
-> 
-> * **Menu**: Setting Absent → Attendance Spot (Add & Edit Attendance Spot)
-> * **Deskripsi**: Fitur pencarian lokasi pada peta Google Maps tidak memunculkan *dropdown* rekomendasi/autocomplete lokasi ketika peta dibuka dalam mode layar penuh (*fullscreen map*), baik pada form Tambah (*Add New Attendance Spot*) maupun form Edit (*Edit Attendance Spot*), setelah sebelumnya melakukan pengubahan nilai radius.
-> * **Langkah Reproduksi**:
->   1. Masuk ke menu Setting Absent → Attendance Spot, lalu buka form **Add New Location** atau **Edit Location**.
->   2. Ubah nilai pada kolom **Radius** (contoh: ubah ke 70 meter).
->   3. Klik icon **Layar Penuh (Fullscreen)** di pojok kanan atas peta untuk memperbesar peta.
->   4. Ketik kata kunci lokasi pada kolom pencarian Google Maps di dalam mode layar penuh.
-> * **Expected**: *Dropdown* saran lokasi / autocomplete Google Maps tetap muncul dan dapat dipilih saat peta dalam mode layar penuh (*fullscreen*).
-> * **Actual**: *Dropdown* saran lokasi tidak muncul sama sekali (*terhalang z-index mode fullscreen*), sehingga user tidak bisa memilih lokasi yang dicari.
-> * **Evidence**:
->   * Form Tambah & Edit Attendance Spot: [https://files.catbox.moe/u4l66y.png](https://files.catbox.moe/u4l66y.png)
->   * Tahapan Ubah Radius & Klik Layar Penuh: [https://files.catbox.moe/0i3fpy.png](https://files.catbox.moe/0i3fpy.png)
->   * Saran Lokasi Tidak Muncul Saat Layar Penuh: [https://files.catbox.moe/p5ti6b.png](https://files.catbox.moe/p5ti6b.png)
+### 🐞 [BUG] | Saran Lokasi Google Maps Tidak Muncul Saat Mode Layar Penuh pada Form Tambah & Edit
+
+**Menu**: Setting Absent → Attendance Spot (Add & Edit Attendance Spot)
+
+**Deskripsi**:
+Fitur pencarian lokasi pada peta Google Maps tidak memunculkan *dropdown* rekomendasi/autocomplete lokasi ketika peta dibuka dalam mode layar penuh (*fullscreen map*), baik pada form Tambah (*Add New Attendance Spot*) maupun form Edit (*Edit Attendance Spot*), setelah sebelumnya melakukan pengubahan nilai radius.
+
+**Langkah Reproduksi**:
+1. Masuk ke menu Setting Absent → Attendance Spot, lalu buka form **Add New Location** atau **Edit Location**.
+2. Ubah nilai pada kolom **Radius** (contoh: ubah ke 70 meter).
+3. Klik icon **Layar Penuh (Fullscreen)** di pojok kanan atas peta untuk memperbesar peta.
+4. Ketik kata kunci lokasi pada kolom pencarian Google Maps di dalam mode layar penuh.
+
+**Expected**:
+*Dropdown* saran lokasi / autocomplete Google Maps tetap muncul dan dapat dipilih saat peta dalam mode layar penuh (*fullscreen*).
+
+**Actual**:
+*Dropdown* saran lokasi tidak muncul sama sekali (*terhalang z-index mode fullscreen*), sehingga user tidak bisa memilih lokasi yang dicari.
+
+**Evidence**:
+* Form Tambah & Edit Attendance Spot: [https://files.catbox.moe/u4l66y.png](https://files.catbox.moe/u4l66y.png)
+* Tahapan Ubah Radius & Klik Layar Penuh: [https://files.catbox.moe/0i3fpy.png](https://files.catbox.moe/0i3fpy.png)
+* Saran Lokasi Tidak Muncul Saat Layar Penuh: [https://files.catbox.moe/p5ti6b.png](https://files.catbox.moe/p5ti6b.png)
+
 
 ---
 
