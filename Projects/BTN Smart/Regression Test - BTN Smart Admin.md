@@ -57,8 +57,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 51 | Sales Tracking Activity | Rekap Visit | Gaza | ⬜ Belum |
 | 52 | Sales Tracking Activity | Rekap Monthly Visit | Gaza | ⬜ Belum |
 | 53 | Setting Absent | Attendance Spot | Gaza | 🐛 Bug |
-| 54 | Setting Absent | Work Pattern | Gaza | ⬜ Belum |
-| 55 | Setting Absent | Holiday | Gaza | ⬜ Belum |
+| 54 | Setting Absent | Work Pattern | Gaza | ✅ Done |
+| 55 | Setting Absent | Holiday | Gaza | ✅ Done |
 | 56 | Sales Force | Sales code | Ahrul | ⬜ Belum |
 | 57 | Sales Force | Approval Sales Code | Ahrul | ⬜ Belum |
 | 58 | Sales Force | CIF Kelolaan | Ahrul | ⬜ Belum |
@@ -93,7 +93,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 87 | Export data management | Persetujuan export | Alam | ⬜ Belum |
 | 88 | Export data management | Management export | Alam | ⬜ Belum |
 | 89 | Ticket Maintenance | Dashboard | Fito | ⬜ Belum |
-| 90 | Ticket Maintenance | Aktivitas | Fito | ⬜ Belum |
+| 90 | Ticket Maintenance | Aktivitas | Fito | 🐛 Bug |
 | 91 | Ticket Maintenance | Report | Fito | ⬜ Belum |
 | 92 | Dashboard | Aktivitas Consumer | Alam | ⬜ Belum |
 | 93 | Dashboard | Optimalisasi | Alam | ⬜ Belum |
@@ -436,6 +436,20 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Tahapan Ubah Radius & Klik Layar Penuh: [https://files.catbox.moe/0i3fpy.png](https://files.catbox.moe/0i3fpy.png)
 >   * Saran Lokasi Tidak Muncul Saat Layar Penuh: [https://files.catbox.moe/p5ti6b.png](https://files.catbox.moe/p5ti6b.png)
 
+<br>
+
+### 🐞 [BUG] | Gagal Upload File Bukti pada Form Buat, Edit, Komentar, dan Re-Issue
+
+> * **Menu**: Ticket Maintenance → Aktivitas Issue (Aktivitas Pelaporan Issue)
+> * **Deskripsi**: Fitur upload file bukti screenshot / lampiran selalu mengalami kegagalan (indikator bar merah "Gagal") pada seluruh fitur pelaporan issue (Buat Issue, Edit Issue, Komentar Issue, dan Re-Issue).
+> * **Expected**: File gambar / lampiran berhasil terunggah (progress bar sukses) dan tersimpan bersama tiket issue.
+> * **Actual**: Upload file selalu gagal (*status bar merah "Gagal"*) di seluruh form (Buat Issue, Edit Issue, Komentar Issue, dan Re-Issue).
+> * **Evidence**:
+>   * Form Buat Issue (+ Registrasi Issue): [https://files.catbox.moe/8r97dx.png](https://files.catbox.moe/8r97dx.png)
+>   * Form Edit Issue: [https://files.catbox.moe/9zsjae.png](https://files.catbox.moe/9zsjae.png)
+>   * Fitur Komentar Issue: [https://files.catbox.moe/gb0701.png](https://files.catbox.moe/gb0701.png)
+>   * Form Buat Re-Issue: [https://files.catbox.moe/hmsi9i.png](https://files.catbox.moe/hmsi9i.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -483,6 +497,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 #### 📅 Holiday
 13. **Efek Holiday ke Absensi**: Apa efek data *Holiday* ke absensi karyawan? Apakah saat libur otomatis tidak wajib absen atau tombol absensinya nonaktif?
     * Evidence: [https://files.catbox.moe/mvi97m.png](https://files.catbox.moe/mvi97m.png)
+
+---
+
+### 🎫 Ticket Maintenance
+
+#### 🏷️ Kategori Aktivitas Issue
+14. **Perbedaan & Flow "List Kategori Lain" vs "List Kategori"**: Apa perbedaan fungsi antara tabel *List Kategori Lain* dan *List Kategori*? Serta bagaimana cara membuat/menambahkan data ke dalam *List Kategori Lain* (apakah terisi otomatis saat user submit issue dengan kategori "Lainnya", lalu admin me-review-nya via tombol *Send to Master*)?
+    * Evidence: [https://files.catbox.moe/ab1df8.png](https://files.catbox.moe/ab1df8.png)
+
+15. **Opsi Hapus Kategori**: Apakah data pada tabel *List Kategori* memang tidak bisa dihapus (tidak ada tombol/fitur delete)? Bagaimana jika ada kategori yang salah input atau sudah tidak digunakan lagi?
+    * Evidence: [https://files.catbox.moe/ab1df8.png](https://files.catbox.moe/ab1df8.png)
+
+#### 📋 Aktivitas Issue
+16. **Peran Solver & Hak Ubah Status Issue**: Apa peran utama dari *Solver*? Apakah hanya user yang ditugaskan sebagai Solver yang boleh mengubah status issue? Karena saat ini, user lain (seperti akun *monitoring*) yang bukan solver dari tiket tersebut tetap bisa mengubah status issue.
+    * Evidence: [https://files.catbox.moe/vcumta.png](https://files.catbox.moe/vcumta.png)
 
 ---
 
@@ -537,3 +566,5 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2026-09-12 | User Authority - Keamanan Akun (Perangkat & Sesi) | Temuan bug export tidak masuk drawer/Export Center & bug search hanya kolom tertentu |
 | 2026-09-12 | User Authority - Keamanan Akun (Log Aktivitas) | Temuan bug search kolom Tanggal & Status, serta kehilangan log aktivitas MFA dan Perangkat & Sesi |
 | 2026-09-14 | Setting Absent - Attendance Spot | Temuan bug saran lokasi Google Maps tidak muncul saat mode layar penuh |
+| 2026-09-15 | Setting Absent (Work Pattern & Holiday) | Pengetesan selesai (Status Aman / Done) |
+| 2026-09-15 | Ticket Maintenance (Aktivitas Issue) | Temuan bug upload file bukti selalu gagal di seluruh form issue & penambahan catatan konfirmasi Dev/BA |
