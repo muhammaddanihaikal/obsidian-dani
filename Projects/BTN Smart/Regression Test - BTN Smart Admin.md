@@ -456,65 +456,64 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🔐 User Authority
 
-#### 👤 User
-1. **Role User AD**: Katanya User AD otomatis pakai role `'User Login'` tanpa pilihan role, tapi kenapa di form input masih ada pilihan dropdown role?
-
-2. **Login User AD**: Kenapa user AD gagal login (*password tidak valid*) padahal baru selesai aktivasi password via email?
-
-3. **Resend Link Non-AD**: Kenapa opsi *Resend Activation Link* muncul di user Non-AD? (Bukannya ini khusus user AD?).
-
-#### 👥 Group Role
-4. **Hapus Role Dipakai User**: Katanya kalau role dihapus otomatis *fallback* ke `'User Login'`, tapi faktanya role user malah jadi kosong (blank) & akses menu lamanya masih aktif.
-
-#### 🏷️ Tipe Karyawan
-5. **Hapus Tipe Karyawan**: Tipe karyawan yang masih dipakai role apakah boleh dihapus? (Sekarang bisa dihapus & kolom tipe karyawan di role jadi blank).
-
 #### 🛡️ Keamanan Akun
-6. **Selisih Total Data User (Daftar Akun)**: Kenapa total user di *Master User* (12.059 data) beda dengan di *Keamanan Akun - Daftar Akun* (12.030 data)? Ada selisih 29 data, apakah ada filter khusus?
+1. **Selisih Total Data User (Daftar Akun vs Master User)**: Kenapa total user di *Master User* (12.059 data) berbeda dengan di *Keamanan Akun - Daftar Akun* (12.030 data)?
    * Evidence: [Keamanan Akun (12.030)](https://files.catbox.moe/wkvcqa.png) | [Master User (12.059)](https://files.catbox.moe/5z0oga.png)
+   * **Update BA**: Perlu dicek ke database (DB) untuk memastikan data yang valid/benar yang mana.
 
-7. **Kolom Kode Outlet di Seluruh Tab**: Di semua tab menu Keamanan Akun terdapat kolom *Kode Outlet*. Apakah kolom ini memang perlu ditampilkan di tabel sesuai kebutuhan bisnis, atau redundan dengan kolom *Outlet*?
-   * Evidence: [Tab Daftar Akun](https://files.catbox.moe/rn2u2h.png) | [Tab Permintaan Reset MFA](https://files.catbox.moe/50rv0y.png) | [Tab Perangkat & Sesi](https://files.catbox.moe/bclinl.png)
+2. **Kolom Kode Outlet di Seluruh Tab**: Di semua tab menu Keamanan Akun terdapat kolom *Kode Outlet*. Apakah memang perlu ditampilkan sesuai kebutuhan bisnis?
+   * Evidence: [Tab Daftar Akun](https://files.catbox.moe/rn2u2h.png)
+   * **Update BA**: Ya, memang ditampilkan sesuai kebutuhan sistem.
 
-8. **Filter User Aktif & Perangkat Terpercaya (Tab Perangkat & Sesi)**: Tidak ada filter berdasarkan *User Aktif (Sesi Aktif)* maupun *Perangkat Terpercaya*, sehingga admin harus mencari manual satu per satu dari 869 data. Apakah perlu ditambahkan filter status tersebut? *(Serta kolom header kosong tanpa judul di samping kolom Perangkat apakah kolom yang tertinggal?)*
+3. **Filter User Aktif & Perangkat Terpercaya (Tab Perangkat & Sesi)**: Tidak ada filter berdasarkan *User Aktif (Sesi Aktif)* maupun *Perangkat Terpercaya* (harus mencari manual dari 869 data), serta ada kolom kosong tanpa judul. Apakah perlu ditambahkan filter status tersebut?
    * Evidence: [https://files.catbox.moe/bclinl.png](https://files.catbox.moe/bclinl.png)
+   * *Status: Belum ditanyakan ke BA.*
 
-9. **Batas Waktu Idle Logout (Tab Log Aktivitas)**: Berapa lama batas waktu (*idle session timeout*) untuk memicu aktivitas *Logout karena tidak aktif*? Saat ditest membiarkan web idle selama 23+ menit, sistem masih belum melakukan logout otomatis.
+4. **Batas Waktu Idle Logout (Tab Log Aktivitas)**: Berapa lama batas waktu (*idle session timeout*) untuk memicu aktivitas *Logout karena tidak aktif*?
+   * **Update BA**: Normalnya adalah 30 menit. Untuk environment regression test perlu ditanyakan ke programmer barangkali ada penyesuaian durasi.
 
-10. **Trigger Tipe Aktivitas "MFA diaktifkan" & "MFA dinonaktifkan" (Tab Log Aktivitas)**: Bagaimana flow atau skenario untuk memicu kedua tipe aktivitas ini? Apakah ada fitur khusus untuk turn off / turn on MFA, atau kedua label ini redundan dengan *"Mengaktifkan MFA"* dan *"Reset MFA"*?
+5. **Trigger Tipe Aktivitas "MFA diaktifkan" & "MFA dinonaktifkan" (Tab Log Aktivitas)**: Bagaimana flow atau skenario untuk memicu kedua tipe aktivitas ini?
+   * **Update BA**: *"MFA diaktifkan"* terpicu saat user pertama kali mengaktifkan MFA (Email OTP maupun TOTP), sedangkan *"MFA dinonaktifkan"* terpicu saat melakukan Reset MFA.
 
 ---
 
 ### 📍 Setting Absent
 
 #### 📍 Attendance Spot
-11. **Fungsi Opsi "Terdaftar di Kantor BTN"**: Pada form tambah titik absensi (*Add New Attendance Spot*), apa maksud dan dampak bisnis dari opsi checkbox *"Terdaftar di Kantor BTN"* beserta pilihan kantornya? Apakah semua karyawan yang terdaftar di kantor tersebut otomatis di-assign ke spot ini, atau ada aturan absensi lain?
-    * Evidence: [https://files.catbox.moe/p7oy0i.png](https://files.catbox.moe/p7oy0i.png)
+6. **Fungsi Opsi "Terdaftar di Kantor BTN"**: Apa maksud dan dampak bisnis dari opsi checkbox *"Terdaftar di Kantor BTN"* beserta pilihan kantornya?
+   * Evidence: [https://files.catbox.moe/p7oy0i.png](https://files.catbox.moe/p7oy0i.png)
+   * **Update BA**: Untuk menandai bahwa titik absensi (*Attendance Spot*) tersebut adalah kantor BTN, sehingga sistem mengetahui jika sales melakukan absensi di kantor.
 
-12. **Hapus Attendance Spot Berisi Data**: Apakah titik absensi yang sudah ada data personelnya (misal: *1 Personnel*) boleh dihapus? Lalu apa dampaknya ke data karyawan tersebut?
-    * Evidence: [https://files.catbox.moe/5boo7d.png](https://files.catbox.moe/5boo7d.png)
+7. **Hapus Attendance Spot Berisi Data**: Apakah titik absensi yang sudah memiliki data personel (misal: *1 Personnel*) boleh dihapus?
+   * Evidence: [https://files.catbox.moe/5boo7d.png](https://files.catbox.moe/5boo7d.png)
+   * **Update BA**: Boleh dihapus.
 
 #### 📅 Holiday
-13. **Efek Holiday ke Absensi**: Apa efek data *Holiday* ke absensi karyawan? Apakah saat libur otomatis tidak wajib absen atau tombol absensinya nonaktif?
-    * Evidence: [https://files.catbox.moe/mvi97m.png](https://files.catbox.moe/mvi97m.png)
+8. **Efek Holiday ke Absensi**: Apa efek data *Holiday* ke absensi karyawan?
+   * Evidence: [https://files.catbox.moe/mvi97m.png](https://files.catbox.moe/mvi97m.png)
+   * **Update BA**: Otomatis libur (status absensi karyawan otomatis tercatat libur).
 
 ---
 
 ### 🎫 Ticket Maintenance
 
 #### 🏷️ Kategori Aktivitas Issue
-14. **Perbedaan & Flow "List Kategori Lain" vs "List Kategori"**: Apa perbedaan fungsi antara tabel *List Kategori Lain* dan *List Kategori*? Serta bagaimana cara membuat/menambahkan data ke dalam *List Kategori Lain* (apakah terisi otomatis saat user submit issue dengan kategori "Lainnya", lalu admin me-review-nya via tombol *Send to Master*)?
-    * Evidence: [https://files.catbox.moe/ab1df8.png](https://files.catbox.moe/ab1df8.png)
+9. **Perbedaan & Flow "List Kategori Lain" vs "List Kategori"**: Apa perbedaan fungsi antara kedua tabel tersebut dan bagaimana data kategori lain dibuat?
+   * Evidence: [https://files.catbox.moe/ab1df8.png](https://files.catbox.moe/ab1df8.png)
+   * **Update BA**: *List Kategori Lain* dibuat saat user melakukan registrasi issue lalu memilih kategori "Other", di mana user bisa mengetikkan nama kategori baru di sana.
 
-15. **Opsi Hapus Kategori**: Apakah data pada tabel *List Kategori* memang tidak bisa dihapus (tidak ada tombol/fitur delete)? Bagaimana jika ada kategori yang salah input atau sudah tidak digunakan lagi?
+10. **Opsi Hapus Data Kategori**: Apakah data pada tabel *List Kategori* memang tidak bisa dihapus (tidak ada tombol/fitur delete)?
     * Evidence: [https://files.catbox.moe/ab1df8.png](https://files.catbox.moe/ab1df8.png)
+    * *Status: Belum ditanyakan ke BA.*
 
 #### 📋 Aktivitas Issue
-16. **Peran Solver & Hak Ubah Status Issue**: Apa peran utama dari *Solver*? Apakah hanya user yang ditugaskan sebagai Solver yang boleh mengubah status issue? Karena saat ini, user lain (seperti akun *monitoring*) yang bukan solver dari tiket tersebut tetap bisa mengubah status issue.
+11. **Peran Solver & Hak Ubah Status Issue**: Apa peran utama dari *Solver* dan siapa saja yang berhak mengubah status issue?
     * Evidence: [https://files.catbox.moe/vcumta.png](https://files.catbox.moe/vcumta.png)
+    * **Update BA**: Solver bertugas untuk meng-update issue, dan selain solver yang ditugaskan, role *monitoring* juga memiliki hak akses untuk mengubah status issue.
 
-17. **Cakupan Tombol "Delete Issue" pada Tiket Re-Issue**: Pada tiket yang memiliki tab re-issue (misal ada tab *Issue* dan *Re-Issue - 2*), saat tombol **Delete Issue** ditekan, apakah yang terhapus hanya tab re-issue yang sedang aktif, atau menghapus seluruh tiket issue beserta seluruh riwayatnya?
+12. **Cakupan Tombol "Delete Issue" pada Tiket Re-Issue**: Saat tombol *Delete Issue* ditekan, apakah menghapus per tab atau seluruh issue?
     * Evidence: [https://files.catbox.moe/dwtel8.png](https://files.catbox.moe/dwtel8.png)
+    * **Update BA**: Dihapus per tab yang sedang aktif.
 
 ---
 
