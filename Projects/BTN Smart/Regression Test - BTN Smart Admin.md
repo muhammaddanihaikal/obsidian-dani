@@ -432,6 +432,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 10. **Trigger Tipe Aktivitas "MFA diaktifkan" & "MFA dinonaktifkan"**: Bagaimana flow atau skenario untuk memicu kedua tipe aktivitas ini? Apakah ada fitur khusus untuk turn off / turn on MFA, atau kedua label ini redundan dengan *"Mengaktifkan MFA"* dan *"Reset MFA"*?
 11. **Fungsi Opsi "Terdaftar di Kantor BTN" (Setting Absent - Attendance Spot)**: Pada form tambah titik absensi (*Add New Attendance Spot*), apa maksud dan dampak bisnis dari opsi checkbox *"Terdaftar di Kantor BTN"* beserta pilihan kantornya? Apakah semua karyawan yang terdaftar di kantor tersebut otomatis di-assign ke spot ini, atau ada aturan absensi lain?
     * Evidence: [https://files.catbox.moe/p7oy0i.png](https://files.catbox.moe/p7oy0i.png)
+12. **Dampak/Efek Pengaturan "Holiday" terhadap Sistem Absensi (Setting Absent - Holiday)**: Bagaimana keterkaitan atau dampak bisnis dari tanggal yang didaftarkan pada menu *Holiday* terhadap sistem absensi karyawan? Apakah pada tanggal libur tersebut karyawan otomatis dianggap libur (tidak wajib absen dan tidak dihitung alpa/mangkir), atau apakah tombol/fitur absensi di aplikasi mobile otomatis dinonaktifkan pada hari tersebut?
+    * Evidence: [https://files.catbox.moe/mvi97m.png](https://files.catbox.moe/mvi97m.png)
+13. **Validasi Hapus Attendance Spot yang Memiliki Data Personnel (Setting Absent - Attendance Spot)**: Apakah titik absensi (*Attendance Spot*) yang sudah memiliki relasi data personel (misal: terdapat *1 Personnel* atau personel kantor) diizinkan untuk dihapus? Bagaimana dampaknya terhadap penugasan karyawan dan riwayat absensi sebelumnya? Apakah seharusnya ada proteksi/validasi pencegahan hapus jika masih ada personel yang terhubung, atau otomatis terlepas (*unassign*)?
+    * Evidence: [https://files.catbox.moe/5boo7d.png](https://files.catbox.moe/5boo7d.png)
 
 ---
 
