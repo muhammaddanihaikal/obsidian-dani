@@ -509,30 +509,34 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
    * Evidence: [https://files.catbox.moe/mvi97m.png](https://files.catbox.moe/mvi97m.png)
    * **Update BA**: Otomatis libur (status absensi karyawan otomatis tercatat libur).
 
+#### ⏰ Waktu Absensi & Zona Waktu Perangkat (Client-side Time)
+9. **Jam Absensi Mengikuti Jam / Zona Waktu HP**: Saat zona waktu HP diubah ke **WIT (GMT+9)**, jam Clock In dan Clock Out yang tercatat di sistem ikut membaca jam di HP (bukan waktu server/kantor). Apakah jam absensi memang didesain membaca waktu lokal perangkat, atau seharusnya terkunci ke waktu server untuk mencegah manipulasi jam kerja?
+   * *Status: Belum ditanyakan ke BA/Dev.*
+
 ---
 
 ### 🎫 Ticket Maintenance
 
 #### 🏷️ Kategori Aktivitas Issue
-9. **Perbedaan & Flow "List Kategori Lain" vs "List Kategori"**: Apa perbedaan fungsi antara kedua tabel tersebut dan bagaimana data kategori lain dibuat?
+10. **Perbedaan & Flow "List Kategori Lain" vs "List Kategori"**: Apa perbedaan fungsi antara kedua tabel tersebut dan bagaimana data kategori lain dibuat?
    * Evidence: [https://files.catbox.moe/ab1df8.png](https://files.catbox.moe/ab1df8.png)
    * **Update BA**: *List Kategori Lain* dibuat saat user melakukan registrasi issue lalu memilih kategori "Other", di mana user bisa mengetikkan nama kategori baru di sana.
 
-10. **Opsi Hapus Data Kategori**: Apakah data pada tabel *List Kategori* memang tidak bisa dihapus (tidak ada tombol/fitur delete)?
+11. **Opsi Hapus Data Kategori**: Apakah data pada tabel *List Kategori* memang tidak bisa dihapus (tidak ada tombol/fitur delete)?
     * Evidence: [https://files.catbox.moe/ab1df8.png](https://files.catbox.moe/ab1df8.png)
     * *Status: Belum ditanyakan ke BA.*
 
 #### 📋 Aktivitas Issue
-11. **Peran Solver & Hak Ubah Status Issue**: Apa peran utama dari *Solver* dan siapa saja yang berhak mengubah status issue?
+12. **Peran Solver & Hak Ubah Status Issue**: Apa peran utama dari *Solver* dan siapa saja yang berhak mengubah status issue?
     * Evidence: [https://files.catbox.moe/vcumta.png](https://files.catbox.moe/vcumta.png)
     * **Update BA**: Solver bertugas untuk meng-update issue, dan selain solver yang ditugaskan, role *monitoring* juga memiliki hak akses untuk mengubah status issue.
 
-12. **Cakupan Tombol "Delete Issue" pada Tiket Re-Issue**: Saat tombol *Delete Issue* ditekan, apakah menghapus per tab atau seluruh issue?
+13. **Cakupan Tombol "Delete Issue" pada Tiket Re-Issue**: Saat tombol *Delete Issue* ditekan, apakah menghapus per tab atau seluruh issue?
     * Evidence: [https://files.catbox.moe/dwtel8.png](https://files.catbox.moe/dwtel8.png)
     * **Update BA**: Dihapus per tab yang sedang aktif.
 
 #### 📊 Report Aktivitas Issue
-13. **Pemisahan Menu "Aktivitas Issue" vs "Report Aktifitas Issue"**: Tampilan data di menu *Report* sama dengan *Aktivitas*, bedanya hanya ada fitur *Search* dan *Export*. Apakah kedua menu ini memang sengaja dipisahkan?
+14. **Pemisahan Menu "Aktivitas Issue" vs "Report Aktifitas Issue"**: Tampilan data di menu *Report* sama dengan *Aktivitas*, bedanya hanya ada fitur *Search* dan *Export*. Apakah kedua menu ini memang sengaja dipisahkan?
     * Evidence: [https://files.catbox.moe/m0dreu.png](https://files.catbox.moe/m0dreu.png)
     * *Status: Belum ditanyakan ke BA.*
 
