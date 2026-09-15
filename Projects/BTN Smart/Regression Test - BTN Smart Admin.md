@@ -515,6 +515,11 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
     * Evidence: [https://files.catbox.moe/dwtel8.png](https://files.catbox.moe/dwtel8.png)
     * **Update BA**: Dihapus per tab yang sedang aktif.
 
+#### 📊 Report Aktivitas Issue
+13. **Pemisahan Menu "Aktivitas Issue" vs "Report Aktifitas Issue"**: Tampilan data di menu *Report* sama dengan *Aktivitas*, bedanya hanya ada fitur *Search* dan *Export*. Apakah kedua menu ini memang sengaja dipisahkan?
+    * Evidence: [https://files.catbox.moe/m0dreu.png](https://files.catbox.moe/m0dreu.png)
+    * *Status: Belum ditanyakan ke BA.*
+
 ---
 
 ## 📅 Sesi Testing
