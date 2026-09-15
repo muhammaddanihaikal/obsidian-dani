@@ -94,7 +94,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 88 | Export data management | Management export | Alam | ⬜ Belum |
 | 89 | Ticket Maintenance | Dashboard | Fito | ⬜ Belum |
 | 90 | Ticket Maintenance | Aktivitas | Fito | 🐛 Bug |
-| 91 | Ticket Maintenance | Report | Fito | ⬜ Belum |
+| 91 | Ticket Maintenance | Report | Fito | 🐛 Bug |
 | 92 | Dashboard | Aktivitas Consumer | Alam | ⬜ Belum |
 | 93 | Dashboard | Optimalisasi | Alam | ⬜ Belum |
 
@@ -399,6 +399,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   5. **Permintaan Reset MFA Ditolak**: *Actual* tidak masuk ke log sama sekali saat admin menolak.
 >   6. **Reset MFA**: *Actual* tidak tercatat di log saat MFA di-reset.
 >   7. **Mengubah Metode MFA**: *Actual* prematur, sudah tercatat sukses saat baru input password padahal metode baru belum dipilih/disimpan.
+>   8. **MFA diaktifkan**: *Actual* tidak tercatat di log saat user pertama kali mengaktifkan MFA (Email OTP maupun TOTP).
+>   9. **MFA dinonaktifkan**: *Actual* tidak tercatat di log saat proses Reset MFA dilakukan.
 > * **Expected**: Seluruh aktivitas MFA tercatat akurat dan sesuai dengan aksi nyata yang dilakukan user/admin.
 > * **Actual**: Sebagian aktivitas hilang dari log dan sebagian lainnya salah label / prematur.
 > * **Evidence**: [https://files.catbox.moe/u37vxx.png](https://files.catbox.moe/u37vxx.png)
@@ -450,6 +452,19 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Fitur Komentar Issue: [https://files.catbox.moe/gb0701.png](https://files.catbox.moe/gb0701.png)
 >   * Form Buat Re-Issue: [https://files.catbox.moe/hmsi9i.png](https://files.catbox.moe/hmsi9i.png)
 
+<br>
+
+### 🐞 [BUG] | Export Report Aktifitas Issue Tidak Tercatat di Riwayat dan Aktivitas Export
+
+> * **Menu**: Ticket Maintenance → Report Aktifitas Issue / Export Center
+> * **Deskripsi**: Aktivitas export data dari menu Report Aktifitas Issue tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
+> * **Expected**: Setiap kali user melakukan export data Report Aktifitas Issue, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
+> * **Actual**: Log export Report Aktifitas Issue tidak muncul di Riwayat Export maupun Aktivitas Export.
+> * **Evidence**:
+>   * Export Report Aktifitas Issue: [https://files.catbox.moe/en5wyo.png](https://files.catbox.moe/en5wyo.png)
+>   * Riwayat Export: [https://files.catbox.moe/tbg8zj.png](https://files.catbox.moe/tbg8zj.png)
+>   * Aktivitas Export: [https://files.catbox.moe/squkas.png](https://files.catbox.moe/squkas.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -474,6 +489,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 5. **Trigger Tipe Aktivitas "MFA diaktifkan" & "MFA dinonaktifkan" (Tab Log Aktivitas)**: Bagaimana flow atau skenario untuk memicu kedua tipe aktivitas ini?
    * **Update BA**: *"MFA diaktifkan"* terpicu saat user pertama kali mengaktifkan MFA (Email OTP maupun TOTP), sedangkan *"MFA dinonaktifkan"* terpicu saat melakukan Reset MFA.
+   * **Hasil Pengetesan**: Sudah ditest dan kedua tipe aktivitas tersebut belum tercatat ke log (sudah ditambahkan ke temuan bug No. 21).
 
 ---
 
@@ -575,3 +591,4 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2026-09-14 | Setting Absent - Attendance Spot | Temuan bug saran lokasi Google Maps tidak muncul saat mode layar penuh |
 | 2026-09-15 | Setting Absent (Work Pattern & Holiday) | Pengetesan selesai (Status Aman / Done) |
 | 2026-09-15 | Ticket Maintenance (Aktivitas Issue) | Temuan bug upload file bukti selalu gagal di seluruh form issue & penambahan catatan konfirmasi Dev/BA |
+| 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
