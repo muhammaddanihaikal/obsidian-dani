@@ -538,6 +538,19 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ---
 
+## 📱 Pengetesan Mobile App
+
+### 📍 Setting Absent - Work Pattern (Clock In)
+Pengujian fungsionalitas Clock In pada aplikasi mobile berdasarkan konfigurasi *Work Pattern*:
+* **Clock In Sebelum Jam Masuk**: Aman, status tercatat **Hadir / Tepat Waktu** (`PASS` ✅)
+* **Clock In Tepat Jam Masuk**: Aman (`PASS` ✅)
+* **Clock In Dalam Batas Toleransi**: Aman, toleransi berlaku dan status tercatat **Hadir** (`PASS` ✅)
+* **Clock In Lewat Batas Toleransi**: Aman, status tercatat **Hadir Telat** (`PASS` ✅)
+* **Clock In Terlalu Pagi**: Aman, tetap bisa absen dan tercatat **Hadir** (`PASS` ✅)
+* **Double Clock In**: Aman, tidak bisa absen ganda karena tombol otomatis berubah menjadi **Clock Out** (`PASS` ✅)
+
+---
+
 ## 📅 Sesi Testing
 
 | Tanggal | Menu yang Ditest | Catatan |
@@ -592,3 +605,4 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2026-09-15 | Setting Absent (Work Pattern & Holiday) | Pengetesan selesai (Status Aman / Done) |
 | 2026-09-15 | Ticket Maintenance (Aktivitas Issue) | Temuan bug upload file bukti selalu gagal di seluruh form issue & penambahan catatan konfirmasi Dev/BA |
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
+| 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
