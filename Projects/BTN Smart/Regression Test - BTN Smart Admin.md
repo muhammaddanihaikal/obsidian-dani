@@ -549,6 +549,14 @@ Pengujian fungsionalitas Clock In pada aplikasi mobile berdasarkan konfigurasi *
 * **Clock In Terlalu Pagi**: Aman, tetap bisa absen dan tercatat **Hadir** (`PASS` ✅)
 * **Double Clock In**: Aman, tidak bisa absen ganda karena tombol otomatis berubah menjadi **Clock Out** (`PASS` ✅)
 
+### 📍 Setting Absent - Work Pattern (Clock Out)
+Pengujian fungsionalitas Clock Out pada aplikasi mobile:
+*(Catatan: Status kehadiran ditentukan oleh Clock In, sedangkan Clock Out berfungsi mencatat jam kepulangan)*
+* **Clock Out Sebelum Jam Pulang**: Aman, jam kepulangan tercatat (`PASS` ✅)
+* **Clock Out Tepat / Setelah Jam Pulang**: Aman, jam kepulangan tercatat (`PASS` ✅)
+* **Clock Out Tanpa Clock In**: Aman, tidak bisa Clock Out sebelum Clock In (`PASS` ✅)
+* **Clock Out Lebih dari Sekali**: Aman, tidak bisa absen ganda karena tombol otomatis *disable* (`PASS` ✅)
+
 ---
 
 ## 📅 Sesi Testing
@@ -605,4 +613,4 @@ Pengujian fungsionalitas Clock In pada aplikasi mobile berdasarkan konfigurasi *
 | 2026-09-15 | Setting Absent (Work Pattern & Holiday) | Pengetesan selesai (Status Aman / Done) |
 | 2026-09-15 | Ticket Maintenance (Aktivitas Issue) | Temuan bug upload file bukti selalu gagal di seluruh form issue & penambahan catatan konfirmasi Dev/BA |
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
-| 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
+| 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
