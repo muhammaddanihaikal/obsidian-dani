@@ -417,25 +417,49 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ## ❓ Catatan Konfirmasi Dev / BA
 
+### 🔐 User Authority
+
+#### 👤 User
 1. **Role User AD**: Katanya User AD otomatis pakai role `'User Login'` tanpa pilihan role, tapi kenapa di form input masih ada pilihan dropdown role?
-2. **Hapus Role Dipakai User**: Katanya kalau role dihapus otomatis *fallback* ke `'User Login'`, tapi faktanya role user malah jadi kosong (blank) & akses menu lamanya masih aktif.
-3. **Hapus Tipe Karyawan**: Tipe karyawan yang masih dipakai role apakah boleh dihapus? (Sekarang bisa dihapus & kolom tipe karyawan di role jadi blank).
-4. **Login User AD**: Kenapa user AD gagal login (*password tidak valid*) padahal baru selesai aktivasi password via email?
-5. **Resend Link Non-AD**: Kenapa opsi *Resend Activation Link* muncul di user Non-AD? (Bukannya ini khusus user AD?).
-6. **Selisih Total Data User**: Kenapa total user di *Master User* (12.059 data) beda dengan di *Keamanan Akun - Daftar Akun* (12.030 data)? Ada selisih 29 data, apakah ada filter khusus?
+
+2. **Login User AD**: Kenapa user AD gagal login (*password tidak valid*) padahal baru selesai aktivasi password via email?
+
+3. **Resend Link Non-AD**: Kenapa opsi *Resend Activation Link* muncul di user Non-AD? (Bukannya ini khusus user AD?).
+
+#### 👥 Group Role
+4. **Hapus Role Dipakai User**: Katanya kalau role dihapus otomatis *fallback* ke `'User Login'`, tapi faktanya role user malah jadi kosong (blank) & akses menu lamanya masih aktif.
+
+#### 🏷️ Tipe Karyawan
+5. **Hapus Tipe Karyawan**: Tipe karyawan yang masih dipakai role apakah boleh dihapus? (Sekarang bisa dihapus & kolom tipe karyawan di role jadi blank).
+
+#### 🛡️ Keamanan Akun
+6. **Selisih Total Data User (Daftar Akun)**: Kenapa total user di *Master User* (12.059 data) beda dengan di *Keamanan Akun - Daftar Akun* (12.030 data)? Ada selisih 29 data, apakah ada filter khusus?
    * Evidence: [Keamanan Akun (12.030)](https://files.catbox.moe/wkvcqa.png) | [Master User (12.059)](https://files.catbox.moe/5z0oga.png)
-7. **Kolom Kode Outlet di Seluruh Tab Keamanan Akun**: Di semua tab menu Keamanan Akun terdapat kolom *Kode Outlet*. Apakah kolom ini memang perlu ditampilkan di tabel sesuai kebutuhan bisnis, atau redundan dengan kolom *Outlet*?
+
+7. **Kolom Kode Outlet di Seluruh Tab**: Di semua tab menu Keamanan Akun terdapat kolom *Kode Outlet*. Apakah kolom ini memang perlu ditampilkan di tabel sesuai kebutuhan bisnis, atau redundan dengan kolom *Outlet*?
    * Evidence: [Tab Daftar Akun](https://files.catbox.moe/rn2u2h.png) | [Tab Permintaan Reset MFA](https://files.catbox.moe/50rv0y.png) | [Tab Perangkat & Sesi](https://files.catbox.moe/bclinl.png)
+
 8. **Filter User Aktif & Perangkat Terpercaya (Tab Perangkat & Sesi)**: Tidak ada filter berdasarkan *User Aktif (Sesi Aktif)* maupun *Perangkat Terpercaya*, sehingga admin harus mencari manual satu per satu dari 869 data. Apakah perlu ditambahkan filter status tersebut? *(Serta kolom header kosong tanpa judul di samping kolom Perangkat apakah kolom yang tertinggal?)*
    * Evidence: [https://files.catbox.moe/bclinl.png](https://files.catbox.moe/bclinl.png)
-9. **Batas Waktu Idle Logout (Logout Karena Tidak Aktif)**: Berapa lama batas waktu (*idle session timeout*) untuk memicu aktivitas *Logout karena tidak aktif*? Saat ditest membiarkan web idle selama 23+ menit, sistem masih belum melakukan logout otomatis.
-10. **Trigger Tipe Aktivitas "MFA diaktifkan" & "MFA dinonaktifkan"**: Bagaimana flow atau skenario untuk memicu kedua tipe aktivitas ini? Apakah ada fitur khusus untuk turn off / turn on MFA, atau kedua label ini redundan dengan *"Mengaktifkan MFA"* dan *"Reset MFA"*?
-11. **Fungsi Opsi "Terdaftar di Kantor BTN" (Setting Absent - Attendance Spot)**: Pada form tambah titik absensi (*Add New Attendance Spot*), apa maksud dan dampak bisnis dari opsi checkbox *"Terdaftar di Kantor BTN"* beserta pilihan kantornya? Apakah semua karyawan yang terdaftar di kantor tersebut otomatis di-assign ke spot ini, atau ada aturan absensi lain?
+
+9. **Batas Waktu Idle Logout (Tab Log Aktivitas)**: Berapa lama batas waktu (*idle session timeout*) untuk memicu aktivitas *Logout karena tidak aktif*? Saat ditest membiarkan web idle selama 23+ menit, sistem masih belum melakukan logout otomatis.
+
+10. **Trigger Tipe Aktivitas "MFA diaktifkan" & "MFA dinonaktifkan" (Tab Log Aktivitas)**: Bagaimana flow atau skenario untuk memicu kedua tipe aktivitas ini? Apakah ada fitur khusus untuk turn off / turn on MFA, atau kedua label ini redundan dengan *"Mengaktifkan MFA"* dan *"Reset MFA"*?
+
+---
+
+### 📍 Setting Absent
+
+#### 📍 Attendance Spot
+11. **Fungsi Opsi "Terdaftar di Kantor BTN"**: Pada form tambah titik absensi (*Add New Attendance Spot*), apa maksud dan dampak bisnis dari opsi checkbox *"Terdaftar di Kantor BTN"* beserta pilihan kantornya? Apakah semua karyawan yang terdaftar di kantor tersebut otomatis di-assign ke spot ini, atau ada aturan absensi lain?
     * Evidence: [https://files.catbox.moe/p7oy0i.png](https://files.catbox.moe/p7oy0i.png)
-12. **Efek Holiday ke Absensi**: Apa efek data *Holiday* ke absensi karyawan? Apakah saat libur otomatis tidak wajib absen atau tombol absensinya nonaktif?
-    * Evidence: [https://files.catbox.moe/mvi97m.png](https://files.catbox.moe/mvi97m.png)
-13. **Hapus Attendance Spot Berisi Data**: Apakah titik absensi yang sudah ada data personelnya (misal: *1 Personnel*) boleh dihapus? Lalu apa dampaknya ke data karyawan tersebut?
+
+12. **Hapus Attendance Spot Berisi Data**: Apakah titik absensi yang sudah ada data personelnya (misal: *1 Personnel*) boleh dihapus? Lalu apa dampaknya ke data karyawan tersebut?
     * Evidence: [https://files.catbox.moe/5boo7d.png](https://files.catbox.moe/5boo7d.png)
+
+#### 📅 Holiday
+13. **Efek Holiday ke Absensi**: Apa efek data *Holiday* ke absensi karyawan? Apakah saat libur otomatis tidak wajib absen atau tombol absensinya nonaktif?
+    * Evidence: [https://files.catbox.moe/mvi97m.png](https://files.catbox.moe/mvi97m.png)
 
 ---
 
