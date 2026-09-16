@@ -594,6 +594,18 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Pengaturan Filter pada Drawer Approval Absent: [https://files.catbox.moe/gzfc59.png](https://files.catbox.moe/gzfc59.png)
 >   * Pesan Error Validasi saat Klik Filter: [https://files.catbox.moe/jjmn4h.png](https://files.catbox.moe/jjmn4h.png)
 
+<br>
+
+### 🐞 [BUG] | Export Approval Absent Tidak Masuk Drawer Maupun Riwayat dan Aktivitas Export
+
+> * **Menu**: Menu Absent → Approval Absent / Export Center
+> * **Deskripsi**: Setelah user melakukan export data pada halaman Approval Absent, file hasil export tidak muncul di drawer samping (*Download Export*) serta tidak tercatat di menu *Riwayat Export* maupun *Aktivitas Export*.
+> * **Expected**: File export Approval Absent otomatis muncul di drawer samping (*Download Export*) dan riwayatnya tercatat di *Export Center* (*Riwayat Export* & *Aktivitas Export*).
+> * **Actual**: File export Approval Absent tidak muncul di drawer *Download Export* serta tidak tercatat di *Riwayat Export* maupun *Aktivitas Export*.
+> * **Evidence**:
+>   * Tombol Export Data pada Approval Absent: [https://files.catbox.moe/r620vg.png](https://files.catbox.moe/r620vg.png)
+>   * Drawer Download Export (Tidak Muncul): [https://files.catbox.moe/ix3l29.png](https://files.catbox.moe/ix3l29.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -779,4 +791,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-15 | Ticket Maintenance (Aktivitas Issue) | Temuan bug upload file bukti selalu gagal di seluruh form issue & penambahan catatan konfirmasi Dev/BA |
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
-| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug status Alpha prematur di Rekap Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, bug Fake GPS lolos, bug error validasi filter Daily Absent (role ids / Job role array), & catatan selisih total data 3 menu (Dashboard: 353 vs Daily: 383 vs Rekap: 11.203), & bug kalkulasi Total Hadir Dashboard Absent hitung Waiting Approval, & catatan selisih data Work Pattern vs Master User (11.179 vs 12.088), & bug error validasi filter Approval Absent (role ids array) |
+| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug status Alpha prematur di Rekap Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, bug Fake GPS lolos, bug error validasi filter Daily Absent (role ids / Job role array), & catatan selisih total data 3 menu (Dashboard: 353 vs Daily: 383 vs Rekap: 11.203), & bug kalkulasi Total Hadir Dashboard Absent hitung Waiting Approval, & catatan selisih data Work Pattern vs Master User (11.179 vs 12.088), & bug error validasi filter Approval Absent (role ids array), & bug export Approval Absent tidak tercatat di drawer/Export Center |
