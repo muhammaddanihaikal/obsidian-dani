@@ -453,6 +453,19 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
+### 🐞 [BUG] | Ketiadaan Deteksi Mock Location (Fake GPS) pada Fitur Absensi Mobile
+
+> * **Menu**: Setting Absent → Attendance Spot / Mobile App (Absensi)
+> * **Deskripsi**: Aplikasi mobile BTN Smart tidak memvalidasi atau mendeteksi penggunaan lokasi tiruan (*Mock Location / Fake GPS*). Sistem membaca koordinat palsu dari aplikasi pihak ketiga dan tetap mengizinkan user melakukan absensi (*Clock In / Clock Out*) hingga lokasi palsu tersebut tersimpan di Web Admin (*Daily Absent*). Hal ini membuka celah kecurangan (*fraud*) kehadiran bagi karyawan.
+> * **Expected**: Aplikasi wajib mendeteksi jika perangkat menggunakan *Mock Location / Fake GPS*, memunculkan pesan peringatan (*"Lokasi tiruan/palsu terdeteksi"*), dan memblokir proses absensi.
+> * **Actual**: Aplikasi menerima koordinat dari Fake GPS tanpa proteksi apapun dan proses absensi berhasil dilakukan.
+> * **Evidence**:
+>   * Set Lokasi di Aplikasi Fake GPS: [https://files.catbox.moe/j7kor4.jpg](https://files.catbox.moe/j7kor4.jpg)
+>   * Titik Palsu Terbaca di BTN Smart Mobile: [https://files.catbox.moe/adpqxe.jpg](https://files.catbox.moe/adpqxe.jpg)
+>   * Absensi Lokasi Palsu Tersimpan di Web Admin: [https://files.catbox.moe/qq70mx.png](https://files.catbox.moe/qq70mx.png)
+
+<br>
+
 ### 🐞 [BUG] | Gagal Upload File Bukti pada Form Buat, Edit, Komentar, dan Re-Issue
 
 > * **Menu**: Ticket Maintenance → Aktivitas Issue (Aktivitas Pelaporan Issue)
@@ -639,6 +652,16 @@ Pengujian fungsionalitas Clock Out pada aplikasi mobile:
 * **Clock Out Tanpa Clock In**: Aman, tidak bisa Clock Out sebelum Clock In (`PASS` ✅)
 * **Clock Out Lebih dari Sekali**: Aman, tidak bisa absen ganda karena tombol otomatis *disable* (`PASS` ✅)
 
+### 📍 Setting Absent - Attendance Spot (Radius & Sensor)
+Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
+* **Clock In di Dalam Radius**: Aman, absensi berhasil tercatat (*Location within range* 🔵) (`PASS` ✅)
+* **Clock Out di Dalam Radius**: Aman, absensi pulang berhasil tercatat (`PASS` ✅)
+* **Clock In di Luar Radius**: Aman, berhasil absen dan otomatis masuk ke menu *Approval Absent* (*Location out of reach* 🟡) (`PASS` ✅)
+* **Clock Out di Luar Radius**: Aman, absensi kepulangan berhasil tercatat (`PASS` ✅)
+* **Izin Lokasi (Permission) Dinonaktifkan**: Aman, aplikasi memunculkan dialog permintaan izin akses lokasi (`PASS` ✅)
+* **GPS HP Dinonaktifkan**: Aman, aplikasi meminta user menyalakan GPS dan tombol absen terkunci (`PASS` ✅)
+* **Uji Fake GPS (Mock Location)**: Celah bug, sistem tidak mendeteksi lokasi tiruan sehingga absensi tetap lolos (*FAIL* ❌ - Tercatat di Daftar Bug)
+
 ---
 
 ## 📅 Sesi Testing
@@ -696,4 +719,4 @@ Pengujian fungsionalitas Clock Out pada aplikasi mobile:
 | 2026-09-15 | Ticket Maintenance (Aktivitas Issue) | Temuan bug upload file bukti selalu gagal di seluruh form issue & penambahan catatan konfirmasi Dev/BA |
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
-| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug timezone mobile, bug user non-aktif bisa absen spot, bug label filter hilang, & bug approval reset-approve tidak mengubah status Daily Absent |
+| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug timezone mobile, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, & bug ketiadaan deteksi Fake GPS mobile |
