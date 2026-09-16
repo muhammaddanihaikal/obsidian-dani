@@ -51,7 +51,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 45 | Menu Absent | Dashboard Absent | Gaza | ⬜ Belum |
 | 46 | Menu Absent | Daily Absent | Gaza | 🐛 Bug |
 | 47 | Menu Absent | Rekap Absent | Gaza | 🐛 Bug |
-| 48 | Menu Absent | Approval Absent | Gaza | ⬜ Belum |
+| 48 | Menu Absent | Approval Absent | Gaza | 🐛 Bug |
 | 49 | Sales Tracking Activity | Dashboard Visit | Gaza | ⬜ Belum |
 | 50 | Sales Tracking Activity | Client Visit List | Gaza | ⬜ Belum |
 | 51 | Sales Tracking Activity | Rekap Visit | Gaza | ⬜ Belum |
@@ -523,6 +523,25 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Jam Clock In dan Clock Out yang tercatat di tabel Daily Absent berubah mengikuti zona waktu HP (tercatat `11:08` sesuai jam HP WITA).
 > * **Evidence**: [https://files.catbox.moe/v089zv.png](https://files.catbox.moe/v089zv.png)
 
+<br>
+
+### 🐞 [BUG] | Status Absensi di Daily Absent Tidak Berubah Menjadi Hadir Setelah Dilakukan Reset dan Approve
+
+> * **Menu**: Menu Absent → Approval Absent / Daily Absent
+> * **Deskripsi**: Status absensi di Daily Absent tetap tersangkut "Tidak Hadir" setelah pengajuan absensi yang sempat ditolak di-reset lalu disetujui (Approved) kembali.
+> * **Langkah Reproduksi**:
+>   1. Lakukan Clock In di luar radius pada aplikasi mobile (data absensi otomatis masuk ke menu *Approval Absent*).
+>   2. Buka menu *Approval Absent*, lalu tolak (**Reject**) pengajuan absensi tersebut (status di *Daily Absent* berubah menjadi "Tidak Hadir").
+>   3. Klik icon **Reset** pada baris absensi tersebut sehingga opsi pilihan tombol Approve dan Reject muncul kembali.
+>   4. Klik tombol **Approve** (status pada *Approval Absent* berubah menjadi "Approved").
+>   5. Buka menu *Daily Absent* dan cek status kehadiran user tersebut.
+> * **Expected**: Status kehadiran user di menu *Daily Absent* otomatis tersinkronisasi dan berubah kembali menjadi **Hadir**.
+> * **Actual**: Status di *Daily Absent* tidak berubah dan tetap tersangkut sebagai **Tidak Hadir**.
+> * **Evidence**:
+>   * Aksi Approval Absent: [https://files.catbox.moe/jfzf7j.png](https://files.catbox.moe/jfzf7j.png)
+>   * Status Approved pada Approval Absent: [https://files.catbox.moe/9rx1tj.png](https://files.catbox.moe/9rx1tj.png)
+>   * Status di Daily Absent Tetap "Tidak Hadir": [https://files.catbox.moe/sllrfx.png](https://files.catbox.moe/sllrfx.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -677,4 +696,4 @@ Pengujian fungsionalitas Clock Out pada aplikasi mobile:
 | 2026-09-15 | Ticket Maintenance (Aktivitas Issue) | Temuan bug upload file bukti selalu gagal di seluruh form issue & penambahan catatan konfirmasi Dev/BA |
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
-| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug timezone mobile, bug user non-aktif bisa absen spot, & bug label filter hilang |
+| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug timezone mobile, bug user non-aktif bisa absen spot, bug label filter hilang, & bug approval reset-approve tidak mengubah status Daily Absent |
