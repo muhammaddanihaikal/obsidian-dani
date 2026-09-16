@@ -48,7 +48,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 42 | Lead Qualification | Aktifitas | Gaza | ⬜ Belum |
 | 43 | Lead Qualification | Aktifitas Referal | Gaza | ⬜ Belum |
 | 44 | List Prospek ETB | - | Fito | ⬜ Belum |
-| 45 | Menu Absent | Dashboard Absent | Gaza | ⬜ Belum |
+| 45 | Menu Absent | Dashboard Absent | Gaza | 🐛 Bug |
 | 46 | Menu Absent | Daily Absent | Gaza | 🐛 Bug |
 | 47 | Menu Absent | Rekap Absent | Gaza | 🐛 Bug |
 | 48 | Menu Absent | Approval Absent | Gaza | 🐛 Bug |
@@ -555,6 +555,33 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Kolom tanggal hari ini (16 September 2026) sudah langsung terisi status "A" (Alpha) di siang hari meskipun jam kerja masih berjalan.
 > * **Evidence**: [https://files.catbox.moe/tkw0mk.png](https://files.catbox.moe/tkw0mk.png)
 
+<br>
+
+### 🐞 [BUG] | Error Validasi "role ids harus berupa array." Saat Melakukan Filter pada Daily Absent
+
+> * **Menu**: Menu Absent → Daily Absent (Filter Data)
+> * **Deskripsi**: Saat user membuka drawer filter di halaman Daily Absent lalu menekan tombol **Filter** (dengan pilihan filter default seperti Job Role *"Semua Role"* dan Sales *"Semua"*), sistem gagal memuat data dan memunculkan dua pesan error notifikasi validasi: *"role ids harus berupa array."* dan *"Job role harus berupa array."*. Akibatnya, proses filter tidak dapat dijalankan dan tabel tidak menampilkan data absensi (*0 dari 0 data*).
+> * **Expected**: Sistem berhasil memproses request filter dan menampilkan data absensi sesuai parameter pencarian tanpa kendala validasi.
+> * **Actual**: Muncul dua notifikasi error validasi:
+>   - *"role ids harus berupa array."*
+>   - *"Job role harus berupa array."*
+>   Tabel absensi tidak menampilkan data (*0 dari 0 data / No data*).
+> * **Evidence**:
+>   * Pengaturan Filter pada Drawer Daily Absent: [https://files.catbox.moe/j16s94.png](https://files.catbox.moe/j16s94.png)
+>   * Pesan Error Validasi saat Klik Filter: [https://files.catbox.moe/xrko3x.png](https://files.catbox.moe/xrko3x.png)
+
+<br>
+
+### 🐞 [BUG] | Total Hadir pada Dashboard Absent Mengikutsertakan Status Waiting Approval
+
+> * **Menu**: Menu Absent → Dashboard Absent
+> * **Deskripsi**: Kalkulasi "Total Hadir" pada kartu wilayah di Dashboard Absent masih menghitung user berstatus "Waiting Approval" sebagai hadir, sehingga data tidak akurat (misal: Kanwil Jakarta I menampilkan Total Hadir 8, padahal terdiri dari 5 Present dan 3 Waiting Approval).
+> * **Expected**: "Total Hadir" hanya menghitung user yang sudah valid berstatus Hadir (*Present*), tidak mengikutsertakan user yang masih *Waiting Approval*.
+> * **Actual**: Status "Waiting Approval" ikut terhitung ke dalam "Total Hadir" (tercatat 8 hadir dari 5 Present + 3 Waiting Approval).
+> * **Evidence**:
+>   * Total Hadir pada Kartu Kantor Wilayah Jakarta I: [https://files.catbox.moe/ft9bb2.png](https://files.catbox.moe/ft9bb2.png)
+>   * Rincian Status pada Modal Detail (5 Present & 3 Waiting Approval): [https://files.catbox.moe/iigyo6.png](https://files.catbox.moe/iigyo6.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -630,6 +657,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 14. **Pemisahan Menu "Aktivitas Issue" vs "Report Aktifitas Issue"**: Tampilan data di menu *Report* sama dengan *Aktivitas*, bedanya hanya ada fitur *Search* dan *Export*. Apakah kedua menu ini memang sengaja dipisahkan?
     * Evidence: [https://files.catbox.moe/m0dreu.png](https://files.catbox.moe/m0dreu.png)
     * **Update BA**: Ya, memang sengaja dipisahkan sesuai permintaan/kebutuhan client.
+
+---
+
+### 🕒 Menu Absent
+
+#### 📊 Inkonsistensi Total Data User/Sales Antar Menu (Dashboard vs Daily vs Rekap Absent)
+15. **Selisih Total Data User/Sales Antar 3 Menu (Dashboard vs Daily vs Rekap Absent)**: Kenapa total data sales/user pada ketiga menu di bawah modul *Menu Absent* saling berbeda dan tidak sinkron?
+    * **Dashboard Absent**: Menampilkan total **353** Sales (*Total Kehadiran Pegawai*).
+    * **Daily Absent**: Menampilkan total **383** Sales (tab *Semua Sales*). Terdapat selisih 30 data dibanding Dashboard.
+    * **Rekap Absent**: Menampilkan total **11.203** data sales/user. Terdapat selisih lebih dari 10.800 data dibanding Dashboard & Daily.
+    * **Pertanyaan**: Apa parameter/kriteria filter atau query yang membedakan ketiga menu ini sehingga jumlah total datanya sangat berbeda jauh? Apakah Dashboard & Daily hanya mengambil sales yang memiliki jadwal work pattern / assignment titik absensi aktif, sementara Rekap mengambil seluruh master user, atau ada logic filter tertentu yang belum terstandarisasi?
+    * Evidence:
+      * [Dashboard Absent (353 Sales)](https://files.catbox.moe/bz0t0y.png)
+      * [Daily Absent (383 Sales)](https://files.catbox.moe/2gzx5s.png)
+      * [Rekap Absent (11.203 data)](https://files.catbox.moe/jsr3g0.png)
+    * *Status: Belum ditanyakan ke BA.*
 
 ---
 
@@ -719,4 +762,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-15 | Ticket Maintenance (Aktivitas Issue) | Temuan bug upload file bukti selalu gagal di seluruh form issue & penambahan catatan konfirmasi Dev/BA |
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
-| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug status Alpha prematur di Rekap Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, & bug Fake GPS lolos |
+| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug status Alpha prematur di Rekap Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, bug Fake GPS lolos, bug error validasi filter Daily Absent (role ids / Job role array), & catatan selisih total data 3 menu (Dashboard: 353 vs Daily: 383 vs Rekap: 11.203), & bug kalkulasi Total Hadir Dashboard Absent hitung Waiting Approval |
