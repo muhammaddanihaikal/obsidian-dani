@@ -49,8 +49,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 43 | Lead Qualification | Aktifitas Referal | Gaza | ⬜ Belum |
 | 44 | List Prospek ETB | - | Fito | ⬜ Belum |
 | 45 | Menu Absent | Dashboard Absent | Gaza | ⬜ Belum |
-| 46 | Menu Absent | Daily Absent | Gaza | ⬜ Belum |
-| 47 | Menu Absent | Rekap Absent | Gaza | ⬜ Belum |
+| 46 | Menu Absent | Daily Absent | Gaza | 🐛 Bug |
+| 47 | Menu Absent | Rekap Absent | Gaza | 🐛 Bug |
 | 48 | Menu Absent | Approval Absent | Gaza | ⬜ Belum |
 | 49 | Sales Tracking Activity | Dashboard Visit | Gaza | ⬜ Belum |
 | 50 | Sales Tracking Activity | Client Visit List | Gaza | ⬜ Belum |
@@ -465,6 +465,31 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Riwayat Export: [https://files.catbox.moe/tbg8zj.png](https://files.catbox.moe/tbg8zj.png)
 >   * Aktivitas Export: [https://files.catbox.moe/squkas.png](https://files.catbox.moe/squkas.png)
 
+<br>
+
+### 🐞 [BUG] | Export Rekap Absent Tidak Tercatat di Riwayat dan Aktivitas Export
+
+> * **Menu**: Menu Absent → Rekap Absent / Export Center
+> * **Deskripsi**: Aktivitas export data dari menu Rekap Absent tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
+> * **Expected**: Setiap kali user melakukan export data Rekap Absent, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
+> * **Actual**: Log export Rekap Absent tidak muncul di Riwayat Export maupun Aktivitas Export.
+> * **Evidence**:
+>   * Export Rekap Absent: [https://files.catbox.moe/h1ys4k.png](https://files.catbox.moe/h1ys4k.png)
+>   * Riwayat Export: [https://files.catbox.moe/tbg8zj.png](https://files.catbox.moe/tbg8zj.png)
+>   * Aktivitas Export: [https://files.catbox.moe/squkas.png](https://files.catbox.moe/squkas.png)
+
+<br>
+
+### 🐞 [BUG] | Export Daily Absent Tidak Muncul di Drawer Download Export
+
+> * **Menu**: Menu Absent → Daily Absent
+> * **Deskripsi**: Setelah user melakukan export data pada halaman Daily Absent, file hasil export sudah masuk ke menu Riwayat Export & Aktivitas Export, namun tidak muncul pada panel/drawer samping kanan (**Download Export**).
+> * **Expected**: File export Daily Absent otomatis muncul di drawer samping kanan (**Download Export**) agar user bisa langsung mengunduh file tanpa harus berpindah ke menu Export Center.
+> * **Actual**: File export Daily Absent tidak muncul di dalam drawer Download Export (drawer hanya menampilkan file dari menu lain seperti Rekap Absent).
+> * **Evidence**:
+>   * Tombol Export Daily Absent: [https://files.catbox.moe/04x3md.png](https://files.catbox.moe/04x3md.png)
+>   * Drawer Download Export (Tidak Muncul): [https://files.catbox.moe/cea0us.png](https://files.catbox.moe/cea0us.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -538,7 +563,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 #### 📊 Report Aktivitas Issue
 14. **Pemisahan Menu "Aktivitas Issue" vs "Report Aktifitas Issue"**: Tampilan data di menu *Report* sama dengan *Aktivitas*, bedanya hanya ada fitur *Search* dan *Export*. Apakah kedua menu ini memang sengaja dipisahkan?
     * Evidence: [https://files.catbox.moe/m0dreu.png](https://files.catbox.moe/m0dreu.png)
-    * *Status: Belum ditanyakan ke BA.*
+    * **Update BA**: Ya, memang sengaja dipisahkan sesuai permintaan/kebutuhan client.
 
 ---
 
@@ -618,3 +643,4 @@ Pengujian fungsionalitas Clock Out pada aplikasi mobile:
 | 2026-09-15 | Ticket Maintenance (Aktivitas Issue) | Temuan bug upload file bukti selalu gagal di seluruh form issue & penambahan catatan konfirmasi Dev/BA |
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
+| 2026-09-16 | Menu Absent (Rekap & Daily Absent) | Temuan bug export Rekap Absent tidak tercatat di Export Center & Daily Absent tidak muncul di drawer export |
