@@ -528,16 +528,6 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Jam Absensi Clock In dan Clock Out Mengikuti Perubahan Zona Waktu HP
-
-> * **Menu**: Menu Absent → Daily Absent / Mobile App (Absensi)
-> * **Deskripsi**: Jam Clock In dan Clock Out yang tercatat pada sistem terpengaruh oleh perubahan zona waktu pada perangkat HP user. Saat zona waktu HP diubah (contoh ke WITA / GMT+8), jam absensi yang tersimpan di Daily Absent ikut bergeser menjadi jam WITA (tercatat pukul `11:08`), padahal kantor penempatan user berada di wilayah Jakarta (WIB / GMT+7 yang saat itu masih pukul `10:08`).
-> * **Expected**: Jam absensi (Clock In & Clock Out) wajib selalu terkunci dan terkonversi sesuai zona waktu kantor penempatan karyawan (misal KC Jakarta Pusat wajib selalu tercatat dalam WIB / UTC+7), serta tidak boleh terpengaruh oleh setelan zona waktu di HP user.
-> * **Actual**: Jam Clock In dan Clock Out yang tercatat di tabel Daily Absent berubah mengikuti zona waktu HP (tercatat `11:08` sesuai jam HP WITA).
-> * **Evidence**: [https://files.catbox.moe/v089zv.png](https://files.catbox.moe/v089zv.png)
-
-<br>
-
 ### 🐞 [BUG] | Status Absensi di Daily Absent Tidak Berubah Menjadi Hadir Setelah Dilakukan Reset dan Approve
 
 > * **Menu**: Menu Absent → Approval Absent / Daily Absent
@@ -602,7 +592,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 #### ⏰ Waktu Absensi & Zona Waktu Perangkat (Client-side Time)
 9. **Jam Absensi Mengikuti Jam / Zona Waktu HP**: Saat zona waktu HP diubah ke **WITA/WIT**, jam Clock In dan Clock Out yang tercatat di sistem ikut membaca jam di HP (bukan waktu server/kantor penempatan). Apakah jam absensi memang didesain membaca waktu lokal perangkat, atau seharusnya terkunci ke waktu server/kantor untuk mencegah manipulasi jam kerja?
    * Evidence: [https://files.catbox.moe/v089zv.png](https://files.catbox.moe/v089zv.png)
-   * *Status: Sudah dicatat sebagai temuan bug & menunggu konfirmasi Dev/BA.*
+   * **Update BA**: Aman / By design (jam absensi memang membaca dan mengikuti zona waktu lokal pada perangkat HP user).
 
 ---
 
@@ -719,4 +709,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-15 | Ticket Maintenance (Aktivitas Issue) | Temuan bug upload file bukti selalu gagal di seluruh form issue & penambahan catatan konfirmasi Dev/BA |
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
-| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug timezone mobile, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, & bug ketiadaan deteksi Fake GPS mobile |
+| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, & bug ketiadaan deteksi Fake GPS mobile |
