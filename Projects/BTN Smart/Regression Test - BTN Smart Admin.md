@@ -582,6 +582,18 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Total Hadir pada Kartu Kantor Wilayah Jakarta I: [https://files.catbox.moe/ft9bb2.png](https://files.catbox.moe/ft9bb2.png)
 >   * Rincian Status pada Modal Detail (5 Present & 3 Waiting Approval): [https://files.catbox.moe/iigyo6.png](https://files.catbox.moe/iigyo6.png)
 
+<br>
+
+### 🐞 [BUG] | Error Validasi "role ids harus berupa array." Saat Melakukan Filter pada Approval Absent
+
+> * **Menu**: Menu Absent → Approval Absent (Filter Data)
+> * **Deskripsi**: Saat user membuka drawer filter di halaman Approval Absent lalu menekan tombol **Filter**, sistem memunculkan dua pesan error notifikasi validasi: *"role ids harus berupa array."*, sehingga proses filter gagal dan data tidak dapat dimuat.
+> * **Expected**: Sistem berhasil memproses filter data absensi approval sesuai parameter yang dipilih tanpa muncul error validasi.
+> * **Actual**: Muncul notifikasi error validasi *"role ids harus berupa array."* dan tabel tidak menampilkan data (*0 dari 0 data / No data*).
+> * **Evidence**:
+>   * Pengaturan Filter pada Drawer Approval Absent: [https://files.catbox.moe/gzfc59.png](https://files.catbox.moe/gzfc59.png)
+>   * Pesan Error Validasi saat Klik Filter: [https://files.catbox.moe/jjmn4h.png](https://files.catbox.moe/jjmn4h.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -767,4 +779,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-15 | Ticket Maintenance (Aktivitas Issue) | Temuan bug upload file bukti selalu gagal di seluruh form issue & penambahan catatan konfirmasi Dev/BA |
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
-| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug status Alpha prematur di Rekap Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, bug Fake GPS lolos, bug error validasi filter Daily Absent (role ids / Job role array), & catatan selisih total data 3 menu (Dashboard: 353 vs Daily: 383 vs Rekap: 11.203), & bug kalkulasi Total Hadir Dashboard Absent hitung Waiting Approval, & catatan selisih data Work Pattern vs Master User (11.179 vs 12.088) |
+| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug status Alpha prematur di Rekap Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, bug Fake GPS lolos, bug error validasi filter Daily Absent (role ids / Job role array), & catatan selisih total data 3 menu (Dashboard: 353 vs Daily: 383 vs Rekap: 11.203), & bug kalkulasi Total Hadir Dashboard Absent hitung Waiting Approval, & catatan selisih data Work Pattern vs Master User (11.179 vs 12.088), & bug error validasi filter Approval Absent (role ids array) |
