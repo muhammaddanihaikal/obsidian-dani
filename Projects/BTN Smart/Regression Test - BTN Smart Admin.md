@@ -490,6 +490,16 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Tombol Export Daily Absent: [https://files.catbox.moe/04x3md.png](https://files.catbox.moe/04x3md.png)
 >   * Drawer Download Export (Tidak Muncul): [https://files.catbox.moe/cea0us.png](https://files.catbox.moe/cea0us.png)
 
+<br>
+
+### 🐞 [BUG] | Jam Absensi Clock In dan Clock Out Mengikuti Perubahan Zona Waktu HP
+
+> * **Menu**: Menu Absent → Daily Absent / Mobile App (Absensi)
+> * **Deskripsi**: Jam Clock In dan Clock Out yang tercatat pada sistem terpengaruh oleh perubahan zona waktu pada perangkat HP user. Saat zona waktu HP diubah (contoh ke WITA / GMT+8), jam absensi yang tersimpan di Daily Absent ikut bergeser menjadi jam WITA (tercatat pukul `11:08`), padahal kantor penempatan user berada di wilayah Jakarta (WIB / GMT+7 yang saat itu masih pukul `10:08`).
+> * **Expected**: Jam absensi (Clock In & Clock Out) wajib selalu terkunci dan terkonversi sesuai zona waktu kantor penempatan karyawan (misal KC Jakarta Pusat wajib selalu tercatat dalam WIB / UTC+7), serta tidak boleh terpengaruh oleh setelan zona waktu di HP user.
+> * **Actual**: Jam Clock In dan Clock Out yang tercatat di tabel Daily Absent berubah mengikuti zona waktu HP (tercatat `11:08` sesuai jam HP WITA).
+> * **Evidence**: [https://files.catbox.moe/v089zv.png](https://files.catbox.moe/v089zv.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -535,8 +545,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
    * **Update BA**: Otomatis libur (status absensi karyawan otomatis tercatat libur).
 
 #### ⏰ Waktu Absensi & Zona Waktu Perangkat (Client-side Time)
-9. **Jam Absensi Mengikuti Jam / Zona Waktu HP**: Saat zona waktu HP diubah ke **WIT (GMT+9)**, jam Clock In dan Clock Out yang tercatat di sistem ikut membaca jam di HP (bukan waktu server/kantor). Apakah jam absensi memang didesain membaca waktu lokal perangkat, atau seharusnya terkunci ke waktu server untuk mencegah manipulasi jam kerja?
-   * *Status: Belum ditanyakan ke BA/Dev.*
+9. **Jam Absensi Mengikuti Jam / Zona Waktu HP**: Saat zona waktu HP diubah ke **WITA/WIT**, jam Clock In dan Clock Out yang tercatat di sistem ikut membaca jam di HP (bukan waktu server/kantor penempatan). Apakah jam absensi memang didesain membaca waktu lokal perangkat, atau seharusnya terkunci ke waktu server/kantor untuk mencegah manipulasi jam kerja?
+   * Evidence: [https://files.catbox.moe/v089zv.png](https://files.catbox.moe/v089zv.png)
+   * *Status: Sudah dicatat sebagai temuan bug & menunggu konfirmasi Dev/BA.*
 
 ---
 
@@ -643,4 +654,4 @@ Pengujian fungsionalitas Clock Out pada aplikasi mobile:
 | 2026-09-15 | Ticket Maintenance (Aktivitas Issue) | Temuan bug upload file bukti selalu gagal di seluruh form issue & penambahan catatan konfirmasi Dev/BA |
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
-| 2026-09-16 | Menu Absent (Rekap & Daily Absent) | Temuan bug export Rekap Absent tidak tercatat di Export Center & Daily Absent tidak muncul di drawer export |
+| 2026-09-16 | Menu Absent (Rekap, Daily Absent & Mobile) | Temuan bug export Rekap & Daily Absent, serta temuan bug jam absensi mobile mengikuti timezone HP |
