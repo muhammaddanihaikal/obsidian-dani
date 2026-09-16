@@ -631,6 +631,11 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
    * Evidence: [https://files.catbox.moe/v089zv.png](https://files.catbox.moe/v089zv.png)
    * **Update BA**: Aman / By design (jam absensi memang membaca dan mengikuti zona waktu lokal pada perangkat HP user).
 
+#### ⏱️ Work Pattern
+16. **Selisih Total Data Personnel (Work Pattern vs Master User)**: Kenapa total data pada *Setting Work Pattern Personnel* (11.179 data) berbeda dengan total *Master User* (12.088 data)? Terdapat selisih 909 user. Apakah Setting Work Pattern Personnel sengaja mengecualikan role tertentu (misal: user admin non-sales, user non-aktif), atau ada query filter khusus yang membedakannya?
+    * Evidence: [Work Pattern Personnel (11.179 data)](https://files.catbox.moe/3qdwmc.png) | [Master User (12.088 data)](https://files.catbox.moe/76ic6h.png)
+    * *Status: Belum ditanyakan ke BA.*
+
 ---
 
 ### 🎫 Ticket Maintenance
@@ -762,4 +767,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-15 | Ticket Maintenance (Aktivitas Issue) | Temuan bug upload file bukti selalu gagal di seluruh form issue & penambahan catatan konfirmasi Dev/BA |
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
-| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug status Alpha prematur di Rekap Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, bug Fake GPS lolos, bug error validasi filter Daily Absent (role ids / Job role array), & catatan selisih total data 3 menu (Dashboard: 353 vs Daily: 383 vs Rekap: 11.203), & bug kalkulasi Total Hadir Dashboard Absent hitung Waiting Approval |
+| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug status Alpha prematur di Rekap Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, bug Fake GPS lolos, bug error validasi filter Daily Absent (role ids / Job role array), & catatan selisih total data 3 menu (Dashboard: 353 vs Daily: 383 vs Rekap: 11.203), & bug kalkulasi Total Hadir Dashboard Absent hitung Waiting Approval, & catatan selisih data Work Pattern vs Master User (11.179 vs 12.088) |
