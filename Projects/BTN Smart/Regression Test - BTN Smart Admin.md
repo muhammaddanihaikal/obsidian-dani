@@ -440,6 +440,19 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
+### 🐞 [BUG] | User Belum Di-set ke Attendance Spot Tetap Bisa Melakukan Clock In dan Clock Out
+
+> * **Menu**: Setting Absent → Attendance Spot / Mobile App (Absensi)
+> * **Deskripsi**: User dengan status penugasan titik absensi **"Tidak Aktif"** (*Setting Attendance Spot Personnel*) tetap dapat melakukan Clock In dan Clock Out secara bebas melalui aplikasi mobile. Sesuai aturan bisnis (*business logic*) dari BA, syarat mutlak agar karyawan dapat melakukan absensi adalah akun wajib sudah terikat aktif pada *Work Pattern* **dan** *Attendance Spot*.
+> * **Expected**: Tombol Clock In pada aplikasi mobile dinonaktifkan (*disable*) atau memunculkan pesan peringatan bahwa user belum memiliki titik absensi aktif.
+> * **Actual**: Tombol Clock In dan Clock Out tetap aktif normal dan absensi berhasil dilakukan meskipun status user pada titik absensi masih "Tidak Aktif".
+> * **Evidence**:
+>   * Status User Tidak Aktif di Web Admin: [https://files.catbox.moe/y1vk4t.png](https://files.catbox.moe/y1vk4t.png)
+>   * Tombol Clock In Tetap Aktif di Mobile: [https://files.catbox.moe/3lyqj1.jpg](https://files.catbox.moe/3lyqj1.jpg)
+>   * Berhasil Absen & Tombol Clock Out Muncul: [https://files.catbox.moe/h67vka.jpg](https://files.catbox.moe/h67vka.jpg)
+
+<br>
+
 ### 🐞 [BUG] | Gagal Upload File Bukti pada Form Buat, Edit, Komentar, dan Re-Issue
 
 > * **Menu**: Ticket Maintenance → Aktivitas Issue (Aktivitas Pelaporan Issue)
@@ -464,6 +477,16 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Export Report Aktifitas Issue: [https://files.catbox.moe/en5wyo.png](https://files.catbox.moe/en5wyo.png)
 >   * Riwayat Export: [https://files.catbox.moe/tbg8zj.png](https://files.catbox.moe/tbg8zj.png)
 >   * Aktivitas Export: [https://files.catbox.moe/squkas.png](https://files.catbox.moe/squkas.png)
+
+<br>
+
+### 🐞 [BUG] | Field Dropdown Filter Tidak Memiliki Label "* Tipe"
+
+> * **Menu**: Ticket Maintenance → Aktivitas Issue (Filter Data)
+> * **Deskripsi**: Pada komponen filter di halaman Aktivitas Pelaporan Issue (tab Filter 1), field dropdown filter pertama tidak memiliki label penunjuk di atasnya (area label kosong/blank), yang mana seharusnya memiliki label **"\* Tipe"**.
+> * **Expected**: Muncul label teks penunjuk yang jelas di atas komponen dropdown, yaitu **"\* Tipe"**, agar user memahami konteks filter yang dipilih.
+> * **Actual**: Area label di atas field dropdown kosong/hilang sama sekali (*blank label*).
+> * **Evidence**: [https://files.catbox.moe/yzme6j.png](https://files.catbox.moe/yzme6j.png)
 
 <br>
 
@@ -535,9 +558,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
    * Evidence: [https://files.catbox.moe/p7oy0i.png](https://files.catbox.moe/p7oy0i.png)
    * **Update BA**: Untuk menandai bahwa titik absensi (*Attendance Spot*) tersebut adalah kantor BTN, sehingga sistem mengetahui jika sales melakukan absensi di kantor.
 
-7. **Hapus Attendance Spot Berisi Data**: Apakah titik absensi yang sudah memiliki data personel (misal: *1 Personnel*) boleh dihapus?
+7. **Hapus Attendance Spot Berisi Data & Dampaknya ke Personel**: Apakah titik absensi yang sudah memiliki data personel (misal: *1 Personnel*) boleh dihapus?
    * Evidence: [https://files.catbox.moe/5boo7d.png](https://files.catbox.moe/5boo7d.png)
-   * **Update BA**: Boleh dihapus.
+   * **Update BA**: Boleh dihapus. Personel yang sebelumnya terikat ke spot tersebut otomatis diubah statusnya menjadi belum di-set ke attendance spot manapun (*unassigned*).
 
 #### 📅 Holiday
 8. **Efek Holiday ke Absensi**: Apa efek data *Holiday* ke absensi karyawan?
@@ -560,7 +583,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 11. **Opsi Hapus Data Kategori**: Apakah data pada tabel *List Kategori* memang tidak bisa dihapus (tidak ada tombol/fitur delete)?
     * Evidence: [https://files.catbox.moe/ab1df8.png](https://files.catbox.moe/ab1df8.png)
-    * *Status: Belum ditanyakan ke BA.*
+    * **Update BA**: Ya, memang didesain tidak ada fitur/tombol delete untuk kategori aktivitas issue (*by design*).
 
 #### 📋 Aktivitas Issue
 12. **Peran Solver & Hak Ubah Status Issue**: Apa peran utama dari *Solver* dan siapa saja yang berhak mengubah status issue?
@@ -654,4 +677,4 @@ Pengujian fungsionalitas Clock Out pada aplikasi mobile:
 | 2026-09-15 | Ticket Maintenance (Aktivitas Issue) | Temuan bug upload file bukti selalu gagal di seluruh form issue & penambahan catatan konfirmasi Dev/BA |
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
-| 2026-09-16 | Menu Absent (Rekap, Daily Absent & Mobile) | Temuan bug export Rekap & Daily Absent, serta temuan bug jam absensi mobile mengikuti timezone HP |
+| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug timezone mobile, bug user non-aktif bisa absen spot, & bug label filter hilang |
