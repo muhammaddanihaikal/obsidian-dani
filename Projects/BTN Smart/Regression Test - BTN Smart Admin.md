@@ -545,6 +545,16 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Status Approved pada Approval Absent: [https://files.catbox.moe/9rx1tj.png](https://files.catbox.moe/9rx1tj.png)
 >   * Status di Daily Absent Tetap "Tidak Hadir": [https://files.catbox.moe/sllrfx.png](https://files.catbox.moe/sllrfx.png)
 
+<br>
+
+### 🐞 [BUG] | Status Kehadiran di Rekap Absent Prematur Menjadi Alpha Padahal Hari Masih Berjalan
+
+> * **Menu**: Menu Absent → Rekap Absent
+> * **Deskripsi**: Status absensi karyawan pada tabel *Rekap Absent* sudah otomatis terisi "A" (Alpha / Tidak Hadir) pada tanggal hari ini yang masih berjalan, padahal karyawan belum tentu absen dan hari kerja belum selesai (status Alpha seharusnya baru di-update otomatis oleh sistem pada jam 24:00 malam jika karyawan benar-benar tidak Clock In hingga akhir hari).
+> * **Expected**: Kolom tanggal yang sedang berjalan tetap kosong (*blank*) selama jam kerja berlangsung, dan baru ter-update otomatis menjadi "A" pada pergantian hari (pukul 24:00 / 00:00) jika tidak ada aktivitas absensi.
+> * **Actual**: Kolom tanggal hari ini (16 September 2026) sudah langsung terisi status "A" (Alpha) di siang hari meskipun jam kerja masih berjalan.
+> * **Evidence**: [https://files.catbox.moe/tkw0mk.png](https://files.catbox.moe/tkw0mk.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -709,4 +719,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-15 | Ticket Maintenance (Aktivitas Issue) | Temuan bug upload file bukti selalu gagal di seluruh form issue & penambahan catatan konfirmasi Dev/BA |
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
-| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, & bug ketiadaan deteksi Fake GPS mobile |
+| 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug status Alpha prematur di Rekap Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, & bug Fake GPS lolos |
