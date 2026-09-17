@@ -5,6 +5,7 @@ tags:
   - QA
   - BTN-Smart
 date: 2026-09-17
+updated: 2026-09-17
 project: BTN Smart
 type: project-note
 ---
@@ -23,9 +24,12 @@ type: project-note
 | **Folder Project** | `d:\Project\BTN\SIT\` |
 | **Excel Test Case** | `d:\Project\BTN\SIT\Test Case.xlsx` |
 | **Template Word** | `d:\Project\BTN\SIT\Form Script - Skenario SIT BTN SMART Upgrade Server.docx` |
-| **Output Web** | `d:\Project\BTN\SIT\Document SIT BTN Smart\Web\` |
-| **Output Mobile** | `d:\Project\BTN\SIT\Document SIT BTN Smart\Mobile\` |
-| **Script Generator** | `C:\Users\acer\.gemini\antigravity\brain\44771ef4-6d15-4766-8b2b-419e6887641c\scratch\generate_all_sit.py` |
+| **Output Web (merged)** | `d:\Project\BTN\SIT\Document SIT BTN Smart\SIT BTN SMART Web.docx` |
+| **Output Mobile (merged)** | `d:\Project\BTN\SIT\Document SIT BTN Smart\SIT BTN SMART Mobile.docx` |
+| **Output Web (per modul)** | `d:\Project\BTN\SIT\Document SIT BTN Smart\Web\` |
+| **Output Mobile (per modul)** | `d:\Project\BTN\SIT\Document SIT BTN Smart\Mobile\` |
+| **Script per modul** | `generate_all_sit.py` |
+| **Script merged** | `generate_merged_sit.py` |
 
 ---
 
@@ -83,9 +87,22 @@ type: project-note
 
 ## ✅ Status Generate
 
-- [x] Folder `Document SIT BTN Smart/Web/` — 20 file `.docx`
-- [x] Folder `Document SIT BTN Smart/Mobile/` — 12 file `.docx`
-- [ ] Penggabungan menjadi 1 file per platform *(jika dibutuhkan)*
+- [x] Folder `Document SIT BTN Smart/Web/` — 20 file `.docx` (per modul)
+- [x] Folder `Document SIT BTN Smart/Mobile/` — 12 file `.docx` (per modul)
+- [x] `SIT BTN SMART Web.docx` — 1 file merged (1.027 TC, 20 modul)
+- [x] `SIT BTN SMART Mobile.docx` — 1 file merged (173 TC, 12 modul)
+
+---
+
+## 📝 Aturan Pengisian Kolom (Merged & Per Modul)
+
+| Kolom | Isi |
+|-------|-----|
+| **Scenario** | Diambil dari kolom **Steps** di Excel |
+| **Expected Result** | Diambil dari kolom **Expected Results** di Excel |
+| **Actual Result** | Sama dengan Expected, tiap baris dipastikan diawali **"Berhasil"**, jumlah baris sama |
+| **Test Status** | **P** (Passed) — untuk semua baris |
+| **Remarks** | Kosong |
 
 ---
 
@@ -96,4 +113,4 @@ type: project-note
 
 ---
 
-*Dibuat: 2026-09-17 | PIC: Dani*
+*Dibuat: 2026-09-17 | Update terakhir: 2026-09-17 | PIC: Dani*
