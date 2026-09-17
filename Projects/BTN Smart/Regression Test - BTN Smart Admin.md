@@ -702,16 +702,17 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🕒 Menu Absent
 
 #### 📊 Inkonsistensi Total Data User/Sales Antar Menu (Dashboard vs Daily vs Rekap Absent)
-15. **Selisih Total Data User/Sales Antar 3 Menu (Dashboard vs Daily vs Rekap Absent)**: Kenapa total data sales/user pada ketiga menu di bawah modul *Menu Absent* saling berbeda dan tidak sinkron?
+15. **Selisih Total Data User/Sales Antar Menu Absensi**: Berdasarkan ekspektasi, total data user pada absensi (*Daily Absent* & *Approval Absent*) seharusnya sesuai dan mengacu pada list yang ada di **Master User (12.088 data)**:
     * **Dashboard Absent**: Menampilkan total **353** Sales (*Total Kehadiran Pegawai*).
     * **Daily Absent**: Menampilkan total **383** Sales (tab *Semua Sales*). Terdapat selisih 30 data dibanding Dashboard.
     * **Rekap Absent**: Menampilkan total **11.203** data sales/user. Terdapat selisih lebih dari 10.800 data dibanding Dashboard & Daily.
-    * **Pertanyaan**: Apa parameter/kriteria filter atau query yang membedakan ketiga menu ini sehingga jumlah total datanya sangat berbeda jauh? Apakah Dashboard & Daily hanya mengambil sales yang memiliki jadwal work pattern / assignment titik absensi aktif, sementara Rekap mengambil seluruh master user, atau ada logic filter tertentu yang belum terstandarisasi?
+    * **Kendala Testing (Blocked)**: Saat ini pengetesan data secara menyeluruh untuk menu **Daily Absent** dan **Approval Absent** mengalami **blocking** akibat bug validasi pada panel/drawer filter (*"role ids harus berupa array."*), sehingga QA belum dapat memverifikasi query data keseluruhan sampai issue filter diperbaiki oleh tim Dev.
     * Evidence:
       * [Dashboard Absent (353 Sales)](https://files.catbox.moe/bz0t0y.png)
       * [Daily Absent (383 Sales)](https://files.catbox.moe/2gzx5s.png)
       * [Rekap Absent (11.203 data)](https://files.catbox.moe/jsr3g0.png)
-    * *Status: Belum ditanyakan ke BA.*
+      * [Master User (12.088 data)](https://files.catbox.moe/76ic6h.png)
+    * *Status: Belum ditanyakan ke BA / Menunggu bug filter di-resolve Dev.*
 
 ---
 
@@ -802,3 +803,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
 | 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug status Alpha prematur di Rekap Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, bug Fake GPS lolos, bug error validasi filter Daily Absent (role ids / Job role array), & catatan selisih total data 3 menu (Dashboard: 353 vs Daily: 383 vs Rekap: 11.203), & bug kalkulasi Total Hadir Dashboard Absent hitung Waiting Approval, & catatan selisih data Work Pattern vs Master User (11.179 vs 12.088), & bug error validasi filter Approval Absent (role ids array), & bug export Approval Absent tidak tercatat di drawer/Export Center, & bug tombol navigasi tanggal Approval Absent (<< dan >>) tidak berfungsi |
+| 2026-09-17 | Menu Absent (Daily Absent & Approval Absent) | Pengetesan data keseluruhan ter-block (kendala bug error filter drawer), ekspektasi data absensi mengacu ke Master User (12.088 data) |
