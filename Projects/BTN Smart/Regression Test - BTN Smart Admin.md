@@ -109,11 +109,28 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ---
 
+## 📌 Status Input Issue ke Huly
+
+| No | Modul / Sub Menu | Total Bug | Status Huly | Rincian Issue |
+|----|------------------|-----------|-------------|---------------|
+| 1 | **Login** | 3 | ✅ Reported (3/3) | Seluruh issue Login selesai di-input |
+| 2 | **Profile** | 1 | ✅ Reported (1/1) | Seluruh issue Profile selesai di-input |
+| 3 | **Ticket Maintenance** | 3 | ✅ Reported (3/3) | Seluruh issue Ticket Maintenance selesai di-input |
+| 4 | User Authority | 21 | ⏳ Pending (0/21) | User (6), Group Role (3), Tipe Karyawan (1), Keamanan Akun (11) |
+| 5 | Setting Absent | 3 | ⏳ Pending (0/3) | Attendance Spot (2), Work Pattern (1) |
+| 6 | Mobile App | 1 | ⏳ Pending (0/1) | Absensi Fake GPS (1) |
+| 7 | Menu Absent | 10 | ⏳ Pending (0/10) | Rekap (2), Daily (2), Approval (4), Dashboard (1), Total Selisih (1) |
+| 8 | Profile Nasabah & Sales | 2 | ⏳ Pending (0/2) | Sales (2) |
+| **Total** | | **44** | **7 Reported / 37 Pending** | |
+
+---
+
 ## 🐛 Bug Report / Isu Temuan
 
 ### 🐞 [BUG] | Login: Beberapa Menu Masih Bisa Diakses Tanpa Setup 2FA
 
 > * **Menu**: Login
+> * **Status Huly**: ✅ Reported
 > * **Deskripsi**: User yang belum setup 2FA masih bisa mengakses beberapa menu tertentu.
 > * **Expected**: Semua menu — termasuk tab di Pengaturan Profile (Biodata Diri, Ganti Kata Sandi, Notifikasi) — tidak bisa dibuka dan wajib mental/redirect ke halaman Pengaturan Profile → Keamanan sebelum 2FA aktif.
 > * **Actual**: Hanya sebagian menu yang redirect, sisanya masih bisa dibuka bebas.
@@ -121,9 +138,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Login: Bypass Cooldown OTP Saat Melakukan Login Ulang
+### 🐞 [BUG] | Profile: Bypass Cooldown Kirim Ulang OTP Saat Modal Ditutup dan Dibuka Kembali
 
-> * **Menu**: Login
+> * **Menu**: Profile
+> * **Status Huly**: ✅ Reported
 > * **Deskripsi**: Timer cooldown kirim ulang OTP ter-reset jika modal pop-up ditutup (tombol X) lalu diklik/dibuka kembali.
 > * **Expected**: Cooldown tetap berjalan sesuai durasi waktu. User tidak bisa spam/kirim kode baru sebelum timer cooldown benar-benar habis, meskipun modal ditutup-buka.
 > * **Actual**: Menutup dan membuka kembali modal memicu pengiriman kode baru dan me-reset timer cooldown.
@@ -131,9 +149,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Login: Inkonsistensi Judul Header pada Halaman Kode Pemulihan
+### 🐞 [BUG] | Login: Bypass Cooldown OTP Saat Melakukan Login Ulang
 
 > * **Menu**: Login
+> * **Status Huly**: ✅ Reported
 > * **Deskripsi**: User bisa memicu kirim kode OTP baru dengan login ulang meski timer cooldown sebelumnya (2 menit) masih berjalan.
 > * **Expected**: Cooldown OTP tersimpan di sisi backend sehingga login ulang tidak bisa kirim OTP baru sebelum waktu cooldown habis.
 > * **Actual**: Login ulang langsung mengirimkan OTP baru dan me-reset timer cooldown.
@@ -141,9 +160,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Profile: Bypass Cooldown Kirim Ulang OTP Saat Modal Ditutup dan Dibuka Kembali
+### 🐞 [BUG] | Login: Inkonsistensi Judul Header pada Halaman Kode Pemulihan
 
-> * **Menu**: Profile
+> * **Menu**: Login
+> * **Status Huly**: ✅ Reported
 > * **Deskripsi**: Judul header halaman masih menampilkan teks "Verifikasi OTP" saat user berada di form input kode pemulihan.
 > * **Expected**: Judul header disesuaikan dengan konteks halaman menjadi **"Verifikasi Kode Pemulihan"**.
 > * **Actual**: Judul header masih tertulis "Verifikasi OTP".
@@ -466,6 +486,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Ticket Maintenance - Aktivitas: Gagal Upload File Bukti pada Form Buat, Edit, Komentar, dan Re-Issue
 
 > * **Menu**: Ticket Maintenance → Aktivitas
+> * **Status Huly**: ✅ Reported
 > * **Deskripsi**: Fitur upload file bukti screenshot / lampiran selalu mengalami kegagalan (indikator bar merah "Gagal") pada seluruh fitur pelaporan issue (Buat Issue, Edit Issue, Komentar Issue, dan Re-Issue).
 > * **Expected**: File gambar / lampiran berhasil terunggah (progress bar sukses) dan tersimpan bersama tiket issue.
 > * **Actual**: Upload file selalu gagal (*status bar merah "Gagal"*) di seluruh form (Buat Issue, Edit Issue, Komentar Issue, dan Re-Issue).
@@ -480,6 +501,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Ticket Maintenance - Report: Export Report Aktifitas Issue Tidak Tercatat di Riwayat dan Aktivitas Export
 
 > * **Menu**: Ticket Maintenance → Report
+> * **Status Huly**: ✅ Reported
 > * **Deskripsi**: Aktivitas export data dari menu Report Aktifitas Issue tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
 > * **Expected**: Setiap kali user melakukan export data Report Aktifitas Issue, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
 > * **Actual**: Log export Report Aktifitas Issue tidak muncul di Riwayat Export maupun Aktivitas Export.
@@ -493,6 +515,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Ticket Maintenance - Aktivitas: Field Dropdown Filter Tidak Memiliki Label "* Tipe"
 
 > * **Menu**: Ticket Maintenance → Aktivitas
+> * **Status Huly**: ✅ Reported
 > * **Deskripsi**: Pada komponen filter di halaman Aktivitas Pelaporan Issue (tab Filter 1), field dropdown filter pertama tidak memiliki label penunjuk di atasnya (area label kosong/blank), yang mana seharusnya memiliki label **"\* Tipe"**.
 > * **Expected**: Muncul label teks penunjuk yang jelas di atas komponen dropdown, yaitu **"\* Tipe"**, agar user memahami konteks filter yang dipilih.
 > * **Actual**: Area label di atas field dropdown kosong/hilang sama sekali (*blank label*).
