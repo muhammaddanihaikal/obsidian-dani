@@ -113,7 +113,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Beberapa Menu Masih Bisa Diakses Tanpa Setup 2FA
 
-> * **Menu**: Autentikasi / Keamanan Akun
+> * **Menu**: Autentikasi → Setup 2FA
 > * **Deskripsi**: User yang belum setup 2FA masih bisa mengakses beberapa menu tertentu.
 > * **Expected**: Semua menu — termasuk tab di Pengaturan Profile (Biodata Diri, Ganti Kata Sandi, Notifikasi) — tidak bisa dibuka dan wajib mental/redirect ke halaman Pengaturan Profile → Keamanan sebelum 2FA aktif.
 > * **Actual**: Hanya sebagian menu yang redirect, sisanya masih bisa dibuka bebas.
@@ -123,7 +123,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Bypass Cooldown Kirim Ulang OTP Saat Modal Ditutup dan Dibuka Kembali
 
-> * **Menu**: Pengaturan Profile → Keamanan (Setup Email OTP / TOTP)
+> * **Menu**: Pengaturan Profile → Keamanan
 > * **Deskripsi**: Timer cooldown kirim ulang OTP ter-reset jika modal pop-up ditutup (tombol X) lalu diklik/dibuka kembali.
 > * **Expected**: Cooldown tetap berjalan sesuai durasi waktu. User tidak bisa spam/kirim kode baru sebelum timer cooldown benar-benar habis, meskipun modal ditutup-buka.
 > * **Actual**: Menutup dan membuka kembali modal memicu pengiriman kode baru dan me-reset timer cooldown.
@@ -133,7 +133,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Bypass Cooldown OTP Saat Melakukan Login Ulang
 
-> * **Menu**: Autentikasi / Verifikasi Email OTP dan TOTP
+> * **Menu**: Autentikasi → Verifikasi OTP
 > * **Deskripsi**: User bisa memicu kirim kode OTP baru dengan login ulang meski timer cooldown sebelumnya (2 menit) masih berjalan.
 > * **Expected**: Cooldown OTP tersimpan di sisi backend sehingga login ulang tidak bisa kirim OTP baru sebelum waktu cooldown habis.
 > * **Actual**: Login ulang langsung mengirimkan OTP baru dan me-reset timer cooldown.
@@ -143,7 +143,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Inkonsistensi Judul Header pada Halaman Kode Pemulihan
 
-> * **Menu**: Autentikasi / Kode Pemulihan
+> * **Menu**: Autentikasi → Kode Pemulihan
 > * **Deskripsi**: Judul header halaman masih menampilkan teks "Verifikasi OTP" saat user berada di form input kode pemulihan.
 > * **Expected**: Judul header disesuaikan dengan konteks halaman menjadi **"Verifikasi Kode Pemulihan"**.
 > * **Actual**: Judul header masih tertulis "Verifikasi OTP".
@@ -167,7 +167,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Urutan Sorting Hasil Export Excel Tidak Sesuai Web
 
-> * **Menu**: User Authority → User (Export Data)
+> * **Menu**: User Authority → User
 > * **Deskripsi**: Urutan data pada file Excel hasil export berbeda dengan urutan yang tampil di tabel web (data di Excel tersortir alfabet A-Z).
 > * **Expected**: Urutan data pada file Excel hasil export konsisten mengikuti urutan sorting tampilan web.
 > * **Actual**: Data pada file Excel diurutkan berdasarkan abjad A-Z nama user, tidak sesuai dengan urutan web.
@@ -179,7 +179,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Export User Tidak Tercatat di Riwayat dan Aktivitas Export
 
-> * **Menu**: User Authority → User / Export Center
+> * **Menu**: User Authority → User
 > * **Deskripsi**: Aktivitas export data dari Master User tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
 > * **Expected**: Setiap kali user melakukan export data Master User, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
 > * **Actual**: Log export Master User tidak muncul di kedua menu Export Center tersebut.
@@ -211,7 +211,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | User AD Gagal Login Setelah Aktivasi Password via Link Email
 
-> * **Menu**: User Authority → User / Authentication (Login Employee AD)
+> * **Menu**: User Authority → User
 > * **Deskripsi**: User baru bertipe **AD** yang sudah berhasil membuat password melalui link email tetap tidak bisa login pada tab Employee (*"Username atau password AD tidak valid!"*).
 > * **Expected**: Setelah user AD selesai membuat password via email aktivasi, user dapat langsung login di tab Employee dengan kredensial tersebut.
 > * **Actual**: Muncul pesan error *"Username atau password AD tidak valid!"* meskipun password baru saja dibuat.
@@ -249,7 +249,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Export Group Role Tidak Tercatat di Riwayat dan Aktivitas Export
 
-> * **Menu**: User Authority → Group Role / Export Center
+> * **Menu**: User Authority → Group Role
 > * **Deskripsi**: Aktivitas export data dari daftar Group Role tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
 > * **Expected**: Setiap kali user melakukan export data Group Role, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
 > * **Actual**: Log export Group Role tidak muncul di kedua menu Export Center tersebut.
@@ -259,7 +259,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Role yang Masih Digunakan User Bisa Dihapus
 
-> * **Menu**: User Authority → Group Role / User
+> * **Menu**: User Authority → Group Role
 > * **Catatan**: *Menunggu konfirmasi tim/dev terkait flow bisnis saat role dihapus.*
 > * **Deskripsi**: Sistem mengizinkan penghapusan Group Role yang masih aktif digunakan oleh user. Akibatnya, kolom Job Role pada user menjadi kosong (blank), namun user tersebut masih bisa mengakses modul menu sesuai role lamanya.
 > * **Expected**: Sistem memblokir penghapusan role jika masih terdapat user yang terhubung (*"Role tidak dapat dihapus karena masih digunakan oleh user"*), atau mewajibkan re-assign user terlebih dahulu.
@@ -293,7 +293,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Tipe Karyawan yang Digunakan Role Bisa Dihapus
 
-> * **Menu**: User Authority → Tipe Karyawan / Group Role
+> * **Menu**: User Authority → Tipe Karyawan
 > * **Catatan**: *Menunggu konfirmasi tim/dev terkait aturan bisnis saat master tipe karyawan dihapus.*
 > * **Deskripsi**: Sistem mengizinkan penghapusan Tipe Karyawan yang masih aktif terikat dengan Group Role. Akibatnya, kolom Tipe Karyawan pada tabel Group Role yang terkait menjadi kosong (blank).
 > * **Expected**: Sistem memblokir penghapusan tipe karyawan jika masih digunakan oleh Group Role (*"Tipe karyawan tidak dapat dihapus karena masih digunakan oleh role"*), atau mewajibkan re-assign terlebih dahulu.
@@ -306,7 +306,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Fitur Search Tab Daftar Akun Hanya Berfungsi untuk Kolom Nama Pengguna
 
-> * **Menu**: User Authority → Keamanan Akun (Tab Daftar Akun)
+> * **Menu**: User Authority → Keamanan Akun → Tab Daftar Akun
 > * **Deskripsi**: Kolom pencarian pada tab Daftar Akun hanya membaca dan memfilter data berdasarkan kolom **Nama Pengguna**. Pencarian menggunakan nilai kolom lain (seperti Email, Kantor Wilayah, Kantor Cabang, Outlet, Job Title, dll) belum berfungsi.
 > * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tab Daftar Akun.
 > * **Actual**: Pencarian hanya merespons kata kunci dari kolom Nama Pengguna, sedangkan kolom lainnya diabaikan (*tidak terfilter*).
@@ -316,7 +316,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Fitur Search Tab Permintaan Reset MFA Hanya Berfungsi untuk Kolom Pengguna dan Alasan
 
-> * **Menu**: User Authority → Keamanan Akun (Tab Permintaan Reset MFA)
+> * **Menu**: User Authority → Keamanan Akun → Tab Permintaan Reset MFA
 > * **Deskripsi**: Kolom pencarian pada tab Permintaan Reset MFA hanya membaca dan memfilter data berdasarkan kolom **Pengguna** dan **Alasan**. Pencarian kata kunci dari kolom lain (seperti Kantor Wilayah, Kantor Cabang, Outlet, Kode Outlet, Job Title, dll) belum berfungsi.
 > * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tabel Permintaan Reset MFA.
 > * **Actual**: Pencarian hanya merespons kata kunci dari kolom Pengguna dan Alasan, sedangkan kolom lainnya diabaikan (*tidak terfilter*).
@@ -326,7 +326,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Multi-Select Filter Kolom Status Tidak Berfungsi
 
-> * **Menu**: User Authority → Keamanan Akun (Tab Permintaan Reset MFA)
+> * **Menu**: User Authority → Keamanan Akun → Tab Permintaan Reset MFA
 > * **Deskripsi**: Filter kolom Status menyediakan pilihan *multi-select* (*checkbox*). Namun saat memilih lebih dari satu status (contoh: mencentang **Ditolak** dan **Pending**), sistem hanya menampilkan data status teratas yang dipilih (**Ditolak**), sedangkan data **Pending** tidak ikut ditampilkan.
 > * **Expected**: Filter mendukung *multi-select*, sehingga saat mencentang *Ditolak* dan *Pending*, data dengan kedua status tersebut muncul bersamaan di tabel.
 > * **Actual**: Sistem hanya memfilter salah satu status (*Ditolak*), data dengan status *Pending* diabaikan.
@@ -336,7 +336,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Export Tab Daftar Akun Tidak Tercatat di Riwayat dan Aktivitas Export
 
-> * **Menu**: User Authority → Keamanan Akun (Tab Daftar Akun) / Export Center
+> * **Menu**: User Authority → Keamanan Akun → Tab Daftar Akun
 > * **Deskripsi**: Aktivitas export data pada tab Daftar Akun tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
 > * **Expected**: Setiap kali user melakukan export data tab Daftar Akun, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
 > * **Actual**: Log export tab Daftar Akun tidak muncul di kedua menu Export Center tersebut.
@@ -346,7 +346,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Multi-Select Filter Kolom Status MFA dan Metode MFA Tidak Berfungsi
 
-> * **Menu**: User Authority → Keamanan Akun (Tab Daftar Akun)
+> * **Menu**: User Authority → Keamanan Akun → Tab Daftar Akun
 > * **Deskripsi**: Filter kolom **Status MFA** dan **Metode MFA** menyediakan opsi *multi-select* (*checkbox*). Namun saat memilih lebih dari satu opsi (contoh: mencentang *Aktif* & *Tidak Aktif*, atau *Email* & *TOTP*), sistem hanya menampilkan data opsi teratas (*Aktif* saja, atau *Email* saja), sedangkan opsi kedua diabaikan.
 > * **Expected**: Filter mendukung *multi-select*, sehingga seluruh opsi yang dicentang muncul bersamaan di tabel.
 > * **Actual**: Sistem hanya memfilter opsi teratas (*Aktif* pada Status MFA, *Email* pada Metode MFA), data dari opsi lainnya tidak muncul di tabel.
@@ -358,7 +358,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Export Tab Perangkat & Sesi Tidak Masuk Drawer Maupun Riwayat & Aktivitas Export
 
-> * **Menu**: User Authority → Keamanan Akun (Tab Perangkat & Sesi) / Export Center
+> * **Menu**: User Authority → Keamanan Akun → Tab Perangkat & Sesi
 > * **Deskripsi**: Setelah menekan tombol **Export Data** pada tab Perangkat & Sesi, file export tidak muncul di dalam drawer *Download Export* serta tidak tercatat di menu `Export Center → Riwayat Export` maupun `Aktivitas Export`.
 > * **Expected**: Saat klik Export Data, antrean/file download langsung masuk ke drawer *Download Export* dan tercatat pada menu *Export Center*.
 > * **Actual**: File export tidak muncul di drawer *Download Export* dan aktivitas export tidak tercatat sama sekali di Export Center.
@@ -370,7 +370,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Fitur Search Tab Perangkat & Sesi Hanya Berfungsi untuk Kolom Tertentu
 
-> * **Menu**: User Authority → Keamanan Akun (Tab Perangkat & Sesi)
+> * **Menu**: User Authority → Keamanan Akun → Tab Perangkat & Sesi
 > * **Deskripsi**: Kolom pencarian pada tab Perangkat & Sesi hanya membaca dan memfilter data berdasarkan kolom **Pengguna**, **Perangkat**, **IP Address**, dan **Lokasi**. Pencarian kata kunci dari kolom lain (seperti Kantor Wilayah, Kantor Cabang, Outlet, Kode Outlet, dan Job Title) belum berfungsi.
 > * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tabel Perangkat & Sesi.
 > * **Actual**: Pencarian hanya merespons kata kunci dari 4 kolom tersebut, sedangkan kolom kantor dan job title diabaikan (*tidak terfilter*).
@@ -380,7 +380,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Fitur Search Tab Log Aktivitas Tidak Berfungsi untuk Kolom Tanggal/Waktu dan Status
 
-> * **Menu**: User Authority → Keamanan Akun (Tab Log Aktivitas)
+> * **Menu**: User Authority → Keamanan Akun → Tab Log Aktivitas
 > * **Deskripsi**: Fitur pencarian pada tab Log Aktivitas sudah dapat memfilter sebagian besar kolom (Pengguna, Kantor, Job Title, Aktivitas, IP). Namun pencarian menggunakan kata kunci dari kolom **Tanggal/Waktu** dan **Status** belum berfungsi (*data tidak terfilter*).
 > * **Expected**: Field search dapat memfilter data secara menyeluruh termasuk berdasarkan tanggal/waktu (misal: *"12 September 2026"*) dan status (misal: *"Sukses"* atau *"Gagal"*).
 > * **Actual**: Pencarian dengan kata kunci dari kolom Tanggal/Waktu dan Status diabaikan sehingga data tidak terfilter.
@@ -390,7 +390,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Beberapa Tipe Aktivitas MFA Tidak Tercatat atau Keliru di Tab Log Aktivitas
 
-> * **Menu**: User Authority → Keamanan Akun (Tab Log Aktivitas)
+> * **Menu**: User Authority → Keamanan Akun → Tab Log Aktivitas
 > * **Deskripsi**: Terdapat inkonsistensi pencatatan log audit di mana beberapa event MFA tidak tercatat sama sekali atau keliru labelnya:
 >   1. **Verifikasi MFA Berhasil (OTP)**: *Actual* malah tercatat *"Login berhasil tanpa verifikasi MFA"*.
 >   2. **Verifikasi MFA dengan Kode Cadangan**: *Actual* malah tercatat *"Login berhasil tanpa verifikasi MFA"*.
@@ -409,7 +409,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Seluruh Tipe Aktivitas Kategori Perangkat & Sesi Tidak Tercatat di Tab Log Aktivitas
 
-> * **Menu**: User Authority → Keamanan Akun (Tab Log Aktivitas)
+> * **Menu**: User Authority → Keamanan Akun → Tab Log Aktivitas
 > * **Deskripsi**: Ketika user atau admin melakukan aksi seputar manajemen perangkat dan sesi, sistem tidak mencatat aktivitas tersebut ke dalam tabel Log Aktivitas:
 >   1. **Mempercayai Perangkat**: Tidak masuk ke log setelah login dengan opsi percaya perangkat.
 >   2. **Menghapus Perangkat Terpercaya**: Tidak masuk ke log saat perangkat dihapus.
@@ -422,9 +422,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
+### 🐞 [BUG] | Selisih Total Pengguna pada Menu Keamanan Akun dengan Master User
+
+> * **Menu**: User Authority → Keamanan Akun → Tab Daftar Akun
+> * **Deskripsi**: Total pengguna pada kartu metrik *"Total Pengguna"* dan tabel *"Daftar Akun"* di halaman Keamanan Akun hanya menampilkan 12.060 data, berbeda dengan data user yang berjumlah 12.088 data (selisih 28 user tidak tampil).
+> * **Expected**: Total pengguna pada kartu metrik dan tabel Daftar Akun sinkron dan sesuai dengan data user (12.088 data).
+> * **Actual**: Hanya menampilkan 12.060 data (selisih 28 user tidak terdata di Keamanan Akun).
+> * **Evidence**:
+>   * Master User (12.088 data): [https://files.catbox.moe/zuukfu.png](https://files.catbox.moe/zuukfu.png)
+>   * Keamanan Akun - Card & Tabel (12.060 data): [https://files.catbox.moe/q166bt.png](https://files.catbox.moe/q166bt.png)
+
+<br>
+
 ### 🐞 [BUG] | Saran Lokasi Google Maps Tidak Muncul Saat Mode Layar Penuh pada Form Tambah & Edit
 
-> * **Menu**: Setting Absent → Attendance Spot (Add & Edit Attendance Spot)
+> * **Menu**: Setting Absent → Attendance Spot
 > * **Deskripsi**: Fitur pencarian lokasi pada peta Google Maps tidak memunculkan *dropdown* rekomendasi/autocomplete lokasi ketika peta dibuka dalam mode layar penuh (*fullscreen map*), baik pada form Tambah (*Add New Attendance Spot*) maupun form Edit (*Edit Attendance Spot*), setelah sebelumnya melakukan pengubahan nilai radius.
 > * **Langkah Reproduksi**:
 >   1. Masuk ke menu Setting Absent → Attendance Spot, lalu buka form **Add New Location** atau **Edit Location**.
@@ -442,7 +454,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | User Belum Di-set ke Attendance Spot Tetap Bisa Melakukan Clock In dan Clock Out
 
-> * **Menu**: Setting Absent → Attendance Spot / Mobile App (Absensi)
+> * **Menu**: Setting Absent → Attendance Spot
 > * **Deskripsi**: User dengan status penugasan titik absensi **"Tidak Aktif"** (*Setting Attendance Spot Personnel*) tetap dapat melakukan Clock In dan Clock Out secara bebas melalui aplikasi mobile. Sesuai aturan bisnis (*business logic*) dari BA, syarat mutlak agar karyawan dapat melakukan absensi adalah akun wajib sudah terikat aktif pada *Work Pattern* **dan** *Attendance Spot*.
 > * **Expected**: Tombol Clock In pada aplikasi mobile dinonaktifkan (*disable*) atau memunculkan pesan peringatan bahwa user belum memiliki titik absensi aktif.
 > * **Actual**: Tombol Clock In dan Clock Out tetap aktif normal dan absensi berhasil dilakukan meskipun status user pada titik absensi masih "Tidak Aktif".
@@ -455,7 +467,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Ketiadaan Deteksi Mock Location (Fake GPS) pada Fitur Absensi Mobile
 
-> * **Menu**: Setting Absent → Attendance Spot / Mobile App (Absensi)
+> * **Menu**: Mobile App → Absensi
 > * **Deskripsi**: Aplikasi mobile BTN Smart tidak memvalidasi atau mendeteksi penggunaan lokasi tiruan (*Mock Location / Fake GPS*). Sistem membaca koordinat palsu dari aplikasi pihak ketiga dan tetap mengizinkan user melakukan absensi (*Clock In / Clock Out*) hingga lokasi palsu tersebut tersimpan di Web Admin (*Daily Absent*). Hal ini membuka celah kecurangan (*fraud*) kehadiran bagi karyawan.
 > * **Expected**: Aplikasi wajib mendeteksi jika perangkat menggunakan *Mock Location / Fake GPS*, memunculkan pesan peringatan (*"Lokasi tiruan/palsu terdeteksi"*), dan memblokir proses absensi.
 > * **Actual**: Aplikasi menerima koordinat dari Fake GPS tanpa proteksi apapun dan proses absensi berhasil dilakukan.
@@ -468,7 +480,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Gagal Upload File Bukti pada Form Buat, Edit, Komentar, dan Re-Issue
 
-> * **Menu**: Ticket Maintenance → Aktivitas Issue (Aktivitas Pelaporan Issue)
+> * **Menu**: Ticket Maintenance → Aktivitas Issue
 > * **Deskripsi**: Fitur upload file bukti screenshot / lampiran selalu mengalami kegagalan (indikator bar merah "Gagal") pada seluruh fitur pelaporan issue (Buat Issue, Edit Issue, Komentar Issue, dan Re-Issue).
 > * **Expected**: File gambar / lampiran berhasil terunggah (progress bar sukses) dan tersimpan bersama tiket issue.
 > * **Actual**: Upload file selalu gagal (*status bar merah "Gagal"*) di seluruh form (Buat Issue, Edit Issue, Komentar Issue, dan Re-Issue).
@@ -482,7 +494,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Export Report Aktifitas Issue Tidak Tercatat di Riwayat dan Aktivitas Export
 
-> * **Menu**: Ticket Maintenance → Report Aktifitas Issue / Export Center
+> * **Menu**: Ticket Maintenance → Report Aktifitas Issue
 > * **Deskripsi**: Aktivitas export data dari menu Report Aktifitas Issue tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
 > * **Expected**: Setiap kali user melakukan export data Report Aktifitas Issue, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
 > * **Actual**: Log export Report Aktifitas Issue tidak muncul di Riwayat Export maupun Aktivitas Export.
@@ -495,7 +507,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Field Dropdown Filter Tidak Memiliki Label "* Tipe"
 
-> * **Menu**: Ticket Maintenance → Aktivitas Issue (Filter Data)
+> * **Menu**: Ticket Maintenance → Aktivitas Issue
 > * **Deskripsi**: Pada komponen filter di halaman Aktivitas Pelaporan Issue (tab Filter 1), field dropdown filter pertama tidak memiliki label penunjuk di atasnya (area label kosong/blank), yang mana seharusnya memiliki label **"\* Tipe"**.
 > * **Expected**: Muncul label teks penunjuk yang jelas di atas komponen dropdown, yaitu **"\* Tipe"**, agar user memahami konteks filter yang dipilih.
 > * **Actual**: Area label di atas field dropdown kosong/hilang sama sekali (*blank label*).
@@ -505,7 +517,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Export Rekap Absent Tidak Tercatat di Riwayat dan Aktivitas Export
 
-> * **Menu**: Menu Absent → Rekap Absent / Export Center
+> * **Menu**: Menu Absent → Rekap Absent
 > * **Deskripsi**: Aktivitas export data dari menu Rekap Absent tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
 > * **Expected**: Setiap kali user melakukan export data Rekap Absent, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
 > * **Actual**: Log export Rekap Absent tidak muncul di Riwayat Export maupun Aktivitas Export.
@@ -530,7 +542,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Status Absensi di Daily Absent Tidak Berubah Menjadi Hadir Setelah Dilakukan Reset dan Approve
 
-> * **Menu**: Menu Absent → Approval Absent / Daily Absent
+> * **Menu**: Menu Absent → Approval Absent
 > * **Deskripsi**: Status absensi di Daily Absent tetap tersangkut "Tidak Hadir" setelah pengajuan absensi yang sempat ditolak di-reset lalu disetujui (Approved) kembali.
 > * **Langkah Reproduksi**:
 >   1. Lakukan Clock In di luar radius pada aplikasi mobile (data absensi otomatis masuk ke menu *Approval Absent*).
@@ -559,7 +571,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Error Validasi "role ids harus berupa array." Saat Melakukan Filter pada Daily Absent
 
-> * **Menu**: Menu Absent → Daily Absent (Filter Data)
+> * **Menu**: Menu Absent → Daily Absent
 > * **Deskripsi**: Saat user membuka drawer filter di halaman Daily Absent lalu menekan tombol **Filter** (dengan pilihan filter default seperti Job Role *"Semua Role"* dan Sales *"Semua"*), sistem gagal memuat data dan memunculkan dua pesan error notifikasi validasi: *"role ids harus berupa array."* dan *"Job role harus berupa array."*. Akibatnya, proses filter tidak dapat dijalankan dan tabel tidak menampilkan data absensi (*0 dari 0 data*).
 > * **Expected**: Sistem berhasil memproses request filter dan menampilkan data absensi sesuai parameter pencarian tanpa kendala validasi.
 > * **Actual**: Muncul dua notifikasi error validasi:
@@ -586,7 +598,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Error Validasi "role ids harus berupa array." Saat Melakukan Filter pada Approval Absent
 
-> * **Menu**: Menu Absent → Approval Absent (Filter Data)
+> * **Menu**: Menu Absent → Approval Absent
 > * **Deskripsi**: Saat user membuka drawer filter di halaman Approval Absent lalu menekan tombol **Filter**, sistem memunculkan dua pesan error notifikasi validasi: *"role ids harus berupa array."*, sehingga proses filter gagal dan data tidak dapat dimuat.
 > * **Expected**: Sistem berhasil memproses filter data absensi approval sesuai parameter yang dipilih tanpa muncul error validasi.
 > * **Actual**: Muncul notifikasi error validasi *"role ids harus berupa array."* dan tabel tidak menampilkan data (*0 dari 0 data / No data*).
@@ -598,7 +610,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Export Approval Absent Tidak Masuk Drawer Maupun Riwayat dan Aktivitas Export
 
-> * **Menu**: Menu Absent → Approval Absent / Export Center
+> * **Menu**: Menu Absent → Approval Absent
 > * **Deskripsi**: Setelah user melakukan export data pada halaman Approval Absent, file hasil export tidak muncul di drawer samping (*Download Export*) serta tidak tercatat di menu *Riwayat Export* maupun *Aktivitas Export*.
 > * **Expected**: File export Approval Absent otomatis muncul di drawer samping (*Download Export*) dan riwayatnya tercatat di *Export Center* (*Riwayat Export* & *Aktivitas Export*).
 > * **Actual**: File export Approval Absent tidak muncul di drawer *Download Export* serta tidak tercatat di *Riwayat Export* maupun *Aktivitas Export*.
@@ -615,6 +627,20 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Expected**: Tombol `<<` dan `>>` berfungsi menggeser rentang tanggal tab absensi ke periode sebelumnya atau berikutnya.
 > * **Actual**: Tombol `<<` dan `>>` tidak memberikan respons apapun dan rentang tanggal tidak bergeser.
 > * **Evidence**: [https://files.catbox.moe/39cp3e.png](https://files.catbox.moe/39cp3e.png)
+
+<br>
+
+### 🐞 [BUG] | Selisih Total Data Karyawan Antar Menu Absensi dengan Master User
+
+> * **Menu**: Menu Absent
+> * **Deskripsi**: Total data karyawan pada menu absensi tidak sinkron dan tidak sesuai dengan Master User (12.088 data). Pada Dashboard Absent hanya tercatat 353 sales, Daily Absent hanya 383 sales, dan Rekap Absent tercatat 11.203 data. Seharusnya seluruh data absensi mengacu penuh pada list Master User.
+> * **Expected**: Jumlah data karyawan yang dimuat pada modul Menu Absent sinkron dan mengacu pada list data Master User (12.088 data).
+> * **Actual**: Jumlah data pada ketiga menu absensi saling berbeda dan jauh lebih sedikit dibanding Master User (Dashboard: 353, Daily: 383, Rekap: 11.203).
+> * **Evidence**:
+>   * Dashboard Absent (353 Sales): [https://files.catbox.moe/bz0t0y.png](https://files.catbox.moe/bz0t0y.png)
+>   * Daily Absent (383 Sales): [https://files.catbox.moe/2gzx5s.png](https://files.catbox.moe/2gzx5s.png)
+>   * Rekap Absent (11.203 data): [https://files.catbox.moe/jsr3g0.png](https://files.catbox.moe/jsr3g0.png)
+>   * Master User (12.088 data): [https://files.catbox.moe/zuukfu.png](https://files.catbox.moe/zuukfu.png)
 
 ---
 
@@ -803,4 +829,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
 | 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug status Alpha prematur di Rekap Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, bug Fake GPS lolos, bug error validasi filter Daily Absent (role ids / Job role array), & catatan selisih total data 3 menu (Dashboard: 353 vs Daily: 383 vs Rekap: 11.203), & bug kalkulasi Total Hadir Dashboard Absent hitung Waiting Approval, & catatan selisih data Work Pattern vs Master User (11.179 vs 12.088), & bug error validasi filter Approval Absent (role ids array), & bug export Approval Absent tidak tercatat di drawer/Export Center, & bug tombol navigasi tanggal Approval Absent (<< dan >>) tidak berfungsi |
-| 2026-09-17 | Menu Absent (Daily Absent & Approval Absent) | Pengetesan data keseluruhan ter-block (kendala bug error filter drawer), ekspektasi data absensi mengacu ke Master User (12.088 data) |
+| 2026-09-17 | General & Menu Absent | Perapihan standarisasi penamaan menu seluruh bug (43 bug), penambahan bug selisih total pengguna Keamanan Akun vs Master User (12.060 vs 12.088), & bug inkonsistensi total data menu absensi vs Master User |
