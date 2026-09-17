@@ -57,7 +57,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 51 | Sales Tracking Activity | Rekap Visit | Gaza | ⬜ Belum |
 | 52 | Sales Tracking Activity | Rekap Monthly Visit | Gaza | ⬜ Belum |
 | 53 | Setting Absent | Attendance Spot | Gaza | 🐛 Bug |
-| 54 | Setting Absent | Work Pattern | Gaza | ✅ Done |
+| 54 | Setting Absent | Work Pattern | Gaza | 🐛 Bug |
 | 55 | Setting Absent | Holiday | Gaza | ✅ Done |
 | 56 | Sales Force | Sales code | Ahrul | ⬜ Belum |
 | 57 | Sales Force | Approval Sales Code | Ahrul | ⬜ Belum |
@@ -438,6 +438,18 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
+### 🐞 [BUG] | Selisih Total Data Personnel pada Work Pattern dengan Master User
+
+> * **Menu**: Setting Absent → Work Pattern
+> * **Deskripsi**: Total data pada halaman Setting Work Pattern Personnel hanya menampilkan 11.179 data, berbeda dengan Master User yang berjumlah 12.088 data (selisih 909 user tidak terdata di Work Pattern).
+> * **Expected**: Total data personnel pada Work Pattern sinkron dan sesuai dengan data Master User (12.088 data).
+> * **Actual**: Hanya menampilkan 11.179 data (selisih 909 user tidak muncul di Work Pattern).
+> * **Evidence**:
+>   * Work Pattern Personnel (11.179 data): [https://files.catbox.moe/3qdwmc.png](https://files.catbox.moe/3qdwmc.png)
+>   * Master User (12.088 data): [https://files.catbox.moe/76ic6h.png](https://files.catbox.moe/76ic6h.png)
+
+<br>
+
 ### 🐞 [BUG] | Ketiadaan Deteksi Mock Location (Fake GPS) pada Fitur Absensi Mobile
 
 > * **Menu**: Mobile App → Absensi
@@ -673,11 +685,6 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
    * Evidence: [https://files.catbox.moe/v089zv.png](https://files.catbox.moe/v089zv.png)
    * **Update BA**: Aman / By design (jam absensi memang membaca dan mengikuti zona waktu lokal pada perangkat HP user).
 
-#### ⏱️ Work Pattern
-16. **Selisih Total Data Personnel (Work Pattern vs Master User)**: Kenapa total data pada *Setting Work Pattern Personnel* (11.179 data) berbeda dengan total *Master User* (12.088 data)? Terdapat selisih 909 user.
-    * Evidence: [Work Pattern Personnel (11.179 data)](https://files.catbox.moe/3qdwmc.png) | [Master User (12.088 data)](https://files.catbox.moe/76ic6h.png)
-    * **Update BA**: Data pada Setting Work Pattern Personnel **memang mengacu pada data Master User**. Oleh karena itu, selisih 909 user perlu ditelusuri ke tim dev untuk memastikan apakah ada user yang terfilter/hilang.
-
 ---
 
 ### 🎫 Ticket Maintenance
@@ -810,4 +817,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
 | 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug status Alpha prematur di Rekap Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, bug Fake GPS lolos, bug error validasi filter Daily Absent (role ids / Job role array), & catatan selisih total data 3 menu (Dashboard: 353 vs Daily: 383 vs Rekap: 11.203), & bug kalkulasi Total Hadir Dashboard Absent hitung Waiting Approval, & catatan selisih data Work Pattern vs Master User (11.179 vs 12.088), & bug error validasi filter Approval Absent (role ids array), & bug export Approval Absent tidak tercatat di drawer/Export Center, & bug tombol navigasi tanggal Approval Absent (<< dan >>) tidak berfungsi |
-| 2026-09-17 | General, User Authority & Menu Absent | Konfirmasi BA: Hapus Role & Hapus Tipe Karyawan Aman (by design), Work Pattern & Keamanan Akun mengacu Master User, Menu Absent hitungan sendiri; total 41 bug aktif |
+| 2026-09-17 | General, User Authority & Menu Absent | Konfirmasi BA: Hapus Role & Hapus Tipe Karyawan Aman (by design), Work Pattern & Keamanan Akun mengacu Master User, Menu Absent hitungan sendiri; penambahan bug selisih data Work Pattern vs Master User (11.179 vs 12.088) dengan total 42 bug aktif |
