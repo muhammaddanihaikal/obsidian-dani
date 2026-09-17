@@ -257,20 +257,6 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Role yang Masih Digunakan User Bisa Dihapus
-
-> * **Menu**: User Authority → Group Role
-> * **Catatan**: *Menunggu konfirmasi tim/dev terkait flow bisnis saat role dihapus.*
-> * **Deskripsi**: Sistem mengizinkan penghapusan Group Role yang masih aktif digunakan oleh user. Akibatnya, kolom Job Role pada user menjadi kosong (blank), namun user tersebut masih bisa mengakses modul menu sesuai role lamanya.
-> * **Expected**: Sistem memblokir penghapusan role jika masih terdapat user yang terhubung (*"Role tidak dapat dihapus karena masih digunakan oleh user"*), atau mewajibkan re-assign user terlebih dahulu.
-> * **Actual**: Role sukses terhapus, data user kehilangan role (Job Role kosong), dan privilege akses menu lama tidak tercabut.
-> * **Evidence**:
->   * Konfirmasi Hapus Role: [https://files.catbox.moe/6psigl.png](https://files.catbox.moe/6psigl.png)
->   * Alert Sukses Hapus: [https://files.catbox.moe/b0i66d.png](https://files.catbox.moe/b0i66d.png)
->   * Job Role User Menjadi Kosong: [https://files.catbox.moe/x7yxhi.png](https://files.catbox.moe/x7yxhi.png)
-
-<br>
-
 ### 🐞 [BUG] | Lolos Validasi Nama Duplikat Saat Edit Group Role
 
 > * **Menu**: User Authority → Group Role
@@ -288,19 +274,6 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Expected**: Sistem tetap memvalidasi keunikan nama saat edit data, dan menolak simpan jika nama tipe karyawan sudah digunakan.
 > * **Actual**: Sistem berhasil menyimpan perubahan, sehingga muncul data tipe karyawan ganda dengan nama yang identik di tabel.
 > * **Evidence**: [https://files.catbox.moe/edw9td.png](https://files.catbox.moe/edw9td.png)
-
-<br>
-
-### 🐞 [BUG] | Tipe Karyawan yang Digunakan Role Bisa Dihapus
-
-> * **Menu**: User Authority → Tipe Karyawan
-> * **Catatan**: *Menunggu konfirmasi tim/dev terkait aturan bisnis saat master tipe karyawan dihapus.*
-> * **Deskripsi**: Sistem mengizinkan penghapusan Tipe Karyawan yang masih aktif terikat dengan Group Role. Akibatnya, kolom Tipe Karyawan pada tabel Group Role yang terkait menjadi kosong (blank).
-> * **Expected**: Sistem memblokir penghapusan tipe karyawan jika masih digunakan oleh Group Role (*"Tipe karyawan tidak dapat dihapus karena masih digunakan oleh role"*), atau mewajibkan re-assign terlebih dahulu.
-> * **Actual**: Tipe karyawan sukses terhapus dan menyisakan data kosong (blank) pada kolom Tipe Karyawan di daftar Group Role terkait.
-> * **Evidence**:
->   * Hapus Tipe Karyawan: [https://files.catbox.moe/erkto3.png](https://files.catbox.moe/erkto3.png)
->   * Tipe Karyawan Menjadi Kosong di Group Role: [https://files.catbox.moe/w899ks.png](https://files.catbox.moe/w899ks.png)
 
 <br>
 
@@ -630,23 +603,32 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Selisih Total Data Karyawan Antar Menu Absensi dengan Master User
+### 🐞 [BUG] | Inkonsistensi Total Data Karyawan Antar Sub-Menu Absensi (Dashboard vs Daily vs Rekap Absent)
 
 > * **Menu**: Menu Absent
-> * **Deskripsi**: Total data karyawan pada menu absensi tidak sinkron dan tidak sesuai dengan Master User (12.088 data). Pada Dashboard Absent hanya tercatat 353 sales, Daily Absent hanya 383 sales, dan Rekap Absent tercatat 11.203 data. Seharusnya seluruh data absensi mengacu penuh pada list Master User.
-> * **Expected**: Jumlah data karyawan yang dimuat pada modul Menu Absent sinkron dan mengacu pada list data Master User (12.088 data).
-> * **Actual**: Jumlah data pada ketiga menu absensi saling berbeda dan jauh lebih sedikit dibanding Master User (Dashboard: 353, Daily: 383, Rekap: 11.203).
+> * **Deskripsi**: Total data karyawan pada sub-menu di bawah modul Menu Absent saling berbeda dan tidak konsisten satu sama lain (Dashboard Absent: 353 sales, Daily Absent: 383 sales, dan Rekap Absent: 11.203 data). Meskipun modul absensi memiliki kriteria perhitungan tersendiri (bukan mengacu ke Master User), acuan perhitungan antar sub-menu absensi tersebut belum terstandarisasi sehingga menghasilkan data yang tidak sinkron.
+> * **Expected**: Total data karyawan antar sub-menu di Menu Absent memiliki standarisasi filter dan acuan perhitungan yang konsisten antar halaman.
+> * **Actual**: Ketiga menu menampilkan jumlah total data yang berbeda jauh (Dashboard: 353 sales, Daily: 383 sales, Rekap: 11.203 data).
 > * **Evidence**:
 >   * Dashboard Absent (353 Sales): [https://files.catbox.moe/bz0t0y.png](https://files.catbox.moe/bz0t0y.png)
 >   * Daily Absent (383 Sales): [https://files.catbox.moe/2gzx5s.png](https://files.catbox.moe/2gzx5s.png)
 >   * Rekap Absent (11.203 data): [https://files.catbox.moe/jsr3g0.png](https://files.catbox.moe/jsr3g0.png)
->   * Master User (12.088 data): [https://files.catbox.moe/zuukfu.png](https://files.catbox.moe/zuukfu.png)
 
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
 
 ### 🔐 User Authority
+
+#### 👥 Group Role
+17. **Hapus Group Role yang Masih Digunakan User**: Apakah Group Role yang masih aktif digunakan oleh user boleh dihapus (kolom Job Role user terkait menjadi blank/kosong)?
+    * Evidence: [https://files.catbox.moe/x7yxhi.png](https://files.catbox.moe/x7yxhi.png)
+    * **Update BA**: Aman / By design (memang diperbolehkan dan tidak masalah jika kolom Job Role user menjadi kosong).
+
+#### 👔 Tipe Karyawan
+18. **Hapus Tipe Karyawan yang Masih Digunakan Role**: Apakah Tipe Karyawan yang masih terikat dengan Group Role boleh dihapus (kolom Tipe Karyawan di Group Role terkait menjadi blank/kosong)?
+    * Evidence: [https://files.catbox.moe/w899ks.png](https://files.catbox.moe/w899ks.png)
+    * **Update BA**: Aman / By design (memang diperbolehkan dan tidak masalah jika kolom Tipe Karyawan di Group Role menjadi kosong).
 
 #### 🛡️ Keamanan Akun
 1. **Selisih Total Data User (Daftar Akun vs Master User)**: Kenapa total user di *Master User* (12.059 data) berbeda dengan di *Keamanan Akun - Daftar Akun* (12.030 data)?
@@ -692,9 +674,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
    * **Update BA**: Aman / By design (jam absensi memang membaca dan mengikuti zona waktu lokal pada perangkat HP user).
 
 #### ⏱️ Work Pattern
-16. **Selisih Total Data Personnel (Work Pattern vs Master User)**: Kenapa total data pada *Setting Work Pattern Personnel* (11.179 data) berbeda dengan total *Master User* (12.088 data)? Terdapat selisih 909 user. Apakah Setting Work Pattern Personnel sengaja mengecualikan role tertentu (misal: user admin non-sales, user non-aktif), atau ada query filter khusus yang membedakannya?
+16. **Selisih Total Data Personnel (Work Pattern vs Master User)**: Kenapa total data pada *Setting Work Pattern Personnel* (11.179 data) berbeda dengan total *Master User* (12.088 data)? Terdapat selisih 909 user.
     * Evidence: [Work Pattern Personnel (11.179 data)](https://files.catbox.moe/3qdwmc.png) | [Master User (12.088 data)](https://files.catbox.moe/76ic6h.png)
-    * *Status: Belum ditanyakan ke BA.*
+    * **Update BA**: Data pada Setting Work Pattern Personnel **memang mengacu pada data Master User**. Oleh karena itu, selisih 909 user perlu ditelusuri ke tim dev untuk memastikan apakah ada user yang terfilter/hilang.
 
 ---
 
@@ -728,17 +710,16 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🕒 Menu Absent
 
 #### 📊 Inkonsistensi Total Data User/Sales Antar Menu (Dashboard vs Daily vs Rekap Absent)
-15. **Selisih Total Data User/Sales Antar Menu Absensi**: Berdasarkan ekspektasi, total data user pada absensi (*Daily Absent* & *Approval Absent*) seharusnya sesuai dan mengacu pada list yang ada di **Master User (12.088 data)**:
+15. **Inkonsistensi Total Data Antar Sub-Menu Absensi**: Kenapa total data sales/user pada ketiga menu di bawah modul *Menu Absent* saling berbeda (Dashboard: 353, Daily: 383, Rekap: 11.203)?
     * **Dashboard Absent**: Menampilkan total **353** Sales (*Total Kehadiran Pegawai*).
     * **Daily Absent**: Menampilkan total **383** Sales (tab *Semua Sales*). Terdapat selisih 30 data dibanding Dashboard.
     * **Rekap Absent**: Menampilkan total **11.203** data sales/user. Terdapat selisih lebih dari 10.800 data dibanding Dashboard & Daily.
+    * **Update BA**: Data pada Menu Absent **acuannya bukan dari Master User**, melainkan memiliki kriteria/perhitungan tersendiri. Namun acuan rumus/query perhitungan antar sub-menu absensi tersebut tetap belum sinkron dan perlu distandarisasi oleh tim dev.
     * **Kendala Testing (Blocked)**: Saat ini pengetesan data secara menyeluruh untuk menu **Daily Absent** dan **Approval Absent** mengalami **blocking** akibat bug validasi pada panel/drawer filter (*"role ids harus berupa array."*), sehingga QA belum dapat memverifikasi query data keseluruhan sampai issue filter diperbaiki oleh tim Dev.
     * Evidence:
       * [Dashboard Absent (353 Sales)](https://files.catbox.moe/bz0t0y.png)
       * [Daily Absent (383 Sales)](https://files.catbox.moe/2gzx5s.png)
       * [Rekap Absent (11.203 data)](https://files.catbox.moe/jsr3g0.png)
-      * [Master User (12.088 data)](https://files.catbox.moe/76ic6h.png)
-    * *Status: Belum ditanyakan ke BA / Menunggu bug filter di-resolve Dev.*
 
 ---
 
@@ -829,4 +810,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-15 | Ticket Maintenance (Report) & Keamanan Akun | Temuan bug export Report tidak tercatat di Riwayat & Aktivitas Export, serta penambahan bug log MFA diaktifkan/dinonaktifkan |
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
 | 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug status Alpha prematur di Rekap Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, bug Fake GPS lolos, bug error validasi filter Daily Absent (role ids / Job role array), & catatan selisih total data 3 menu (Dashboard: 353 vs Daily: 383 vs Rekap: 11.203), & bug kalkulasi Total Hadir Dashboard Absent hitung Waiting Approval, & catatan selisih data Work Pattern vs Master User (11.179 vs 12.088), & bug error validasi filter Approval Absent (role ids array), & bug export Approval Absent tidak tercatat di drawer/Export Center, & bug tombol navigasi tanggal Approval Absent (<< dan >>) tidak berfungsi |
-| 2026-09-17 | General & Menu Absent | Perapihan standarisasi penamaan menu seluruh bug (43 bug), penambahan bug selisih total pengguna Keamanan Akun vs Master User (12.060 vs 12.088), & bug inkonsistensi total data menu absensi vs Master User |
+| 2026-09-17 | General, User Authority & Menu Absent | Konfirmasi BA: Hapus Role & Hapus Tipe Karyawan Aman (by design), Work Pattern & Keamanan Akun mengacu Master User, Menu Absent hitungan sendiri; total 41 bug aktif |
