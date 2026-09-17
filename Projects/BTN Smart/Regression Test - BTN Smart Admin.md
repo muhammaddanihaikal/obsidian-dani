@@ -606,8 +606,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Inkonsistensi Total Data Karyawan Antar Sub-Menu Absensi (Dashboard vs Daily vs Rekap Absent)
 
 > * **Menu**: Menu Absent
-> * **Deskripsi**: Total data karyawan pada sub-menu di bawah modul Menu Absent saling berbeda dan tidak konsisten satu sama lain (Dashboard Absent: 353 sales, Daily Absent: 383 sales, dan Rekap Absent: 11.203 data). Meskipun modul absensi memiliki kriteria perhitungan tersendiri (bukan mengacu ke Master User), acuan perhitungan antar sub-menu absensi tersebut belum terstandarisasi sehingga menghasilkan data yang tidak sinkron.
-> * **Expected**: Total data karyawan antar sub-menu di Menu Absent memiliki standarisasi filter dan acuan perhitungan yang konsisten antar halaman.
+> * **Deskripsi**: Total data karyawan pada sub-menu di bawah modul Menu Absent saling berbeda dan tidak konsisten satu sama lain (Dashboard Absent: 353 sales, Daily Absent: 383 sales, dan Rekap Absent: 11.203 data).
+> * **Expected**: Total data karyawan antar sub-menu di Menu Absent sinkron dan konsisten antar halaman.
 > * **Actual**: Ketiga menu menampilkan jumlah total data yang berbeda jauh (Dashboard: 353 sales, Daily: 383 sales, Rekap: 11.203 data).
 > * **Evidence**:
 >   * Dashboard Absent (353 Sales): [https://files.catbox.moe/bz0t0y.png](https://files.catbox.moe/bz0t0y.png)
