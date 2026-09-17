@@ -639,6 +639,18 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Riwayat Export: [https://files.catbox.moe/tbg8zj.png](https://files.catbox.moe/tbg8zj.png)
 >   * Aktivitas Export: [https://files.catbox.moe/squkas.png](https://files.catbox.moe/squkas.png)
 
+<br>
+
+### 🐞 [BUG] | Profile Nasabah & Sales - Sales - Total Data Hasil Export Tidak Sesuai dan Urutan Berbeda dengan Web
+
+> * **Menu**: Profile Nasabah & Sales → Sales
+> * **Deskripsi**: File Excel hasil export data Sales hanya berisi 867 baris data (terpotong jauh dari total 10.392 data yang ada di web), dan urutan datanya tidak sesuai dengan urutan tampilan tabel web.
+> * **Expected**: Total data pada file Excel hasil export lengkap sesuai jumlah di web (10.392 data) dan urutan datanya konsisten mengikuti tabel web.
+> * **Actual**: File Excel hanya memuat 867 data (hilang 9.525 data) serta urutan datanya berbeda dengan web.
+> * **Evidence**:
+>   * Total Data Web (10.392 data): [https://files.catbox.moe/8nvhow.png](https://files.catbox.moe/8nvhow.png)
+>   * Hasil Export Excel (867 data & urutan beda): [https://files.catbox.moe/rws6v6.png](https://files.catbox.moe/rws6v6.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -831,4 +843,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
 | 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug status Alpha prematur di Rekap Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, bug Fake GPS lolos, bug error validasi filter Daily Absent (role ids / Job role array), & catatan selisih total data 3 menu (Dashboard: 353 vs Daily: 383 vs Rekap: 11.203), & bug kalkulasi Total Hadir Dashboard Absent hitung Waiting Approval, & catatan selisih data Work Pattern vs Master User (11.179 vs 12.088), & bug error validasi filter Approval Absent (role ids array), & bug export Approval Absent tidak tercatat di drawer/Export Center, & bug tombol navigasi tanggal Approval Absent (<< dan >>) tidak berfungsi |
 | 2026-09-17 | General, User Authority & Menu Absent | Konfirmasi BA: Hapus Role & Hapus Tipe Karyawan Aman (by design), Work Pattern & Keamanan Akun mengacu Master User, Menu Absent hitungan sendiri; penambahan bug selisih data Work Pattern vs Master User (11.179 vs 12.088) dengan total 42 bug aktif |
-| 2026-09-17 | Profile Nasabah & Sales - Sales | Temuan bug export sales tidak tercatat di riwayat & aktivitas export (belum menggunakan report extraction) dengan total 43 bug aktif |
+| 2026-09-17 | Profile Nasabah & Sales - Sales | Temuan bug export sales tidak tercatat di riwayat & aktivitas export (belum menggunakan report extraction), serta bug total data export terpotong (867 vs 10.392) dan urutan berbeda dengan web dengan total 44 bug aktif |
