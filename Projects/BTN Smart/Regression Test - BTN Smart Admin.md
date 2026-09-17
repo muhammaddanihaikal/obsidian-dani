@@ -32,7 +32,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 21 | User Authority | Keamanan Akun - Permintaan Reset MFA | Alam | 🐛 Bug |
 | 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | 🐛 Bug |
 | 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | 🐛 Bug |
-| 24 | Profile Nasabah & Sales | Sales | Fito | ⬜ Belum |
+| 24 | Profile Nasabah & Sales | Sales | Fito | 🐛 Bug |
 | 25 | Profile Nasabah & Sales | Nasabah Perorangan | Fito | ⬜ Belum |
 | 26 | Bisnis dan Produk | Unit Bisnis | Fito | ⬜ Belum |
 | 27 | Bisnis dan Produk | Produk | Fito | ⬜ Belum |
@@ -626,6 +626,19 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Daily Absent (383 Sales): [https://files.catbox.moe/2gzx5s.png](https://files.catbox.moe/2gzx5s.png)
 >   * Rekap Absent (11.203 data): [https://files.catbox.moe/jsr3g0.png](https://files.catbox.moe/jsr3g0.png)
 
+<br>
+
+### 🐞 [BUG] | Profile Nasabah & Sales - Sales - Export Sales Tidak Tercatat di Riwayat dan Aktivitas Export
+
+> * **Menu**: Profile Nasabah & Sales → Sales
+> * **Deskripsi**: Aktivitas export data dari menu Profile Sales tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export (belum menggunakan *Report Extraction*).
+> * **Expected**: Setiap kali user melakukan export data Sales, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
+> * **Actual**: Log export Sales tidak muncul di Riwayat Export maupun Aktivitas Export.
+> * **Evidence**:
+>   * Export Sales: [https://files.catbox.moe/oa4060.png](https://files.catbox.moe/oa4060.png)
+>   * Riwayat Export: [https://files.catbox.moe/tbg8zj.png](https://files.catbox.moe/tbg8zj.png)
+>   * Aktivitas Export: [https://files.catbox.moe/squkas.png](https://files.catbox.moe/squkas.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -818,3 +831,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-15 | Mobile - Setting Absent (Work Pattern) | Pengetesan Clock In & Clock Out mobile berbasis Work Pattern selesai (Seluruh skenario PASS / Aman) |
 | 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug status Alpha prematur di Rekap Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, bug Fake GPS lolos, bug error validasi filter Daily Absent (role ids / Job role array), & catatan selisih total data 3 menu (Dashboard: 353 vs Daily: 383 vs Rekap: 11.203), & bug kalkulasi Total Hadir Dashboard Absent hitung Waiting Approval, & catatan selisih data Work Pattern vs Master User (11.179 vs 12.088), & bug error validasi filter Approval Absent (role ids array), & bug export Approval Absent tidak tercatat di drawer/Export Center, & bug tombol navigasi tanggal Approval Absent (<< dan >>) tidak berfungsi |
 | 2026-09-17 | General, User Authority & Menu Absent | Konfirmasi BA: Hapus Role & Hapus Tipe Karyawan Aman (by design), Work Pattern & Keamanan Akun mengacu Master User, Menu Absent hitungan sendiri; penambahan bug selisih data Work Pattern vs Master User (11.179 vs 12.088) dengan total 42 bug aktif |
+| 2026-09-17 | Profile Nasabah & Sales - Sales | Temuan bug export sales tidak tercatat di riwayat & aktivitas export (belum menggunakan report extraction) dengan total 43 bug aktif |
