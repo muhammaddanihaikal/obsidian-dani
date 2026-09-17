@@ -111,9 +111,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ## 🐛 Bug Report / Isu Temuan
 
-### 🐞 [BUG] | Autentikasi - Setup 2FA: Beberapa Menu Masih Bisa Diakses Tanpa Setup 2FA
+### 🐞 [BUG] | Login: Beberapa Menu Masih Bisa Diakses Tanpa Setup 2FA
 
-> * **Menu**: Autentikasi → Setup 2FA
+> * **Menu**: Login
 > * **Deskripsi**: User yang belum setup 2FA masih bisa mengakses beberapa menu tertentu.
 > * **Expected**: Semua menu — termasuk tab di Pengaturan Profile (Biodata Diri, Ganti Kata Sandi, Notifikasi) — tidak bisa dibuka dan wajib mental/redirect ke halaman Pengaturan Profile → Keamanan sebelum 2FA aktif.
 > * **Actual**: Hanya sebagian menu yang redirect, sisanya masih bisa dibuka bebas.
@@ -121,9 +121,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Pengaturan Profile - Keamanan: Bypass Cooldown Kirim Ulang OTP Saat Modal Ditutup dan Dibuka Kembali
+### 🐞 [BUG] | Login: Bypass Cooldown OTP Saat Melakukan Login Ulang
 
-> * **Menu**: Pengaturan Profile → Keamanan
+> * **Menu**: Login
 > * **Deskripsi**: Timer cooldown kirim ulang OTP ter-reset jika modal pop-up ditutup (tombol X) lalu diklik/dibuka kembali.
 > * **Expected**: Cooldown tetap berjalan sesuai durasi waktu. User tidak bisa spam/kirim kode baru sebelum timer cooldown benar-benar habis, meskipun modal ditutup-buka.
 > * **Actual**: Menutup dan membuka kembali modal memicu pengiriman kode baru dan me-reset timer cooldown.
@@ -131,9 +131,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Autentikasi - Verifikasi OTP: Bypass Cooldown OTP Saat Melakukan Login Ulang
+### 🐞 [BUG] | Login: Inkonsistensi Judul Header pada Halaman Kode Pemulihan
 
-> * **Menu**: Autentikasi → Verifikasi OTP
+> * **Menu**: Login
 > * **Deskripsi**: User bisa memicu kirim kode OTP baru dengan login ulang meski timer cooldown sebelumnya (2 menit) masih berjalan.
 > * **Expected**: Cooldown OTP tersimpan di sisi backend sehingga login ulang tidak bisa kirim OTP baru sebelum waktu cooldown habis.
 > * **Actual**: Login ulang langsung mengirimkan OTP baru dan me-reset timer cooldown.
@@ -141,9 +141,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Autentikasi - Kode Pemulihan: Inkonsistensi Judul Header pada Halaman Kode Pemulihan
+### 🐞 [BUG] | Profile: Bypass Cooldown Kirim Ulang OTP Saat Modal Ditutup dan Dibuka Kembali
 
-> * **Menu**: Autentikasi → Kode Pemulihan
+> * **Menu**: Profile
 > * **Deskripsi**: Judul header halaman masih menampilkan teks "Verifikasi OTP" saat user berada di form input kode pemulihan.
 > * **Expected**: Judul header disesuaikan dengan konteks halaman menjadi **"Verifikasi Kode Pemulihan"**.
 > * **Actual**: Judul header masih tertulis "Verifikasi OTP".
@@ -277,9 +277,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Authority - Keamanan Akun - Tab Daftar Akun: Fitur Search Hanya Berfungsi untuk Kolom Nama Pengguna
+### 🐞 [BUG] | User Authority - Keamanan Akun: Fitur Search Daftar Akun Hanya Berfungsi untuk Kolom Nama Pengguna
 
-> * **Menu**: User Authority → Keamanan Akun → Tab Daftar Akun
+> * **Menu**: User Authority → Keamanan Akun
 > * **Deskripsi**: Kolom pencarian pada tab Daftar Akun hanya membaca dan memfilter data berdasarkan kolom **Nama Pengguna**. Pencarian menggunakan nilai kolom lain (seperti Email, Kantor Wilayah, Kantor Cabang, Outlet, Job Title, dll) belum berfungsi.
 > * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tab Daftar Akun.
 > * **Actual**: Pencarian hanya merespons kata kunci dari kolom Nama Pengguna, sedangkan kolom lainnya diabaikan (*tidak terfilter*).
@@ -287,9 +287,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Authority - Keamanan Akun - Tab Permintaan Reset MFA: Fitur Search Hanya Berfungsi untuk Kolom Pengguna dan Alasan
+### 🐞 [BUG] | User Authority - Keamanan Akun: Fitur Search Permintaan Reset MFA Hanya Berfungsi untuk Kolom Pengguna dan Alasan
 
-> * **Menu**: User Authority → Keamanan Akun → Tab Permintaan Reset MFA
+> * **Menu**: User Authority → Keamanan Akun
 > * **Deskripsi**: Kolom pencarian pada tab Permintaan Reset MFA hanya membaca dan memfilter data berdasarkan kolom **Pengguna** dan **Alasan**. Pencarian kata kunci dari kolom lain (seperti Kantor Wilayah, Kantor Cabang, Outlet, Kode Outlet, Job Title, dll) belum berfungsi.
 > * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tabel Permintaan Reset MFA.
 > * **Actual**: Pencarian hanya merespons kata kunci dari kolom Pengguna dan Alasan, sedangkan kolom lainnya diabaikan (*tidak terfilter*).
@@ -297,9 +297,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Authority - Keamanan Akun - Tab Permintaan Reset MFA: Multi-Select Filter Kolom Status Tidak Berfungsi
+### 🐞 [BUG] | User Authority - Keamanan Akun: Multi-Select Filter Kolom Status pada Permintaan Reset MFA Tidak Berfungsi
 
-> * **Menu**: User Authority → Keamanan Akun → Tab Permintaan Reset MFA
+> * **Menu**: User Authority → Keamanan Akun
 > * **Deskripsi**: Filter kolom Status menyediakan pilihan *multi-select* (*checkbox*). Namun saat memilih lebih dari satu status (contoh: mencentang **Ditolak** dan **Pending**), sistem hanya menampilkan data status teratas yang dipilih (**Ditolak**), sedangkan data **Pending** tidak ikut ditampilkan.
 > * **Expected**: Filter mendukung *multi-select*, sehingga saat mencentang *Ditolak* dan *Pending*, data dengan kedua status tersebut muncul bersamaan di tabel.
 > * **Actual**: Sistem hanya memfilter salah satu status (*Ditolak*), data dengan status *Pending* diabaikan.
@@ -307,9 +307,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Authority - Keamanan Akun - Tab Daftar Akun: Export Data Tidak Tercatat di Riwayat dan Aktivitas Export
+### 🐞 [BUG] | User Authority - Keamanan Akun: Export Daftar Akun Tidak Tercatat di Riwayat dan Aktivitas Export
 
-> * **Menu**: User Authority → Keamanan Akun → Tab Daftar Akun
+> * **Menu**: User Authority → Keamanan Akun
 > * **Deskripsi**: Aktivitas export data pada tab Daftar Akun tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
 > * **Expected**: Setiap kali user melakukan export data tab Daftar Akun, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
 > * **Actual**: Log export tab Daftar Akun tidak muncul di kedua menu Export Center tersebut.
@@ -317,9 +317,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Authority - Keamanan Akun - Tab Daftar Akun: Multi-Select Filter Kolom Status MFA dan Metode MFA Tidak Berfungsi
+### 🐞 [BUG] | User Authority - Keamanan Akun: Multi-Select Filter Kolom Status MFA dan Metode MFA pada Daftar Akun Tidak Berfungsi
 
-> * **Menu**: User Authority → Keamanan Akun → Tab Daftar Akun
+> * **Menu**: User Authority → Keamanan Akun
 > * **Deskripsi**: Filter kolom **Status MFA** dan **Metode MFA** menyediakan opsi *multi-select* (*checkbox*). Namun saat memilih lebih dari satu opsi (contoh: mencentang *Aktif* & *Tidak Aktif*, atau *Email* & *TOTP*), sistem hanya menampilkan data opsi teratas (*Aktif* saja, atau *Email* saja), sedangkan opsi kedua diabaikan.
 > * **Expected**: Filter mendukung *multi-select*, sehingga seluruh opsi yang dicentang muncul bersamaan di tabel.
 > * **Actual**: Sistem hanya memfilter opsi teratas (*Aktif* pada Status MFA, *Email* pada Metode MFA), data dari opsi lainnya tidak muncul di tabel.
@@ -329,9 +329,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Authority - Keamanan Akun - Tab Perangkat & Sesi: Export Data Tidak Masuk Drawer Maupun Riwayat & Aktivitas Export
+### 🐞 [BUG] | User Authority - Keamanan Akun: Export Perangkat & Sesi Tidak Masuk Drawer Maupun Riwayat & Aktivitas Export
 
-> * **Menu**: User Authority → Keamanan Akun → Tab Perangkat & Sesi
+> * **Menu**: User Authority → Keamanan Akun
 > * **Deskripsi**: Setelah menekan tombol **Export Data** pada tab Perangkat & Sesi, file export tidak muncul di dalam drawer *Download Export* serta tidak tercatat di menu `Export Center → Riwayat Export` maupun `Aktivitas Export`.
 > * **Expected**: Saat klik Export Data, antrean/file download langsung masuk ke drawer *Download Export* dan tercatat pada menu *Export Center*.
 > * **Actual**: File export tidak muncul di drawer *Download Export* dan aktivitas export tidak tercatat sama sekali di Export Center.
@@ -341,9 +341,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Authority - Keamanan Akun - Tab Perangkat & Sesi: Fitur Search Hanya Berfungsi untuk Kolom Tertentu
+### 🐞 [BUG] | User Authority - Keamanan Akun: Fitur Search Perangkat & Sesi Hanya Berfungsi untuk Kolom Tertentu
 
-> * **Menu**: User Authority → Keamanan Akun → Tab Perangkat & Sesi
+> * **Menu**: User Authority → Keamanan Akun
 > * **Deskripsi**: Kolom pencarian pada tab Perangkat & Sesi hanya membaca dan memfilter data berdasarkan kolom **Pengguna**, **Perangkat**, **IP Address**, dan **Lokasi**. Pencarian kata kunci dari kolom lain (seperti Kantor Wilayah, Kantor Cabang, Outlet, Kode Outlet, dan Job Title) belum berfungsi.
 > * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tabel Perangkat & Sesi.
 > * **Actual**: Pencarian hanya merespons kata kunci dari 4 kolom tersebut, sedangkan kolom kantor dan job title diabaikan (*tidak terfilter*).
@@ -351,9 +351,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Authority - Keamanan Akun - Tab Log Aktivitas: Fitur Search Tidak Berfungsi untuk Kolom Tanggal/Waktu dan Status
+### 🐞 [BUG] | User Authority - Keamanan Akun: Fitur Search Log Aktivitas Tidak Berfungsi untuk Kolom Tanggal/Waktu dan Status
 
-> * **Menu**: User Authority → Keamanan Akun → Tab Log Aktivitas
+> * **Menu**: User Authority → Keamanan Akun
 > * **Deskripsi**: Fitur pencarian pada tab Log Aktivitas sudah dapat memfilter sebagian besar kolom (Pengguna, Kantor, Job Title, Aktivitas, IP). Namun pencarian menggunakan kata kunci dari kolom **Tanggal/Waktu** dan **Status** belum berfungsi (*data tidak terfilter*).
 > * **Expected**: Field search dapat memfilter data secara menyeluruh termasuk berdasarkan tanggal/waktu (misal: *"12 September 2026"*) dan status (misal: *"Sukses"* atau *"Gagal"*).
 > * **Actual**: Pencarian dengan kata kunci dari kolom Tanggal/Waktu dan Status diabaikan sehingga data tidak terfilter.
@@ -361,9 +361,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Authority - Keamanan Akun - Tab Log Aktivitas: Beberapa Tipe Aktivitas MFA Tidak Tercatat atau Keliru di Tab Log Aktivitas
+### 🐞 [BUG] | User Authority - Keamanan Akun: Beberapa Tipe Aktivitas MFA Tidak Tercatat atau Keliru di Log Aktivitas
 
-> * **Menu**: User Authority → Keamanan Akun → Tab Log Aktivitas
+> * **Menu**: User Authority → Keamanan Akun
 > * **Deskripsi**: Terdapat inkonsistensi pencatatan log audit di mana beberapa event MFA tidak tercatat sama sekali atau keliru labelnya:
 >   1. **Verifikasi MFA Berhasil (OTP)**: *Actual* malah tercatat *"Login berhasil tanpa verifikasi MFA"*.
 >   2. **Verifikasi MFA dengan Kode Cadangan**: *Actual* malah tercatat *"Login berhasil tanpa verifikasi MFA"*.
@@ -380,9 +380,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Authority - Keamanan Akun - Tab Log Aktivitas: Seluruh Tipe Aktivitas Kategori Perangkat & Sesi Tidak Tercatat di Tab Log Aktivitas
+### 🐞 [BUG] | User Authority - Keamanan Akun: Seluruh Tipe Aktivitas Kategori Perangkat & Sesi Tidak Tercatat di Log Aktivitas
 
-> * **Menu**: User Authority → Keamanan Akun → Tab Log Aktivitas
+> * **Menu**: User Authority → Keamanan Akun
 > * **Deskripsi**: Ketika user atau admin melakukan aksi seputar manajemen perangkat dan sesi, sistem tidak mencatat aktivitas tersebut ke dalam tabel Log Aktivitas:
 >   1. **Mempercayai Perangkat**: Tidak masuk ke log setelah login dengan opsi percaya perangkat.
 >   2. **Menghapus Perangkat Terpercaya**: Tidak masuk ke log saat perangkat dihapus.
@@ -395,9 +395,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Authority - Keamanan Akun - Tab Daftar Akun: Selisih Total Pengguna pada Menu Keamanan Akun dengan Master User
+### 🐞 [BUG] | User Authority - Keamanan Akun: Selisih Total Pengguna pada Daftar Akun dengan Master User
 
-> * **Menu**: User Authority → Keamanan Akun → Tab Daftar Akun
+> * **Menu**: User Authority → Keamanan Akun
 > * **Deskripsi**: Total pengguna pada kartu metrik *"Total Pengguna"* dan tabel *"Daftar Akun"* di halaman Keamanan Akun hanya menampilkan 12.060 data, berbeda dengan data user yang berjumlah 12.088 data (selisih 28 user tidak tampil).
 > * **Expected**: Total pengguna pada kartu metrik dan tabel Daftar Akun sinkron dan sesuai dengan data user (12.088 data).
 > * **Actual**: Hanya menampilkan 12.060 data (selisih 28 user tidak terdata di Keamanan Akun).
@@ -463,9 +463,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Ticket Maintenance - Aktivitas Issue: Gagal Upload File Bukti pada Form Buat, Edit, Komentar, dan Re-Issue
+### 🐞 [BUG] | Ticket Maintenance - Aktivitas: Gagal Upload File Bukti pada Form Buat, Edit, Komentar, dan Re-Issue
 
-> * **Menu**: Ticket Maintenance → Aktivitas Issue
+> * **Menu**: Ticket Maintenance → Aktivitas
 > * **Deskripsi**: Fitur upload file bukti screenshot / lampiran selalu mengalami kegagalan (indikator bar merah "Gagal") pada seluruh fitur pelaporan issue (Buat Issue, Edit Issue, Komentar Issue, dan Re-Issue).
 > * **Expected**: File gambar / lampiran berhasil terunggah (progress bar sukses) dan tersimpan bersama tiket issue.
 > * **Actual**: Upload file selalu gagal (*status bar merah "Gagal"*) di seluruh form (Buat Issue, Edit Issue, Komentar Issue, dan Re-Issue).
@@ -477,9 +477,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Ticket Maintenance - Report Aktifitas Issue: Export Report Aktifitas Issue Tidak Tercatat di Riwayat dan Aktivitas Export
+### 🐞 [BUG] | Ticket Maintenance - Report: Export Report Aktifitas Issue Tidak Tercatat di Riwayat dan Aktivitas Export
 
-> * **Menu**: Ticket Maintenance → Report Aktifitas Issue
+> * **Menu**: Ticket Maintenance → Report
 > * **Deskripsi**: Aktivitas export data dari menu Report Aktifitas Issue tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
 > * **Expected**: Setiap kali user melakukan export data Report Aktifitas Issue, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
 > * **Actual**: Log export Report Aktifitas Issue tidak muncul di Riwayat Export maupun Aktivitas Export.
@@ -490,9 +490,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Ticket Maintenance - Aktivitas Issue: Field Dropdown Filter Tidak Memiliki Label "* Tipe"
+### 🐞 [BUG] | Ticket Maintenance - Aktivitas: Field Dropdown Filter Tidak Memiliki Label "* Tipe"
 
-> * **Menu**: Ticket Maintenance → Aktivitas Issue
+> * **Menu**: Ticket Maintenance → Aktivitas
 > * **Deskripsi**: Pada komponen filter di halaman Aktivitas Pelaporan Issue (tab Filter 1), field dropdown filter pertama tidak memiliki label penunjuk di atasnya (area label kosong/blank), yang mana seharusnya memiliki label **"\* Tipe"**.
 > * **Expected**: Muncul label teks penunjuk yang jelas di atas komponen dropdown, yaitu **"\* Tipe"**, agar user memahami konteks filter yang dipilih.
 > * **Actual**: Area label di atas field dropdown kosong/hilang sama sekali (*blank label*).
