@@ -653,7 +653,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 3. **Filter User Aktif & Perangkat Terpercaya (Tab Perangkat & Sesi)**: Tidak ada filter berdasarkan *User Aktif (Sesi Aktif)* maupun *Perangkat Terpercaya* (harus mencari manual dari 869 data), serta ada kolom kosong tanpa judul. Apakah perlu ditambahkan filter status tersebut?
    * Evidence: [https://files.catbox.moe/bclinl.png](https://files.catbox.moe/bclinl.png)
-   * *Status: Belum ditanyakan ke BA.*
+   * **Update**: Aman / By design (tidak perlu ditambahkan filter).
 
 4. **Batas Waktu Idle Logout (Tab Log Aktivitas)**: Berapa lama batas waktu (*idle session timeout*) untuk memicu aktivitas *Logout karena tidak aktif*?
    * **Update BA**: Normalnya adalah 30 menit. Untuk environment regression test perlu ditanyakan ke programmer barangkali ada penyesuaian durasi.
