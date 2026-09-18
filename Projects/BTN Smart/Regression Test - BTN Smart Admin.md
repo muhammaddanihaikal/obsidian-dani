@@ -33,7 +33,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | 🐛 Bug |
 | 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | 🐛 Bug |
 | 24 | Profile Nasabah & Sales | Sales | Fito | 🐛 Bug |
-| 25 | Profile Nasabah & Sales | Nasabah Perorangan | Fito | ⬜ Belum |
+| 25 | Profile Nasabah & Sales | Nasabah Perorangan | Fito | 🐛 Bug |
 | 26 | Bisnis dan Produk | Unit Bisnis | Fito | ⬜ Belum |
 | 27 | Bisnis dan Produk | Produk | Fito | ⬜ Belum |
 | 28 | Bisnis dan Produk | Group Produk | Fito | ⬜ Belum |
@@ -116,12 +116,12 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Login** | 3 | ✅ Reported (3/3) | Seluruh issue Login selesai di-input |
 | 2 | **Profile** | 1 | ✅ Reported (1/1) | Seluruh issue Profile selesai di-input |
 | 3 | **Ticket Maintenance** | 3 | ✅ Reported (3/3) | Seluruh issue Ticket Maintenance selesai di-input |
-| 4 | User Authority | 21 | ⏳ Pending (0/21) | User (6), Group Role (3), Tipe Karyawan (1), Keamanan Akun (11) |
-| 5 | Setting Absent | 3 | ⏳ Pending (0/3) | Attendance Spot (2), Work Pattern (1) |
-| 6 | Mobile App | 1 | ⏳ Pending (0/1) | Absensi Fake GPS (1) |
-| 7 | Menu Absent | 10 | ⏳ Pending (0/10) | Rekap (2), Daily (2), Approval (4), Dashboard (1), Total Selisih (1) |
-| 8 | Profile Nasabah & Sales | 2 | ⏳ Pending (0/2) | Sales (2) |
-| **Total** | | **44** | **7 Reported / 37 Pending** | |
+| 4 | **User Authority** | 20 | ✅ Reported (20/20) | User (6), Group Role (3), Tipe Karyawan (1), Keamanan Akun (10) |
+| 5 | **Setting Absent** | 3 | ✅ Reported (3/3) | Attendance Spot (2), Work Pattern (1) |
+| 6 | **Mobile App** | 1 | ✅ Reported (1/1) | Absensi Fake GPS (1) |
+| 7 | **Menu Absent** | 10 | ✅ Reported (10/10) | Rekap (2), Daily (2), Approval (4), Dashboard (1), Total Selisih (1) |
+| 8 | **Profile Nasabah & Sales** | 3 | ✅ Reported (3/3) | Sales (2), Nasabah Perorangan (1) |
+| **Total** | | **44** | **44 Reported / 0 Pending (100% DONE)** | |
 
 ---
 
@@ -381,37 +381,27 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Authority - Keamanan Akun: Beberapa Tipe Aktivitas MFA Tidak Tercatat atau Keliru di Log Aktivitas
+### 🐞 [BUG] | User Authority - Keamanan Akun: Inkonsistensi dan Ketiadaan Pencatatan Log Audit pada Kategori MFA serta Perangkat & Sesi
 
 > * **Menu**: User Authority → Keamanan Akun
-> * **Deskripsi**: Terdapat inkonsistensi pencatatan log audit di mana beberapa event MFA tidak tercatat sama sekali atau keliru labelnya:
->   1. **Verifikasi MFA Berhasil (OTP)**: *Actual* malah tercatat *"Login berhasil tanpa verifikasi MFA"*.
->   2. **Verifikasi MFA dengan Kode Cadangan**: *Actual* malah tercatat *"Login berhasil tanpa verifikasi MFA"*.
->   3. **Verifikasi MFA Gagal**: *Actual* tidak memicu log verifikasi MFA gagal, melainkan tercatat *"Percobaan login gagal"*.
->   4. **Permintaan Reset MFA Disetujui**: *Actual* tidak masuk ke log sama sekali saat admin menyetujui.
->   5. **Permintaan Reset MFA Ditolak**: *Actual* tidak masuk ke log sama sekali saat admin menolak.
->   6. **Reset MFA**: *Actual* tidak tercatat di log saat MFA di-reset.
->   7. **Mengubah Metode MFA**: *Actual* prematur, sudah tercatat sukses saat baru input password padahal metode baru belum dipilih/disimpan.
->   8. **MFA diaktifkan**: *Actual* tidak tercatat di log saat user pertama kali mengaktifkan MFA (Email OTP maupun TOTP).
->   9. **MFA dinonaktifkan**: *Actual* tidak tercatat di log saat proses Reset MFA dilakukan.
-> * **Expected**: Seluruh aktivitas MFA tercatat akurat dan sesuai dengan aksi nyata yang dilakukan user/admin.
-> * **Actual**: Sebagian aktivitas hilang dari log dan sebagian lainnya salah label / prematur.
-> * **Evidence**: [https://files.catbox.moe/u37vxx.png](https://files.catbox.moe/u37vxx.png)
-
-<br>
-
-### 🐞 [BUG] | User Authority - Keamanan Akun: Seluruh Tipe Aktivitas Kategori Perangkat & Sesi Tidak Tercatat di Log Aktivitas
-
-> * **Menu**: User Authority → Keamanan Akun
-> * **Deskripsi**: Ketika user atau admin melakukan aksi seputar manajemen perangkat dan sesi, sistem tidak mencatat aktivitas tersebut ke dalam tabel Log Aktivitas:
->   1. **Mempercayai Perangkat**: Tidak masuk ke log setelah login dengan opsi percaya perangkat.
->   2. **Menghapus Perangkat Terpercaya**: Tidak masuk ke log saat perangkat dihapus.
->   3. **Memberi Label Perangkat**: Tidak masuk ke log saat mengubah nama/label perangkat.
->   4. **Mencabut Sesi Perangkat**: Tidak masuk ke log saat melakukan logout paksa pada sesi tertentu.
->   5. **Mencabut Semua Sesi Perangkat**: Tidak masuk ke log saat tombol cabut semua sesi ditekan.
-> * **Expected**: Setiap aksi terkait perangkat dan sesi otomatis tercatat ke log audit dengan tipe aktivitas yang sesuai.
-> * **Actual**: Kelima aktivitas kategori Perangkat & Sesi tersebut tidak pernah tercatat (hilang dari log audit).
-> * **Evidence**: [https://files.catbox.moe/rycqzj.png](https://files.catbox.moe/rycqzj.png)
+> * **Deskripsi**: Terdapat inkonsistensi pencatatan dan ketiadaan log audit pada tab Log Aktivitas untuk kategori keamanan akun (MFA serta Perangkat & Sesi):
+>   * **[MFA] Verifikasi Berhasil (OTP)**: *Actual* malah tercatat *"Login berhasil tanpa verifikasi MFA"*.
+>   * **[MFA] Verifikasi dengan Kode Cadangan**: *Actual* malah tercatat *"Login berhasil tanpa verifikasi MFA"*.
+>   * **[MFA] Verifikasi Gagal**: *Actual* tidak memicu log verifikasi MFA gagal, melainkan tercatat *"Percobaan login gagal"*.
+>   * **[MFA] Permintaan Reset Disetujui**: *Actual* tidak masuk ke log saat admin menyetujui.
+>   * **[MFA] Permintaan Reset Ditolak**: *Actual* tidak masuk ke log sama sekali saat admin menolak.
+>   * **[MFA] Reset MFA**: *Actual* tidak tercatat di log saat MFA di-reset.
+>   * **[MFA] Mengubah Metode**: *Actual* prematur, sudah tercatat sukses saat baru input password padahal metode baru belum dipilih/disimpan.
+>   * **[MFA] Diaktifkan**: *Actual* tidak tercatat di log saat user pertama kali mengaktifkan MFA (Email OTP maupun TOTP).
+>   * **[MFA] Dinonaktifkan**: *Actual* tidak tercatat di log saat proses Reset MFA dilakukan.
+>   * **[Sesi] Mempercayai Perangkat**: Tidak masuk ke log setelah login dengan opsi percaya perangkat.
+>   * **[Sesi] Menghapus Perangkat Terpercaya**: Tidak masuk ke log saat perangkat dihapus.
+>   * **[Sesi] Memberi Label Perangkat**: Tidak masuk ke log saat mengubah nama/label perangkat.
+>   * **[Sesi] Mencabut Sesi Tertentu**: Tidak masuk ke log saat melakukan logout paksa pada sesi tertentu.
+>   * **[Sesi] Mencabut Semua Sesi**: Tidak masuk ke log saat tombol cabut semua sesi ditekan.
+> * **Expected**: Seluruh aktivitas MFA dan manajemen Perangkat & Sesi otomatis tercatat secara akurat, lengkap, dan sesuai dengan aksi nyata yang dilakukan user/admin.
+> * **Actual**: Sebagian aktivitas MFA salah label/prematur/hilang, dan seluruh aktivitas Perangkat & Sesi sama sekali tidak tercatat di Log Aktivitas.
+> * **Evidence**: [https://files.catbox.moe/5xeegv.png](https://files.catbox.moe/5xeegv.png)
 
 <br>
 
@@ -674,6 +664,20 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Total Data Web (10.392 data): [https://files.catbox.moe/8nvhow.png](https://files.catbox.moe/8nvhow.png)
 >   * Hasil Export Excel (867 data & urutan beda): [https://files.catbox.moe/rws6v6.png](https://files.catbox.moe/rws6v6.png)
 
+
+<br>
+
+### 🐞 [BUG] | Profile Nasabah & Sales - Nasabah Perorangan: Gagal Export Data pada Seluruh Tab Detail Nasabah
+
+> * **Menu**: Profile Nasabah & Sales → Nasabah Perorangan
+> * **Deskripsi**: Saat user membuka halaman Detail Nasabah lalu menekan tombol **Export Data** pada seluruh tab yang tersedia (**Produk**, **Aktivitas Sales**, dan **Daftar Rekening**), sistem gagal memproses request dan memunculkan pop-up / alert error *"Whoops, looks like something went wrong"* serta notifikasi *"Error Log Available"*. File hasil export tidak berhasil diunduh pada ketiga tab tersebut.
+> * **Expected**: Sistem berhasil memproses request export data nasabah pada masing-masing tab (Produk, Aktivitas Sales, dan Daftar Rekening) dan mengunduh file tanpa memunculkan error server (Error 500).
+> * **Actual**: Tombol Export Data pada ketiga tab (Produk, Aktivitas Sales, Daftar Rekening) seluruhnya memicu pop-up error *"Whoops, looks like something went wrong"* (Internal Server Error) dan file tidak ter-download.
+> * **Evidence**:
+>   * Tab Produk: [https://files.catbox.moe/kxqu6g.png](https://files.catbox.moe/kxqu6g.png)
+>   * Tab Aktivitas Sales: [https://files.catbox.moe/7rkzwh.png](https://files.catbox.moe/7rkzwh.png)
+>   * Tab Daftar Rekening: [https://files.catbox.moe/m5qru6.png](https://files.catbox.moe/m5qru6.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -867,3 +871,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-16 | Menu Absent, Setting Absent & Ticket Maintenance | Temuan bug export Rekap & Daily Absent, bug status Alpha prematur di Rekap Absent, bug user non-aktif bisa absen spot, bug label filter hilang, bug approval reset-approve tidak mengubah status Daily Absent, bug Fake GPS lolos, bug error validasi filter Daily Absent (role ids / Job role array), & catatan selisih total data 3 menu (Dashboard: 353 vs Daily: 383 vs Rekap: 11.203), & bug kalkulasi Total Hadir Dashboard Absent hitung Waiting Approval, & catatan selisih data Work Pattern vs Master User (11.179 vs 12.088), & bug error validasi filter Approval Absent (role ids array), & bug export Approval Absent tidak tercatat di drawer/Export Center, & bug tombol navigasi tanggal Approval Absent (<< dan >>) tidak berfungsi |
 | 2026-09-17 | General, User Authority & Menu Absent | Konfirmasi BA: Hapus Role & Hapus Tipe Karyawan Aman (by design), Work Pattern & Keamanan Akun mengacu Master User, Menu Absent hitungan sendiri; penambahan bug selisih data Work Pattern vs Master User (11.179 vs 12.088) dengan total 42 bug aktif |
 | 2026-09-17 | Profile Nasabah & Sales - Sales | Temuan bug export sales tidak tercatat di riwayat & aktivitas export (belum menggunakan report extraction), serta bug total data export terpotong (867 vs 10.392) dan urutan berbeda dengan web dengan total 44 bug aktif |
+| 2026-09-18 | Profile Nasabah & Sales - Nasabah Perorangan | Temuan bug error "Whoops, looks like something went wrong" saat export data pada seluruh tab di Detail Nasabah (Produk, Aktivitas Sales, Daftar Rekening) dengan total 44 bug aktif |
