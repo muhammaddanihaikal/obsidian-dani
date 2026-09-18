@@ -108,15 +108,14 @@ d:\Project\BTN\SIT\
     │   ├── SIT-02 Profile.docx
     │   └── ... (20 file)
     └── Mobile\
-        ├── SIT-01 Profile.docx
-        ├── SIT-02 Sales Tracking Activity.docx
-        ├── SIT-03 Login.docx
+        ├── SIT-01 Login.docx
+        ├── SIT-02 Profile.docx
+        ├── SIT-03 Sales Tracking Activity.docx
         └── ... (11 file)
 ```
 
 > [!NOTE]
-> Nomor modul Web dan Mobile **tidak harus sama** karena urutannya berbeda di Excel.
-> Web modul Login = SIT-01, Mobile modul Login = SIT-03.
+> Web modul Login = SIT-01, Mobile modul Login = SIT-01 (keduanya sekarang seragam diawali modul Login).
 
 ---
 

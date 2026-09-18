@@ -68,9 +68,9 @@ type: project-note
 
 | No | Modul | Jumlah TC |
 |----|-------|-----------|
-| 01 | Profile | 31 |
-| 02 | Sales Tracking Activity | 5 |
-| 03 | Login | 16 |
+| 01 | Login | 16 |
+| 02 | Profile | 31 |
+| 03 | Sales Tracking Activity | 5 |
 | 04 | Absent | 4 |
 | 05 | Log Absensi | 5 |
 | 06 | Personal Funnel | 17 |
