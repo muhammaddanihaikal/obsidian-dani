@@ -68,7 +68,7 @@ type: project-note
 
 | No | Modul | Jumlah TC |
 |----|-------|-----------|
-| 01 | Login | 16 |
+| 01 | Login | 15 |
 | 02 | Profile | 31 |
 | 03 | Sales Tracking Activity | 5 |
 | 04 | Absent | 4 |
@@ -80,7 +80,7 @@ type: project-note
 | 10 | Fitur | 9 |
 | 11 | Sales Force | 7 |
 
-**Total Mobile TC: 172**
+**Total Mobile TC: 171**
 
 ---
 
@@ -89,7 +89,7 @@ type: project-note
 - [x] Folder `Document SIT BTN Smart/Web/` — 20 file `.docx` (per modul)
 - [x] Folder `Document SIT BTN Smart/Mobile/` — 11 file `.docx` (per modul)
 - [x] `SIT BTN SMART Web.docx` — 1 file merged (1.027 TC, 20 modul)
-- [x] `SIT BTN SMART Mobile.docx` — 1 file merged (172 TC, 11 modul)
+- [x] `SIT BTN SMART Mobile.docx` — 1 file merged (171 TC, 11 modul)
 
 ---
 
