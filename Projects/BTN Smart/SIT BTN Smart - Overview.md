@@ -64,33 +64,32 @@ type: project-note
 
 ---
 
-### 📱 Mobile (BTN SMART Mobile) — 12 Modul
+### 📱 Mobile (BTN SMART Mobile) — 11 Modul
 
 | No | Modul | Jumlah TC |
 |----|-------|-----------|
-| 01 | Profile | 2 |
-| 02 | Profile Mobile | 30 |
-| 03 | Sales Tracking Activity | 5 |
-| 04 | Authentication | 16 |
-| 05 | Absent | 4 |
-| 06 | Log Absensi | 5 |
-| 07 | Personal Funnel | 17 |
-| 08 | Cuti & Izin | 9 |
-| 09 | Prospek & Nasabah | 55 |
-| 10 | Agenda | 14 |
-| 11 | Fitur | 9 |
-| 12 | Sales Force | 7 |
+| 01 | Profile | 31 |
+| 02 | Sales Tracking Activity | 5 |
+| 03 | Login | 16 |
+| 04 | Absent | 4 |
+| 05 | Log Absensi | 5 |
+| 06 | Personal Funnel | 17 |
+| 07 | Cuti & Izin | 9 |
+| 08 | Prospek & Nasabah | 55 |
+| 09 | Agenda | 14 |
+| 10 | Fitur | 9 |
+| 11 | Sales Force | 7 |
 
-**Total Mobile TC: 173**
+**Total Mobile TC: 172**
 
 ---
 
 ## ✅ Status Generate
 
 - [x] Folder `Document SIT BTN Smart/Web/` — 20 file `.docx` (per modul)
-- [x] Folder `Document SIT BTN Smart/Mobile/` — 12 file `.docx` (per modul)
+- [x] Folder `Document SIT BTN Smart/Mobile/` — 11 file `.docx` (per modul)
 - [x] `SIT BTN SMART Web.docx` — 1 file merged (1.027 TC, 20 modul)
-- [x] `SIT BTN SMART Mobile.docx` — 1 file merged (173 TC, 12 modul)
+- [x] `SIT BTN SMART Mobile.docx` — 1 file merged (172 TC, 11 modul)
 
 ---
 
