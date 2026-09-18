@@ -39,7 +39,7 @@ type: project-note
 
 | No | Modul | Jumlah TC |
 |----|-------|-----------|
-| 01 | Login | 17 |
+| 01 | Login | 16 |
 | 02 | Profile | 47 |
 | 03 | Overview | 13 |
 | 04 | User Authority | 80 |
@@ -60,7 +60,7 @@ type: project-note
 | 19 | Re-Assign dan Approval | 39 |
 | 20 | Export Data Management | 25 |
 
-**Total Web TC: 1.027**
+**Total Web TC: 1.026**
 
 ---
 
@@ -88,7 +88,7 @@ type: project-note
 
 - [x] Folder `Document SIT BTN Smart/Web/` — 20 file `.docx` (per modul)
 - [x] Folder `Document SIT BTN Smart/Mobile/` — 11 file `.docx` (per modul)
-- [x] `SIT BTN SMART Web.docx` — 1 file merged (1.027 TC, 20 modul)
+- [x] `SIT BTN SMART Web.docx` — 1 file merged (1.026 TC, 20 modul)
 - [x] `SIT BTN SMART Mobile.docx` — 1 file merged (171 TC, 11 modul)
 
 ---
