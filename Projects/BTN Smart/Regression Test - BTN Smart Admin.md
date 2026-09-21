@@ -463,6 +463,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Mobile App - Absensi: Ketiadaan Deteksi Mock Location (Fake GPS) pada Fitur Absensi Mobile
 
 > * **Menu**: Mobile App → Absensi
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Aplikasi mobile BTN Smart tidak memvalidasi atau mendeteksi penggunaan lokasi tiruan (*Mock Location / Fake GPS*). Sistem membaca koordinat palsu dari aplikasi pihak ketiga dan tetap mengizinkan user melakukan absensi (*Clock In / Clock Out*) hingga lokasi palsu tersebut tersimpan di Web Admin (*Daily Absent*). Hal ini membuka celah kecurangan (*fraud*) kehadiran bagi karyawan.
 > * **Expected**: Aplikasi wajib mendeteksi jika perangkat menggunakan *Mock Location / Fake GPS*, memunculkan pesan peringatan (*"Lokasi tiruan/palsu terdeteksi"*), dan memblokir proses absensi.
 > * **Actual**: Aplikasi menerima koordinat dari Fake GPS tanpa proteksi apapun dan proses absensi berhasil dilakukan.
@@ -470,6 +472,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Set Lokasi di Aplikasi Fake GPS: [https://files.catbox.moe/j7kor4.jpg](https://files.catbox.moe/j7kor4.jpg)
 >   * Titik Palsu Terbaca di BTN Smart Mobile: [https://files.catbox.moe/adpqxe.jpg](https://files.catbox.moe/adpqxe.jpg)
 >   * Absensi Lokasi Palsu Tersimpan di Web Admin: [https://files.catbox.moe/qq70mx.png](https://files.catbox.moe/qq70mx.png)
+>
+> * **Hasil Retest (21 Sep 2026)**: ✅ Done / PASS — Proteksi Mock Location (Fake GPS) sudah aktif pada Clock In & Clock Out, muncul warning *"Terdeteksi lokasi palsu (Fake GPS)"* dan absensi wajib mengacu pada lokasi asli perangkat.
 
 <br>
 
@@ -875,3 +879,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-17 | Profile Nasabah & Sales - Sales | Temuan bug export sales tidak tercatat di riwayat & aktivitas export (belum menggunakan report extraction), serta bug total data export terpotong (867 vs 10.392) dan urutan berbeda dengan web dengan total 44 bug aktif |
 | 2026-09-18 | Profile Nasabah & Sales - Nasabah Perorangan | Temuan bug error "Whoops, looks like something went wrong" saat export data pada seluruh tab di Detail Nasabah (Produk, Aktivitas Sales, Daftar Rekening) dengan total 44 bug aktif |
 | 2026-09-21 | Menu Absent - Approval Absent | Verifikasi perbaikan bug tombol navigasi tanggal "<<" dan ">>" pada Approval Absent selesai (Status: Done / Resolved) |
+| 2026-09-21 | Mobile App - Absensi | Verifikasi perbaikan bug Mock Location / Fake GPS pada Clock In & Clock Out selesai (Status: Done / Resolved) |
