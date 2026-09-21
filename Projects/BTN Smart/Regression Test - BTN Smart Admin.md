@@ -621,6 +621,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Menu Absent - Approval Absent: Tombol Navigasi Tanggal "<<" dan ">>" Tidak Berfungsi pada Approval Absent
 
 > * **Menu**: Menu Absent → Approval Absent
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Tombol navigasi tanggal *fast-backward/forward* (`<<` dan `>>`) di atas tabel Approval Absent tidak berfungsi/tidak merespons saat diklik, sehingga user tidak dapat berpindah rentang periode tanggal secara cepat.
 > * **Expected**: Tombol `<<` dan `>>` berfungsi menggeser rentang tanggal tab absensi ke periode sebelumnya atau berikutnya.
 > * **Actual**: Tombol `<<` dan `>>` tidak memberikan respons apapun dan rentang tanggal tidak bergeser.
@@ -872,3 +874,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-17 | General, User Authority & Menu Absent | Konfirmasi BA: Hapus Role & Hapus Tipe Karyawan Aman (by design), Work Pattern & Keamanan Akun mengacu Master User, Menu Absent hitungan sendiri; penambahan bug selisih data Work Pattern vs Master User (11.179 vs 12.088) dengan total 42 bug aktif |
 | 2026-09-17 | Profile Nasabah & Sales - Sales | Temuan bug export sales tidak tercatat di riwayat & aktivitas export (belum menggunakan report extraction), serta bug total data export terpotong (867 vs 10.392) dan urutan berbeda dengan web dengan total 44 bug aktif |
 | 2026-09-18 | Profile Nasabah & Sales - Nasabah Perorangan | Temuan bug error "Whoops, looks like something went wrong" saat export data pada seluruh tab di Detail Nasabah (Produk, Aktivitas Sales, Daftar Rekening) dengan total 44 bug aktif |
+| 2026-09-21 | Menu Absent - Approval Absent | Verifikasi perbaikan bug tombol navigasi tanggal "<<" dan ">>" pada Approval Absent selesai (Status: Done / Resolved) |
