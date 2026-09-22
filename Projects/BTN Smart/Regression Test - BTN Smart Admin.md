@@ -420,17 +420,18 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Setting Absent - Attendance Spot: Saran Lokasi Google Maps Tidak Muncul Saat Mode Layar Penuh pada Form Tambah & Edit
 
 > * **Menu**: Setting Absent → Attendance Spot
-> * **Deskripsi**: Fitur pencarian lokasi pada peta Google Maps tidak memunculkan *dropdown* rekomendasi/autocomplete lokasi ketika peta dibuka dalam mode layar penuh (*fullscreen map*), baik pada form Tambah (*Add New Attendance Spot*) maupun form Edit (*Edit Attendance Spot*), setelah sebelumnya melakukan pengubahan nilai radius.
+> * **Deskripsi**: Fitur pencarian lokasi pada peta Google Maps tidak memunculkan *dropdown* rekomendasi/autocomplete lokasi ketika peta dibuka dalam mode layar penuh (*fullscreen map*), baik pada form Tambah (*Add New Attendance Spot*) maupun form Edit (*Edit Attendance Spot*), setelah sebelumnya melakukan pengubahan nilai radius. Pada tampilan peta normal (peta kecil), saran lokasi dapat muncul normal, namun begitu peta diperbesar ke mode layar penuh, saran lokasi tidak muncul sama sekali.
 > * **Langkah Reproduksi**:
 >   1. Masuk ke menu Setting Absent → Attendance Spot, lalu buka form **Add New Location** atau **Edit Location**.
->   2. Ubah nilai pada kolom **Radius** (contoh: ubah ke 70 meter).
->   3. Klik icon **Layar Penuh (Fullscreen)** di pojok kanan atas peta untuk memperbesar peta.
->   4. Ketik kata kunci lokasi pada kolom pencarian Google Maps di dalam mode layar penuh.
+>   2. Ubah nilai pada kolom **Radius** (contoh: ubah menjadi 90 meter).
+>   3. Ketik kata kunci lokasi pada kolom pencarian Google Maps di **tampilan peta normal (peta kecil)** — *autocomplete / saran lokasi Google Maps muncul normal*.
+>   4. Klik icon **Layar Penuh (Fullscreen)** di pojok kanan atas peta untuk memperbesar peta.
+>   5. Ketik kembali kata kunci lokasi pada kolom pencarian Google Maps di **mode layar penuh (peta besar)** — *autocomplete / saran lokasi TIDAK muncul sama sekali*.
 > * **Expected**: *Dropdown* saran lokasi / autocomplete Google Maps tetap muncul dan dapat dipilih saat peta dalam mode layar penuh (*fullscreen*).
 > * **Actual**: *Dropdown* saran lokasi tidak muncul sama sekali (*terhalang z-index mode fullscreen*), sehingga user tidak bisa memilih lokasi yang dicari.
 > * **Evidence**:
 >   * Form Tambah & Edit Attendance Spot: [https://files.catbox.moe/u4l66y.png](https://files.catbox.moe/u4l66y.png)
->   * Tahapan Ubah Radius & Klik Layar Penuh: [https://files.catbox.moe/0i3fpy.png](https://files.catbox.moe/0i3fpy.png)
+>   * Tahapan Ubah Radius, Search Peta Kecil & Klik Layar Penuh: [https://files.catbox.moe/juyuqz.png](https://files.catbox.moe/juyuqz.png)
 >   * Saran Lokasi Tidak Muncul Saat Layar Penuh: [https://files.catbox.moe/p5ti6b.png](https://files.catbox.moe/p5ti6b.png)
 
 <br>
@@ -880,3 +881,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-18 | Profile Nasabah & Sales - Nasabah Perorangan | Temuan bug error "Whoops, looks like something went wrong" saat export data pada seluruh tab di Detail Nasabah (Produk, Aktivitas Sales, Daftar Rekening) dengan total 44 bug aktif |
 | 2026-09-21 | Menu Absent - Approval Absent | Verifikasi perbaikan bug tombol navigasi tanggal "<<" dan ">>" pada Approval Absent selesai (Status: Done / Resolved) |
 | 2026-09-21 | Mobile App - Absensi | Verifikasi perbaikan bug Mock Location / Fake GPS pada Clock In & Clock Out selesai (Status: Done / Resolved) |
+| 2026-09-22 | Setting Absent - Attendance Spot | Pembaruan langkah reproduksi & screenshot baru pada bug saran lokasi Google Maps (peta kecil vs fullscreen) |
