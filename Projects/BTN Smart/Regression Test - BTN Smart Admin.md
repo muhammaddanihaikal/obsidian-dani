@@ -118,10 +118,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 3 | **Ticket Maintenance** | 3 | ✅ Reported (3/3) | Seluruh issue Ticket Maintenance selesai di-input |
 | 4 | **User Authority** | 20 | ✅ Reported (20/20) | User (6), Group Role (3), Tipe Karyawan (1), Keamanan Akun (10) |
 | 5 | **Setting Absent** | 3 | ✅ Reported (3/3) | Attendance Spot (2), Work Pattern (1) |
-| 6 | **Mobile App** | 1 | ✅ Reported (1/1) | Absensi Fake GPS (1) |
+| 6 | Mobile App | 2 | ⏳ Pending (1/2) | Absensi Fake GPS (1), Prospek Tanggal Validasi (1) |
 | 7 | **Menu Absent** | 10 | ✅ Reported (10/10) | Rekap (2), Daily (2), Approval (4), Dashboard (1), Total Selisih (1) |
 | 8 | **Profile Nasabah & Sales** | 3 | ✅ Reported (3/3) | Sales (2), Nasabah Perorangan (1) |
-| **Total** | | **44** | **44 Reported / 0 Pending (100% DONE)** | |
+| **Total** | | **45** | **44 Reported / 1 Pending** | |
 
 ---
 
@@ -476,6 +476,18 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >
 > * **Hasil Retest (21 Sep 2026)**: ✅ Done / PASS — Proteksi Mock Location (Fake GPS) sudah aktif pada Clock In & Clock Out, muncul warning *"Terdeteksi lokasi palsu (Fake GPS)"* dan absensi wajib mengacu pada lokasi asli perangkat.
 
+
+<br>
+
+### 🐞 [BUG] | Mobile App - Prospek: Ketiadaan Pesan Validasi pada Field Tanggal Potensi Saat Input Prospek
+
+> * **Menu**: Mobile App → Prospek (Individu & Lembaga)
+> * **Deskripsi**: Pada saat pembuatan prospek baru (baik Prospek Individu maupun Prospek Lembaga) di aplikasi mobile, field **Tanggal Potensi dana masuk / realisasi kredit** memiliki tanda bintang merah (*) yang menandakan field wajib diisi (mandatory). Namun ketika tombol **SUBMIT** ditekan dalam kondisi field tanggal tersebut masih kosong, sistem tidak memunculkan indikator error validasi (tidak ada pesan teks *"Tidak boleh kosong"* dan border inputan tidak berubah menjadi merah seperti field wajib lainnya).
+> * **Expected**: Ketika tombol SUBMIT ditekan dan field tanggal belum diisi, sistem menampilkan border merah pada field dan memunculkan pesan validasi error teks *"Tidak boleh kosong"* di bawah kolom tersebut (konsisten dengan field mandatory lainnya).
+> * **Actual**: Field tanggal tetap berwarna abu-abu polos dan tidak memunculkan pesan error *"Tidak boleh kosong"* sama sekali saat form di-submit dalam keadaan kosong.
+> * **Evidence**:
+>   * Form Prospek Individu (Step 3/3): [https://files.catbox.moe/tylk3v.jpg](https://files.catbox.moe/tylk3v.jpg)
+>   * Form Prospek Lembaga (Step 4/4): [https://files.catbox.moe/lvu3ey.jpg](https://files.catbox.moe/lvu3ey.jpg)
 <br>
 
 ### 🐞 [BUG] | Ticket Maintenance - Aktivitas: Gagal Upload File Bukti pada Form Buat, Edit, Komentar, dan Re-Issue
@@ -882,3 +894,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-21 | Menu Absent - Approval Absent | Verifikasi perbaikan bug tombol navigasi tanggal "<<" dan ">>" pada Approval Absent selesai (Status: Done / Resolved) |
 | 2026-09-21 | Mobile App - Absensi | Verifikasi perbaikan bug Mock Location / Fake GPS pada Clock In & Clock Out selesai (Status: Done / Resolved) |
 | 2026-09-22 | Setting Absent - Attendance Spot | Pembaruan langkah reproduksi & screenshot baru pada bug saran lokasi Google Maps (peta kecil vs fullscreen) |
+| 2026-09-22 | Mobile App - Prospek | Temuan bug ketiadaan pesan validasi "Tidak boleh kosong" pada field Tanggal Potensi saat input Prospek Individu & Lembaga dengan total 45 bug aktif |
