@@ -710,12 +710,17 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Profile Nasabah & Sales - Sales: Total Data Hasil Export Tidak Sesuai dan Urutan Berbeda dengan Web
 
 > * **Menu**: Profile Nasabah & Sales → Sales
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: File Excel hasil export data Sales hanya berisi 867 baris data (terpotong jauh dari total 10.392 data yang ada di web), dan urutan datanya tidak sesuai dengan urutan tampilan tabel web.
 > * **Expected**: Total data pada file Excel hasil export lengkap sesuai jumlah di web (10.392 data) dan urutan datanya konsisten mengikuti tabel web.
 > * **Actual**: File Excel hanya memuat 867 data (hilang 9.525 data) serta urutan datanya berbeda dengan web.
 > * **Evidence**:
 >   * Total Data Web (10.392 data): [https://files.catbox.moe/8nvhow.png](https://files.catbox.moe/8nvhow.png)
 >   * Hasil Export Excel (867 data & urutan beda): [https://files.catbox.moe/rws6v6.png](https://files.catbox.moe/rws6v6.png)
+> * **Bukti Retest**:
+>   * Total Data Web: [https://files.catbox.moe/zil8di.png](https://files.catbox.moe/zil8di.png)
+>   * File Excel Lengkap & Sesuai: [https://files.catbox.moe/jw6fec.png](https://files.catbox.moe/jw6fec.png)
 
 
 <br>
@@ -939,3 +944,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-23 | User Authority - User | Verifikasi perbaikan bug export user tidak tercatat di riwayat & aktivitas export selesai (Status: Done / Resolved) |
 | 2026-09-23 | User Authority - Group Role | Verifikasi perbaikan bug export group role tidak tercatat di riwayat & aktivitas export selesai (Status: Done / Resolved) |
 | 2026-09-23 | User Authority - User | Verifikasi ulang perbaikan bug urutan sorting export Excel selesai (Status: Done / Resolved) |
+| 2026-09-23 | Profile Nasabah & Sales - Sales | Verifikasi perbaikan bug total data export sales terpotong & urutan berbeda selesai (Status: Done / Resolved) |
