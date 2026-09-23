@@ -213,6 +213,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - User: Fitur Search User Tidak Berfungsi untuk Kolom Tipe Pengguna, Sales Code, dan Created At
 
 > * **Menu**: User Authority → User
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Pencarian data pada tabel Master User tidak dapat menemukan/memfilter data berdasarkan kolom **Tipe Pengguna**, **Sales Code**, dan **Created At** (hasil pencarian menampilkan "No data" padahal data ada).
 > * **Expected**: Field search dapat memfilter data secara akurat saat user memasukkan keyword Tipe Pengguna (misal: Non-AD / AD), Sales Code, maupun tanggal Created At.
 > * **Actual**: Pencarian menggunakan nilai dari ketiga kolom tersebut selalu menghasilkan "No data".
@@ -226,6 +228,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * **Kolom Created At (11-02-2019)**:
 >     * Data Ada: [https://files.catbox.moe/8da0om.png](https://files.catbox.moe/8da0om.png)
 >     * Hasil Search (No data): [https://files.catbox.moe/siizar.png](https://files.catbox.moe/siizar.png)
+> * **Bukti Retest**:
+>   * Tipe Pengguna: [https://files.catbox.moe/nuramc.png](https://files.catbox.moe/nuramc.png)
+>   * Sales Code: [https://files.catbox.moe/798jiy.png](https://files.catbox.moe/798jiy.png)
+>   * Created At: [https://files.catbox.moe/71qwbz.png](https://files.catbox.moe/71qwbz.png)
 
 <br>
 
@@ -904,3 +910,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-23 | User Authority - User | Konfirmasi Dev: Resend Activation Link khusus user Non-AD; pembaruan issue di mana opsi tersebut masih muncul pada user AD |
 | 2026-09-23 | User Authority - Group Role | Verifikasi perbaikan bug lolos validasi nama duplikat saat edit Group Role selesai (Status: Done / Resolved) |
 | 2026-09-23 | User Authority - Tipe Karyawan | Verifikasi perbaikan bug lolos validasi nama duplikat saat edit Tipe Karyawan selesai (Status: Done / Resolved) |
+| 2026-09-23 | User Authority - User | Verifikasi perbaikan bug search user (Tipe Pengguna, Sales Code, Created At) selesai (Status: Done / Resolved) |
