@@ -196,6 +196,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence**:
 >   * Tampilan Web: [https://files.catbox.moe/2ltipm.png](https://files.catbox.moe/2ltipm.png)
 >   * Hasil Export Excel (A-Z): [https://files.catbox.moe/g6pou7.png](https://files.catbox.moe/g6pou7.png)
+> * **Bukti Retest (Masih Issue)**:
+>   * Tampilan Web: [https://files.catbox.moe/bu6xa7.png](https://files.catbox.moe/bu6xa7.png)
+>   * Hasil Export Excel: [https://files.catbox.moe/aryan7.png](https://files.catbox.moe/aryan7.png)
 
 <br>
 
@@ -920,3 +923,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-23 | User Authority - User | Verifikasi perbaikan bug search user (Tipe Pengguna, Sales Code, Created At) selesai (Status: Done / Resolved) |
 | 2026-09-23 | User Authority - Group Role | Verifikasi perbaikan bug search group role (Kantor, Keterangan) selesai (Status: Done / Resolved) |
 | 2026-09-23 | User Authority - User | Verifikasi perbaikan bug bulk delete user menyisakan ghost record selesai (Status: Done / Resolved) |
+| 2026-09-23 | User Authority - User | Retest bug urutan sorting export Excel (Status: FAILED / Masih Issue tersortir A-Z) |
