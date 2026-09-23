@@ -32,7 +32,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 21 | User Authority | Keamanan Akun - Permintaan Reset MFA | Alam | 🐛 Bug |
 | 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | 🐛 Bug |
 | 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | 🐛 Bug |
-| 24 | Profile Nasabah & Sales | Sales | Fito | 🐛 Bug |
+| 24 | Profile Nasabah & Sales | Sales | Fito | ✅ Done |
 | 25 | Profile Nasabah & Sales | Nasabah Perorangan | Fito | 🐛 Bug |
 | 26 | Bisnis dan Produk | Unit Bisnis | Fito | ⬜ Belum |
 | 27 | Bisnis dan Produk | Produk | Fito | ⬜ Belum |
@@ -697,6 +697,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Profile Nasabah & Sales - Sales: Export Sales Tidak Tercatat di Riwayat dan Aktivitas Export
 
 > * **Menu**: Profile Nasabah & Sales → Sales
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Aktivitas export data dari menu Profile Sales tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export (belum menggunakan *Report Extraction*).
 > * **Expected**: Setiap kali user melakukan export data Sales, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
 > * **Actual**: Log export Sales tidak muncul di Riwayat Export maupun Aktivitas Export.
@@ -704,6 +706,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Export Sales: [https://files.catbox.moe/oa4060.png](https://files.catbox.moe/oa4060.png)
 >   * Riwayat Export: [https://files.catbox.moe/tbg8zj.png](https://files.catbox.moe/tbg8zj.png)
 >   * Aktivitas Export: [https://files.catbox.moe/squkas.png](https://files.catbox.moe/squkas.png)
+> * **Bukti Retest**:
+>   * Riwayat Export: [https://files.catbox.moe/q86ip8.png](https://files.catbox.moe/q86ip8.png)
+>   * Aktivitas Export: [https://files.catbox.moe/bg4dra.png](https://files.catbox.moe/bg4dra.png)
 
 <br>
 
@@ -945,3 +950,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-23 | User Authority - Group Role | Verifikasi perbaikan bug export group role tidak tercatat di riwayat & aktivitas export selesai (Status: Done / Resolved) |
 | 2026-09-23 | User Authority - User | Verifikasi ulang perbaikan bug urutan sorting export Excel selesai (Status: Done / Resolved) |
 | 2026-09-23 | Profile Nasabah & Sales - Sales | Verifikasi perbaikan bug total data export sales terpotong & urutan berbeda selesai (Status: Done / Resolved) |
+| 2026-09-23 | Profile Nasabah & Sales - Sales | Verifikasi perbaikan bug export sales tidak tercatat di riwayat & aktivitas export selesai (Status: Done / Resolved) |
