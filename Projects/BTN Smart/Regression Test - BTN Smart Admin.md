@@ -536,6 +536,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Form Edit Issue: [https://files.catbox.moe/9zsjae.png](https://files.catbox.moe/9zsjae.png)
 >   * Fitur Komentar Issue: [https://files.catbox.moe/gb0701.png](https://files.catbox.moe/gb0701.png)
 >   * Form Buat Re-Issue: [https://files.catbox.moe/hmsi9i.png](https://files.catbox.moe/hmsi9i.png)
+> * **Bukti Retest (Masih Issue)**:
+>   * Preview Gambar Rusak / Broken: [https://prnt.sc/UrDG33OnyLkr](https://prnt.sc/UrDG33OnyLkr)
 
 <br>
 
@@ -963,3 +965,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-23 | Profile Nasabah & Sales - Nasabah Perorangan | Verifikasi perbaikan bug error export detail nasabah (Produk, Aktivitas Sales, Daftar Rekening) selesai (Status: Done / Resolved) |
 | 2026-09-23 | Ticket Maintenance - Aktivitas | Verifikasi perbaikan label filter dropdown "* Tipe Search" selesai (Status: Done / Resolved) |
 | 2026-09-23 | Ticket Maintenance - Report | Verifikasi perbaikan bug export report aktivitas issue tidak tercatat di riwayat & aktivitas export selesai (Status: Done / Resolved) |
+| 2026-09-23 | Ticket Maintenance - Aktivitas | Retest bug upload file bukti (Status: FAILED / Masih Issue preview gambar broken) |
