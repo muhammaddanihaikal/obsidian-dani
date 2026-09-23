@@ -32,5 +32,9 @@ Selamat datang di pusat komando! Ini adalah *Map of Content* (Peta Konten) dari 
 - [[Rekap Progress Belajar]]
 - [[Playwright]]
 
+### 🧠 AI & Modern QA Engineering
+- [[01 - Prompt vs Context Engineering & Best Practice Workflow QA]]
+- [[02 - Arsitektur Otomasi Dokumen Hasil Uji (GDrive & Python)]]
+
 ---
 *Gunakan `[[nama_file]]` di catatan barumu untuk menyambungkannya ke jaring-jaring ilmu ini!*

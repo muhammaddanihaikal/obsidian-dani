@@ -190,15 +190,17 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - User: Urutan Sorting Hasil Export Excel Tidak Sesuai Web
 
 > * **Menu**: User Authority → User
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Urutan data pada file Excel hasil export berbeda dengan urutan yang tampil di tabel web (data di Excel tersortir alfabet A-Z).
 > * **Expected**: Urutan data pada file Excel hasil export konsisten mengikuti urutan sorting tampilan web.
 > * **Actual**: Data pada file Excel diurutkan berdasarkan abjad A-Z nama user, tidak sesuai dengan urutan web.
 > * **Evidence**:
 >   * Tampilan Web: [https://files.catbox.moe/2ltipm.png](https://files.catbox.moe/2ltipm.png)
 >   * Hasil Export Excel (A-Z): [https://files.catbox.moe/g6pou7.png](https://files.catbox.moe/g6pou7.png)
-> * **Bukti Retest (Masih Issue)**:
->   * Tampilan Web: [https://files.catbox.moe/bu6xa7.png](https://files.catbox.moe/bu6xa7.png)
->   * Hasil Export Excel: [https://files.catbox.moe/aryan7.png](https://files.catbox.moe/aryan7.png)
+> * **Bukti Retest (Done)**:
+>   * Tampilan Web: [https://files.catbox.moe/z3gw3m.png](https://files.catbox.moe/z3gw3m.png)
+>   * Hasil Export Excel Sesuai Web: [https://files.catbox.moe/mbzyce.png](https://files.catbox.moe/mbzyce.png)
 
 <br>
 
@@ -936,3 +938,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-23 | User Authority - User | Retest bug urutan sorting export Excel (Status: FAILED / Masih Issue tersortir A-Z) |
 | 2026-09-23 | User Authority - User | Verifikasi perbaikan bug export user tidak tercatat di riwayat & aktivitas export selesai (Status: Done / Resolved) |
 | 2026-09-23 | User Authority - Group Role | Verifikasi perbaikan bug export group role tidak tercatat di riwayat & aktivitas export selesai (Status: Done / Resolved) |
+| 2026-09-23 | User Authority - User | Verifikasi ulang perbaikan bug urutan sorting export Excel selesai (Status: Done / Resolved) |
