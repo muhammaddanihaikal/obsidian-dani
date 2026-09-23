@@ -26,7 +26,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 15 | Overview | Pengaturan Overview | Alam | ⬜ Belum |
 | 16 | User Authority | User | Alam | 🐛 Bug |
 | 17 | User Authority | Group Role | Alam | 🐛 Bug |
-| 18 | User Authority | Tipe Karyawan | Alam | 🐛 Bug |
+| 18 | User Authority | Tipe Karyawan | Alam | ✅ Done |
 | 19 | User Authority | Hak Akses Role | Alam | ✅ Done |
 | 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | 🐛 Bug |
 | 21 | User Authority | Keamanan Akun - Permintaan Reset MFA | Alam | 🐛 Bug |
@@ -293,10 +293,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Tipe Karyawan: Lolos Validasi Nama Duplikat Saat Edit Tipe Karyawan
 
 > * **Menu**: User Authority → Tipe Karyawan
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Validasi nama unik hanya aktif saat tambah tipe karyawan baru. Ketika melakukan ubah data (*edit*), sistem tidak mengecek duplikasi sehingga nama tipe karyawan bisa disimpan sama persis dengan yang sudah ada.
 > * **Expected**: Sistem tetap memvalidasi keunikan nama saat edit data, dan menolak simpan jika nama tipe karyawan sudah digunakan.
 > * **Actual**: Sistem berhasil menyimpan perubahan, sehingga muncul data tipe karyawan ganda dengan nama yang identik di tabel.
 > * **Evidence**: [https://files.catbox.moe/edw9td.png](https://files.catbox.moe/edw9td.png)
+> * **Bukti Retest**: [https://files.catbox.moe/1lao4n.png](https://files.catbox.moe/1lao4n.png)
 
 <br>
 
@@ -900,3 +903,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-22 | Mobile App - Prospek | Temuan bug ketiadaan pesan validasi "Tidak boleh kosong" pada field Tanggal Potensi saat input Prospek Individu & Lembaga dengan total 45 bug aktif |
 | 2026-09-23 | User Authority - User | Konfirmasi Dev: Resend Activation Link khusus user Non-AD; pembaruan issue di mana opsi tersebut masih muncul pada user AD |
 | 2026-09-23 | User Authority - Group Role | Verifikasi perbaikan bug lolos validasi nama duplikat saat edit Group Role selesai (Status: Done / Resolved) |
+| 2026-09-23 | User Authority - Tipe Karyawan | Verifikasi perbaikan bug lolos validasi nama duplikat saat edit Tipe Karyawan selesai (Status: Done / Resolved) |
