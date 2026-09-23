@@ -280,10 +280,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Group Role: Lolos Validasi Nama Duplikat Saat Edit Group Role
 
 > * **Menu**: User Authority → Group Role
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Validasi nama unik hanya aktif saat tambah role baru. Ketika melakukan ubah data (*edit*), sistem tidak mengecek duplikasi sehingga nama role bisa disimpan sama persis dengan role lain yang sudah ada.
 > * **Expected**: Sistem tetap memvalidasi keunikan nama saat edit data, dan menolak simpan jika nama role sudah digunakan oleh role lain.
 > * **Actual**: Sistem berhasil menyimpan perubahan, sehingga muncul data role ganda dengan nama yang identik di tabel.
 > * **Evidence**: [https://files.catbox.moe/z6e6hl.png](https://files.catbox.moe/z6e6hl.png)
+> * **Bukti Retest**: [https://files.catbox.moe/yz0efq.png](https://files.catbox.moe/yz0efq.png)
 
 <br>
 
@@ -896,3 +899,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-22 | Setting Absent - Attendance Spot | Pembaruan langkah reproduksi & screenshot baru pada bug saran lokasi Google Maps (peta kecil vs fullscreen) |
 | 2026-09-22 | Mobile App - Prospek | Temuan bug ketiadaan pesan validasi "Tidak boleh kosong" pada field Tanggal Potensi saat input Prospek Individu & Lembaga dengan total 45 bug aktif |
 | 2026-09-23 | User Authority - User | Konfirmasi Dev: Resend Activation Link khusus user Non-AD; pembaruan issue di mana opsi tersebut masih muncul pada user AD |
+| 2026-09-23 | User Authority - Group Role | Verifikasi perbaikan bug lolos validasi nama duplikat saat edit Group Role selesai (Status: Done / Resolved) |
