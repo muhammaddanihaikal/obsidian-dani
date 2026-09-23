@@ -205,6 +205,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - User: Export User Tidak Tercatat di Riwayat dan Aktivitas Export
 
 > * **Menu**: User Authority → User
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Aktivitas export data dari Master User tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
 > * **Expected**: Setiap kali user melakukan export data Master User, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
 > * **Actual**: Log export Master User tidak muncul di kedua menu Export Center tersebut.
@@ -212,6 +214,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Export User: [https://files.catbox.moe/98mabj.png](https://files.catbox.moe/98mabj.png)
 >   * Riwayat Export: [https://files.catbox.moe/tbg8zj.png](https://files.catbox.moe/tbg8zj.png)
 >   * Aktivitas Export: [https://files.catbox.moe/squkas.png](https://files.catbox.moe/squkas.png)
+> * **Bukti Retest**:
+>   * Riwayat Export: [https://files.catbox.moe/lzq8tb.png](https://files.catbox.moe/lzq8tb.png)
+>   * Aktivitas Export: [https://files.catbox.moe/p7rs4p.png](https://files.catbox.moe/p7rs4p.png)
 
 <br>
 
@@ -924,3 +929,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-23 | User Authority - Group Role | Verifikasi perbaikan bug search group role (Kantor, Keterangan) selesai (Status: Done / Resolved) |
 | 2026-09-23 | User Authority - User | Verifikasi perbaikan bug bulk delete user menyisakan ghost record selesai (Status: Done / Resolved) |
 | 2026-09-23 | User Authority - User | Retest bug urutan sorting export Excel (Status: FAILED / Masih Issue tersortir A-Z) |
+| 2026-09-23 | User Authority - User | Verifikasi perbaikan bug export user tidak tercatat di riwayat & aktivitas export selesai (Status: Done / Resolved) |
