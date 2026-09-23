@@ -239,12 +239,12 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Authority - User: Muncul Opsi "Resend Activation Link" pada User Non-AD
+### 🐞 [BUG] | User Authority - User: Muncul Opsi "Resend Activation Link" pada User AD
 
 > * **Menu**: User Authority → User
-> * **Deskripsi**: Pada menu aksi user bertipe **Non-AD** (data ghost record sisa delete), muncul opsi *"Resend Activation Link"* dan saat diklik sistem tetap mengirimkan email untuk buat password.
-> * **Expected**: Fitur *"Resend Activation Link"* hanya tersedia khusus untuk user bertipe **AD**. User Non-AD tidak boleh memiliki aksi ini karena password dibuat langsung saat input user baru.
-> * **Actual**: Tombol *"Resend Activation Link"* muncul pada user Non-AD dan dapat mentrigger pengiriman email aktivasi.
+> * **Deskripsi**: Opsi *"Resend Activation Link"* seharusnya khusus diperuntukkan bagi user bertipe **Non-AD** (untuk kebutuhan aktivasi password akun via email). Namun pada menu aksi user bertipe **AD (Active Directory)**, opsi *"Resend Activation Link"* masih tetap muncul dan dapat diklik.
+> * **Expected**: Opsi *"Resend Activation Link"* hanya muncul pada user **Non-AD**. Pada user bertipe **AD**, opsi ini wajib disembunyikan (*hide/disable*) karena autentikasi user AD dikelola langsung melalui domain/LDAP korporat dan tidak memerlukan aktivasi password via email.
+> * **Actual**: Opsi *"Resend Activation Link"* masih tetap muncul pada menu aksi user bertipe **AD**.
 > * **Evidence**: [https://files.catbox.moe/lyl9gn.png](https://files.catbox.moe/lyl9gn.png)
 
 <br>
@@ -895,3 +895,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-21 | Mobile App - Absensi | Verifikasi perbaikan bug Mock Location / Fake GPS pada Clock In & Clock Out selesai (Status: Done / Resolved) |
 | 2026-09-22 | Setting Absent - Attendance Spot | Pembaruan langkah reproduksi & screenshot baru pada bug saran lokasi Google Maps (peta kecil vs fullscreen) |
 | 2026-09-22 | Mobile App - Prospek | Temuan bug ketiadaan pesan validasi "Tidak boleh kosong" pada field Tanggal Potensi saat input Prospek Individu & Lembaga dengan total 45 bug aktif |
+| 2026-09-23 | User Authority - User | Konfirmasi Dev: Resend Activation Link khusus user Non-AD; pembaruan issue di mana opsi tersebut masih muncul pada user AD |
