@@ -258,6 +258,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Group Role: Fitur Search Group Role Tidak Berfungsi untuk Kolom Kantor dan Keterangan
 
 > * **Menu**: User Authority → Group Role
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Fitur pencarian pada tabel Group Role tidak memfilter data berdasarkan kolom **Kantor** dan **Keterangan**.
 > * **Expected**: Field search dapat memfilter data secara akurat saat user memasukkan keyword Kantor maupun Keterangan.
 > * **Actual**: 
@@ -270,6 +272,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * **Kolom Keterangan (Pimpinan Kantor Cabang)**:
 >     * Data Ada: [https://files.catbox.moe/0iz476.png](https://files.catbox.moe/0iz476.png)
 >     * Hasil Search (No data): [https://files.catbox.moe/b6ihis.png](https://files.catbox.moe/b6ihis.png)
+> * **Bukti Retest**:
+>   * Kolom Kantor: [https://files.catbox.moe/n442nd.png](https://files.catbox.moe/n442nd.png)
+>   * Kolom Keterangan: [https://files.catbox.moe/jtcjql.png](https://files.catbox.moe/jtcjql.png)
 
 <br>
 
@@ -911,3 +916,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-23 | User Authority - Group Role | Verifikasi perbaikan bug lolos validasi nama duplikat saat edit Group Role selesai (Status: Done / Resolved) |
 | 2026-09-23 | User Authority - Tipe Karyawan | Verifikasi perbaikan bug lolos validasi nama duplikat saat edit Tipe Karyawan selesai (Status: Done / Resolved) |
 | 2026-09-23 | User Authority - User | Verifikasi perbaikan bug search user (Tipe Pengguna, Sales Code, Created At) selesai (Status: Done / Resolved) |
+| 2026-09-23 | User Authority - Group Role | Verifikasi perbaikan bug search group role (Kantor, Keterangan) selesai (Status: Done / Resolved) |
