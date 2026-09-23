@@ -542,7 +542,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Ticket Maintenance - Report: Export Report Aktifitas Issue Tidak Tercatat di Riwayat dan Aktivitas Export
 
 > * **Menu**: Ticket Maintenance → Report
-> * **Status Huly**: ✅ Reported
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Aktivitas export data dari menu Report Aktifitas Issue tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
 > * **Expected**: Setiap kali user melakukan export data Report Aktifitas Issue, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
 > * **Actual**: Log export Report Aktifitas Issue tidak muncul di Riwayat Export maupun Aktivitas Export.
@@ -550,17 +551,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Export Report Aktifitas Issue: [https://files.catbox.moe/en5wyo.png](https://files.catbox.moe/en5wyo.png)
 >   * Riwayat Export: [https://files.catbox.moe/tbg8zj.png](https://files.catbox.moe/tbg8zj.png)
 >   * Aktivitas Export: [https://files.catbox.moe/squkas.png](https://files.catbox.moe/squkas.png)
+> * **Bukti Retest**:
+>   * Riwayat Export: [https://files.catbox.moe/j0jyfp.png](https://files.catbox.moe/j0jyfp.png)
+>   * Aktivitas Export: [https://files.catbox.moe/loszuc.png](https://files.catbox.moe/loszuc.png)
 
 <br>
 
 ### 🐞 [BUG] | Ticket Maintenance - Aktivitas: Field Dropdown Filter Tidak Memiliki Label "* Tipe"
 
 > * **Menu**: Ticket Maintenance → Aktivitas
-> * **Status Huly**: ✅ Reported
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Pada komponen filter di halaman Aktivitas Pelaporan Issue (tab Filter 1), field dropdown filter pertama tidak memiliki label penunjuk di atasnya (area label kosong/blank), yang mana seharusnya memiliki label **"\* Tipe"**.
 > * **Expected**: Muncul label teks penunjuk yang jelas di atas komponen dropdown, yaitu **"\* Tipe"**, agar user memahami konteks filter yang dipilih.
 > * **Actual**: Area label di atas field dropdown kosong/hilang sama sekali (*blank label*).
 > * **Evidence**: [https://files.catbox.moe/yzme6j.png](https://files.catbox.moe/yzme6j.png)
+> * **Bukti Retest**: [https://files.catbox.moe/d288ix.png](https://files.catbox.moe/d288ix.png)
 
 <br>
 
@@ -955,3 +961,5 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-23 | Profile Nasabah & Sales - Sales | Verifikasi perbaikan bug total data export sales terpotong & urutan berbeda selesai (Status: Done / Resolved) |
 | 2026-09-23 | Profile Nasabah & Sales - Sales | Verifikasi perbaikan bug export sales tidak tercatat di riwayat & aktivitas export selesai (Status: Done / Resolved) |
 | 2026-09-23 | Profile Nasabah & Sales - Nasabah Perorangan | Verifikasi perbaikan bug error export detail nasabah (Produk, Aktivitas Sales, Daftar Rekening) selesai (Status: Done / Resolved) |
+| 2026-09-23 | Ticket Maintenance - Aktivitas | Verifikasi perbaikan label filter dropdown "* Tipe Search" selesai (Status: Done / Resolved) |
+| 2026-09-23 | Ticket Maintenance - Report | Verifikasi perbaikan bug export report aktivitas issue tidak tercatat di riwayat & aktivitas export selesai (Status: Done / Resolved) |
