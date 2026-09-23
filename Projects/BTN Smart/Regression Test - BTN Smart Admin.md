@@ -33,7 +33,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | 🐛 Bug |
 | 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | 🐛 Bug |
 | 24 | Profile Nasabah & Sales | Sales | Fito | ✅ Done |
-| 25 | Profile Nasabah & Sales | Nasabah Perorangan | Fito | 🐛 Bug |
+| 25 | Profile Nasabah & Sales | Nasabah Perorangan | Fito | ✅ Done |
 | 26 | Bisnis dan Produk | Unit Bisnis | Fito | ⬜ Belum |
 | 27 | Bisnis dan Produk | Produk | Fito | ⬜ Belum |
 | 28 | Bisnis dan Produk | Group Produk | Fito | ⬜ Belum |
@@ -733,6 +733,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Profile Nasabah & Sales - Nasabah Perorangan: Gagal Export Data pada Seluruh Tab Detail Nasabah
 
 > * **Menu**: Profile Nasabah & Sales → Nasabah Perorangan
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Saat user membuka halaman Detail Nasabah lalu menekan tombol **Export Data** pada seluruh tab yang tersedia (**Produk**, **Aktivitas Sales**, dan **Daftar Rekening**), sistem gagal memproses request dan memunculkan pop-up / alert error *"Whoops, looks like something went wrong"* serta notifikasi *"Error Log Available"*. File hasil export tidak berhasil diunduh pada ketiga tab tersebut.
 > * **Expected**: Sistem berhasil memproses request export data nasabah pada masing-masing tab (Produk, Aktivitas Sales, dan Daftar Rekening) dan mengunduh file tanpa memunculkan error server (Error 500).
 > * **Actual**: Tombol Export Data pada ketiga tab (Produk, Aktivitas Sales, Daftar Rekening) seluruhnya memicu pop-up error *"Whoops, looks like something went wrong"* (Internal Server Error) dan file tidak ter-download.
@@ -740,6 +742,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Tab Produk: [https://files.catbox.moe/kxqu6g.png](https://files.catbox.moe/kxqu6g.png)
 >   * Tab Aktivitas Sales: [https://files.catbox.moe/7rkzwh.png](https://files.catbox.moe/7rkzwh.png)
 >   * Tab Daftar Rekening: [https://files.catbox.moe/m5qru6.png](https://files.catbox.moe/m5qru6.png)
+> * **Bukti Retest**: [https://files.catbox.moe/vzg5or.png](https://files.catbox.moe/vzg5or.png)
 
 ---
 
@@ -951,3 +954,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-23 | User Authority - User | Verifikasi ulang perbaikan bug urutan sorting export Excel selesai (Status: Done / Resolved) |
 | 2026-09-23 | Profile Nasabah & Sales - Sales | Verifikasi perbaikan bug total data export sales terpotong & urutan berbeda selesai (Status: Done / Resolved) |
 | 2026-09-23 | Profile Nasabah & Sales - Sales | Verifikasi perbaikan bug export sales tidak tercatat di riwayat & aktivitas export selesai (Status: Done / Resolved) |
+| 2026-09-23 | Profile Nasabah & Sales - Nasabah Perorangan | Verifikasi perbaikan bug error export detail nasabah (Produk, Aktivitas Sales, Daftar Rekening) selesai (Status: Done / Resolved) |
