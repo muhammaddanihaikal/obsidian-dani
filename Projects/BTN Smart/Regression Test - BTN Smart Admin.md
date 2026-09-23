@@ -174,6 +174,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - User: Bulk Delete User Menyisakan Ghost Record di Tabel
 
 > * **Menu**: User Authority → User
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Setelah user dihapus melalui fitur *bulk delete*, data profil sebenarnya sudah terhapus (terbukti saat klik Edit, seluruh form kosong/blank). Namun, baris user tersebut masih tertinggal dan tetap muncul di tabel Master User (*ghost record*).
 > * **Expected**: Data yang berhasil dihapus wajib langsung hilang sepenuhnya dari daftar tabel Master User, dan URL Edit tidak menampilkan form kosong.
 > * **Actual**: Baris data user masih muncul di tabel list, dan jika dibuka menu Edit, semua field form kosong melompong.
@@ -917,3 +919,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-23 | User Authority - Tipe Karyawan | Verifikasi perbaikan bug lolos validasi nama duplikat saat edit Tipe Karyawan selesai (Status: Done / Resolved) |
 | 2026-09-23 | User Authority - User | Verifikasi perbaikan bug search user (Tipe Pengguna, Sales Code, Created At) selesai (Status: Done / Resolved) |
 | 2026-09-23 | User Authority - Group Role | Verifikasi perbaikan bug search group role (Kantor, Keterangan) selesai (Status: Done / Resolved) |
+| 2026-09-23 | User Authority - User | Verifikasi perbaikan bug bulk delete user menyisakan ghost record selesai (Status: Done / Resolved) |
