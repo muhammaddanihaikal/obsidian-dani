@@ -537,7 +537,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Fitur Komentar Issue: [https://files.catbox.moe/gb0701.png](https://files.catbox.moe/gb0701.png)
 >   * Form Buat Re-Issue: [https://files.catbox.moe/hmsi9i.png](https://files.catbox.moe/hmsi9i.png)
 > * **Bukti Retest (Masih Issue)**:
->   * Preview Gambar Rusak / Broken: [https://prnt.sc/slb2e6oJhawY](https://prnt.sc/slb2e6oJhawY)
+>   * Preview Gambar Rusak / Broken: [https://files.catbox.moe/g4rrm6.png](https://files.catbox.moe/g4rrm6.png)
 
 <br>
 
