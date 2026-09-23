@@ -25,7 +25,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 14 | Overview | Overview Lend | Alam | ⬜ Belum |
 | 15 | Overview | Pengaturan Overview | Alam | ⬜ Belum |
 | 16 | User Authority | User | Alam | 🐛 Bug |
-| 17 | User Authority | Group Role | Alam | 🐛 Bug |
+| 17 | User Authority | Group Role | Alam | ✅ Done |
 | 18 | User Authority | Tipe Karyawan | Alam | ✅ Done |
 | 19 | User Authority | Hak Akses Role | Alam | ✅ Done |
 | 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | 🐛 Bug |
@@ -291,10 +291,15 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Group Role: Export Group Role Tidak Tercatat di Riwayat dan Aktivitas Export
 
 > * **Menu**: User Authority → Group Role
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Aktivitas export data dari daftar Group Role tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
 > * **Expected**: Setiap kali user melakukan export data Group Role, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
 > * **Actual**: Log export Group Role tidak muncul di kedua menu Export Center tersebut.
 > * **Evidence**: [https://files.catbox.moe/4yb9kj.png](https://files.catbox.moe/4yb9kj.png)
+> * **Bukti Retest**:
+>   * Riwayat Export: [https://files.catbox.moe/xt9n38.png](https://files.catbox.moe/xt9n38.png)
+>   * Aktivitas Export: [https://files.catbox.moe/clr7hq.png](https://files.catbox.moe/clr7hq.png)
 
 <br>
 
@@ -930,3 +935,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-23 | User Authority - User | Verifikasi perbaikan bug bulk delete user menyisakan ghost record selesai (Status: Done / Resolved) |
 | 2026-09-23 | User Authority - User | Retest bug urutan sorting export Excel (Status: FAILED / Masih Issue tersortir A-Z) |
 | 2026-09-23 | User Authority - User | Verifikasi perbaikan bug export user tidak tercatat di riwayat & aktivitas export selesai (Status: Done / Resolved) |
+| 2026-09-23 | User Authority - Group Role | Verifikasi perbaikan bug export group role tidak tercatat di riwayat & aktivitas export selesai (Status: Done / Resolved) |
