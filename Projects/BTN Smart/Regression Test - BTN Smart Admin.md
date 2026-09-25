@@ -25,7 +25,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 14 | Overview | Overview Lend | Alam | ⬜ Belum |
 | 15 | Overview | Pengaturan Overview | Alam | ⬜ Belum |
 | 16 | User Authority | User | Alam | 🐛 Bug |
-| 17 | User Authority | Group Role | Alam | ✅ Done |
+| 17 | User Authority | Group Role | Alam | 🐛 Bug |
 | 18 | User Authority | Tipe Karyawan | Alam | ✅ Done |
 | 19 | User Authority | Hak Akses Role | Alam | ✅ Done |
 | 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | 🐛 Bug |
@@ -310,13 +310,14 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Group Role: Lolos Validasi Nama Duplikat Saat Edit Group Role
 
 > * **Menu**: User Authority → Group Role
-> * **Status**: ✅ Done (Resolved)
-> * **Status Huly**: ✅ Done
+> * **Status Huly**: 🔄 Re-Open
 > * **Deskripsi**: Validasi nama unik hanya aktif saat tambah role baru. Ketika melakukan ubah data (*edit*), sistem tidak mengecek duplikasi sehingga nama role bisa disimpan sama persis dengan role lain yang sudah ada.
-> * **Expected**: Sistem tetap memvalidasi keunikan nama saat edit data, dan menolak simpan jika nama role sudah digunakan oleh role lain.
-> * **Actual**: Sistem berhasil menyimpan perubahan, sehingga muncul data role ganda dengan nama yang identik di tabel.
+> * **Expected**: Sistem tetap memvalidasi keunikan nama saat edit data, dan menolak simpan jika nama role sudah digunakan oleh role lain, namun tetap mengabaikan ID role itu sendiri agar role bisa di-update tanpa harus mengganti nama.
+> * **Actual**: Sistem sebelumnya berhasil menyimpan perubahan (duplikat lolos). Setelah diperbaiki, validasi duplikat justru memblokir update data saat nama role tidak diubah.
 > * **Evidence**: [https://files.catbox.moe/z6e6hl.png](https://files.catbox.moe/z6e6hl.png)
-> * **Bukti Retest**: [https://files.catbox.moe/yz0efq.png](https://files.catbox.moe/yz0efq.png)
+> * **Bukti Retest (Done 23/09)**: [https://files.catbox.moe/yz0efq.png](https://files.catbox.moe/yz0efq.png)
+> * **Catatan Retest (Re-Open 25/09)**: Validasi nama duplikat saat edit role saat ini memblokir proses update data jika nama role tidak diubah (sistem mengecek duplikasi tanpa mengecualikan ID role yang sedang diedit / *exclude current ID*). Akibatnya, data role sama sekali tidak bisa di-update (misal ubah deskripsi, tipe karyawan, level kantor, atau menu) kecuali nama role-nya diubah terlebih dahulu agar berbeda dengan nama aslinya.
+>   * Bukti Retest (Re-Open): [https://files.catbox.moe/y5olb3.png](https://files.catbox.moe/y5olb3.png)
 
 <br>
 
@@ -976,3 +977,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-23 | Ticket Maintenance - Aktivitas | Retest bug upload file bukti (Status: FAILED / Masih Issue preview gambar broken) |
 | 2026-09-25 | Authentication - Kode Pemulihan | Verifikasi perbaikan bug inkonsistensi judul header halaman kode pemulihan selesai (Status: Done / Resolved) |
 | 2026-09-25 | User Authority - Keamanan Akun (Daftar Akun) | Retest export Daftar Akun: Tercatat di Export Center tapi drawer masih versi lama "Download Export" (Status: Re-Open) |
+| 2026-09-25 | User Authority - Group Role | Retest edit Group Role: Validasi duplikat memblokir update role jika nama tidak diubah (Status: Re-Open) |
