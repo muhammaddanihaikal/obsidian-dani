@@ -13,7 +13,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2 | Authentication | Verifikasi Email OTP | Fito | 🐛 Bug |
 | 3 | Authentication | Verifikasi TOTP | Fito | 🐛 Bug |
 | 4 | Authentication | Perangkat Terpercaya | Fito | ✅ Done |
-| 5 | Authentication | Kode Pemulihan | Fito | 🐛 Bug |
+| 5 | Authentication | Kode Pemulihan | Fito | ✅ Done |
 | 6 | Authentication | Reset MFA | Fito | ✅ Done |
 | 7 | Authentication | Logout | Fito | ✅ Done |
 | 8 | Profile | Biodata diri | Alam | ⬜ Belum |
@@ -163,11 +163,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Login: Inkonsistensi Judul Header pada Halaman Kode Pemulihan
 
 > * **Menu**: Login
-> * **Status Huly**: ✅ Reported
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Judul header halaman masih menampilkan teks "Verifikasi OTP" saat user berada di form input kode pemulihan.
 > * **Expected**: Judul header disesuaikan dengan konteks halaman menjadi **"Verifikasi Kode Pemulihan"**.
 > * **Actual**: Judul header masih tertulis "Verifikasi OTP".
 > * **Evidence**: [https://files.catbox.moe/q976oa.png](https://files.catbox.moe/q976oa.png)
+> * **Bukti Retest (Done)**: [https://files.catbox.moe/af8hmf.png](https://files.catbox.moe/af8hmf.png)
 
 <br>
 
@@ -966,3 +968,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-23 | Ticket Maintenance - Aktivitas | Verifikasi perbaikan label filter dropdown "* Tipe Search" selesai (Status: Done / Resolved) |
 | 2026-09-23 | Ticket Maintenance - Report | Verifikasi perbaikan bug export report aktivitas issue tidak tercatat di riwayat & aktivitas export selesai (Status: Done / Resolved) |
 | 2026-09-23 | Ticket Maintenance - Aktivitas | Retest bug upload file bukti (Status: FAILED / Masih Issue preview gambar broken) |
+| 2026-09-25 | Authentication - Kode Pemulihan | Verifikasi perbaikan bug inkonsistensi judul header halaman kode pemulihan selesai (Status: Done / Resolved) |

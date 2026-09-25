@@ -100,6 +100,15 @@ Isi (per Modul)
 - `"Hasil yang diharapkan [STATUS]:"`: `5.8pt`
 - Expected result content: `6.5pt`
 
+### ⚠️ Aturan Teks "Hasil yang diharapkan [STATUS]:"
+- **Sumber Teks**: **WAJIB mengambil teks dari dokumen SIT secara langsung** (berupa ringkasan / 1 kalimat utuh dari SIT).
+- **❌ DILARANG menggunakan numbering (`1. 2. 3. ...`)** pada cell Hasil yang diharapkan di Dokumen Hasil Uji!
+  - *Penomoran `1. 2. 3.` hanya berlaku untuk file helper `.txt` dan Test Script.*
+  - Di Dokumen Hasil Uji Word, bentuknya harus ringkas dan clean persis seperti template SIT baku BTN.
+- **Status Akhir**: Saat pengujian selesai/berhasil, teks expected diakhiri dengan tag status:
+  - Format: `[Teks SIT] - [Success]`
+  - Warna tag ` - [Success]`: Biru tua (`#2C5293`), font Bold.
+
 ---
 
 ## 🖼️ Gambar Screenshot
