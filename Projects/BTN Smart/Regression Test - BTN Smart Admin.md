@@ -116,12 +116,12 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Login** | 3 | ✅ Reported (3/3) | Seluruh issue Login selesai di-input |
 | 2 | **Profile** | 1 | ✅ Reported (1/1) | Seluruh issue Profile selesai di-input |
 | 3 | **Ticket Maintenance** | 3 | ✅ Reported (3/3) | Seluruh issue Ticket Maintenance selesai di-input |
-| 4 | **User Authority** | 20 | ✅ Reported (20/20) | User (6), Group Role (3), Tipe Karyawan (1), Keamanan Akun (10) |
+| 4 | **User Authority** | 21 | ⏳ Pending (20/21) | User (6), Group Role (4), Tipe Karyawan (1), Keamanan Akun (10) |
 | 5 | **Setting Absent** | 3 | ✅ Reported (3/3) | Attendance Spot (2), Work Pattern (1) |
 | 6 | Mobile App | 2 | ⏳ Pending (1/2) | Absensi Fake GPS (1), Prospek Tanggal Validasi (1) |
 | 7 | **Menu Absent** | 10 | ✅ Reported (10/10) | Rekap (2), Daily (2), Approval (4), Dashboard (1), Total Selisih (1) |
 | 8 | **Profile Nasabah & Sales** | 3 | ✅ Reported (3/3) | Sales (2), Nasabah Perorangan (1) |
-| **Total** | | **45** | **44 Reported / 1 Pending** | |
+| **Total** | | **46** | **44 Reported / 2 Pending** | |
 
 ---
 
@@ -310,14 +310,24 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Group Role: Lolos Validasi Nama Duplikat Saat Edit Group Role
 
 > * **Menu**: User Authority → Group Role
-> * **Status Huly**: 🔄 Re-Open
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Validasi nama unik hanya aktif saat tambah role baru. Ketika melakukan ubah data (*edit*), sistem tidak mengecek duplikasi sehingga nama role bisa disimpan sama persis dengan role lain yang sudah ada.
-> * **Expected**: Sistem tetap memvalidasi keunikan nama saat edit data, dan menolak simpan jika nama role sudah digunakan oleh role lain, namun tetap mengabaikan ID role itu sendiri agar role bisa di-update tanpa harus mengganti nama.
-> * **Actual**: Sistem sebelumnya berhasil menyimpan perubahan (duplikat lolos). Setelah diperbaiki, validasi duplikat justru memblokir update data saat nama role tidak diubah.
+> * **Expected**: Sistem tetap memvalidasi keunikan nama saat edit data, dan menolak simpan jika nama role sudah digunakan oleh role lain.
+> * **Actual**: Sistem berhasil menyimpan perubahan, sehingga muncul data role ganda dengan nama yang identik di tabel.
 > * **Evidence**: [https://files.catbox.moe/z6e6hl.png](https://files.catbox.moe/z6e6hl.png)
-> * **Bukti Retest (Done 23/09)**: [https://files.catbox.moe/yz0efq.png](https://files.catbox.moe/yz0efq.png)
-> * **Catatan Retest (Re-Open 25/09)**: Validasi nama duplikat saat edit role saat ini memblokir proses update data jika nama role tidak diubah (sistem mengecek duplikasi tanpa mengecualikan ID role yang sedang diedit / *exclude current ID*). Akibatnya, data role sama sekali tidak bisa di-update (misal ubah deskripsi, tipe karyawan, level kantor, atau menu) kecuali nama role-nya diubah terlebih dahulu agar berbeda dengan nama aslinya.
->   * Bukti Retest (Re-Open): [https://files.catbox.moe/y5olb3.png](https://files.catbox.moe/y5olb3.png)
+> * **Bukti Retest**: [https://files.catbox.moe/yz0efq.png](https://files.catbox.moe/yz0efq.png)
+
+<br>
+
+### 🐞 [BUG] | User Authority - Group Role: Validasi Duplikat Memblokir Update Data Saat Nama Role Tidak Diubah
+
+> * **Menu**: User Authority → Group Role
+> * **Status Huly**: ⏳ Pending Input
+> * **Deskripsi**: Ketika melakukan ubah data (*edit*) pada role yang sudah ada tanpa mengubah nama role (misal: hanya mengedit Deskripsi, Tipe Karyawan, Level Kantor, atau Akses Menu Website), sistem memunculkan error *"Role dengan nama [nama role] sudah ada."*. Sistem salah mendeteksi nama role itu sendiri sebagai duplikat karena validasi unique di backend tidak mengecualikan ID role yang sedang diedit (*exclude current ID*).
+> * **Expected**: Sistem mengabaikan/mengecualikan ID role yang sedang diedit saat pengecekan duplikasi nama (`Rule::unique('roles')->ignore($id)`), sehingga user dapat mengupdate atribut role lainnya tanpa harus mengganti nama role.
+> * **Actual**: Sistem memblokir proses update data dengan pesan alert *"Role dengan nama [nama] sudah ada."* saat user menyimpan perubahan tanpa mengganti nama role.
+> * **Evidence**: [https://files.catbox.moe/y5olb3.png](https://files.catbox.moe/y5olb3.png)
 
 <br>
 
@@ -977,4 +987,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-23 | Ticket Maintenance - Aktivitas | Retest bug upload file bukti (Status: FAILED / Masih Issue preview gambar broken) |
 | 2026-09-25 | Authentication - Kode Pemulihan | Verifikasi perbaikan bug inkonsistensi judul header halaman kode pemulihan selesai (Status: Done / Resolved) |
 | 2026-09-25 | User Authority - Keamanan Akun (Daftar Akun) | Retest export Daftar Akun: Tercatat di Export Center tapi drawer masih versi lama "Download Export" (Status: Re-Open) |
-| 2026-09-25 | User Authority - Group Role | Retest edit Group Role: Validasi duplikat memblokir update role jika nama tidak diubah (Status: Re-Open) |
+| 2026-09-25 | User Authority - Group Role | Temuan bug baru: Validasi duplikat memblokir update data role jika nama tidak diubah (Total 46 bug) |
