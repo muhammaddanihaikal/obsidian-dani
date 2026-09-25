@@ -393,12 +393,17 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Keamanan Akun: Multi-Select Filter Kolom Status MFA dan Metode MFA pada Daftar Akun Tidak Berfungsi
 
 > * **Menu**: User Authority → Keamanan Akun
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Filter kolom **Status MFA** dan **Metode MFA** menyediakan opsi *multi-select* (*checkbox*). Namun saat memilih lebih dari satu opsi (contoh: mencentang *Aktif* & *Tidak Aktif*, atau *Email* & *TOTP*), sistem hanya menampilkan data opsi teratas (*Aktif* saja, atau *Email* saja), sedangkan opsi kedua diabaikan.
 > * **Expected**: Filter mendukung *multi-select*, sehingga seluruh opsi yang dicentang muncul bersamaan di tabel.
 > * **Actual**: Sistem hanya memfilter opsi teratas (*Aktif* pada Status MFA, *Email* pada Metode MFA), data dari opsi lainnya tidak muncul di tabel.
 > * **Evidence**:
 >   * Filter Status MFA: [https://files.catbox.moe/lrygri.png](https://files.catbox.moe/lrygri.png)
 >   * Filter Metode MFA: [https://files.catbox.moe/0wwndq.png](https://files.catbox.moe/0wwndq.png)
+> * **Bukti Retest (Done)**:
+>   * Filter Status MFA: [https://files.catbox.moe/m3zf9c.png](https://files.catbox.moe/m3zf9c.png)
+>   * Filter Metode MFA: [https://files.catbox.moe/m8n9q3.png](https://files.catbox.moe/m8n9q3.png)
 
 <br>
 
@@ -988,3 +993,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-25 | Authentication - Kode Pemulihan | Verifikasi perbaikan bug inkonsistensi judul header halaman kode pemulihan selesai (Status: Done / Resolved) |
 | 2026-09-25 | User Authority - Keamanan Akun (Daftar Akun) | Retest export Daftar Akun: Tercatat di Export Center tapi drawer masih versi lama "Download Export" (Status: Re-Open) |
 | 2026-09-25 | User Authority - Group Role | Temuan bug baru: Validasi duplikat memblokir update data role jika nama tidak diubah (Total 46 bug) |
+| 2026-09-25 | User Authority - Keamanan Akun (Daftar Akun) | Verifikasi perbaikan filter multi-select Status MFA & Metode MFA selesai (Status: Done / Resolved) |
