@@ -366,10 +366,16 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Keamanan Akun: Export Daftar Akun Tidak Tercatat di Riwayat dan Aktivitas Export
 
 > * **Menu**: User Authority → Keamanan Akun
+> * **Status Huly**: 🔄 Re-Open
 > * **Deskripsi**: Aktivitas export data pada tab Daftar Akun tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
-> * **Expected**: Setiap kali user melakukan export data tab Daftar Akun, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
+> * **Expected**: Setiap kali user melakukan export data tab Daftar Akun, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`, serta drawer yang terbuka menggunakan drawer standar **"Export Center"**.
 > * **Actual**: Log export tab Daftar Akun tidak muncul di kedua menu Export Center tersebut.
 > * **Evidence**: [https://files.catbox.moe/qrvkpx.png](https://files.catbox.moe/qrvkpx.png)
+> * **Catatan Retest (Re-Open)**: Data export memang sudah tercatat di Riwayat & Aktivitas Export, namun drawer yang muncul saat export masih versi lama (**"Download Export"**), belum menggunakan drawer standar **"Export Center"** seperti pada Master User.
+>   * Drawer Masih Versi Lama (Download Export): [https://files.catbox.moe/39pucx.png](https://files.catbox.moe/39pucx.png)
+>   * Pembanding Drawer Standar (Export Center di Master User): [https://files.catbox.moe/3ipndn.png](https://files.catbox.moe/3ipndn.png)
+>   * Sudah Tercatat di Riwayat Export: [https://files.catbox.moe/8qr0t4.png](https://files.catbox.moe/8qr0t4.png)
+>   * Sudah Tercatat di Aktivitas Export: [https://files.catbox.moe/2dds8d.png](https://files.catbox.moe/2dds8d.png)
 
 <br>
 
@@ -969,3 +975,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-23 | Ticket Maintenance - Report | Verifikasi perbaikan bug export report aktivitas issue tidak tercatat di riwayat & aktivitas export selesai (Status: Done / Resolved) |
 | 2026-09-23 | Ticket Maintenance - Aktivitas | Retest bug upload file bukti (Status: FAILED / Masih Issue preview gambar broken) |
 | 2026-09-25 | Authentication - Kode Pemulihan | Verifikasi perbaikan bug inkonsistensi judul header halaman kode pemulihan selesai (Status: Done / Resolved) |
+| 2026-09-25 | User Authority - Keamanan Akun (Daftar Akun) | Retest export Daftar Akun: Tercatat di Export Center tapi drawer masih versi lama "Download Export" (Status: Re-Open) |
