@@ -439,7 +439,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Keamanan Akun: Fitur Search Perangkat & Sesi Hanya Berfungsi untuk Kolom Tertentu
 
 > * **Menu**: User Authority → Keamanan Akun
-> * **Status**: 🔄 Re-Open
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: Kolom pencarian pada tab Perangkat & Sesi hanya membaca dan memfilter data berdasarkan kolom **Pengguna**, **Perangkat**, **IP Address**, dan **Lokasi**. Pencarian kata kunci dari kolom lain (seperti Kantor Wilayah, Kantor Cabang, Outlet, Kode Outlet, dan Job Title) belum berfungsi.
 > * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tabel Perangkat & Sesi.
 > * **Actual**: Pencarian hanya merespons kata kunci dari 4 kolom tersebut, sedangkan kolom kantor dan job title diabaikan (*tidak terfilter*).
@@ -448,6 +448,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Data Kode Outlet & Job Title di Tabel: [https://files.catbox.moe/f1y4h9.png](https://files.catbox.moe/f1y4h9.png)
 >   * Search Job Title (No Data): [https://files.catbox.moe/1dpqun.png](https://files.catbox.moe/1dpqun.png)
 >   * Search Kode Outlet (No Data): [https://files.catbox.moe/0xgqo3.png](https://files.catbox.moe/0xgqo3.png)
+> * **Catatan Retest (Done - 28 Sep)**: Pencarian pada tab Perangkat & Sesi untuk kolom Kode Outlet dan Job Title sudah diperbaiki dan berfungsi normal.
 
 <br>
 
@@ -1092,3 +1093,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-25 | User Authority - Keamanan Akun (Perangkat & Sesi) | Retest search Perangkat & Sesi: Kolom Kode Outlet dan Job Title belum berfungsi / No data (Status: Re-Open) |
 | 2026-09-28 | Report Lending - Personal Funnel | Verifikasi data actual dari Visit sampai Realisasi muncul dan sinkron di tab Semua, Non PKS, dan PKS (Status: Done / Resolved) |
 | 2026-09-28 | Menu Absent - Rekap Absent | Verifikasi perbaikan export Rekap Absent masuk drawer Export Center & status Tersedia selesai (Status: Done / Resolved) |
+| 2026-09-28 | User Authority - Keamanan Akun (Perangkat & Sesi) | Verifikasi perbaikan search Perangkat & Sesi kolom Kode Outlet & Job Title selesai (Status: Done / Resolved) |
