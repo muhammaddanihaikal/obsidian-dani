@@ -648,7 +648,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Menu Absent - Rekap Absent: Export Rekap Absent Tidak Tercatat di Riwayat dan Aktivitas Export
 
 > * **Menu**: Menu Absent → Rekap Absent
-> * **Status Huly**: ⚠️ Blocked
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: Aktivitas export data dari menu Rekap Absent tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
 > * **Expected**: Setiap kali user melakukan export data Rekap Absent, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
 > * **Actual**: Log export Rekap Absent tidak muncul di Riwayat Export maupun Aktivitas Export.
@@ -658,6 +658,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Aktivitas Export: [https://files.catbox.moe/squkas.png](https://files.catbox.moe/squkas.png)
 > * **Catatan Retest (Blocked 25/09)**: Pengetesan export Rekap Absent saat ini terhalang (*blocking*). Saat menekan tombol **Export Data**, muncul popup alert validasi *"role ids harus berupa array."* sehingga export gagal diproses.
 >   * Bukti Retest (Blocked): [https://files.catbox.moe/oxxkzg.png](https://files.catbox.moe/oxxkzg.png)
+> * **Bukti Retest (Done - 28/09)**:
+>   * Drawer Export Center: [https://files.catbox.moe/i2mzof.png](https://files.catbox.moe/i2mzof.png)
+>   * Export Activity (Tersedia): [https://files.catbox.moe/k4i26y.png](https://files.catbox.moe/k4i26y.png)
 
 <br>
 
@@ -1088,3 +1091,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-25 | User Authority - Keamanan Akun (Daftar Akun) | Verifikasi perbaikan search Daftar Akun (bisa search kolom selain nama) selesai (Status: Done / Resolved) |
 | 2026-09-25 | User Authority - Keamanan Akun (Perangkat & Sesi) | Retest search Perangkat & Sesi: Kolom Kode Outlet dan Job Title belum berfungsi / No data (Status: Re-Open) |
 | 2026-09-28 | Report Lending - Personal Funnel | Verifikasi data actual dari Visit sampai Realisasi muncul dan sinkron di tab Semua, Non PKS, dan PKS (Status: Done / Resolved) |
+| 2026-09-28 | Menu Absent - Rekap Absent | Verifikasi perbaikan export Rekap Absent masuk drawer Export Center & status Tersedia selesai (Status: Done / Resolved) |
