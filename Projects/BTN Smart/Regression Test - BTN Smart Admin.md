@@ -25,7 +25,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 14 | Overview | Overview Lend | Alam | ⬜ Belum |
 | 15 | Overview | Pengaturan Overview | Alam | ⬜ Belum |
 | 16 | User Authority | User | Alam | 🐛 Bug |
-| 17 | User Authority | Group Role | Alam | 🐛 Bug |
+| 17 | User Authority | Group Role | Alam | ✅ Done |
 | 18 | User Authority | Tipe Karyawan | Alam | ✅ Done |
 | 19 | User Authority | Hak Akses Role | Alam | ✅ Done |
 | 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | 🐛 Bug |
@@ -57,7 +57,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 51 | Sales Tracking Activity | Rekap Visit | Gaza | ⬜ Belum |
 | 52 | Sales Tracking Activity | Rekap Monthly Visit | Gaza | ⬜ Belum |
 | 53 | Setting Absent | Attendance Spot | Gaza | 🐛 Bug |
-| 54 | Setting Absent | Work Pattern | Gaza | 🐛 Bug |
+| 54 | Setting Absent | Work Pattern | Gaza | ✅ Done |
 | 55 | Setting Absent | Holiday | Gaza | ✅ Done |
 | 56 | Sales Force | Sales code | Ahrul | ⬜ Belum |
 | 57 | Sales Force | Approval Sales Code | Ahrul | ⬜ Belum |
@@ -82,7 +82,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 76 | Report Funding | Regional Funnel | Ahrul | ⬜ Belum |
 | 77 | Report Funding | Pengaturan Funnel | Ahrul | ⬜ Belum |
 | 78 | Report Lending | Daily Sales Agenda | Ahrul | ⬜ Belum |
-| 79 | Report Lending | Personal Funnel | Ahrul | ⬜ Belum |
+| 79 | Report Lending | Personal Funnel | Ahrul | ✅ Done |
 | 80 | Report Lending | Rekap Funnel | Ahrul | ⬜ Belum |
 | 81 | Report Lending | Regional Funnel | Ahrul | ⬜ Belum |
 | 82 | Report Lending | Pengaturan Funnel | Ahrul | ⬜ Belum |
@@ -93,8 +93,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 87 | Export data management | Persetujuan export | Alam | ⬜ Belum |
 | 88 | Export data management | Management export | Alam | ⬜ Belum |
 | 89 | Ticket Maintenance | Dashboard | Fito | ⬜ Belum |
-| 90 | Ticket Maintenance | Aktivitas | Fito | 🐛 Bug |
-| 91 | Ticket Maintenance | Report | Fito | 🐛 Bug |
+| 90 | Ticket Maintenance | Aktivitas | Fito | ✅ Done |
+| 91 | Ticket Maintenance | Report | Fito | ✅ Done |
 | 92 | Dashboard | Aktivitas Consumer | Alam | ⬜ Belum |
 | 93 | Dashboard | Optimalisasi | Alam | ⬜ Belum |
 
@@ -116,12 +116,12 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Login** | 3 | ✅ Reported (3/3) | Seluruh issue Login selesai di-input |
 | 2 | **Profile** | 1 | ✅ Reported (1/1) | Seluruh issue Profile selesai di-input |
 | 3 | **Ticket Maintenance** | 3 | ✅ Reported (3/3) | Seluruh issue Ticket Maintenance selesai di-input |
-| 4 | **User Authority** | 21 | ⏳ Pending (20/21) | User (6), Group Role (4), Tipe Karyawan (1), Keamanan Akun (10) |
+| 4 | **User Authority** | 22 | ⏳ Pending (20/22) | User (6), Group Role (4), Tipe Karyawan (1), Keamanan Akun (11) |
 | 5 | **Setting Absent** | 3 | ✅ Reported (3/3) | Attendance Spot (2), Work Pattern (1) |
 | 6 | Mobile App | 2 | ⏳ Pending (1/2) | Absensi Fake GPS (1), Prospek Tanggal Validasi (1) |
 | 7 | **Menu Absent** | 10 | ✅ Reported (10/10) | Rekap (2), Daily (2), Approval (4), Dashboard (1), Total Selisih (1) |
 | 8 | **Profile Nasabah & Sales** | 3 | ✅ Reported (3/3) | Sales (2), Nasabah Perorangan (1) |
-| **Total** | | **46** | **44 Reported / 2 Pending** | |
+| **Total** | | **47** | **44 Reported / 3 Pending** | |
 
 ---
 
@@ -252,10 +252,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - User: User AD Gagal Login Setelah Aktivasi Password via Link Email
 
 > * **Menu**: User Authority → User
+> * **Status**: ❌ Rejected (Not a Bug)
+> * **Status Huly**: ❌ Rejected / Cancelled
 > * **Deskripsi**: User baru bertipe **AD** yang sudah berhasil membuat password melalui link email tetap tidak bisa login pada tab Employee (*"Username atau password AD tidak valid!"*).
 > * **Expected**: Setelah user AD selesai membuat password via email aktivasi, user dapat langsung login di tab Employee dengan kredensial tersebut.
 > * **Actual**: Muncul pesan error *"Username atau password AD tidak valid!"* meskipun password baru saja dibuat.
 > * **Evidence**: [https://files.catbox.moe/emn91y.png](https://files.catbox.moe/emn91y.png)
+> * **Catatan (Rejected 25/09)**: Issue ditutup/di-reject karena pengetesan autentikasi akun Active Directory (AD) dan integrasi iLoan tidak dapat dilakukan di environment staging/luar, melainkan harus berada dalam jaringan internal dan ruang lingkup korporat BTN.
 
 <br>
 
@@ -323,11 +326,12 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Group Role: Validasi Duplikat Memblokir Update Data Saat Nama Role Tidak Diubah
 
 > * **Menu**: User Authority → Group Role
-> * **Status Huly**: ⏳ Pending Input
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: Ketika melakukan ubah data (*edit*) pada role yang sudah ada tanpa mengubah nama role (misal: hanya mengedit Deskripsi, Tipe Karyawan, Level Kantor, atau Akses Menu Website), sistem memunculkan error *"Role dengan nama [nama role] sudah ada."*. Sistem salah mendeteksi nama role itu sendiri sebagai duplikat karena validasi unique di backend tidak mengecualikan ID role yang sedang diedit (*exclude current ID*).
 > * **Expected**: Sistem mengabaikan/mengecualikan ID role yang sedang diedit saat pengecekan duplikasi nama (`Rule::unique('roles')->ignore($id)`), sehingga user dapat mengupdate atribut role lainnya tanpa harus mengganti nama role.
 > * **Actual**: Sistem memblokir proses update data dengan pesan alert *"Role dengan nama [nama] sudah ada."* saat user menyimpan perubahan tanpa mengganti nama role.
 > * **Evidence**: [https://files.catbox.moe/y5olb3.png](https://files.catbox.moe/y5olb3.png)
+> * **Bukti Retest (Done)**: [https://files.catbox.moe/5hphf2.png](https://files.catbox.moe/5hphf2.png)
 
 <br>
 
@@ -347,6 +351,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Keamanan Akun: Fitur Search Daftar Akun Hanya Berfungsi untuk Kolom Nama Pengguna
 
 > * **Menu**: User Authority → Keamanan Akun
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: Kolom pencarian pada tab Daftar Akun hanya membaca dan memfilter data berdasarkan kolom **Nama Pengguna**. Pencarian menggunakan nilai kolom lain (seperti Email, Kantor Wilayah, Kantor Cabang, Outlet, Job Title, dll) belum berfungsi.
 > * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tab Daftar Akun.
 > * **Actual**: Pencarian hanya merespons kata kunci dari kolom Nama Pengguna, sedangkan kolom lainnya diabaikan (*tidak terfilter*).
@@ -367,26 +372,31 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Keamanan Akun: Multi-Select Filter Kolom Status pada Permintaan Reset MFA Tidak Berfungsi
 
 > * **Menu**: User Authority → Keamanan Akun
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Filter kolom Status menyediakan pilihan *multi-select* (*checkbox*). Namun saat memilih lebih dari satu status (contoh: mencentang **Ditolak** dan **Pending**), sistem hanya menampilkan data status teratas yang dipilih (**Ditolak**), sedangkan data **Pending** tidak ikut ditampilkan.
 > * **Expected**: Filter mendukung *multi-select*, sehingga saat mencentang *Ditolak* dan *Pending*, data dengan kedua status tersebut muncul bersamaan di tabel.
 > * **Actual**: Sistem hanya memfilter salah satu status (*Ditolak*), data dengan status *Pending* diabaikan.
 > * **Evidence**: [https://files.catbox.moe/iky99j.png](https://files.catbox.moe/iky99j.png)
+> * **Bukti Retest (Done)**: [https://files.catbox.moe/12h0gw.png](https://files.catbox.moe/12h0gw.png)
 
 <br>
 
 ### 🐞 [BUG] | User Authority - Keamanan Akun: Export Daftar Akun Tidak Tercatat di Riwayat dan Aktivitas Export
 
 > * **Menu**: User Authority → Keamanan Akun
-> * **Status Huly**: 🔄 Re-Open
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: Aktivitas export data pada tab Daftar Akun tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
 > * **Expected**: Setiap kali user melakukan export data tab Daftar Akun, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`, serta drawer yang terbuka menggunakan drawer standar **"Export Center"**.
 > * **Actual**: Log export tab Daftar Akun tidak muncul di kedua menu Export Center tersebut.
 > * **Evidence**: [https://files.catbox.moe/qrvkpx.png](https://files.catbox.moe/qrvkpx.png)
-> * **Catatan Retest (Re-Open)**: Data export memang sudah tercatat di Riwayat & Aktivitas Export, namun drawer yang muncul saat export masih versi lama (**"Download Export"**), belum menggunakan drawer standar **"Export Center"** seperti pada Master User.
+> * **Catatan Retest (Re-Open - 25 Sep Pagi)**: Data export memang sudah tercatat di Riwayat & Aktivitas Export, namun drawer yang muncul saat export masih versi lama (**"Download Export"**), belum menggunakan drawer standar **"Export Center"** seperti pada Master User.
 >   * Drawer Masih Versi Lama (Download Export): [https://files.catbox.moe/39pucx.png](https://files.catbox.moe/39pucx.png)
 >   * Pembanding Drawer Standar (Export Center di Master User): [https://files.catbox.moe/3ipndn.png](https://files.catbox.moe/3ipndn.png)
 >   * Sudah Tercatat di Riwayat Export: [https://files.catbox.moe/8qr0t4.png](https://files.catbox.moe/8qr0t4.png)
 >   * Sudah Tercatat di Aktivitas Export: [https://files.catbox.moe/2dds8d.png](https://files.catbox.moe/2dds8d.png)
+> * **Bukti Retest (Done / Resolved - 25 Sep Sore)**:
+>   * Drawer Sudah Menggunakan Export Center Standar: [https://files.catbox.moe/k9d0az.png](https://files.catbox.moe/k9d0az.png)
 
 <br>
 
@@ -410,22 +420,34 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Keamanan Akun: Export Perangkat & Sesi Tidak Masuk Drawer Maupun Riwayat & Aktivitas Export
 
 > * **Menu**: User Authority → Keamanan Akun
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Setelah menekan tombol **Export Data** pada tab Perangkat & Sesi, file export tidak muncul di dalam drawer *Download Export* serta tidak tercatat di menu `Export Center → Riwayat Export` maupun `Aktivitas Export`.
-> * **Expected**: Saat klik Export Data, antrean/file download langsung masuk ke drawer *Download Export* dan tercatat pada menu *Export Center*.
-> * **Actual**: File export tidak muncul di drawer *Download Export* dan aktivitas export tidak tercatat sama sekali di Export Center.
+> * **Expected**: Saat klik Export Data, antrean/file download langsung masuk ke drawer *Export Center* dan tercatat pada menu *Export Center*.
+> * **Actual**: File export tidak muncul di drawer dan aktivitas export tidak tercatat sama sekali di Export Center.
 > * **Evidence**:
 >   * Tombol Export di Tab Perangkat & Sesi: [https://files.catbox.moe/8t8d5v.png](https://files.catbox.moe/8t8d5v.png)
 >   * Drawer Download Export Tidak Mencatat File: [https://files.catbox.moe/viut76.png](https://files.catbox.moe/viut76.png)
+> * **Bukti Retest (Done)**:
+>   * Drawer Export Center: [https://files.catbox.moe/at64ws.png](https://files.catbox.moe/at64ws.png)
+>   * Riwayat Export: [https://files.catbox.moe/ecgdj4.png](https://files.catbox.moe/ecgdj4.png)
+>   * Aktivitas Export: [https://files.catbox.moe/iex1zk.png](https://files.catbox.moe/iex1zk.png)
+>   * Persetujuan Export: [https://files.catbox.moe/dxrhv4.png](https://files.catbox.moe/dxrhv4.png)
 
 <br>
 
 ### 🐞 [BUG] | User Authority - Keamanan Akun: Fitur Search Perangkat & Sesi Hanya Berfungsi untuk Kolom Tertentu
 
 > * **Menu**: User Authority → Keamanan Akun
+> * **Status**: 🔄 Re-Open
 > * **Deskripsi**: Kolom pencarian pada tab Perangkat & Sesi hanya membaca dan memfilter data berdasarkan kolom **Pengguna**, **Perangkat**, **IP Address**, dan **Lokasi**. Pencarian kata kunci dari kolom lain (seperti Kantor Wilayah, Kantor Cabang, Outlet, Kode Outlet, dan Job Title) belum berfungsi.
 > * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tabel Perangkat & Sesi.
 > * **Actual**: Pencarian hanya merespons kata kunci dari 4 kolom tersebut, sedangkan kolom kantor dan job title diabaikan (*tidak terfilter*).
 > * **Evidence**: [https://files.catbox.moe/c66vyp.png](https://files.catbox.moe/c66vyp.png)
+> * **Catatan Retest (Re-Open - 25 Sep)**: Pencarian sebagian besar kolom sudah berfungsi, namun untuk kolom Kode Outlet dan Job Title masih belum berfungsi (menghasilkan "No data").
+>   * Data Kode Outlet & Job Title di Tabel: [https://files.catbox.moe/f1y4h9.png](https://files.catbox.moe/f1y4h9.png)
+>   * Search Job Title (No Data): [https://files.catbox.moe/1dpqun.png](https://files.catbox.moe/1dpqun.png)
+>   * Search Kode Outlet (No Data): [https://files.catbox.moe/0xgqo3.png](https://files.catbox.moe/0xgqo3.png)
 
 <br>
 
@@ -466,12 +488,32 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Keamanan Akun: Selisih Total Pengguna pada Daftar Akun dengan Master User
 
 > * **Menu**: User Authority → Keamanan Akun
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Total pengguna pada kartu metrik *"Total Pengguna"* dan tabel *"Daftar Akun"* di halaman Keamanan Akun hanya menampilkan 12.060 data, berbeda dengan data user yang berjumlah 12.088 data (selisih 28 user tidak tampil).
-> * **Expected**: Total pengguna pada kartu metrik dan tabel Daftar Akun sinkron dan sesuai dengan data user (12.088 data).
-> * **Actual**: Hanya menampilkan 12.060 data (selisih 28 user tidak terdata di Keamanan Akun).
+> * **Expected**: Total pengguna pada kartu metrik dan tabel Daftar Akun sinkron dan sesuai dengan data user.
+> * **Actual**: Hanya menampilkan 12.060 data (sebelumnya selisih 28 user tidak terdata di Keamanan Akun).
 > * **Evidence**:
 >   * Master User (12.088 data): [https://files.catbox.moe/zuukfu.png](https://files.catbox.moe/zuukfu.png)
 >   * Keamanan Akun - Card & Tabel (12.060 data): [https://files.catbox.moe/q166bt.png](https://files.catbox.moe/q166bt.png)
+> * **Bukti Retest (Done)**:
+>   * Master User (12.065 data): [https://files.catbox.moe/kkz6ty.png](https://files.catbox.moe/kkz6ty.png)
+>   * Keamanan Akun - Card & Tabel (12.065 data): [https://files.catbox.moe/kabbf2.png](https://files.catbox.moe/kabbf2.png)
+
+<br>
+
+### 🐞 [BUG] | User Authority - Keamanan Akun: Muncul Tooltip Intrusif yang Menutupi Tab Saat Hover Field Search pada Seluruh Tab
+
+> * **Menu**: User Authority → Keamanan Akun (Semua Tab)
+> * **Status Huly**: ⏳ Pending Input
+> * **Deskripsi**: Saat mengarahkan kursor (*hover*) pada kolom pencarian (*field search*) di seluruh tab halaman Keamanan Akun (Daftar Akun, Permintaan Reset MFA, Perangkat & Sesi, dan Log Aktivitas), sistem memunculkan pop-up tooltip hitam berisi keterangan kolom ("Cari berdasarkan..."). Tooltip ini berukuran besar, posisinya menutupi tombol navigasi tab dan filter di atasnya, serta tidak diperlukan (*konfirmasi tim Dev/Mas Ahrul: seharusnya tidak ada tooltip saat di-hover*).
+> * **Expected**: Tidak ada tooltip yang muncul saat kursor melakukan hover pada kolom search di seluruh tab, dan panduan pencarian cukup mengandalkan *placeholder text* bawaan di dalam input field saja.
+> * **Actual**: Muncul pop-up tooltip hitam yang intrusif dan menutupi navigasi tab serta filter saat field search di-hover pada ke-4 tab Keamanan Akun.
+> * **Evidence**:
+>   * Tab Daftar Akun: [https://files.catbox.moe/xxvdo8.png](https://files.catbox.moe/xxvdo8.png)
+>   * Tab Permintaan Reset MFA: [https://files.catbox.moe/2miwfn.png](https://files.catbox.moe/2miwfn.png)
+>   * Tab Perangkat & Sesi: [https://files.catbox.moe/g6fggn.png](https://files.catbox.moe/g6fggn.png)
+>   * Tab Log Aktivitas: [https://files.catbox.moe/bmi93u.png](https://files.catbox.moe/bmi93u.png)
 
 <br>
 
@@ -510,12 +552,17 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Setting Absent - Work Pattern: Selisih Total Data Personnel pada Work Pattern dengan Master User
 
 > * **Menu**: Setting Absent → Work Pattern
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Total data pada halaman Setting Work Pattern Personnel hanya menampilkan 11.179 data, berbeda dengan Master User yang berjumlah 12.088 data (selisih 909 user tidak terdata di Work Pattern).
-> * **Expected**: Total data personnel pada Work Pattern sinkron dan sesuai dengan data Master User (12.088 data).
-> * **Actual**: Hanya menampilkan 11.179 data (selisih 909 user tidak muncul di Work Pattern).
+> * **Expected**: Total data personnel pada Work Pattern sinkron dan sesuai dengan data Master User.
+> * **Actual**: Hanya menampilkan 11.179 data (sebelumnya selisih 909 user tidak muncul di Work Pattern).
 > * **Evidence**:
 >   * Work Pattern Personnel (11.179 data): [https://files.catbox.moe/3qdwmc.png](https://files.catbox.moe/3qdwmc.png)
 >   * Master User (12.088 data): [https://files.catbox.moe/76ic6h.png](https://files.catbox.moe/76ic6h.png)
+> * **Bukti Retest (Done)**:
+>   * Setting Work Pattern Personnel (12.065 data): [https://files.catbox.moe/pmmgqn.png](https://files.catbox.moe/pmmgqn.png)
+>   * Master User (12.065 data): [https://files.catbox.moe/kg77qz.png](https://files.catbox.moe/kg77qz.png)
 
 <br>
 
@@ -551,7 +598,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Ticket Maintenance - Aktivitas: Gagal Upload File Bukti pada Form Buat, Edit, Komentar, dan Re-Issue
 
 > * **Menu**: Ticket Maintenance → Aktivitas
-> * **Status Huly**: ✅ Reported
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: Fitur upload file bukti screenshot / lampiran selalu mengalami kegagalan (indikator bar merah "Gagal") pada seluruh fitur pelaporan issue (Buat Issue, Edit Issue, Komentar Issue, dan Re-Issue).
 > * **Expected**: File gambar / lampiran berhasil terunggah (progress bar sukses) dan tersimpan bersama tiket issue.
 > * **Actual**: Upload file selalu gagal (*status bar merah "Gagal"*) di seluruh form (Buat Issue, Edit Issue, Komentar Issue, dan Re-Issue).
@@ -560,8 +607,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Form Edit Issue: [https://files.catbox.moe/9zsjae.png](https://files.catbox.moe/9zsjae.png)
 >   * Fitur Komentar Issue: [https://files.catbox.moe/gb0701.png](https://files.catbox.moe/gb0701.png)
 >   * Form Buat Re-Issue: [https://files.catbox.moe/hmsi9i.png](https://files.catbox.moe/hmsi9i.png)
-> * **Bukti Retest (Masih Issue)**:
+> * **Bukti Retest (Masih Issue - 23 Sep)**:
 >   * Preview Gambar Rusak / Broken: [https://files.catbox.moe/g4rrm6.png](https://files.catbox.moe/g4rrm6.png)
+> * **Bukti Retest (Done / Resolved - 25 Sep)**:
+>   * Upload File Bukti Berhasil & Preview Normal: [https://files.catbox.moe/0pkxlm.png](https://files.catbox.moe/0pkxlm.png)
 
 <br>
 
@@ -599,6 +648,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Menu Absent - Rekap Absent: Export Rekap Absent Tidak Tercatat di Riwayat dan Aktivitas Export
 
 > * **Menu**: Menu Absent → Rekap Absent
+> * **Status Huly**: ⚠️ Blocked
 > * **Deskripsi**: Aktivitas export data dari menu Rekap Absent tidak masuk dan tidak tercatat di menu Riwayat Export maupun Aktivitas Export.
 > * **Expected**: Setiap kali user melakukan export data Rekap Absent, riwayatnya otomatis tercatat di `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export`.
 > * **Actual**: Log export Rekap Absent tidak muncul di Riwayat Export maupun Aktivitas Export.
@@ -606,37 +656,46 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Export Rekap Absent: [https://files.catbox.moe/h1ys4k.png](https://files.catbox.moe/h1ys4k.png)
 >   * Riwayat Export: [https://files.catbox.moe/tbg8zj.png](https://files.catbox.moe/tbg8zj.png)
 >   * Aktivitas Export: [https://files.catbox.moe/squkas.png](https://files.catbox.moe/squkas.png)
+> * **Catatan Retest (Blocked 25/09)**: Pengetesan export Rekap Absent saat ini terhalang (*blocking*). Saat menekan tombol **Export Data**, muncul popup alert validasi *"role ids harus berupa array."* sehingga export gagal diproses.
+>   * Bukti Retest (Blocked): [https://files.catbox.moe/oxxkzg.png](https://files.catbox.moe/oxxkzg.png)
 
 <br>
 
 ### 🐞 [BUG] | Menu Absent - Daily Absent: Export Daily Absent Tidak Muncul di Drawer Download Export
 
 > * **Menu**: Menu Absent → Daily Absent
+> * **Status**: ✅ Done (Resolved)
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Setelah user melakukan export data pada halaman Daily Absent, file hasil export sudah masuk ke menu Riwayat Export & Aktivitas Export, namun tidak muncul pada panel/drawer samping kanan (**Download Export**).
-> * **Expected**: File export Daily Absent otomatis muncul di drawer samping kanan (**Download Export**) agar user bisa langsung mengunduh file tanpa harus berpindah ke menu Export Center.
-> * **Actual**: File export Daily Absent tidak muncul di dalam drawer Download Export (drawer hanya menampilkan file dari menu lain seperti Rekap Absent).
+> * **Expected**: File export Daily Absent otomatis muncul di drawer samping kanan agar user bisa langsung mengunduh file tanpa harus berpindah ke menu Export Center.
+> * **Actual**: File export Daily Absent sebelumnya tidak muncul di dalam drawer Download Export.
 > * **Evidence**:
 >   * Tombol Export Daily Absent: [https://files.catbox.moe/04x3md.png](https://files.catbox.moe/04x3md.png)
 >   * Drawer Download Export (Tidak Muncul): [https://files.catbox.moe/cea0us.png](https://files.catbox.moe/cea0us.png)
+> * **Bukti Retest (Done)**: [https://files.catbox.moe/65oski.png](https://files.catbox.moe/65oski.png)
 
 <br>
 
 ### 🐞 [BUG] | Menu Absent - Approval Absent: Status Absensi di Daily Absent Tidak Berubah Menjadi Hadir Setelah Dilakukan Reset dan Approve
 
 > * **Menu**: Menu Absent → Approval Absent
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: Status absensi di Daily Absent tetap tersangkut "Tidak Hadir" setelah pengajuan absensi yang sempat ditolak di-reset lalu disetujui (Approved) kembali.
 > * **Langkah Reproduksi**:
 >   1. Lakukan Clock In di luar radius pada aplikasi mobile (data absensi otomatis masuk ke menu *Approval Absent*).
 >   2. Buka menu *Approval Absent*, lalu tolak (**Reject**) pengajuan absensi tersebut (status di *Daily Absent* berubah menjadi "Tidak Hadir").
 >   3. Klik icon **Reset** pada baris absensi tersebut sehingga opsi pilihan tombol Approve dan Reject muncul kembali.
 >   4. Klik tombol **Approve** (status pada *Approval Absent* berubah menjadi "Approved").
->   5. Buka menu *Daily Absent* dan cek status kehadiran user tersebut.
+>   5. Buka menu *Daily Absent dan cek status kehadiran user tersebut.
 > * **Expected**: Status kehadiran user di menu *Daily Absent* otomatis tersinkronisasi dan berubah kembali menjadi **Hadir**.
 > * **Actual**: Status di *Daily Absent* tidak berubah dan tetap tersangkut sebagai **Tidak Hadir**.
 > * **Evidence**:
 >   * Aksi Approval Absent: [https://files.catbox.moe/jfzf7j.png](https://files.catbox.moe/jfzf7j.png)
 >   * Status Approved pada Approval Absent: [https://files.catbox.moe/9rx1tj.png](https://files.catbox.moe/9rx1tj.png)
 >   * Status di Daily Absent Tetap "Tidak Hadir": [https://files.catbox.moe/sllrfx.png](https://files.catbox.moe/sllrfx.png)
+> * **Bukti Retest (Done)**:
+>   * Status Approved pada Approval Absent: [https://files.catbox.moe/cjnu1t.png](https://files.catbox.moe/cjnu1t.png)
+>   * Status di Daily Absent Ter-update Hadir: [https://files.catbox.moe/6tt8lw.png](https://files.catbox.moe/6tt8lw.png)
 
 <br>
 
@@ -653,6 +712,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Menu Absent - Daily Absent: Error Validasi "role ids harus berupa array." Saat Melakukan Filter pada Daily Absent
 
 > * **Menu**: Menu Absent → Daily Absent
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: Saat user membuka drawer filter di halaman Daily Absent lalu menekan tombol **Filter** (dengan pilihan filter default seperti Job Role *"Semua Role"* dan Sales *"Semua"*), sistem gagal memuat data dan memunculkan dua pesan error notifikasi validasi: *"role ids harus berupa array."* dan *"Job role harus berupa array."*. Akibatnya, proses filter tidak dapat dijalankan dan tabel tidak menampilkan data absensi (*0 dari 0 data*).
 > * **Expected**: Sistem berhasil memproses request filter dan menampilkan data absensi sesuai parameter pencarian tanpa kendala validasi.
 > * **Actual**: Muncul dua notifikasi error validasi:
@@ -662,6 +722,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence**:
 >   * Pengaturan Filter pada Drawer Daily Absent: [https://files.catbox.moe/j16s94.png](https://files.catbox.moe/j16s94.png)
 >   * Pesan Error Validasi saat Klik Filter: [https://files.catbox.moe/xrko3x.png](https://files.catbox.moe/xrko3x.png)
+> * **Bukti Retest**: [https://files.catbox.moe/392o00.png](https://files.catbox.moe/392o00.png)
 
 <br>
 
@@ -680,12 +741,14 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Menu Absent - Approval Absent: Error Validasi "role ids harus berupa array." Saat Melakukan Filter pada Approval Absent
 
 > * **Menu**: Menu Absent → Approval Absent
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: Saat user membuka drawer filter di halaman Approval Absent lalu menekan tombol **Filter**, sistem memunculkan dua pesan error notifikasi validasi: *"role ids harus berupa array."*, sehingga proses filter gagal dan data tidak dapat dimuat.
 > * **Expected**: Sistem berhasil memproses filter data absensi approval sesuai parameter yang dipilih tanpa muncul error validasi.
 > * **Actual**: Muncul notifikasi error validasi *"role ids harus berupa array."* dan tabel tidak menampilkan data (*0 dari 0 data / No data*).
 > * **Evidence**:
 >   * Pengaturan Filter pada Drawer Approval Absent: [https://files.catbox.moe/gzfc59.png](https://files.catbox.moe/gzfc59.png)
 >   * Pesan Error Validasi saat Klik Filter: [https://files.catbox.moe/jjmn4h.png](https://files.catbox.moe/jjmn4h.png)
+> * **Bukti Retest**: [https://files.catbox.moe/qok2h4.png](https://files.catbox.moe/qok2h4.png)
 
 <br>
 
@@ -775,6 +838,20 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Tab Aktivitas Sales: [https://files.catbox.moe/7rkzwh.png](https://files.catbox.moe/7rkzwh.png)
 >   * Tab Daftar Rekening: [https://files.catbox.moe/m5qru6.png](https://files.catbox.moe/m5qru6.png)
 > * **Bukti Retest**: [https://files.catbox.moe/vzg5or.png](https://files.catbox.moe/vzg5or.png)
+
+<br>
+
+### 🐞 [BUG] | Report Lending - Personal Funnel: Data Actual dari Visit sampai Realisasi Tidak Muncul di Tab Semua dan PKS
+
+> * **Menu**: Report Lending → Personal Funnel
+> * **Status**: ✅ Done (Resolved)
+> * **Deskripsi**: Data actual (angka Real pada NTB/ETB serta kolom Realisasi) dari tahapan staging Visit sampai Realisasi/Pencairan Kredit sebelumnya tidak muncul di tab Semua dan tab PKS.
+> * **Expected**: Nilai actual dari staging Visit sampai Realisasi muncul secara lengkap dan sinkron antara tab Semua, Non PKS, dan PKS.
+> * **Actual**: Data actual sudah berhasil muncul dengan lengkap dan kalkulasinya sinkron 100% di semua tab.
+> * **Bukti Retest (Done)**:
+>   * Tab Semua: [https://files.catbox.moe/1i8lji.png](https://files.catbox.moe/1i8lji.png)
+>   * Tab Non PKS: [https://files.catbox.moe/k9xczc.png](https://files.catbox.moe/k9xczc.png)
+>   * Tab PKS: [https://files.catbox.moe/2f4zax.png](https://files.catbox.moe/2f4zax.png)
 
 ---
 
@@ -994,3 +1071,20 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-25 | User Authority - Keamanan Akun (Daftar Akun) | Retest export Daftar Akun: Tercatat di Export Center tapi drawer masih versi lama "Download Export" (Status: Re-Open) |
 | 2026-09-25 | User Authority - Group Role | Temuan bug baru: Validasi duplikat memblokir update data role jika nama tidak diubah (Total 46 bug) |
 | 2026-09-25 | User Authority - Keamanan Akun (Daftar Akun) | Verifikasi perbaikan filter multi-select Status MFA & Metode MFA selesai (Status: Done / Resolved) |
+| 2026-09-25 | User Authority - Keamanan Akun (Permintaan Reset MFA) | Verifikasi perbaikan filter multi-select Status (Reset MFA) selesai (Status: Done / Resolved) |
+| 2026-09-25 | User Authority - Keamanan Akun (Perangkat & Sesi) | Verifikasi perbaikan export Perangkat & Sesi selesai (Status: Done / Resolved) |
+| 2026-09-25 | User Authority - Keamanan Akun (Daftar Akun) | Verifikasi sinkronisasi total pengguna dengan Master User (12.065 data) selesai (Status: Done / Resolved) |
+| 2026-09-25 | User Authority - User | Penutupan issue User AD gagal login (Status: Rejected / Environment Luar Ruang Lingkup BTN) |
+| 2026-09-25 | Setting Absent - Work Pattern | Verifikasi sinkronisasi total data personnel dengan Master User (12.065 data) selesai (Status: Done / Resolved) |
+| 2026-09-25 | Menu Absent - Daily Absent | Verifikasi perbaikan export Daily Absent masuk drawer Export Center selesai (Status: Done / Resolved) |
+| 2026-09-25 | Menu Absent - Rekap Absent | Retest export Rekap Absent: Terhalang error validasi "role ids harus berupa array." (Status: Blocked) |
+| 2026-09-25 | User Authority - Keamanan Akun | Temuan bug baru: Tooltip intrusif menutupi tab saat hover field search pada seluruh tab (Total 47 bug) |
+| 2026-09-25 | Ticket Maintenance - Aktivitas | Verifikasi perbaikan upload file bukti & preview normal selesai (Status: Done / Resolved) |
+| 2026-09-25 | Menu Absent - Approval Absent | Verifikasi perbaikan filter Approval Absent (bebas error validasi role ids array) selesai (Status: Done / Resolved) |
+| 2026-09-25 | User Authority - Keamanan Akun (Daftar Akun) | Verifikasi perbaikan drawer export Daftar Akun sudah menggunakan standar Export Center selesai (Status: Done / Resolved) |
+| 2026-09-25 | Menu Absent - Daily Absent | Verifikasi perbaikan filter Daily Absent (bebas error validasi role ids & Job role array) selesai (Status: Done / Resolved) |
+| 2026-09-25 | Menu Absent - Approval Absent | Verifikasi perbaikan sinkronisasi status Daily Absent dari alur Reset ke Approve selesai (Status: Done / Resolved) |
+| 2026-09-25 | User Authority - Group Role | Verifikasi perbaikan validasi duplikat saat update role tanpa ubah nama role selesai (Status: Done / Resolved) |
+| 2026-09-25 | User Authority - Keamanan Akun (Daftar Akun) | Verifikasi perbaikan search Daftar Akun (bisa search kolom selain nama) selesai (Status: Done / Resolved) |
+| 2026-09-25 | User Authority - Keamanan Akun (Perangkat & Sesi) | Retest search Perangkat & Sesi: Kolom Kode Outlet dan Job Title belum berfungsi / No data (Status: Re-Open) |
+| 2026-09-28 | Report Lending - Personal Funnel | Verifikasi data actual dari Visit sampai Realisasi muncul dan sinkron di tab Semua, Non PKS, dan PKS (Status: Done / Resolved) |
