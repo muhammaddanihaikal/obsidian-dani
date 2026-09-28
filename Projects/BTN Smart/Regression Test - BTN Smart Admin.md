@@ -28,9 +28,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 17 | User Authority | Group Role | Alam | ✅ Done |
 | 18 | User Authority | Tipe Karyawan | Alam | ✅ Done |
 | 19 | User Authority | Hak Akses Role | Alam | ✅ Done |
-| 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | 🐛 Bug |
+| 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | ✅ Done |
 | 21 | User Authority | Keamanan Akun - Permintaan Reset MFA | Alam | ✅ Done |
-| 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | 🐛 Bug |
+| 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | ✅ Done |
 | 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | 🐛 Bug |
 | 24 | Profile Nasabah & Sales | Sales | Fito | ✅ Done |
 | 25 | Profile Nasabah & Sales | Nasabah Perorangan | Fito | ✅ Done |
@@ -505,18 +505,19 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Authority - Keamanan Akun: Muncul Tooltip Intrusif yang Menutupi Tab Saat Hover Field Search pada Seluruh Tab
+### 🐞 [BUG] | User Authority - Keamanan Akun: Muncul Tooltip Intrusif Saat Input Field Search pada Seluruh Tab
 
 > * **Menu**: User Authority → Keamanan Akun (Semua Tab)
-> * **Status Huly**: ⏳ Pending Input
-> * **Deskripsi**: Saat mengarahkan kursor (*hover*) pada kolom pencarian (*field search*) di seluruh tab halaman Keamanan Akun (Daftar Akun, Permintaan Reset MFA, Perangkat & Sesi, dan Log Aktivitas), sistem memunculkan pop-up tooltip hitam berisi keterangan kolom ("Cari berdasarkan..."). Tooltip ini berukuran besar, posisinya menutupi tombol navigasi tab dan filter di atasnya, serta tidak diperlukan (*konfirmasi tim Dev/Mas Ahrul: seharusnya tidak ada tooltip saat di-hover*).
-> * **Expected**: Tidak ada tooltip yang muncul saat kursor melakukan hover pada kolom search di seluruh tab, dan panduan pencarian cukup mengandalkan *placeholder text* bawaan di dalam input field saja.
-> * **Actual**: Muncul pop-up tooltip hitam yang intrusif dan menutupi navigasi tab serta filter saat field search di-hover pada ke-4 tab Keamanan Akun.
+> * **Status**: ✅ Done (Resolved)
+> * **Deskripsi**: Saat melakukan input/pencarian (*mengetik*) pada kolom pencarian (*field search*) di seluruh tab halaman Keamanan Akun (Daftar Akun, Permintaan Reset MFA, Perangkat & Sesi, dan Log Aktivitas), sistem memunculkan pop-up tooltip hitam yang merefleksikan teks yang diketik. Tooltip ini intrusif, menutupi elemen navigasi tab di atasnya, dan tidak diperlukan.
+> * **Expected**: Tidak ada tooltip yang muncul saat mengetik pada kolom search di seluruh tab, dan field input cukup menampilkan teks pencarian secara bersih.
+> * **Actual**: Muncul pop-up tooltip hitam yang merefleksikan teks yang sedang diketik pada field search di seluruh tab Keamanan Akun.
 > * **Evidence**:
 >   * Tab Daftar Akun: [https://files.catbox.moe/xxvdo8.png](https://files.catbox.moe/xxvdo8.png)
 >   * Tab Permintaan Reset MFA: [https://files.catbox.moe/2miwfn.png](https://files.catbox.moe/2miwfn.png)
 >   * Tab Perangkat & Sesi: [https://files.catbox.moe/g6fggn.png](https://files.catbox.moe/g6fggn.png)
 >   * Tab Log Aktivitas: [https://files.catbox.moe/bmi93u.png](https://files.catbox.moe/bmi93u.png)
+> * **Catatan Retest (28 September 2026)**: Tooltip yang sebelumnya muncul saat mengetik pada field search di seluruh tab Keamanan Akun sudah dihilangkan oleh developer. Input pencarian kini berfungsi normal dan bersih tanpa tooltip.
 
 <br>
 
@@ -1112,3 +1113,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-28 | Menu Absent - Approval Absent | Verifikasi perbaikan export Approval Absent masuk drawer Export Center & tercatat di Export History/Activity selesai (Status: Done / Resolved) |
 | 2026-09-28 | User Authority - Keamanan Akun (Permintaan Reset MFA) | Verifikasi perbaikan search Permintaan Reset MFA (dapat memfilter seluruh kolom) selesai (Status: Done / Resolved) |
 | 2026-09-28 | Menu Absent - Rekap Absent | Retest status Alpha prematur: Logika status approval terbalik (Pending jadi A, Rejected jadi Blank) (Status: Re-Open) |
+| 2026-09-28 | User Authority - Keamanan Akun | Verifikasi perbaikan tooltip saat mengetik pada field search seluruh tab selesai (Status: Done / Resolved) |
