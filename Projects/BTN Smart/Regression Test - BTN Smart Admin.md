@@ -462,7 +462,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Expected**: Field search dapat memfilter data secara menyeluruh termasuk berdasarkan tanggal/waktu (misal: *"12 September 2026"*) dan status (misal: *"Sukses"* atau *"Gagal"*).
 > * **Actual**: Pencarian dengan kata kunci dari kolom Tanggal/Waktu dan Status diabaikan sehingga data tidak terfilter.
 > * **Evidence**: [https://files.catbox.moe/rycqzj.png](https://files.catbox.moe/rycqzj.png)
-> * **Catatan Retest (28 September 2026)**: Fitur search pada tab Log Aktivitas untuk kolom Tanggal/Waktu dan Status sudah diperbaiki dan berfungsi normal memfilter data.
+> * **Catatan Retest (28 September 2026)**: Konfirmasi Dev: Kolom Tanggal/Waktu dan Status memang tidak diikutsertakan dalam pencarian (*search field*). Seluruh kolom lainnya (Pengguna, Kantor, Job Title, Aktivitas, IP) sudah berfungsi normal dan memfilter data dengan baik.
 
 <br>
 
@@ -1130,4 +1130,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-28 | Menu Absent - Rekap Absent | Retest status Alpha prematur: Logika status approval terbalik (Pending jadi A, Rejected jadi Blank) (Status: Re-Open) |
 | 2026-09-28 | User Authority - Keamanan Akun | Verifikasi perbaikan tooltip saat mengetik pada field search seluruh tab selesai (Status: Done / Resolved) |
 | 2026-09-28 | Mobile App - Log Absensi | Temuan bug baru: Peta Google Maps tidak muncul (blank) pada halaman Log Absent Detail tab Clock In & Clock Out (Total 48 bug) |
-| 2026-09-28 | User Authority - Keamanan Akun (Log Aktivitas) | Verifikasi perbaikan search Log Aktivitas kolom Tanggal/Waktu & Status selesai (Status: Done / Resolved) |
+| 2026-09-28 | User Authority - Keamanan Akun (Log Aktivitas) | Konfirmasi & verifikasi search Log Aktivitas: Tanggal & Status di luar cakupan search, seluruh kolom lainnya berfungsi normal (Status: Done / Resolved) |
