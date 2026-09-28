@@ -597,6 +597,19 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence**:
 >   * Form Prospek Individu (Step 3/3): [https://files.catbox.moe/tylk3v.jpg](https://files.catbox.moe/tylk3v.jpg)
 >   * Form Prospek Lembaga (Step 4/4): [https://files.catbox.moe/lvu3ey.jpg](https://files.catbox.moe/lvu3ey.jpg)
+
+<br>
+
+### 🐞 [BUG] | Mobile App - Log Absensi: Peta Tidak Tampil pada Halaman Detail Log Absensi di Tab Clock In dan Clock Out
+
+> * **Menu**: Mobile App → Log Absensi
+> * **Status Huly**: ⏳ Pending Input
+> * **Deskripsi**: Pada halaman detail riwayat absensi (**Log Absent Detail**) di aplikasi mobile, peta (*Google Maps*) tidak muncul / hanya menampilkan latar polos dengan watermark logo Google saja pada tab **Clock In** maupun **Clock Out**. Peta tidak merender layer peta, koordinat, maupun pin titik lokasi absensi.
+> * **Expected**: Peta Google Maps pada tab Clock In dan Clock Out di halaman Log Absent Detail menampilkan visual peta lengkap beserta pin marker lokasi absensi user secara normal.
+> * **Actual**: Peta tidak tampil (blank/polos) dan hanya menampilkan logo Google di pojok kiri bawah.
+> * **Catatan Tambahan**: Menurut info Mas Ucup, kendala ini terjadi karena data lokasi pada *Attendance Spot* diubah-ubah.
+> * **Evidence**: [https://files.catbox.moe/4o5ocz.jpg](https://files.catbox.moe/4o5ocz.jpg)
+
 <br>
 
 ### 🐞 [BUG] | Ticket Maintenance - Aktivitas: Gagal Upload File Bukti pada Form Buat, Edit, Komentar, dan Re-Issue
@@ -1114,3 +1127,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-28 | User Authority - Keamanan Akun (Permintaan Reset MFA) | Verifikasi perbaikan search Permintaan Reset MFA (dapat memfilter seluruh kolom) selesai (Status: Done / Resolved) |
 | 2026-09-28 | Menu Absent - Rekap Absent | Retest status Alpha prematur: Logika status approval terbalik (Pending jadi A, Rejected jadi Blank) (Status: Re-Open) |
 | 2026-09-28 | User Authority - Keamanan Akun | Verifikasi perbaikan tooltip saat mengetik pada field search seluruh tab selesai (Status: Done / Resolved) |
+| 2026-09-28 | Mobile App - Log Absensi | Temuan bug baru: Peta Google Maps tidak muncul (blank) pada halaman Log Absent Detail tab Clock In & Clock Out (Total 48 bug) |
