@@ -714,10 +714,12 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Kolom tanggal hari ini (16 September 2026) sudah langsung terisi status "A" (Alpha) di siang hari meskipun jam kerja masih berjalan.
 > * **Evidence**: [https://files.catbox.moe/tkw0mk.png](https://files.catbox.moe/tkw0mk.png)
 > * **Catatan Retest (Re-Open - 28 September 2026)**: Kondisi belum absen sudah normal (kolom blank), namun logika status approval di Rekap Absent terbalik: status **Pending** malah muncul **A** (seharusnya blank), sedangkan status **Rejected** justru menjadi **kosong/blank** (seharusnya A).
->   * Approval Absent Status Pending: [https://files.catbox.moe/khcap0.png](https://files.catbox.moe/khcap0.png)
->   * Rekap Absent Saat Pending (Muncul A): [https://files.catbox.moe/6ug514.png](https://files.catbox.moe/6ug514.png)
->   * Approval Absent Status Rejected: [https://files.catbox.moe/vmg2ij.png](https://files.catbox.moe/vmg2ij.png)
->   * Rekap Absent Saat Rejected (Malah Kosong): [https://files.catbox.moe/srlfrw.png](https://files.catbox.moe/srlfrw.png)
+>   * **Bukti Retest - Kasus Pending (Malah Jadi A)**:
+>     * Approval Absent Status Pending: [https://files.catbox.moe/khcap0.png](https://files.catbox.moe/khcap0.png)
+>     * Rekap Absent (Malah Muncul A): [https://files.catbox.moe/6ug514.png](https://files.catbox.moe/6ug514.png)
+>   * **Bukti Retest - Kasus Rejected (Malah Kosong)**:
+>     * Approval Absent Status Rejected: [https://files.catbox.moe/vmg2ij.png](https://files.catbox.moe/vmg2ij.png)
+>     * Rekap Absent (Malah Menjadi Kosong): [https://files.catbox.moe/srlfrw.png](https://files.catbox.moe/srlfrw.png)
 
 <br>
 
