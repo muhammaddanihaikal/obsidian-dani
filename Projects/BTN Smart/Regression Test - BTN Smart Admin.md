@@ -603,7 +603,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Mobile App - Log Absensi: Peta Tidak Tampil pada Halaman Detail Log Absensi di Tab Clock In dan Clock Out
 
 > * **Menu**: Mobile App → Log Absensi
-> * **Status Huly**: ⏳ Pending Input
+> * **Status**: 🐛 Bug
 > * **Deskripsi**: Pada halaman detail riwayat absensi (**Log Absent Detail**) di aplikasi mobile, peta (*Google Maps*) tidak muncul / hanya menampilkan latar polos dengan watermark logo Google saja pada tab **Clock In** maupun **Clock Out**. Peta tidak merender layer peta, koordinat, maupun pin titik lokasi absensi.
 > * **Expected**: Peta Google Maps pada tab Clock In dan Clock Out di halaman Log Absent Detail menampilkan visual peta lengkap beserta pin marker lokasi absensi user secara normal.
 > * **Actual**: Peta tidak tampil (blank/polos) dan hanya menampilkan logo Google di pojok kiri bawah.
