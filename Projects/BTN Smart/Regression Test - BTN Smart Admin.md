@@ -51,7 +51,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 45 | Menu Absent | Dashboard Absent | Gaza | 🐛 Bug |
 | 46 | Menu Absent | Daily Absent | Gaza | 🐛 Bug |
 | 47 | Menu Absent | Rekap Absent | Gaza | 🐛 Bug |
-| 48 | Menu Absent | Approval Absent | Gaza | 🐛 Bug |
+| 48 | Menu Absent | Approval Absent | Gaza | ✅ Done |
 | 49 | Sales Tracking Activity | Dashboard Visit | Gaza | ⬜ Belum |
 | 50 | Sales Tracking Activity | Client Visit List | Gaza | ⬜ Belum |
 | 51 | Sales Tracking Activity | Rekap Visit | Gaza | ⬜ Belum |
@@ -759,12 +759,17 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Menu Absent - Approval Absent: Export Approval Absent Tidak Masuk Drawer Maupun Riwayat dan Aktivitas Export
 
 > * **Menu**: Menu Absent → Approval Absent
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: Setelah user melakukan export data pada halaman Approval Absent, file hasil export tidak muncul di drawer samping (*Download Export*) serta tidak tercatat di menu *Riwayat Export* maupun *Aktivitas Export*.
 > * **Expected**: File export Approval Absent otomatis muncul di drawer samping (*Download Export*) dan riwayatnya tercatat di *Export Center* (*Riwayat Export* & *Aktivitas Export*).
 > * **Actual**: File export Approval Absent tidak muncul di drawer *Download Export* serta tidak tercatat di *Riwayat Export* maupun *Aktivitas Export*.
 > * **Evidence**:
 >   * Tombol Export Data pada Approval Absent: [https://files.catbox.moe/r620vg.png](https://files.catbox.moe/r620vg.png)
 >   * Drawer Download Export (Tidak Muncul): [https://files.catbox.moe/ix3l29.png](https://files.catbox.moe/ix3l29.png)
+> * **Bukti Retest (Done - 28/09)**:
+>   * Drawer Export Center: [https://files.catbox.moe/owmz97.png](https://files.catbox.moe/owmz97.png)
+>   * Export Activity (Tersedia): [https://files.catbox.moe/3ih7td.png](https://files.catbox.moe/3ih7td.png)
+>   * Export History (Tersedia): [https://files.catbox.moe/48w5qx.png](https://files.catbox.moe/48w5qx.png)
 
 <br>
 
@@ -1094,3 +1099,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-28 | Report Lending - Personal Funnel | Verifikasi data actual dari Visit sampai Realisasi muncul dan sinkron di tab Semua, Non PKS, dan PKS (Status: Done / Resolved) |
 | 2026-09-28 | Menu Absent - Rekap Absent | Verifikasi perbaikan export Rekap Absent masuk drawer Export Center & status Tersedia selesai (Status: Done / Resolved) |
 | 2026-09-28 | User Authority - Keamanan Akun (Perangkat & Sesi) | Verifikasi perbaikan search Perangkat & Sesi kolom Kode Outlet & Job Title selesai (Status: Done / Resolved) |
+| 2026-09-28 | Menu Absent - Approval Absent | Verifikasi perbaikan export Approval Absent masuk drawer Export Center & tercatat di Export History/Activity selesai (Status: Done / Resolved) |
