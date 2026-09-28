@@ -29,7 +29,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 18 | User Authority | Tipe Karyawan | Alam | ✅ Done |
 | 19 | User Authority | Hak Akses Role | Alam | ✅ Done |
 | 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | 🐛 Bug |
-| 21 | User Authority | Keamanan Akun - Permintaan Reset MFA | Alam | 🐛 Bug |
+| 21 | User Authority | Keamanan Akun - Permintaan Reset MFA | Alam | ✅ Done |
 | 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | 🐛 Bug |
 | 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | 🐛 Bug |
 | 24 | Profile Nasabah & Sales | Sales | Fito | ✅ Done |
@@ -362,10 +362,12 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Keamanan Akun: Fitur Search Permintaan Reset MFA Hanya Berfungsi untuk Kolom Pengguna dan Alasan
 
 > * **Menu**: User Authority → Keamanan Akun
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: Kolom pencarian pada tab Permintaan Reset MFA hanya membaca dan memfilter data berdasarkan kolom **Pengguna** dan **Alasan**. Pencarian kata kunci dari kolom lain (seperti Kantor Wilayah, Kantor Cabang, Outlet, Kode Outlet, Job Title, dll) belum berfungsi.
 > * **Expected**: Field search dapat memfilter data secara fleksibel berdasarkan seluruh kolom yang tersedia pada tabel Permintaan Reset MFA.
 > * **Actual**: Pencarian hanya merespons kata kunci dari kolom Pengguna dan Alasan, sedangkan kolom lainnya diabaikan (*tidak terfilter*).
 > * **Evidence**: [https://files.catbox.moe/50rv0y.png](https://files.catbox.moe/50rv0y.png)
+> * **Catatan Retest (28 September 2026)**: Fitur search pada tab Permintaan Reset MFA sudah diperbaiki dan berfungsi normal untuk memfilter data pada seluruh kolom.
 
 <br>
 
@@ -1100,3 +1102,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-28 | Menu Absent - Rekap Absent | Verifikasi perbaikan export Rekap Absent masuk drawer Export Center & status Tersedia selesai (Status: Done / Resolved) |
 | 2026-09-28 | User Authority - Keamanan Akun (Perangkat & Sesi) | Verifikasi perbaikan search Perangkat & Sesi kolom Kode Outlet & Job Title selesai (Status: Done / Resolved) |
 | 2026-09-28 | Menu Absent - Approval Absent | Verifikasi perbaikan export Approval Absent masuk drawer Export Center & tercatat di Export History/Activity selesai (Status: Done / Resolved) |
+| 2026-09-28 | User Authority - Keamanan Akun (Permintaan Reset MFA) | Verifikasi perbaikan search Permintaan Reset MFA (dapat memfilter seluruh kolom) selesai (Status: Done / Resolved) |
