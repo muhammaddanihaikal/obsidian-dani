@@ -708,10 +708,16 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Menu Absent - Rekap Absent: Status Kehadiran di Rekap Absent Prematur Menjadi Alpha Padahal Hari Masih Berjalan
 
 > * **Menu**: Menu Absent → Rekap Absent
+> * **Status**: 🔄 Re-Open
 > * **Deskripsi**: Status absensi karyawan pada tabel *Rekap Absent* sudah otomatis terisi "A" (Alpha / Tidak Hadir) pada tanggal hari ini yang masih berjalan, padahal karyawan belum tentu absen dan hari kerja belum selesai (status Alpha seharusnya baru di-update otomatis oleh sistem pada jam 24:00 malam jika karyawan benar-benar tidak Clock In hingga akhir hari).
 > * **Expected**: Kolom tanggal yang sedang berjalan tetap kosong (*blank*) selama jam kerja berlangsung, dan baru ter-update otomatis menjadi "A" pada pergantian hari (pukul 24:00 / 00:00) jika tidak ada aktivitas absensi.
 > * **Actual**: Kolom tanggal hari ini (16 September 2026) sudah langsung terisi status "A" (Alpha) di siang hari meskipun jam kerja masih berjalan.
 > * **Evidence**: [https://files.catbox.moe/tkw0mk.png](https://files.catbox.moe/tkw0mk.png)
+> * **Catatan Retest (Re-Open - 28 September 2026)**: Kondisi belum absen sudah normal (kolom blank), namun logika status approval di Rekap Absent terbalik: status **Pending** malah muncul **A** (seharusnya blank), sedangkan status **Rejected** justru menjadi **kosong/blank** (seharusnya A).
+>   * Approval Absent Status Pending: [https://files.catbox.moe/khcap0.png](https://files.catbox.moe/khcap0.png)
+>   * Rekap Absent Saat Pending (Muncul A): [https://files.catbox.moe/6ug514.png](https://files.catbox.moe/6ug514.png)
+>   * Approval Absent Status Rejected: [https://files.catbox.moe/vmg2ij.png](https://files.catbox.moe/vmg2ij.png)
+>   * Rekap Absent Saat Rejected (Malah Kosong): [https://files.catbox.moe/srlfrw.png](https://files.catbox.moe/srlfrw.png)
 
 <br>
 
@@ -1103,3 +1109,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-28 | User Authority - Keamanan Akun (Perangkat & Sesi) | Verifikasi perbaikan search Perangkat & Sesi kolom Kode Outlet & Job Title selesai (Status: Done / Resolved) |
 | 2026-09-28 | Menu Absent - Approval Absent | Verifikasi perbaikan export Approval Absent masuk drawer Export Center & tercatat di Export History/Activity selesai (Status: Done / Resolved) |
 | 2026-09-28 | User Authority - Keamanan Akun (Permintaan Reset MFA) | Verifikasi perbaikan search Permintaan Reset MFA (dapat memfilter seluruh kolom) selesai (Status: Done / Resolved) |
+| 2026-09-28 | Menu Absent - Rekap Absent | Retest status Alpha prematur: Logika status approval terbalik (Pending jadi A, Rejected jadi Blank) (Status: Re-Open) |
