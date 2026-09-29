@@ -9,7 +9,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 | No | Menu | Sub Menu | PIC Dev | Status |
 |----|------|----------|---------|--------|
-| 1 | Authentication | Login | Fito | 🐛 Bug |
+| 1 | Authentication | Login | Fito | ✅ Done |
 | 2 | Authentication | Verifikasi Email OTP | Fito | 🐛 Bug |
 | 3 | Authentication | Verifikasi TOTP | Fito | 🐛 Bug |
 | 4 | Authentication | Perangkat Terpercaya | Fito | ✅ Done |
@@ -18,13 +18,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 7 | Authentication | Logout | Fito | ✅ Done |
 | 8 | Profile | Biodata diri | Alam | ⬜ Belum |
 | 9 | Profile | Ganti kata sandi | Alam | ⬜ Belum |
-| 10 | Profile | Keamanan | Alam | 🐛 Bug |
+| 10 | Profile | Keamanan | Alam | ✅ Done |
 | 11 | Profile | Keamanan - Riwayat login | Alam | ⬜ Belum |
 | 12 | Profile | Keamanan - Perangkat terhubung | Alam | ⬜ Belum |
 | 13 | Overview | Overview Fund | Alam | ⬜ Belum |
 | 14 | Overview | Overview Lend | Alam | ⬜ Belum |
 | 15 | Overview | Pengaturan Overview | Alam | ⬜ Belum |
-| 16 | User Authority | User | Alam | 🐛 Bug |
+| 16 | User Authority | User | Alam | ✅ Done |
 | 17 | User Authority | Group Role | Alam | ✅ Done |
 | 18 | User Authority | Tipe Karyawan | Alam | ✅ Done |
 | 19 | User Authority | Hak Akses Role | Alam | ✅ Done |
@@ -130,33 +130,37 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Login: Beberapa Menu Masih Bisa Diakses Tanpa Setup 2FA
 
 > * **Menu**: Login
-> * **Status Huly**: ✅ Reported
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: User yang belum setup 2FA masih bisa mengakses beberapa menu tertentu.
 > * **Expected**: Semua menu — termasuk tab di Pengaturan Profile (Biodata Diri, Ganti Kata Sandi, Notifikasi) — tidak bisa dibuka dan wajib mental/redirect ke halaman Pengaturan Profile → Keamanan sebelum 2FA aktif.
 > * **Actual**: Hanya sebagian menu yang redirect, sisanya masih bisa dibuka bebas.
 > * **Evidence**: [https://files.catbox.moe/plcjix.png](https://files.catbox.moe/plcjix.png)
+> * **Catatan Retest (29 September 2026)**: Proteksi 2FA sudah diterapkan secara menyeluruh. Saat user mencoba membuka menu lain sebelum 2FA aktif, sistem memblokir akses dan memunculkan pop-up peringatan "Aktivasi 2FA Diperlukan" serta mengarahkan ke tab Keamanan.
+>   * Bukti Retest: [https://files.catbox.moe/26xctw.png](https://files.catbox.moe/26xctw.png)
 
 <br>
 
 ### 🐞 [BUG] | Profile: Bypass Cooldown Kirim Ulang OTP Saat Modal Ditutup dan Dibuka Kembali
 
 > * **Menu**: Profile
-> * **Status Huly**: ✅ Reported
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: Timer cooldown kirim ulang OTP ter-reset jika modal pop-up ditutup (tombol X) lalu diklik/dibuka kembali.
 > * **Expected**: Cooldown tetap berjalan sesuai durasi waktu. User tidak bisa spam/kirim kode baru sebelum timer cooldown benar-benar habis, meskipun modal ditutup-buka.
 > * **Actual**: Menutup dan membuka kembali modal memicu pengiriman kode baru dan me-reset timer cooldown.
 > * **Evidence**: [https://files.catbox.moe/x0odwz.png](https://files.catbox.moe/x0odwz.png)
+> * **Catatan Retest (28 September 2026)**: Timer cooldown kirim ulang OTP kini tetap berjalan normal dan tidak ter-reset saat modal pop-up ditutup dan dibuka kembali. Pencegahan spam OTP sudah berfungsi dengan baik.
 
 <br>
 
 ### 🐞 [BUG] | Login: Bypass Cooldown OTP Saat Melakukan Login Ulang
 
 > * **Menu**: Login
-> * **Status Huly**: ✅ Reported
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: User bisa memicu kirim kode OTP baru dengan login ulang meski timer cooldown sebelumnya (2 menit) masih berjalan.
 > * **Expected**: Cooldown OTP tersimpan di sisi backend sehingga login ulang tidak bisa kirim OTP baru sebelum waktu cooldown habis.
 > * **Actual**: Login ulang langsung mengirimkan OTP baru dan me-reset timer cooldown.
 > * **Evidence**: [https://files.catbox.moe/hawwr9.png](https://files.catbox.moe/hawwr9.png)
+> * **Catatan Retest (28 September 2026)**: Cooldown OTP kini sudah tervalidasi di sisi backend. Login ulang tidak lagi me-reset timer dan pengiriman OTP baru dicegah hingga waktu cooldown benar-benar habis.
 
 <br>
 
@@ -265,10 +269,12 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - User: Muncul Opsi "Resend Activation Link" pada User AD
 
 > * **Menu**: User Authority → User
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: Opsi *"Resend Activation Link"* seharusnya khusus diperuntukkan bagi user bertipe **Non-AD** (untuk kebutuhan aktivasi password akun via email). Namun pada menu aksi user bertipe **AD (Active Directory)**, opsi *"Resend Activation Link"* masih tetap muncul dan dapat diklik.
 > * **Expected**: Opsi *"Resend Activation Link"* hanya muncul pada user **Non-AD**. Pada user bertipe **AD**, opsi ini wajib disembunyikan (*hide/disable*) karena autentikasi user AD dikelola langsung melalui domain/LDAP korporat dan tidak memerlukan aktivasi password via email.
 > * **Actual**: Opsi *"Resend Activation Link"* masih tetap muncul pada menu aksi user bertipe **AD**.
 > * **Evidence**: [https://files.catbox.moe/lyl9gn.png](https://files.catbox.moe/lyl9gn.png)
+> * **Catatan Retest (28 September 2026)**: Opsi "Resend Activation Link" pada menu aksi user bertipe AD sudah dihilangkan. Tombol ini kini hanya muncul khusus pada user bertipe Non-AD yang berstatus belum aktif sesuai spesifikasi.
 
 <br>
 
@@ -526,6 +532,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Setting Absent - Attendance Spot: Saran Lokasi Google Maps Tidak Muncul Saat Mode Layar Penuh pada Form Tambah & Edit
 
 > * **Menu**: Setting Absent → Attendance Spot
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: Fitur pencarian lokasi pada peta Google Maps tidak memunculkan *dropdown* rekomendasi/autocomplete lokasi ketika peta dibuka dalam mode layar penuh (*fullscreen map*), baik pada form Tambah (*Add New Attendance Spot*) maupun form Edit (*Edit Attendance Spot*), setelah sebelumnya melakukan pengubahan nilai radius. Pada tampilan peta normal (peta kecil), saran lokasi dapat muncul normal, namun begitu peta diperbesar ke mode layar penuh, saran lokasi tidak muncul sama sekali.
 > * **Langkah Reproduksi**:
 >   1. Masuk ke menu Setting Absent → Attendance Spot, lalu buka form **Add New Location** atau **Edit Location**.
@@ -539,6 +546,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Form Tambah & Edit Attendance Spot: [https://files.catbox.moe/u4l66y.png](https://files.catbox.moe/u4l66y.png)
 >   * Tahapan Ubah Radius, Search Peta Kecil & Klik Layar Penuh: [https://files.catbox.moe/juyuqz.png](https://files.catbox.moe/juyuqz.png)
 >   * Saran Lokasi Tidak Muncul Saat Layar Penuh: [https://files.catbox.moe/p5ti6b.png](https://files.catbox.moe/p5ti6b.png)
+> * **Bukti Retest (Done)**: [https://files.catbox.moe/z75ceb.png](https://files.catbox.moe/z75ceb.png)
+> * **Catatan Retest (29 September 2026)**: Dropdown saran lokasi (autocomplete) Google Maps pada mode layar penuh (fullscreen) di form Tambah dan Edit Attendance Spot kini sudah muncul normal dan dapat dipilih.
 
 <br>
 
@@ -814,6 +823,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Menu Absent: Inkonsistensi Total Data Karyawan Antar Sub-Menu Absensi (Dashboard vs Daily vs Rekap Absent)
 
 > * **Menu**: Menu Absent
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: Total data karyawan pada sub-menu di bawah modul Menu Absent saling berbeda dan tidak konsisten satu sama lain (Dashboard Absent: 353 sales, Daily Absent: 383 sales, dan Rekap Absent: 11.203 data).
 > * **Expected**: Total data karyawan antar sub-menu di Menu Absent sinkron dan konsisten antar halaman.
 > * **Actual**: Ketiga menu menampilkan jumlah total data yang berbeda jauh (Dashboard: 353 sales, Daily: 383 sales, Rekap: 11.203 data).
@@ -821,6 +831,11 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Dashboard Absent (353 Sales): [https://files.catbox.moe/bz0t0y.png](https://files.catbox.moe/bz0t0y.png)
 >   * Daily Absent (383 Sales): [https://files.catbox.moe/2gzx5s.png](https://files.catbox.moe/2gzx5s.png)
 >   * Rekap Absent (11.203 data): [https://files.catbox.moe/jsr3g0.png](https://files.catbox.moe/jsr3g0.png)
+> * **Bukti Retest (Done)**:
+>   * Dashboard Absent (361 Sales): [https://files.catbox.moe/mt6vsi.png](https://files.catbox.moe/mt6vsi.png)
+>   * Daily Absent (361 Sales): [https://files.catbox.moe/gzb0he.png](https://files.catbox.moe/gzb0he.png)
+>   * Rekap Absent (361 Data): [https://files.catbox.moe/d9g6lu.png](https://files.catbox.moe/d9g6lu.png)
+> * **Catatan Retest (29 September 2026)**: Total data karyawan pada Dashboard Absent, Daily Absent, dan Rekap Absent kini sudah sinkron dan konsisten menampilkan 361 data.
 
 <br>
 
@@ -1131,3 +1146,9 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-28 | User Authority - Keamanan Akun | Verifikasi perbaikan tooltip saat mengetik pada field search seluruh tab selesai (Status: Done / Resolved) |
 | 2026-09-28 | Mobile App - Log Absensi | Temuan bug baru: Peta Google Maps tidak muncul (blank) pada halaman Log Absent Detail tab Clock In & Clock Out (Total 48 bug) |
 | 2026-09-28 | User Authority - Keamanan Akun (Log Aktivitas) | Konfirmasi & verifikasi search Log Aktivitas: Tanggal & Status di luar cakupan search, seluruh kolom lainnya berfungsi normal (Status: Done / Resolved) |
+| 2026-09-28 | Profile - Keamanan | Verifikasi perbaikan bypass cooldown kirim ulang OTP modal tutup/buka selesai (Status: Done / Resolved) |
+| 2026-09-28 | Authentication - Login | Verifikasi perbaikan bypass cooldown OTP saat login ulang selesai (Status: Done / Resolved) |
+| 2026-09-28 | User Authority - User | Verifikasi perbaikan opsi Resend Activation Link (disembunyikan pada user AD & hanya muncul pada user Non-AD belum aktif) selesai (Status: Done / Resolved) |
+| 2026-09-29 | Authentication - Login | Verifikasi perbaikan proteksi 2FA (seluruh menu diblokir & wajib aktifkan 2FA) selesai (Status: Done / Resolved) |
+| 2026-09-29 | Setting Absent - Attendance Spot | Verifikasi perbaikan saran lokasi Google Maps mode layar penuh selesai (Status: Done / Resolved) |
+| 2026-09-29 | Menu Absent | Verifikasi sinkronisasi total data karyawan (Dashboard, Daily, Rekap: 361 data) selesai (Status: Done / Resolved) |

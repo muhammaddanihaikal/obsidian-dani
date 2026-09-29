@@ -1,4 +1,4 @@
-﻿---
+---
 tags:
   - QA
   - TestCase
@@ -15,6 +15,8 @@ date: 2026-08-31
 - **PETA (MAP)**: Buat TC hanya jika ada nilai bisnisnya (Menampilkan peta, Melihat info lokasi/spot, Fullscreen). **DILARANG** membuat TC untuk Zoom, Scroll, Drag.
 
 ## 2. JANGAN BUAT TEST CASE UNTUK
+- **Menampilkan / Melihat Daftar Data**: Jika halaman yang dibuka secara otomatis langsung menampilkan daftar/tabel data, **JANGAN** membuat TC terpisah. Expected result membuka halaman sudah mencakup tampilan tabel.
+- **Berpindah ke Tab Default**: Jika sebuah tab merupakan tab aktif/landing bawaan saat halaman pertama kali dibuka, jangan buat TC untuk mengklik tab tersebut. TC klik tab hanya dibuat untuk berpindah ke tab *selain* default.
 - Pagination (Paginasi)
 - Checkbox tunggal (tanpa aksi lanjutan) -> **Harus digabung ke alur Delete/Approval.**
 - Menu Aksi saja (klik titik tiga tanpa aksi lanjutan) -> **Harus digabung ke alur Edit/Delete/Detail.**

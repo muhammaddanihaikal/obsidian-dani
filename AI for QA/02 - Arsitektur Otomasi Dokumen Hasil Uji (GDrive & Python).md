@@ -108,7 +108,33 @@ Di tengah siklus SIT/UAT, sering terjadi penambahan atau penghapusan nomor Test 
 
 ---
 
-### C. Future Roadmap: Integrasi Playwright Automation
+### C. Standarisasi Format Gambar, Magic Bytes Fallback & Natural Sorting
+Saat tester mengunggah screenshot dari berbagai perangkat (mobile capture, clipboard web, WhatsApp desktop, atau Google Drive sync):
+1. **Ekstensi Hilang (Magic Bytes Inspection):**
+   * Seringkali file terunggah tanpa ekstensi atau berformat blob (misal hanya `1` tanpa `.png`).
+   * Jangan hanya mengandalkan ekstensi nama file di Python! Lakukan inspeksi signature byte biner:
+     ```python
+     def detect_image_format(file_path):
+         with open(file_path, "rb") as f:
+             header = f.read(8)
+             if header.startswith(b"\x89PNG\r\n\x1a\n"):
+                 return ".png"
+             elif header.startswith(b"\xff\xd8"):
+                 return ".jpg"
+         return None
+     ```
+2. **Urutan Kronologis Screenshot (Natural Sorting vs Leading Zero):**
+   * Hindari sorting abjad mentah (`sorted(files)`), karena `10.png` akan ditarik sebelum `2.png`.
+   * Standarisasi tester untuk memberi nama `01.png`, `02.png` ATAU lengkapi script dengan *natural sort key*:
+     ```python
+     import re
+     def natural_sort_key(filename):
+         return [int(text) if text.isdigit() else text.lower() for text in re.split(r'(\d+)', filename)]
+     ```
+
+---
+
+### D. Future Roadmap: Integrasi Playwright Automation
 Saat ritme kerja sedang longgar (*post-sprint / regression phase*):
 * Skenario pengujian standar (*Happy Path*) seperti *Membuka halaman*, *Login*, dan *Filter dasar* dapat dijalankan via Playwright.
 * Tambahkan perintah `page.screenshot(path=...)` agar Playwright otomatis menyimpan screenshot ke folder Google Drive masing-masing dengan nama `1.png`, `2.png`.

@@ -17,6 +17,8 @@ Panduan untuk menangani elemen atau fitur spesifik di dalam aplikasi.
 
 ## 2. DILARANG Membuat TC Untuk:
 Jangan pernah membuat Test Case terpisah untuk hal-hal berikut kecuali diminta spesifik:
+- **Menampilkan / Melihat Daftar Data**: Jika halaman yang dibuka secara otomatis langsung menampilkan tabel / daftar data, jangan buat TC terpisah (sudah ter-cover di TC "Membuka halaman").
+- **Berpindah ke Tab Default**: Jika suatu tab adalah tab default saat halaman dibuka, jangan buat TC untuk mengkliknya. TC hanya untuk berpindah ke tab lain.
 - Pagination
 - Checkbox tunggal (Harus digabung ke alur *Delete / Bulk Action*)
 - Menu Aksi / Titik Tiga (Harus digabung ke alur *Edit / Delete / Detail*)

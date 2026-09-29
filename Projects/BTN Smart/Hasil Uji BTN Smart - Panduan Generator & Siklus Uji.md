@@ -21,15 +21,26 @@ type: guide
 
 ## 🎯 1. Prinsip & Standar Test Case BTN
 
-### ❌ Redundansi "Menampilkan Daftar"
+### ❌ Redundansi "Menampilkan Daftar" & "Tab Default"
 Berdasarkan analisis dokumen template baku BTN (`Dokumen_Hasil_Uji_-_UT_Corporate_Banking_CBD.docx`):
-- **JANGAN** membuat Test Case terpisah *"Menampilkan daftar data X"* tepat setelah *"Membuka halaman X"*.
-- **Alasan:**
-  1. **Logika Testing:** Saat tester berhasil membuka halaman, Expected Result sudah mencakup *"Halaman X terbuka dan menampilkan tabel/daftar data"*. Satu screenshot sudah membuktikan keduanya.
-  2. **Kerapian Dokumen:** Menghindari 2 tabel berturut-turut di dokumen Word dengan screenshot gambar yang sama persis (mubazir halaman).
-  3. **Efisiensi Tester:** Tidak perlu upload 2 file screenshot yang sama ke 2 folder berbeda.
+1. **Daftar Data Otomatis:**
+   - **JANGAN** membuat Test Case terpisah *"Menampilkan daftar data X"* tepat setelah *"Membuka halaman X"*.
+   - Saat tester berhasil membuka halaman, Expected Result sudah mencakup *"Halaman X terbuka dan menampilkan tabel/daftar data"*. Satu screenshot sudah membuktikan keduanya.
+2. **Tab Default / Landing Tab:**
+   - **JANGAN** membuat Test Case untuk mengklik tab yang secara *default* sudah aktif/terbuka saat halaman diakses.
+   - *Contoh Kasus:* Pada Modul Agenda (Pengingat / Daily Sales), saat halaman dibuka, tab pertama langsung aktif. TC "Melihat tab default" atau "Memilih tab default" tepat setelah membuka halaman adalah redundan (seperti kasus TC 9.2, 14.2, 15.2 yang telah dihapus).
+   - TC navigasi tab hanya valid dibuat untuk berpindah ke tab *selain* default (misal tab *Selesai*, *Riwayat*, atau status lain).
 - **Kapan kata "Menampilkan / Melihat" boleh dipakai?**
   - Hanya untuk aksi klik lanjutan (misal: klik tab lain seperti tab *Prospek Closing*, klik aksi *Detail*, melihat *Popup/Modal*, atau *Riwayat Transaksi*).
+
+### ⚖️ Pemisahan Dokumen Test Script (Uji Sistem vs Refactor)
+- **`Test Script\Uji Sistem.xlsx` (Bank BTN Legacy Reference - IMMUTABLE):**
+  - Merupakan file asli/kontrak dari Bank BTN.
+  - **DILARANG MENGUBAH / MENGHAPUS / MENAMBAH BARIS** di file ini. File ini harus tetap orisinil sebagai acuan baseline histori proyek dari klien.
+- **`Test Script\Test Script BTN Smart Refactor.xlsx` (Working Document QA):**
+  - Merupakan file kerja aktif kita.
+  - Semua eliminasi TC redundan, restrukturisasi skenario, penambahan TC baru, dan penomoran ulang (*renumbering*) hanya boleh dilakukan di file ini.
+
 
 ---
 
@@ -82,6 +93,18 @@ flowchart TD
 * **Solusi:** 
   - Strip elemen `w:numPr` dari Heading 1 saat cloning paragraph di script Python, lalu suntikkan nomor manual (`1. Modul Login`, `2. Modul Profile`) agar tidak terjadi double numbering (seperti `1. 1. Modul Login`).
   - Ubah field code TOC ke `TOC \o "1-3"` agar kompatibel dengan Microsoft Word versi Bahasa Indonesia maupun Bahasa Inggris.
+
+### D. Normalisasi Ekstensi Gambar & Deteksi Magic Bytes
+* **Masalah:** File screenshot yang diunggah tester (baik lewat Google Drive sync, mobile capture, atau chat) kadang kehilangan ekstensi file (misal file bernama `1` atau `2` tanpa `.png`/`.jpg`). Script generator yang hanya membaca pola `*.png` akan melewatkan gambar tersebut atau crash saat `add_picture()`.
+* **Solusi:** Script wajib membaca *magic bytes* / signature file biner sebelum menyisipkan gambar:
+  - Header `b'\x89PNG\r\n\x1a\n'`: format **PNG**
+  - Header `b'\xff\xd8'`: format **JPEG/JPG**
+  - Jika file terdeteksi tidak memiliki ekstensi atau berekstensi salah, script otomatis menormalisasi ekstensinya.
+
+### E. Standarisasi Penamaan File Screenshot (Leading Zeros)
+* **Masalah:** Penamaan `1.png`, `2.png`, ... `10.png` dapat menyebabkan sorting alfabetik bawaan sistem operasi mengurutkannya menjadi `1.png`, `10.png`, `2.png` (nomor 10 mendahului nomor 2).
+* **Solusi:** Standarisasi penamaan menggunakan *leading zero* (`01.png`, `02.png`, ..., `10.png`) atau gunakan sorting *natural numeric key* (`int(re.search(r'\d+', name).group())`) pada script Python agar urutan visual kronologis pengujian tidak tertukar.
+
 
 ---
 

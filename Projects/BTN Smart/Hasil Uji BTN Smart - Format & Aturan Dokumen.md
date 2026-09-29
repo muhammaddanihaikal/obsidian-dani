@@ -118,6 +118,12 @@ Isi (per Modul)
 - **Target lebar maks**: `15.0 cm` (5.400.000 EMU)
 - **Tinggi**: Proporsional otomatis sesuai aspek rasio gambar asli
 
+### 📸 Aturan Khusus Screenshot Fitur Filter
+- **Filter Inline (Mobile/Web):** Jika filter dan data berada dalam satu layar yang sama, gunakan **2 screenshot (Before & After)**:
+  1. `01.png`: Tampilan sebelum filter (kondisi default / form filter kosong).
+  2. `02.png`: Tampilan setelah filter dipilih dan data berhasil tersaring.
+  - Tujuannya memberikan bukti visual kontras dan otentik bahwa penyaringan data benar-benar berfungsi.
+
 ---
 
 ## 📊 Ukuran Kolom
