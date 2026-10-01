@@ -18,22 +18,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 7 | Authentication | Logout | Fito | ✅ Done |
 | 8 | Profile | Biodata diri | Alam | ⬜ Belum |
 | 9 | Profile | Ganti kata sandi | Alam | ⬜ Belum |
-| 10 | Profile | Keamanan | Alam | ✅ Done |
+| 10 | Profile | Keamanan | Alam | 🐛 Bug |
 | 11 | Profile | Keamanan - Riwayat login | Alam | ⬜ Belum |
-| 12 | Profile | Keamanan - Perangkat terhubung | Alam | ⬜ Belum |
+| 12 | Profile | Keamanan - Perangkat terhubung | Alam | 🐛 Bug |
 | 13 | Overview | Overview Fund | Alam | ⬜ Belum |
 | 14 | Overview | Overview Lend | Alam | ⬜ Belum |
 | 15 | Overview | Pengaturan Overview | Alam | ⬜ Belum |
 | 16 | User Authority | User | Alam | ✅ Done |
-| 17 | User Authority | Group Role | Alam | ✅ Done |
+| 17 | User Authority | Group Role | Alam | 🐛 Bug |
 | 18 | User Authority | Tipe Karyawan | Alam | ✅ Done |
 | 19 | User Authority | Hak Akses Role | Alam | ✅ Done |
 | 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | ✅ Done |
 | 21 | User Authority | Keamanan Akun - Permintaan Reset MFA | Alam | ✅ Done |
-| 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | ✅ Done |
+| 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | 🐛 Bug |
 | 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | 🐛 Bug |
 | 24 | Profile Nasabah & Sales | Sales | Fito | ✅ Done |
-| 25 | Profile Nasabah & Sales | Nasabah Perorangan | Fito | ✅ Done |
+| 25 | Profile Nasabah & Sales | Nasabah Perorangan | Fito | 🐛 Bug |
 | 26 | Bisnis dan Produk | Unit Bisnis | Fito | ⬜ Belum |
 | 27 | Bisnis dan Produk | Produk | Fito | ⬜ Belum |
 | 28 | Bisnis dan Produk | Group Produk | Fito | ⬜ Belum |
@@ -48,7 +48,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 42 | Lead Qualification | Aktifitas | Gaza | ⬜ Belum |
 | 43 | Lead Qualification | Aktifitas Referal | Gaza | ⬜ Belum |
 | 44 | List Prospek ETB | - | Fito | ⬜ Belum |
-| 45 | Menu Absent | Dashboard Absent | Gaza | 🐛 Bug |
+| 45 | Menu Absent | Dashboard Absent | Gaza | ✅ Done |
 | 46 | Menu Absent | Daily Absent | Gaza | 🐛 Bug |
 | 47 | Menu Absent | Rekap Absent | Gaza | 🐛 Bug |
 | 48 | Menu Absent | Approval Absent | Gaza | ✅ Done |
@@ -56,7 +56,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 50 | Sales Tracking Activity | Client Visit List | Gaza | ⬜ Belum |
 | 51 | Sales Tracking Activity | Rekap Visit | Gaza | ⬜ Belum |
 | 52 | Sales Tracking Activity | Rekap Monthly Visit | Gaza | ⬜ Belum |
-| 53 | Setting Absent | Attendance Spot | Gaza | 🐛 Bug |
+| 53 | Setting Absent | Attendance Spot | Gaza | ✅ Done |
 | 54 | Setting Absent | Work Pattern | Gaza | ✅ Done |
 | 55 | Setting Absent | Holiday | Gaza | ✅ Done |
 | 56 | Sales Force | Sales code | Ahrul | ⬜ Belum |
@@ -149,6 +149,36 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Menutup dan membuka kembali modal memicu pengiriman kode baru dan me-reset timer cooldown.
 > * **Evidence**: [https://files.catbox.moe/x0odwz.png](https://files.catbox.moe/x0odwz.png)
 > * **Catatan Retest (28 September 2026)**: Timer cooldown kirim ulang OTP kini tetap berjalan normal dan tidak ter-reset saat modal pop-up ditutup dan dibuka kembali. Pencegahan spam OTP sudah berfungsi dengan baik.
+
+<br>
+
+### 🐞 [BUG] | Profile - Keamanan: Muncul Error "mfa id wajib diisi." Saat Klik "Kirim ulang Kode" pada Modal Setup Email OTP
+
+> * **Menu**: Profile → Keamanan
+> * **Deskripsi**: Saat user melakukan pengaturan/setup awal MFA metode Email OTP di tab Keamanan, menekan tautan/tombol *"Kirim ulang Kode"* pada modal pop-up memicu error validasi toast merah di atas layar: *"mfa id wajib diisi."* dan kode verifikasi tidak terkirim ulang.
+> * **Expected**: Sistem berhasil memproses pengiriman ulang kode verifikasi OTP ke email user dan memulai timer cooldown tanpa error validasi parameter.
+> * **Actual**: Muncul pesan error toast merah *"mfa id wajib diisi."* di bagian atas layar dan kode OTP tidak terkirim ulang.
+> * **Evidence**: [https://files.catbox.moe/4em4hu.png](https://files.catbox.moe/4em4hu.png)
+
+<br>
+
+### 🐞 [BUG] | Profile - Keamanan: Tombol "Putuskan Semua Perangkat Terhubung" Tidak Dapat Diklik (Disabled)
+
+> * **Menu**: Profile → Keamanan (Perangkat Terhubung)
+> * **Deskripsi**: Pada halaman Pengaturan Profile → Keamanan → tab Perangkat Terhubung, tombol *"Putuskan Semua Perangkat Terhubung"* yang berada di bagian bawah daftar perangkat berada dalam status nonaktif (*disabled* berwarna abu-abu) dan tidak dapat diklik sama sekali, meskipun pada daftar terdapat beberapa perangkat lain yang terhubung.
+> * **Expected**: Tombol *"Putuskan Semua Perangkat Terhubung"* aktif (*enabled*) dan dapat diklik untuk memicu konfirmasi pemutusan seluruh sesi perangkat lain.
+> * **Actual**: Tombol dalam kondisi disabled (*abu-abu*) dan tidak bisa diklik sama sekali (*pointer event disabled*).
+> * **Evidence**: [https://files.catbox.moe/qggijm.png](https://files.catbox.moe/qggijm.png)
+
+<br>
+
+### 🐞 [BUG] | Profile - Keamanan: Mengubah Metode MFA Dapat Langsung Dipilih Tanpa Meminta Verifikasi Kata Sandi Akun
+
+> * **Menu**: Profile → Keamanan
+> * **Deskripsi**: Saat user mengklik tombol "Ganti Metode" pada pengaturan autentikasi dua faktor (MFA), sistem langsung menampilkan pilihan metode baru (TOTP / Email OTP) dan dapat langsung dipilih tanpa meminta verifikasi kata sandi (password) akun terlebih dahulu.
+> * **Expected**: Mengklik tombol "Ganti Metode" wajib memunculkan modal verifikasi kata sandi akun terlebih dahulu (re-authentication) sebelum mengizinkan user memilih atau mengubah ke metode MFA lain demi keamanan akun.
+> * **Actual**: Sistem tidak meminta konfirmasi kata sandi sama sekali dan user dapat langsung memilih metode MFA baru.
+> * **Evidence**: [https://files.catbox.moe/mpzqp1.png](https://files.catbox.moe/mpzqp1.png)
 
 <br>
 
@@ -341,6 +371,18 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
+### 🐞 [BUG] | User Authority - Group Role: Ketiadaan Peringatan Validasi Kolom Akses Menu Website Saat Edit Group Role
+
+> * **Menu**: User Authority → Group Role
+> * **Deskripsi**: Pada form Edit Group Role, ketika seluruh opsi pada kolom "Akses Menu Website" tidak dipilih/dikosongkan dan tombol simpan ditekan, sistem tidak menampilkan pesan peringatan atau alert validasi bahwa Akses Menu Website wajib diisi. Hal ini tidak konsisten dengan form Tambah Group Role (Add Role) yang sudah memiliki validasi peringatan jika Akses Menu Website belum dipilih.
+> * **Expected**: Form Edit Group Role konsisten dengan form Tambah Role, yaitu memunculkan alert/peringatan validasi bahwa kolom "Akses Menu Website" wajib diisi/dipilih sebelum data disimpan.
+> * **Actual**: Tidak ada alert atau pesan peringatan validasi yang muncul pada form Edit saat Akses Menu Website dikosongkan.
+> * **Evidence**:
+>   * Form Edit Group Role (Belum Ada Alert): [https://files.catbox.moe/9w0glq.png](https://files.catbox.moe/9w0glq.png)
+>   * Form Tambah Group Role (Contoh Ada Alert): [https://files.catbox.moe/mz8dhs.png](https://files.catbox.moe/mz8dhs.png)
+
+<br>
+
 ### 🐞 [BUG] | User Authority - Tipe Karyawan: Lolos Validasi Nama Duplikat Saat Edit Tipe Karyawan
 
 > * **Menu**: User Authority → Tipe Karyawan
@@ -444,6 +486,16 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
+### 🐞 [BUG] | User Authority - Keamanan Akun: Muncul Error "page wajib diisi." dan "limit wajib diisi." Saat Klik Export Data pada Tab Perangkat & Sesi
+
+> * **Menu**: User Authority → Keamanan Akun (Perangkat & Sesi)
+> * **Deskripsi**: Saat menekan tombol "Export Data" pada tab Perangkat & Sesi, sistem gagal memproses antrean export dan memunculkan dua pesan error toast merah di atas layar: *"page wajib diisi."* dan *"limit wajib diisi."*.
+> * **Expected**: Menekan tombol "Export Data" berhasil memproses request export ke Export Center tanpa error validasi parameter pagination.
+> * **Actual**: Muncul pesan error *"page wajib diisi."* dan *"limit wajib diisi."* di bagian atas layar dan proses export gagal dijalankan.
+> * **Evidence**: [https://files.catbox.moe/9vetdj.png](https://files.catbox.moe/9vetdj.png)
+
+<br>
+
 ### 🐞 [BUG] | User Authority - Keamanan Akun: Fitur Search Perangkat & Sesi Hanya Berfungsi untuk Kolom Tertentu
 
 > * **Menu**: User Authority → Keamanan Akun
@@ -493,6 +545,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Expected**: Seluruh aktivitas MFA dan manajemen Perangkat & Sesi otomatis tercatat secara akurat, lengkap, dan sesuai dengan aksi nyata yang dilakukan user/admin.
 > * **Actual**: Sebagian aktivitas MFA salah label/prematur/hilang, dan seluruh aktivitas Perangkat & Sesi sama sekali tidak tercatat di Log Aktivitas.
 > * **Evidence**: [https://files.catbox.moe/5xeegv.png](https://files.catbox.moe/5xeegv.png)
+> * **Status Retest Saat Ini (29-30 September 2026 - On Progress)**:
+>   * `[MFA] Verifikasi Berhasil (OTP)`: ❌ *Belum Sesuai / Masih Issue* ([https://files.catbox.moe/c5aigt.png](https://files.catbox.moe/c5aigt.png))
+>   * `[MFA] Verifikasi dengan Kode Cadangan`: ✅ *Done / Sesuai* ([https://files.catbox.moe/xktbi9.png](https://files.catbox.moe/xktbi9.png))
+>   * `[MFA] Verifikasi Gagal`: ✅ *Done / Sesuai* ([https://files.catbox.moe/kxjmdp.png](https://files.catbox.moe/kxjmdp.png))
+>   * `[MFA] Permintaan Reset Ditolak`: ❌ *Belum Sesuai / Masih Issue* (log belum muncul)
+>   * `[MFA] Permintaan Reset Disetujui`: ❌ *Belum Sesuai / Masih Issue* (log belum muncul)
+>   * `[MFA] Reset MFA`: ❌ *Belum Sesuai / Masih Issue* (log belum tercatat)
+>   * `[MFA] Mengubah Metode`: ❌ *Belum Sesuai / Masih Issue* (log belum muncul)
+>   * `[MFA] MFA Diaktifkan`: ❌ *Belum Sesuai / Masih Issue* (log belum masuk)
+>   * `[MFA] MFA Dinonaktifkan`: ❌ *Belum Sesuai / Masih Issue* (log belum masuk)
+>   * `[Sesi] Mempercayai Perangkat`: ✅ *Done / Sesuai*
+>   * `[Sesi] Menghapus Perangkat Terpercaya`: ❌ *Belum Sesuai / Masih Issue* (log belum masuk)
+>   * `[Sesi] Memberi Label Perangkat`: ❌ *Belum Sesuai / Masih Issue* (log belum masuk)
+>   * `[Sesi] Mencabut Semua Sesi`: ⚠️ *Blocked (Terhalang tombol Putuskan Semua Perangkat Terhubung disabled)* ([https://files.catbox.moe/qggijm.png](https://files.catbox.moe/qggijm.png))
+> * **Hasil Retest (30 September 2026)**: ❌ **Masih Issue** (3 Sesuai, 10 Belum Muncul Log, 1 Blocked)
 
 <br>
 
@@ -554,13 +621,17 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Setting Absent - Attendance Spot: User Belum Di-set ke Attendance Spot Tetap Bisa Melakukan Clock In dan Clock Out
 
 > * **Menu**: Setting Absent → Attendance Spot
-> * **Deskripsi**: User dengan status penugasan titik absensi **"Tidak Aktif"** (*Setting Attendance Spot Personnel*) tetap dapat melakukan Clock In dan Clock Out secara bebas melalui aplikasi mobile. Sesuai aturan bisnis (*business logic*) dari BA, syarat mutlak agar karyawan dapat melakukan absensi adalah akun wajib sudah terikat aktif pada *Work Pattern* **dan** *Attendance Spot*.
-> * **Expected**: Tombol Clock In pada aplikasi mobile dinonaktifkan (*disable*) atau memunculkan pesan peringatan bahwa user belum memiliki titik absensi aktif.
-> * **Actual**: Tombol Clock In dan Clock Out tetap aktif normal dan absensi berhasil dilakukan meskipun status user pada titik absensi masih "Tidak Aktif".
-> * **Evidence**:
+> * **Status**: ✅ Done (As Designed / Clarified)
+> * **Deskripsi**: User dengan status penugasan titik absensi **"Tidak Aktif"** (*Setting Attendance Spot Personnel*) tetap dapat melakukan Clock In dan Clock Out secara bebas melalui aplikasi mobile.
+> * **Klarifikasi Aturan Bisnis**: Berdasarkan konfirmasi dari tim developer, prasyarat absensi pada aplikasi mobile hanya mensyaratkan penugasan *Work Pattern* (bukan *Attendance Spot*). Ketika *Work Pattern* belum di-setting pada user, tombol Clock In otomatis hilang/disembunyikan pada aplikasi mobile (sudah sesuai spesifikasi).
+> * **Expected**: Tombol Clock In pada aplikasi mobile dinonaktifkan (*disable*) atau hilang jika prasyarat absensi belum terpenuhi.
+> * **Actual**: Tombol Clock In otomatis tidak muncul jika user belum memiliki *Work Pattern* (sudah sesuai aturan bisnis).
+> * **Evidence Awal**:
 >   * Status User Tidak Aktif di Web Admin: [https://files.catbox.moe/y1vk4t.png](https://files.catbox.moe/y1vk4t.png)
 >   * Tombol Clock In Tetap Aktif di Mobile: [https://files.catbox.moe/3lyqj1.jpg](https://files.catbox.moe/3lyqj1.jpg)
 >   * Berhasil Absen & Tombol Clock Out Muncul: [https://files.catbox.moe/h67vka.jpg](https://files.catbox.moe/h67vka.jpg)
+> * **Bukti Retest (Done)**: [https://files.catbox.moe/kzxn57.jpg](https://files.catbox.moe/kzxn57.jpg)
+> * **Catatan Retest (01 Oktober 2026)**: Terverifikasi pada aplikasi mobile bahwa tombol Clock In otomatis hilang ketika user belum memiliki penugasan Work Pattern aktif. Sesuai konfirmasi Dev, penugasan Attendance Spot tidak memblokir absensi jika Work Pattern sudah ada. Issue dinyatakan selesai (*as designed*).
 
 <br>
 
@@ -768,12 +839,18 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Menu Absent - Dashboard Absent: Total Hadir pada Dashboard Absent Mengikutsertakan Status Waiting Approval
 
 > * **Menu**: Menu Absent → Dashboard Absent
+> * **Status**: ✅ Done (Resolved)
 > * **Deskripsi**: Kalkulasi "Total Hadir" pada kartu wilayah di Dashboard Absent masih menghitung user berstatus "Waiting Approval" sebagai hadir, sehingga data tidak akurat (misal: Kanwil Jakarta I menampilkan Total Hadir 8, padahal terdiri dari 5 Present dan 3 Waiting Approval).
 > * **Expected**: "Total Hadir" hanya menghitung user yang sudah valid berstatus Hadir (*Present*), tidak mengikutsertakan user yang masih *Waiting Approval*.
 > * **Actual**: Status "Waiting Approval" ikut terhitung ke dalam "Total Hadir" (tercatat 8 hadir dari 5 Present + 3 Waiting Approval).
 > * **Evidence**:
 >   * Total Hadir pada Kartu Kantor Wilayah Jakarta I: [https://files.catbox.moe/ft9bb2.png](https://files.catbox.moe/ft9bb2.png)
 >   * Rincian Status pada Modal Detail (5 Present & 3 Waiting Approval): [https://files.catbox.moe/iigyo6.png](https://files.catbox.moe/iigyo6.png)
+> * **Bukti Retest (Done)**:
+>   * Filter Tanggal: [https://files.catbox.moe/zbpyaf.png](https://files.catbox.moe/zbpyaf.png)
+>   * Total Hadir pada Kartu Kanwil Jakarta I (2 Hadir): [https://files.catbox.moe/qngcvh.png](https://files.catbox.moe/qngcvh.png)
+>   * Rincian Status pada Modal Detail (2 Present & 3 Waiting Approval): [https://files.catbox.moe/t0apuq.png](https://files.catbox.moe/t0apuq.png)
+> * **Catatan Retest (29 September 2026)**: Kalkulasi Total Hadir pada kartu wilayah di Dashboard Absent kini sudah akurat dan hanya menghitung user berstatus Hadir (Present). Status Waiting Approval tidak lagi ikut terhitung ke dalam Total Hadir.
 
 <br>
 
@@ -888,6 +965,26 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Tab Aktivitas Sales: [https://files.catbox.moe/7rkzwh.png](https://files.catbox.moe/7rkzwh.png)
 >   * Tab Daftar Rekening: [https://files.catbox.moe/m5qru6.png](https://files.catbox.moe/m5qru6.png)
 > * **Bukti Retest**: [https://files.catbox.moe/vzg5or.png](https://files.catbox.moe/vzg5or.png)
+
+<br>
+
+### 🐞 [BUG] | Profile Nasabah & Sales - Nasabah Perorangan: Fitur Search Hanya Memfilter Data yang Tampil pada Halaman Aktif Paginasi
+
+> * **Menu**: Profile Nasabah & Sales → Nasabah Perorangan
+> * **Deskripsi**: Kolom pencarian ("Cari Data") hanya memfilter data yang sedang tampil di halaman aktif paginasi saat ini (client-side search). Pencarian tidak dapat menemukan data yang berada di halaman paginasi lain (misal halaman 2 dst.), sehingga hasil pencarian menjadi kosong/tidak ditemukan meskipun data sebenarnya ada di database.
+> * **Expected**: Fitur pencarian mencakup seluruh data (server-side search lintas halaman paginasi dari total 212 data) dan menampilkan data yang dicari.
+> * **Actual**: Pencarian hanya membaca data pada halaman paginasi yang sedang aktif saja (hanya 10 data yang tampil).
+> * **Evidence**: [https://files.catbox.moe/nqxtv5.png](https://files.catbox.moe/nqxtv5.png)
+
+<br>
+
+### 🐞 [BUG] | Profile Nasabah & Sales - Nasabah Perorangan: Muncul Data Ganda (Duplikat) dengan Nomor CIF dan Nama Nasabah yang Sama
+
+> * **Menu**: Profile Nasabah & Sales → Nasabah Perorangan
+> * **Deskripsi**: Pada tabel Nasabah Perorangan, terdapat data nasabah yang tampil ganda (duplikat) sebanyak beberapa baris dengan Nomor CIF dan Nama Nasabah yang identik sama persis (contoh pada nomor 16, 17, dan 18: CIF `T562972` atas nama `TATAMULIA NUSANTARA` muncul sebanyak 3 kali).
+> * **Expected**: Setiap nasabah bersifat unik pada tabel (1 CIF hanya ditampilkan 1 kali) tanpa adanya duplikasi data.
+> * **Actual**: Data nasabah dengan Nomor CIF dan Nama yang sama muncul berulang kali (duplikat hingga 3 baris).
+> * **Evidence**: [https://files.catbox.moe/ctdnb8.jpg](https://files.catbox.moe/ctdnb8.jpg)
 
 <br>
 
@@ -1152,3 +1249,13 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-09-29 | Authentication - Login | Verifikasi perbaikan proteksi 2FA (seluruh menu diblokir & wajib aktifkan 2FA) selesai (Status: Done / Resolved) |
 | 2026-09-29 | Setting Absent - Attendance Spot | Verifikasi perbaikan saran lokasi Google Maps mode layar penuh selesai (Status: Done / Resolved) |
 | 2026-09-29 | Menu Absent | Verifikasi sinkronisasi total data karyawan (Dashboard, Daily, Rekap: 361 data) selesai (Status: Done / Resolved) |
+| 2026-09-29 | Menu Absent - Dashboard Absent | Verifikasi perbaikan kalkulasi Total Hadir (tidak lagi mengikutsertakan Waiting Approval) selesai (Status: Done / Resolved) |
+| 2026-09-30 | Profile - Keamanan | Temuan bug baru: Error "mfa id wajib diisi." saat klik kirim ulang kode pada modal setup Email OTP (Total 49 bug) |
+| 2026-09-30 | Profile - Keamanan (Perangkat Terhubung) | Temuan bug baru: Tombol "Putuskan Semua Perangkat Terhubung" disabled / tidak dapat diklik (Total 50 bug) |
+| 2026-09-30 | User Authority - Keamanan Akun | Retest inkonsistensi log audit MFA serta Perangkat & Sesi: 3 Sesuai, 10 Belum Muncul Log, 1 Blocked (Status: Masih Issue) |
+| 2026-09-30 | Profile - Keamanan | Temuan bug baru: Mengubah metode MFA dapat langsung dipilih tanpa verifikasi password akun (Total 51 bug) |
+| 2026-09-30 | User Authority - Group Role | Temuan bug baru: Ketiadaan peringatan validasi akses menu website saat edit group role (Total 52 bug) |
+| 2026-10-01 | User Authority - Keamanan Akun (Perangkat & Sesi) | Temuan bug baru: Error "page wajib diisi." dan "limit wajib diisi." saat klik export data (Total 53 bug) |
+| 2026-10-01 | Profile Nasabah & Sales - Nasabah Perorangan | Temuan bug baru: Search hanya memfilter data pada halaman aktif paginasi (Total 54 bug) |
+| 2026-10-01 | Profile Nasabah & Sales - Nasabah Perorangan | Temuan bug baru: Muncul data ganda/duplikat CIF & Nama Nasabah pada tabel (Total 55 bug) |
+| 2026-10-01 | Setting Absent - Attendance Spot | Klarifikasi aturan bisnis absensi mobile & verifikasi tombol Clock In hilang tanpa Work Pattern selesai (Status: Done / As Designed) |
