@@ -673,12 +673,17 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Mobile App - Prospek: Ketiadaan Pesan Validasi pada Field Tanggal Potensi Saat Input Prospek
 
 > * **Menu**: Mobile App → Prospek (Individu & Lembaga)
+> * **Status**: ✅ Done
 > * **Deskripsi**: Pada saat pembuatan prospek baru (baik Prospek Individu maupun Prospek Lembaga) di aplikasi mobile, field **Tanggal Potensi dana masuk / realisasi kredit** memiliki tanda bintang merah (*) yang menandakan field wajib diisi (mandatory). Namun ketika tombol **SUBMIT** ditekan dalam kondisi field tanggal tersebut masih kosong, sistem tidak memunculkan indikator error validasi (tidak ada pesan teks *"Tidak boleh kosong"* dan border inputan tidak berubah menjadi merah seperti field wajib lainnya).
 > * **Expected**: Ketika tombol SUBMIT ditekan dan field tanggal belum diisi, sistem menampilkan border merah pada field dan memunculkan pesan validasi error teks *"Tidak boleh kosong"* di bawah kolom tersebut (konsisten dengan field mandatory lainnya).
-> * **Actual**: Field tanggal tetap berwarna abu-abu polos dan tidak memunculkan pesan error *"Tidak boleh kosong"* sama sekali saat form di-submit dalam keadaan kosong.
-> * **Evidence**:
+> * **Actual**: Validasi berhasil muncul secara normal, border kolom menjadi merah dan menampilkan teks peringatan *"Tidak boleh kosong"* saat disubmit dalam keadaan kosong.
+> * **Evidence Awal**:
 >   * Form Prospek Individu (Step 3/3): [https://files.catbox.moe/tylk3v.jpg](https://files.catbox.moe/tylk3v.jpg)
 >   * Form Prospek Lembaga (Step 4/4): [https://files.catbox.moe/lvu3ey.jpg](https://files.catbox.moe/lvu3ey.jpg)
+> * **Bukti Retest (Done)**:
+>   * Validasi Prospek Individu: [https://files.catbox.moe/5ua29v.jpg](https://files.catbox.moe/5ua29v.jpg)
+>   * Validasi Prospek Lembaga: [https://files.catbox.moe/ldf3pe.jpg](https://files.catbox.moe/ldf3pe.jpg)
+> * **Catatan Retest (01 Oktober 2026)**: Verifikasi pada aplikasi mobile menunjukkan bahwa validasi error pada field Tanggal Potensi kini sudah berfungsi dengan semestinya. Saat disubmit tanpa mengisi field tanggal, border inputan berubah merah dan pesan *"Tidak boleh kosong"* muncul di bawah inputan, baik pada alur Prospek Individu maupun Prospek Lembaga. Issue dinyatakan selesai.
 
 <br>
 
@@ -1259,3 +1264,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-01 | Profile Nasabah & Sales - Nasabah Perorangan | Temuan bug baru: Search hanya memfilter data pada halaman aktif paginasi (Total 54 bug) |
 | 2026-10-01 | Profile Nasabah & Sales - Nasabah Perorangan | Temuan bug baru: Muncul data ganda/duplikat CIF & Nama Nasabah pada tabel (Total 55 bug) |
 | 2026-10-01 | Setting Absent - Attendance Spot | Klarifikasi aturan bisnis absensi mobile & verifikasi tombol Clock In hilang tanpa Work Pattern selesai (Status: Done / As Designed) |
+| 2026-10-01 | Mobile App - Prospek | Verifikasi perbaikan validasi field Tanggal Potensi pada Prospek Individu & Lembaga selesai (Status: Done) |
