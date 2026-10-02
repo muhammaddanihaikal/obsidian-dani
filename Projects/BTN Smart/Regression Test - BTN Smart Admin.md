@@ -28,7 +28,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 17 | User Authority | Group Role | Alam | 🐛 Bug |
 | 18 | User Authority | Tipe Karyawan | Alam | ✅ Done |
 | 19 | User Authority | Hak Akses Role | Alam | ✅ Done |
-| 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | ✅ Done |
+| 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | 🐛 Bug |
 | 21 | User Authority | Keamanan Akun - Permintaan Reset MFA | Alam | ✅ Done |
 | 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | 🐛 Bug |
 | 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | 🐛 Bug |
@@ -493,6 +493,18 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Expected**: Menekan tombol "Export Data" berhasil memproses request export ke Export Center tanpa error validasi parameter pagination.
 > * **Actual**: Muncul pesan error *"page wajib diisi."* dan *"limit wajib diisi."* di bagian atas layar dan proses export gagal dijalankan.
 > * **Evidence**: [https://files.catbox.moe/9vetdj.png](https://files.catbox.moe/9vetdj.png)
+
+<br>
+
+### 🐞 [BUG] | User Authority - Keamanan Akun: File Excel Hasil Export pada Tab Daftar Akun Kosong Tanpa Baris Data
+
+> * **Menu**: User Authority → Keamanan Akun (Daftar Akun)
+> * **Deskripsi**: Saat menekan tombol "Export Data" pada tab Daftar Akun, file Excel yang terunduh (keamanan-akun-daftar-akun-*.xlsx) hanya memuat baris header kolom saja tanpa adanya baris data pengguna (kosong/blank), padahal pada tabel sistem terdapat 12.070 data pengguna.
+> * **Expected**: File Excel hasil export memuat seluruh baris data pengguna secara lengkap sesuai dengan data yang terdaftar pada sistem (12.070 data).
+> * **Actual**: File Excel hasil export kosong dan tidak memuat baris data pengguna sama sekali (hanya memuat baris header kolom).
+> * **Evidence**:
+>   * Halaman Web Admin (12.070 Data & Tombol Export Data): [https://files.catbox.moe/qqf2yf.png](https://files.catbox.moe/qqf2yf.png)
+>   * File Excel Hasil Export Kosong Tanpa Baris Data: [https://files.catbox.moe/g0t3mq.png](https://files.catbox.moe/g0t3mq.png)
 
 <br>
 
@@ -1265,3 +1277,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-01 | Profile Nasabah & Sales - Nasabah Perorangan | Temuan bug baru: Muncul data ganda/duplikat CIF & Nama Nasabah pada tabel (Total 55 bug) |
 | 2026-10-01 | Setting Absent - Attendance Spot | Klarifikasi aturan bisnis absensi mobile & verifikasi tombol Clock In hilang tanpa Work Pattern selesai (Status: Done / As Designed) |
 | 2026-10-01 | Mobile App - Prospek | Verifikasi perbaikan validasi field Tanggal Potensi pada Prospek Individu & Lembaga selesai (Status: Done) |
+| 2026-10-02 | User Authority - Keamanan Akun (Daftar Akun) | Temuan bug baru: File Excel hasil export data kosong tanpa baris data (Total 56 bug) |
