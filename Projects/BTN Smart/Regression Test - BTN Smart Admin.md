@@ -988,10 +988,12 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Profile Nasabah & Sales - Nasabah Perorangan: Fitur Search Hanya Memfilter Data yang Tampil pada Halaman Aktif Paginasi
 
 > * **Menu**: Profile Nasabah & Sales → Nasabah Perorangan
+> * **Status**: ✅ Done
 > * **Deskripsi**: Kolom pencarian ("Cari Data") hanya memfilter data yang sedang tampil di halaman aktif paginasi saat ini (client-side search). Pencarian tidak dapat menemukan data yang berada di halaman paginasi lain (misal halaman 2 dst.), sehingga hasil pencarian menjadi kosong/tidak ditemukan meskipun data sebenarnya ada di database.
 > * **Expected**: Fitur pencarian mencakup seluruh data (server-side search lintas halaman paginasi dari total 212 data) dan menampilkan data yang dicari.
-> * **Actual**: Pencarian hanya membaca data pada halaman paginasi yang sedang aktif saja (hanya 10 data yang tampil).
+> * **Actual**: Pencarian kini sudah mencakup seluruh data lintas halaman paginasi (server-side search) dan menampilkan data yang dicari dengan benar.
 > * **Evidence**: [https://files.catbox.moe/nqxtv5.png](https://files.catbox.moe/nqxtv5.png)
+> * **Catatan Retest (06 Oktober 2026)**: Fitur pencarian pada halaman Nasabah Perorangan sudah diperbaiki. Pencarian berhasil menemukan data yang berada di luar halaman aktif/paginasi pertama. Issue dinyatakan selesai.
 
 <br>
 
@@ -1278,3 +1280,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-01 | Setting Absent - Attendance Spot | Klarifikasi aturan bisnis absensi mobile & verifikasi tombol Clock In hilang tanpa Work Pattern selesai (Status: Done / As Designed) |
 | 2026-10-01 | Mobile App - Prospek | Verifikasi perbaikan validasi field Tanggal Potensi pada Prospek Individu & Lembaga selesai (Status: Done) |
 | 2026-10-02 | User Authority - Keamanan Akun (Daftar Akun) | Temuan bug baru: File Excel hasil export data kosong tanpa baris data (Total 56 bug) |
+| 2026-10-06 | Profile Nasabah & Sales - Nasabah Perorangan | Verifikasi perbaikan search lintas paginasi selesai (Status: Done) |
