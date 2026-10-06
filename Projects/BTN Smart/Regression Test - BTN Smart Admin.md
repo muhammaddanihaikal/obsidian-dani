@@ -33,7 +33,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | 🐛 Bug |
 | 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | 🐛 Bug |
 | 24 | Profile Nasabah & Sales | Sales | Fito | ✅ Done |
-| 25 | Profile Nasabah & Sales | Nasabah Perorangan | Fito | 🐛 Bug |
+| 25 | Profile Nasabah & Sales | Nasabah Perorangan | Fito | ✅ Done |
 | 26 | Bisnis dan Produk | Unit Bisnis | Fito | ⬜ Belum |
 | 27 | Bisnis dan Produk | Produk | Fito | ⬜ Belum |
 | 28 | Bisnis dan Produk | Group Produk | Fito | ⬜ Belum |
@@ -1000,10 +1000,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Profile Nasabah & Sales - Nasabah Perorangan: Muncul Data Ganda (Duplikat) dengan Nomor CIF dan Nama Nasabah yang Sama
 
 > * **Menu**: Profile Nasabah & Sales → Nasabah Perorangan
+> * **Status**: ✅ Done
 > * **Deskripsi**: Pada tabel Nasabah Perorangan, terdapat data nasabah yang tampil ganda (duplikat) sebanyak beberapa baris dengan Nomor CIF dan Nama Nasabah yang identik sama persis (contoh pada nomor 16, 17, dan 18: CIF `T562972` atas nama `TATAMULIA NUSANTARA` muncul sebanyak 3 kali).
 > * **Expected**: Setiap nasabah bersifat unik pada tabel (1 CIF hanya ditampilkan 1 kali) tanpa adanya duplikasi data.
-> * **Actual**: Data nasabah dengan Nomor CIF dan Nama yang sama muncul berulang kali (duplikat hingga 3 baris).
-> * **Evidence**: [https://files.catbox.moe/ctdnb8.jpg](https://files.catbox.moe/ctdnb8.jpg)
+> * **Actual**: Data nasabah pada tabel kini sudah unik dan tidak ada duplikasi data (terverifikasi CIF `T562972` atas nama `TATAMULIA NUSANTARA` hanya tampil 1 kali).
+> * **Evidence Awal**: [https://files.catbox.moe/ctdnb8.jpg](https://files.catbox.moe/ctdnb8.jpg)
+> * **Bukti Retest (Done)**: [https://x0.at/Yvin.png](https://x0.at/Yvin.png)
+> * **Catatan Retest (06 Oktober 2026)**: Duplikasi data nasabah pada tabel sudah diperbaiki. Seluruh data kini tampil secara unik tanpa ada pengulangan baris untuk CIF dan nama yang sama. Issue dinyatakan selesai.
 
 <br>
 
@@ -1281,3 +1284,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-01 | Mobile App - Prospek | Verifikasi perbaikan validasi field Tanggal Potensi pada Prospek Individu & Lembaga selesai (Status: Done) |
 | 2026-10-02 | User Authority - Keamanan Akun (Daftar Akun) | Temuan bug baru: File Excel hasil export data kosong tanpa baris data (Total 56 bug) |
 | 2026-10-06 | Profile Nasabah & Sales - Nasabah Perorangan | Verifikasi perbaikan search lintas paginasi selesai (Status: Done) |
+| 2026-10-06 | Profile Nasabah & Sales - Nasabah Perorangan | Verifikasi perbaikan data ganda CIF & Nama Nasabah selesai (Status: Done) |
