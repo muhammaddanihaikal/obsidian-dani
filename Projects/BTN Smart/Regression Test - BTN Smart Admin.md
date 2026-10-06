@@ -709,8 +709,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Catatan Tambahan**: Menurut info Mas Ucup, kendala ini terjadi karena data lokasi pada *Attendance Spot* diubah-ubah.
 > * **Evidence Awal**: [https://files.catbox.moe/4o5ocz.jpg](https://files.catbox.moe/4o5ocz.jpg)
 > * **Evidence Retest (Re-Open)**:
->   * Tab Clock In: [https://x0.at/LgNW.jpg](https://x0.at/LgNW.jpg)
->   * Tab Clock Out: [https://x0.at/lFcq.jpg](https://x0.at/lFcq.jpg)
+>   * Tab Clock In: [https://files.catbox.moe/36jtwe.jpg](https://files.catbox.moe/36jtwe.jpg)
+>   * Tab Clock Out: [https://files.catbox.moe/dh37jz.jpg](https://files.catbox.moe/dh37jz.jpg)
 > * **Catatan Retest (06 Oktober 2026)**: Pengecekan ulang menunjukkan peta Google Maps pada tab Clock In dan Clock Out masih blank/polos (hanya menampilkan logo Google). Status di-reopen.
 
 <br>
@@ -1009,7 +1009,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Expected**: Setiap nasabah bersifat unik pada tabel (1 CIF hanya ditampilkan 1 kali) tanpa adanya duplikasi data.
 > * **Actual**: Data nasabah pada tabel kini sudah unik dan tidak ada duplikasi data (terverifikasi CIF `T562972` atas nama `TATAMULIA NUSANTARA` hanya tampil 1 kali).
 > * **Evidence Awal**: [https://files.catbox.moe/ctdnb8.jpg](https://files.catbox.moe/ctdnb8.jpg)
-> * **Bukti Retest (Done)**: [https://x0.at/Yvin.png](https://x0.at/Yvin.png)
+> * **Bukti Retest (Done)**: [https://files.catbox.moe/opqg9h.png](https://files.catbox.moe/opqg9h.png)
 > * **Catatan Retest (06 Oktober 2026)**: Duplikasi data nasabah pada tabel sudah diperbaiki. Seluruh data kini tampil secara unik tanpa ada pengulangan baris untuk CIF dan nama yang sama. Issue dinyatakan selesai.
 
 <br>
