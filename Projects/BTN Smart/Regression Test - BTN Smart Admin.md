@@ -1031,8 +1031,15 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Report Funding - Personal Funnel: Hasil Export Masuk ke Aktivitas Export tetapi Tidak Tercatat di Riwayat Export
 
 > * **Menu**: Report Funding → Personal Funnel / Export Center → Riwayat Export
-> * **Deskripsi**: Saat user menekan tombol "Export" pada halaman Personal Funnel, request export berhasil diproses dan tercatat di menu `Export Center → Aktivitas Export` dengan status "Tersedia". Namun, data export tersebut tidak tercatat dan tidak muncul sama sekali pada menu `Export Center → Riwayat Export`.
-> * **Expected**: Request export yang dilakukan otomatis tercatat pada menu `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export` agar user dapat mengunduh file hasil export.
+> * **Akun Pengujian**:
+>   * Akun Request Export: `report_funding_pbo@gmail.com` (PW: `Batara123!`)
+>   * Akun Cek Export Center: `monitoring_dani@gmail.com` (PW: `P@ssw0rd`)
+> * **Alur Masalah**:
+>   1. Login menggunakan akun `report_funding_pbo@gmail.com`, lalu klik tombol **Export** pada menu Report Funding → Personal Funnel.
+>   2. Login menggunakan akun `monitoring_dani@gmail.com`, lalu cek menu Export Center.
+>   3. Pada menu `Export Center → Aktivitas Export`, request export berhasil masuk dan berstatus "Tersedia".
+>   4. Namun pada menu `Export Center → Riwayat Export`, data hasil export tersebut sama sekali tidak tercatat / tidak muncul.
+> * **Expected**: Request export yang berhasil diproses tercatat di `Riwayat Export` dan `Aktivitas Export` agar file hasil export dapat diunduh.
 > * **Actual**: Request export hanya tercatat di `Aktivitas Export`, sedangkan pada `Riwayat Export` data tidak masuk/kosong.
 > * **Evidence**:
 >   * Form Personal Funnel & Tombol Export: [https://files.catbox.moe/j8klim.png](https://files.catbox.moe/j8klim.png)
