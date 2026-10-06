@@ -77,7 +77,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 71 | Sales Force | Pipeline - Input Pipeline | Ahrul | 🔄 On Going |
 | 72 | Sales Force | Pipeline - Dashboard Validate Pipeline | Ahrul | 🔄 On Going |
 | 73 | Report Funding | Daily Sales Agenda | Ahrul | ⬜ Belum |
-| 74 | Report Funding | Personal Funnel | Ahrul | ⬜ Belum |
+| 74 | Report Funding | Personal Funnel | Ahrul | 🐛 Bug |
 | 75 | Report Funding | Rekap Funnel | Ahrul | ⬜ Belum |
 | 76 | Report Funding | Regional Funnel | Ahrul | ⬜ Belum |
 | 77 | Report Funding | Pengaturan Funnel | Ahrul | ⬜ Belum |
@@ -1026,6 +1026,19 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Tab Non PKS: [https://files.catbox.moe/k9xczc.png](https://files.catbox.moe/k9xczc.png)
 >   * Tab PKS: [https://files.catbox.moe/2f4zax.png](https://files.catbox.moe/2f4zax.png)
 
+<br>
+
+### 🐞 [BUG] | Report Funding - Personal Funnel: Hasil Export Masuk ke Aktivitas Export tetapi Tidak Tercatat di Riwayat Export
+
+> * **Menu**: Report Funding → Personal Funnel / Export Center → Riwayat Export
+> * **Deskripsi**: Saat user menekan tombol "Export" pada halaman Personal Funnel, request export berhasil diproses dan tercatat di menu `Export Center → Aktivitas Export` dengan status "Tersedia". Namun, data export tersebut tidak tercatat dan tidak muncul sama sekali pada menu `Export Center → Riwayat Export`.
+> * **Expected**: Request export yang dilakukan otomatis tercatat pada menu `Export Center → Riwayat Export` dan `Export Center → Aktivitas Export` agar user dapat mengunduh file hasil export.
+> * **Actual**: Request export hanya tercatat di `Aktivitas Export`, sedangkan pada `Riwayat Export` data tidak masuk/kosong.
+> * **Evidence**:
+>   * Form Personal Funnel & Tombol Export: [https://files.catbox.moe/j8klim.png](https://files.catbox.moe/j8klim.png)
+>   * Aktivitas Export (Tercatat Status Tersedia): [https://files.catbox.moe/u4g1kl.png](https://files.catbox.moe/u4g1kl.png)
+>   * Riwayat Export (Data Tidak Tercatat): [https://files.catbox.moe/oqzq9n.png](https://files.catbox.moe/oqzq9n.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -1291,3 +1304,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-06 | Profile Nasabah & Sales - Nasabah Perorangan | Verifikasi perbaikan data ganda CIF & Nama Nasabah selesai (Status: Done) |
 | 2026-10-06 | Mobile App - Log Absensi | Retest detail log absensi: Peta Google Maps masih blank/tidak muncul pada tab Clock In & Clock Out (Status: Re-Open) |
 | 2026-10-06 | Mobile App - Log Absensi | Verifikasi perbaikan peta Google Maps pada Log Absent Detail tab Clock In & Clock Out selesai (Status: Done) |
+| 2026-10-06 | Report Funding - Personal Funnel | Temuan bug baru: Hasil export masuk Aktivitas Export tapi tidak tercatat di Riwayat Export (Total 57 bug) |
