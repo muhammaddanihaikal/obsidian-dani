@@ -82,7 +82,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 76 | Report Funding | Regional Funnel | Ahrul | ⬜ Belum |
 | 77 | Report Funding | Pengaturan Funnel | Ahrul | ⬜ Belum |
 | 78 | Report Lending | Daily Sales Agenda | Ahrul | ⬜ Belum |
-| 79 | Report Lending | Personal Funnel | Ahrul | ✅ Done |
+| 79 | Report Lending | Personal Funnel | Ahrul | 🐛 Bug |
 | 80 | Report Lending | Rekap Funnel | Ahrul | ⬜ Belum |
 | 81 | Report Lending | Regional Funnel | Ahrul | ⬜ Belum |
 | 82 | Report Lending | Pengaturan Funnel | Ahrul | ⬜ Belum |
@@ -1046,6 +1046,26 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Aktivitas Export (Tercatat Status Tersedia): [https://files.catbox.moe/u4g1kl.png](https://files.catbox.moe/u4g1kl.png)
 >   * Riwayat Export (Data Tidak Tercatat): [https://files.catbox.moe/oqzq9n.png](https://files.catbox.moe/oqzq9n.png)
 
+<br>
+
+### 🐞 [BUG] | Report Lending - Personal Funnel: Hasil Export Masuk ke Aktivitas Export tetapi Tidak Tercatat di Riwayat Export
+
+> * **Menu**: Report Lending → Personal Funnel / Export Center → Riwayat Export
+> * **Akun Pengujian**:
+>   * Akun Request Export: `report_lending@gmail.com` (PW: `Batara123!`)
+>   * Akun Cek Export Center: `monitoring_dani@gmail.com` (PW: `P@ssw0rd`)
+> * **Alur Masalah**:
+>   1. Login menggunakan akun `report_lending@gmail.com`, lalu klik tombol **Export** pada menu Report Lending → Personal Funnel.
+>   2. Login menggunakan akun `monitoring_dani@gmail.com`, lalu cek menu Export Center.
+>   3. Pada menu `Export Center → Aktivitas Export`, request export berhasil masuk dan berstatus "Tersedia".
+>   4. Namun pada menu `Export Center → Riwayat Export`, data hasil export tersebut sama sekali tidak tercatat / tidak muncul.
+> * **Expected**: Request export yang berhasil diproses tercatat di `Riwayat Export` dan `Aktivitas Export` agar file hasil export dapat diunduh.
+> * **Actual**: Request export hanya tercatat di `Aktivitas Export`, sedangkan pada `Riwayat Export` data tidak masuk/kosong.
+> * **Evidence**:
+>   * Form Personal Funnel & Tombol Export: [https://files.catbox.moe/h10rym.png](https://files.catbox.moe/h10rym.png)
+>   * Aktivitas Export (Tercatat Status Tersedia): [https://files.catbox.moe/gbu84f.png](https://files.catbox.moe/gbu84f.png)
+>   * Riwayat Export (Data Tidak Tercatat): [https://files.catbox.moe/0urs4a.png](https://files.catbox.moe/0urs4a.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -1312,3 +1332,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-06 | Mobile App - Log Absensi | Retest detail log absensi: Peta Google Maps masih blank/tidak muncul pada tab Clock In & Clock Out (Status: Re-Open) |
 | 2026-10-06 | Mobile App - Log Absensi | Verifikasi perbaikan peta Google Maps pada Log Absent Detail tab Clock In & Clock Out selesai (Status: Done) |
 | 2026-10-06 | Report Funding - Personal Funnel | Temuan bug baru: Hasil export masuk Aktivitas Export tapi tidak tercatat di Riwayat Export (Total 57 bug) |
+| 2026-10-06 | Report Lending - Personal Funnel | Temuan bug baru: Hasil export masuk Aktivitas Export tapi tidak tercatat di Riwayat Export (Total 58 bug) |
