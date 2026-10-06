@@ -702,16 +702,16 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Mobile App - Log Absensi: Peta Tidak Tampil pada Halaman Detail Log Absensi di Tab Clock In dan Clock Out
 
 > * **Menu**: Mobile App → Log Absensi
-> * **Status**: 🔄 Re-Open
-> * **Deskripsi**: Pada halaman detail riwayat absensi (**Log Absent Detail**) di aplikasi mobile, peta (*Google Maps*) tidak muncul / hanya menampilkan latar polos dengan watermark logo Google saja pada tab **Clock In** maupun **Clock Out**. Peta tidak merender layer peta, koordinat, maupun pin titik lokasi absensi.
+> * **Status**: ✅ Done
+> * **Deskripsi**: Pada halaman detail riwayat absensi (**Log Absent Detail**) di aplikasi mobile, peta (*Google Maps*) sebelumnya tidak muncul / hanya menampilkan latar polos dengan watermark logo Google saja pada tab **Clock In** maupun **Clock Out**.
 > * **Expected**: Peta Google Maps pada tab Clock In dan Clock Out di halaman Log Absent Detail menampilkan visual peta lengkap beserta pin marker lokasi absensi user secara normal.
-> * **Actual**: Peta masih tidak tampil (blank/polos) dan hanya menampilkan logo Google di pojok kiri bawah setelah dilakukan retest.
-> * **Catatan Tambahan**: Menurut info Mas Ucup, kendala ini terjadi karena data lokasi pada *Attendance Spot* diubah-ubah.
+> * **Actual**: Peta Google Maps kini sudah tampil secara normal beserta pin marker lokasi absensi pada kedua tab (Clock In dan Clock Out).
+> * **Catatan Tambahan**: Menurut info Mas Ucup, kendala ini sebelumnya terjadi karena data lokasi pada *Attendance Spot* diubah-ubah.
 > * **Evidence Awal**: [https://files.catbox.moe/4o5ocz.jpg](https://files.catbox.moe/4o5ocz.jpg)
-> * **Evidence Retest (Re-Open)**:
->   * Tab Clock In: [https://files.catbox.moe/36jtwe.jpg](https://files.catbox.moe/36jtwe.jpg)
->   * Tab Clock Out: [https://files.catbox.moe/dh37jz.jpg](https://files.catbox.moe/dh37jz.jpg)
-> * **Catatan Retest (06 Oktober 2026)**: Pengecekan ulang menunjukkan peta Google Maps pada tab Clock In dan Clock Out masih blank/polos (hanya menampilkan logo Google). Status di-reopen.
+> * **Bukti Retest (Done)**:
+>   * Tab Clock In: [https://files.catbox.moe/0jp8qo.jpg](https://files.catbox.moe/0jp8qo.jpg)
+>   * Tab Clock Out: [https://files.catbox.moe/sxaatb.jpg](https://files.catbox.moe/sxaatb.jpg)
+> * **Catatan Retest (06 Oktober 2026)**: Peta Google Maps pada halaman Log Absent Detail sudah berhasil muncul dengan normal lengkap beserta titik marker lokasi pada tab Clock In dan Clock Out. Issue dinyatakan selesai.
 
 <br>
 
@@ -1290,3 +1290,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-06 | Profile Nasabah & Sales - Nasabah Perorangan | Verifikasi perbaikan search lintas paginasi selesai (Status: Done) |
 | 2026-10-06 | Profile Nasabah & Sales - Nasabah Perorangan | Verifikasi perbaikan data ganda CIF & Nama Nasabah selesai (Status: Done) |
 | 2026-10-06 | Mobile App - Log Absensi | Retest detail log absensi: Peta Google Maps masih blank/tidak muncul pada tab Clock In & Clock Out (Status: Re-Open) |
+| 2026-10-06 | Mobile App - Log Absensi | Verifikasi perbaikan peta Google Maps pada Log Absent Detail tab Clock In & Clock Out selesai (Status: Done) |
