@@ -20,7 +20,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 9 | Profile | Ganti kata sandi | Alam | ⬜ Belum |
 | 10 | Profile | Keamanan | Alam | 🐛 Bug |
 | 11 | Profile | Keamanan - Riwayat login | Alam | ⬜ Belum |
-| 12 | Profile | Keamanan - Perangkat terhubung | Alam | 🐛 Bug |
+| 12 | Profile | Keamanan - Perangkat terhubung | Alam | ✅ Done |
 | 13 | Overview | Overview Fund | Alam | ⬜ Belum |
 | 14 | Overview | Overview Lend | Alam | ⬜ Belum |
 | 15 | Overview | Pengaturan Overview | Alam | ⬜ Belum |
@@ -168,10 +168,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Profile - Keamanan: Tombol "Putuskan Semua Perangkat Terhubung" Tidak Dapat Diklik (Disabled)
 
 > * **Menu**: Profile → Keamanan (Perangkat Terhubung)
+> * **Status**: ❌ Rejected (Not a Bug / By Design)
+> * **Status Huly**: ❌ Rejected (US-639)
 > * **Deskripsi**: Pada halaman Pengaturan Profile → Keamanan → tab Perangkat Terhubung, tombol *"Putuskan Semua Perangkat Terhubung"* yang berada di bagian bawah daftar perangkat berada dalam status nonaktif (*disabled* berwarna abu-abu) dan tidak dapat diklik sama sekali, meskipun pada daftar terdapat beberapa perangkat lain yang terhubung.
 > * **Expected**: Tombol *"Putuskan Semua Perangkat Terhubung"* aktif (*enabled*) dan dapat diklik untuk memicu konfirmasi pemutusan seluruh sesi perangkat lain.
 > * **Actual**: Tombol dalam kondisi disabled (*abu-abu*) dan tidak bisa diklik sama sekali (*pointer event disabled*).
 > * **Evidence**: [https://files.catbox.moe/qggijm.png](https://files.catbox.moe/qggijm.png)
+> * **Catatan (Rejected 07/10)**: Issue di-reject / dibatalkan di Huly (US-639) karena kondisi tombol disabled sesuai dengan alur/desain sistem (bukan bug).
 
 <br>
 
@@ -1374,3 +1377,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-07 | Report Funding / Lending - Daily Sales Agenda | Temuan bug baru: Prospek produk lending dari sales lending masuk ke Daily Sales Agenda Funding (Total 60 bug) |
 | 2026-10-07 | User Authority - Keamanan Akun (Perangkat & Sesi) | Verifikasi perbaikan export error validasi page & limit selesai (Status: Done) |
 | 2026-10-07 | User Authority - Group Role | Verifikasi perbaikan peringatan validasi akses menu website saat edit group role selesai (Status: Done) |
+| 2026-10-07 | Profile - Keamanan (Perangkat Terhubung) | Penutupan issue tombol Putuskan Semua Perangkat Terhubung disabled (Status: Rejected di Huly US-639 / By Design) |
