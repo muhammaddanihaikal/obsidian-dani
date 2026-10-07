@@ -76,7 +76,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 70 | Sales Force | Pipeline - Input komitmen | Ahrul | 🔄 On Going |
 | 71 | Sales Force | Pipeline - Input Pipeline | Ahrul | 🔄 On Going |
 | 72 | Sales Force | Pipeline - Dashboard Validate Pipeline | Ahrul | 🔄 On Going |
-| 73 | Report Funding | Daily Sales Agenda | Ahrul | ⬜ Belum |
+| 73 | Report Funding | Daily Sales Agenda | Ahrul | 🐛 Bug |
 | 74 | Report Funding | Personal Funnel | Ahrul | 🐛 Bug |
 | 75 | Report Funding | Rekap Funnel | Ahrul | ⬜ Belum |
 | 76 | Report Funding | Regional Funnel | Ahrul | ⬜ Belum |
@@ -1069,6 +1069,19 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Aktivitas Export (Tercatat Status Tersedia): [https://files.catbox.moe/gbu84f.png](https://files.catbox.moe/gbu84f.png)
 >   * Riwayat Export (Data Tidak Tercatat): [https://files.catbox.moe/0urs4a.png](https://files.catbox.moe/0urs4a.png)
 
+<br>
+
+### 🐞 [BUG] | Report Funding - Daily Sales Agenda: Fitur Export di Seluruh Tab Belum Menggunakan Standar Export Center
+
+> * **Menu**: Report Funding → Daily Sales Agenda (Tab Prospek Masuk, Prospek Closing, Prospek Referal, Prospek Referal Closing)
+> * **Deskripsi**: Fitur export data pada seluruh tab di menu Daily Sales Agenda masih menggunakan tampilan/mekanisme drawer lama ("Download Export") dan belum diintegrasikan dengan standar fitur "Export Center".
+> * **Expected**: Saat klik tombol Export pada seluruh tab, proses export terintegrasi dengan drawer/halaman Export Center sesuai standar sistem (menampilkan Request ID, status Diminta/Menunggu/Disetujui/Tersedia, dan tercatat di Riwayat Export).
+> * **Actual**: Tombol Export masih membuka drawer lama ("Download Export") dan belum terhubung ke sistem Export Center.
+> * **Evidence**:
+>   * Form Daily Sales Agenda & Tombol Export: [https://files.catbox.moe/c1uyel.png](https://files.catbox.moe/c1uyel.png)
+>   * Tampilan Drawer Masih Download Export: [https://files.catbox.moe/9ms3hn.png](https://files.catbox.moe/9ms3hn.png)
+>   * Referensi Standar Tampilan Export Center: [https://files.catbox.moe/d1jumm.png](https://files.catbox.moe/d1jumm.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -1337,3 +1350,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-06 | Report Funding - Personal Funnel | Temuan bug baru: Hasil export masuk Aktivitas Export tapi tidak tercatat di Riwayat Export (Total 57 bug) |
 | 2026-10-06 | Report Lending - Personal Funnel | Temuan bug baru: Hasil export masuk Aktivitas Export tapi tidak tercatat di Riwayat Export (Total 58 bug) |
 | 2026-10-07 | Profile - Keamanan | Verifikasi perbaikan kirim ulang kode pada modal Setup Email OTP selesai (Status: Done) |
+| 2026-10-07 | Report Funding - Daily Sales Agenda | Temuan bug baru: Fitur export pada seluruh tab belum menggunakan standar Export Center (Total 59 bug) |
