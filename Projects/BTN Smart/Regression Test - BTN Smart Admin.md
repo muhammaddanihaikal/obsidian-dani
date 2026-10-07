@@ -81,7 +81,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 75 | Report Funding | Rekap Funnel | Ahrul | ⬜ Belum |
 | 76 | Report Funding | Regional Funnel | Ahrul | ⬜ Belum |
 | 77 | Report Funding | Pengaturan Funnel | Ahrul | ⬜ Belum |
-| 78 | Report Lending | Daily Sales Agenda | Ahrul | ⬜ Belum |
+| 78 | Report Lending | Daily Sales Agenda | Ahrul | 🐛 Bug |
 | 79 | Report Lending | Personal Funnel | Ahrul | 🐛 Bug |
 | 80 | Report Lending | Rekap Funnel | Ahrul | ⬜ Belum |
 | 81 | Report Lending | Regional Funnel | Ahrul | ⬜ Belum |
@@ -1082,6 +1082,20 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Tampilan Drawer Masih Download Export: [https://files.catbox.moe/9ms3hn.png](https://files.catbox.moe/9ms3hn.png)
 >   * Referensi Standar Tampilan Export Center: [https://files.catbox.moe/d1jumm.png](https://files.catbox.moe/d1jumm.png)
 
+<br>
+
+### 🐞 [BUG] | Report Funding - Daily Sales Agenda: Prospek Produk Lending dari Sales Lending Masuk ke Daily Sales Agenda Funding (Tab Prospek Referal & Referal Closing)
+
+> * **Menu**: Report Funding → Daily Sales Agenda (Tab Prospek Referal & Prospek Referal Closing)
+> * **Deskripsi**: Prospek dengan produk Lending (contoh: Kredit Agunan Rumah / KAR) yang direferalkan oleh sales Lending (Job Role CLS Non Subsidi / MSLD) tercatat dan muncul pada menu Report Funding → Daily Sales Agenda pada tab Prospek Referal dan Prospek Referal Closing.
+> * **Expected**: Prospek dengan kategori produk Lending dari sales Lending seharusnya masuk ke menu Report Lending → Daily Sales Agenda, bukan masuk ke Report Funding.
+> * **Actual**: Data prospek referal produk Lending dari sales Lending tersebut masuk dan ditampilkan pada menu Report Funding → Daily Sales Agenda.
+> * **Evidence**:
+>   * Tab Prospek Referal (Produk KAR Muncul di Funding): [https://files.catbox.moe/f8cy30.png](https://files.catbox.moe/f8cy30.png)
+>   * Bukti Sales Pemberi Referal adalah User Lending: [https://files.catbox.moe/7rqzjg.png](https://files.catbox.moe/7rqzjg.png)
+>   * Tab Prospek Referal Closing (Produk KAR Muncul di Funding): [https://files.catbox.moe/lpfa69.png](https://files.catbox.moe/lpfa69.png)
+>   * Bukti Sales Pemberi Referal Closing adalah User Lending: [https://files.catbox.moe/m50yvg.png](https://files.catbox.moe/m50yvg.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -1351,3 +1365,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-06 | Report Lending - Personal Funnel | Temuan bug baru: Hasil export masuk Aktivitas Export tapi tidak tercatat di Riwayat Export (Total 58 bug) |
 | 2026-10-07 | Profile - Keamanan | Verifikasi perbaikan kirim ulang kode pada modal Setup Email OTP selesai (Status: Done) |
 | 2026-10-07 | Report Funding - Daily Sales Agenda | Temuan bug baru: Fitur export pada seluruh tab belum menggunakan standar Export Center (Total 59 bug) |
+| 2026-10-07 | Report Funding / Lending - Daily Sales Agenda | Temuan bug baru: Prospek produk lending dari sales lending masuk ke Daily Sales Agenda Funding (Total 60 bug) |
