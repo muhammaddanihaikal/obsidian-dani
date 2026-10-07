@@ -46,7 +46,16 @@ Berdasarkan analisis dokumen template baku BTN (`Dokumen_Hasil_Uji_-_UT_Corporat
 
 ## 🔄 2. SOP Penanganan Perubahan Test Case (Penambahan / Pengurangan)
 
-Di tengah proses SIT/UAT, perubahan jumlah TC (tambah fitur atau pangkas TC redundan) sangat lumrah terjadi. Jangan panik, ikuti SOP berikut:
+> [!CAUTION] 🚨 ATURAN MUTLAK: KONFIRMASI DULU KE USER SEBELUM MODIFIKASI
+> Jika saat siklus sinkronisasi / pemeriksaan dokumen ditemukan adanya penambahan atau pengurangan Test Case dari rekan tim / senior (misal di SIT Word, Excel, atau Drive H):
+> 1. **DILARANG KERAS** langsung mengubah, menghapus, atau menggeser nomor folder/dokumen secara otomatis/sepihak.
+> 2. **WAJIB LAPORKAN & KONFIRMASI TERLEBIH DAHULU** ke Mas Dani (USER):
+>    - Sebutkan modul apa dan nomor TC berapa yang bertambah atau berkurang.
+>    - Jelaskan detail perubahannya (judul TC, steps, expected result).
+>    - Minta persetujuan apakah perubahan tersebut disetujui untuk diadopsi ke `Refactor`.
+> 3. Eksekusi restrukturisasi folder, Excel, dan dokumen Word **HANYA** boleh dijalankan setelah Mas Dani memberikan konfirmasi persetujuan.
+
+Di tengah proses SIT/UAT, perubahan jumlah TC (tambah fitur atau pangkas TC redundan) sangat lumrah terjadi. Setelah konfirmasi disetujui, ikuti SOP teknis berikut:
 
 ```mermaid
 flowchart TD
@@ -148,3 +157,107 @@ Per revisi 21 September 2026:
      - **Local:** `d:\Project\BTN\Hasil Uji\`
      - **Drive H (Zegen):** `H:\My Drive\Zegen\BTN Smart\Refactor\Hasil Uji\`
      - **Drive G (dainnaxjakarta91):** `G:\My Drive\Zegen\BTN Smart\Refactor\Hasil Uji\`
+
+---
+
+## 🎯 7. Pembagian Modul QA (Scope Kerja Mas Dani vs Tim / Senior)
+
+Agar pengujian dan dokumen hasil uji tidak saling tumpang tindih (*conflict*), ruang lingkup modul dibagi secara tegas:
+
+| Platform | Modul Mas Dani (Tanggung Jawab Utama) | Modul Rekan Tim / Senior |
+|---|---|---|
+| **Web** | 1. **Login** (`01. Login`)<br>2. **Profile - Keamanan** (`02. Profile`)<br>3. **User Authority** (`06` s/d `10`: User, Group Role, Tipe Karyawan, Hak Akses Role, Keamanan Akun)<br>4. **Profile Nasabah & Sales** (`11` Sales, `12` Nasabah Perorangan)<br>5. **Menu Absent** (`32` s/d `35`: Dashboard, Daily, Approval, Rekap Absent)<br>6. **Setting Absent** (`40` s/d `42`: Attendance Spot, Work Pattern, Holiday)<br>7. **Report Funding** (`60` s/d `64`: Daily Sales, Personal, Rekap, Regional, Pengaturan Funnel)<br>8. **Report Lending** (`65` s/d `69`: Daily Sales, Personal, Rekap, Regional, Pengaturan Funnel) | **Sales Force** (Sales Code, Pipeline, CIF Kelolaan, CIF Rebase, Produktivitas, Dashboard Sales Force), **Lead Generation & Qualification**, **Bisnis dan Produk**, **Kantor**, **Upload Bulk**, **Export Data Management**, **Re-Assign & Approval**. |
+| **Mobile** | 1. **Profile Nasabah & Sales**<br>2. **Menu Absent** (Dashboard, Daily, Approval, Rekap Absent)<br>3. **Setting Absent** (Attendance Spot, Work Pattern, Holiday) | Modul fitur mobile lainnya milik tim. |
+
+> **Prinsip Kepemilikan Dokumen:**
+> Dokumen kerja aktif Mas Dani adalah `Dokumen_Hasil_Uji_Web.docx` dan `Dokumen_Hasil_Uji_Mobile.docx`. Screenshot dari modul milik rekan tim ditarik dan disematkan sebagai pelengkap dokumen master, bukan menggantikan area kerja masing-masing.
+
+---
+
+## ⚡ 8. Protokol Otomasi `"cek sync"` & Integrasi Dokumen Senior
+
+Keyword **`cek sync`** (atau variasi *"sync"*, *"tolong sync ya"*) merupakan trigger perintah cepat otomatis untuk mengeksekusi siklus sinkronisasi end-to-end:
+
+### A. Alur Kerja Otomatis Saat `"cek sync"` Dijalankan:
+```mermaid
+flowchart TD
+    A["1. Pindai 'Hasil Uji Senior/' (.docx)"] --> B["2. Ekstrak Lossless Image Biner (word/media/)"]
+    B --> C["3. Simpan ke Folder Screenshot Web & Renumbering TC"]
+    C --> D["4. Sematkan Gambar Baru ke Dokumen_Hasil_Uji_Web.docx"]
+    D --> E["5. Pindai & Sematkan SS Baru Mobile ke Dokumen_Hasil_Uji_Mobile.docx"]
+    E --> F["6. Tri-Drive Synchronization (Lokal D, Drive H, Drive G)"]
+    F --> G["7. Git Auto Commit & Push ke GitHub main"]
+    G --> H["8. Laporan Status & Rekapitulasi"]
+```
+
+### B. Aturan Penarikan Gambar Senior (Lossless OpenXML Extraction):
+1. **Format File Senior:**
+   - Rekan tim/senior meletakkan salinan file `.docx` di folder `Hasil Uji\Hasil Uji Senior\Dokumen Hasil Uji_UT Upgrade Server Web .docx`.
+   - Jika sumber dari Google Docs online (`.gdoc`), wajib di-download via **File → Download → Microsoft Word (.docx)** agar biner gambar tetap tersimpan di dalam file.
+2. **Kualitas Gambar Real (Tanpa Kompresi):**
+   - Penarikan gambar dilakukan langsung dari part biner `word/media/` OpenXML via Python `doc.part.related_parts[rId].blob`.
+   - **DILARANG** melakukan re-encode atau resize gambar via library image editor untuk menjaga ketajaman piksel asli 1:1.
+3. **Penyelarasan & Verifikasi Perubahan Test Case (Wajib Konfirmasi):**
+   - Jika terdeteksi adanya penambahan, pengurangan, atau pergeseran nomor TC antara dokumen lokal dan dokumen/SIT senior: **JANGAN LANGSUNG EKSEKUSI**.
+   - Laporkan detail perubahannya terlebih dahulu ke Mas Dani (nomor TC, judul skenario, modul terkait).
+   - Setelah mendapat persetujuan ("Proceed" / "Lanjut"), baru gunakan metode **Two-Phase Rename** untuk menyelaraskan nama folder, mengupdate baris Excel, dan menyusun penomoran tabel di Word.
+
+### C. Tri-Drive Synchronization & Version Control:
+- Setiap kali sinkronisasi berhasil, perubahan disalin serentak ke 3 lokasi:
+  - `D:\Project\BTN Smart\Refactor\`
+  - `H:\My Drive\Zegen\BTN Smart\Refactor\`
+  - `G:\My Drive\Zegen\BTN Smart\Refactor\`
+- Git commit otomatis dijalankan dengan pesan deskriptif dan dipush ke branch `main`.
+
+### D. Snapshot Modul yang Selesai & Tertanam 100% (Status Per 30 Sep 2026):
+- **Web (Dokumen_Hasil_Uji_Web.docx)**:
+  - `01. Login`: 16 TC (27 SS) — *Lengkap*
+  - `06. User Authority - User`: 9 TC (17 SS) — *Lengkap*
+  - `07. User Authority - Group Role`: 9 TC (16 SS) — *Lengkap* (7.1 s/d 7.9)
+  - `08. User Authority - Tipe Karyawan`: 8 TC (15 SS) — *Lengkap* (8.1 s/d 8.8)
+  - `09. User Authority - Hak Akses Role`: 7 TC (9 SS) — *Lengkap* (9.1 s/d 9.7)
+  - `10. User Authority - Keamanan Akun`: 4 TC (4 SS) — (10.1 s/d 10.4)
+  - `43. Sales Force - Sales Code`: 4 TC (7 SS) — *TC 43.1 s/d 43.4 ditarik dari doc senior*
+  - **Total Web**: **57 TC** (**95 tangkapan layar**) terisi rapi tanpa missing.
+- **Mobile (Dokumen_Hasil_Uji_Mobile.docx)**:
+  - `02. Profile`: 39 TC (106 SS) — *Lengkap 100%* (TC 2.1 s/d 2.39)
+  - `11. Prospek & Nasabah - Input Prospek`: 17 TC (27 SS) — (11.1 s/d 11.5, 11.7 s/d 11.19)
+  - `17. Sales Force - Dashboard Sales Code`: 7 TC (15 SS) — *Lengkap 100%* (17.1 s/d 17.7)
+  - Modul lainnya: 01 (12 TC), 03 (2 TC), 04 (1 TC), 05 (2 TC), 06 (7 TC), 07 (5 TC), 08 (14 TC), 09 (8 TC), 10 (1 TC), 14 (5 TC), 15 (7 TC).
+  - **Total Mobile**: **126 TC** (**277 tangkapan layar**) terisi rapi tanpa missing.
+
+> **Catatan Penting Salinan Dokumen Senior:**
+> File salinan di Google Drive yang berekstensi `.gdoc` (online Google Docs) berukuran ~187 bytes adalah shortcut cloud yang tidak menyimpan part biner gambar lokal. Untuk mengekstrak gambar dan tabel secara lossless, dokumen wajib diunduh via **File → Download → Microsoft Word (.docx)** dan ditaruh di folder `Hasil Uji Ka Fuje`.
+
+
+---
+
+## ?? 9. Aturan Potong Screenshot Web (Web Crop Rules)
+
+Disepakati pada: 5 Oktober 2026
+
+Aturan ini digunakan sebagai standar untuk mengklasifikasi dan memotong gambar UI Web agar bukti hasil uji tetap utuh konteksnya.
+
+1. **Halaman Awal (Screenshot .1, misal 33.1.png)**
+   - **Tindakan:** FULL SCREEN (Tidak ada yang dipotong).
+   - **Alasan:** Sebagai penanda menu utama yang sedang diakses.
+2. **Ada Notifikasi (Alert di Kanan Atas)**
+   - **Tindakan:** Hapus Sidebar saja. Navbar TETAP ADA.
+   - **Alasan:** Agar pesan pop-up notifikasi tidak ikut terpotong.
+3. **Drawer / Filter dari Samping Kanan**
+   - **Tindakan:** Hapus Sidebar saja. Navbar TETAP ADA.
+   - **Alasan:** Menjaga struktur visual dari drawer sisi kanan.
+4. **Drawer dari Bawah**
+   - **Tindakan:** Hapus Navbar saja. Sidebar TETAP ADA.
+   - **Alasan:** Drawer bawah memanjang horizontal, butuh sidebar sebagai penyeimbang layout.
+5. **Sidebar Diperkecil (Minimized)**
+   - **Tindakan:** Bisa ikut dihapus (~80px) selama tidak melanggar aturan 1-4.
+6. **Kondisi A: Pop-up / Modal di Tengah Layar**
+   - **Tindakan:** Bisa Hapus Sidebar saja, atau Hapus Sidebar & Navbar (Full Body Crop) jika aman.
+   - **Alasan:** Menjaga posisi pop-up agar tidak terlihat aneh.
+7. **Kondisi B: Default / Halaman Tabel Normal (Tidak ada drawer/notif)**
+   - **Tindakan:** Hapus Sidebar & Navbar (Full Body Crop).
+   - **Alasan:** Agar area tabel/data bisa ter-zoom maksimal saat diletakkan di Word.
+
+> [!CAUTION] ?? ATURAN MUTLAK KETIKA RAGU
+> Jika script AI bingung atau ragu dalam mengklasifikasikan gambar tertentu (misal UI tumpang tindih atau tidak biasa), **DILARANG LANGSUNG MEMOTONG**. AI wajib memberikan **Report Klasifikasi / List Gambar** dan meminta **ACC** ke Mas Dani (USER) terlebih dahulu sebelum eksekusi pemotongan dilakukan.
