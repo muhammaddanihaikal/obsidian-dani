@@ -30,7 +30,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 19 | User Authority | Hak Akses Role | Alam | ✅ Done |
 | 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | 🐛 Bug |
 | 21 | User Authority | Keamanan Akun - Permintaan Reset MFA | Alam | ✅ Done |
-| 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | 🐛 Bug |
+| 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | ✅ Done |
 | 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | 🐛 Bug |
 | 24 | Profile Nasabah & Sales | Sales | Fito | ✅ Done |
 | 25 | Profile Nasabah & Sales | Nasabah Perorangan | Fito | ✅ Done |
@@ -492,10 +492,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Keamanan Akun: Muncul Error "page wajib diisi." dan "limit wajib diisi." Saat Klik Export Data pada Tab Perangkat & Sesi
 
 > * **Menu**: User Authority → Keamanan Akun (Perangkat & Sesi)
-> * **Deskripsi**: Saat menekan tombol "Export Data" pada tab Perangkat & Sesi, sistem gagal memproses antrean export dan memunculkan dua pesan error toast merah di atas layar: *"page wajib diisi."* dan *"limit wajib diisi."*.
+> * **Status**: ✅ Done
+> * **Deskripsi**: Saat menekan tombol "Export Data" pada tab Perangkat & Sesi, sistem sebelumnya gagal memproses antrean export dan memunculkan dua pesan error toast merah di atas layar: *"page wajib diisi."* dan *"limit wajib diisi."*.
 > * **Expected**: Menekan tombol "Export Data" berhasil memproses request export ke Export Center tanpa error validasi parameter pagination.
-> * **Actual**: Muncul pesan error *"page wajib diisi."* dan *"limit wajib diisi."* di bagian atas layar dan proses export gagal dijalankan.
-> * **Evidence**: [https://files.catbox.moe/9vetdj.png](https://files.catbox.moe/9vetdj.png)
+> * **Actual**: Request export berhasil diproses dan antrean tercatat di drawer Export Center (status Diminta & Menunggu) tanpa muncul error.
+> * **Evidence Awal**: [https://files.catbox.moe/9vetdj.png](https://files.catbox.moe/9vetdj.png)
+> * **Bukti Retest (Done)**: [https://files.catbox.moe/2fjg6h.png](https://files.catbox.moe/2fjg6h.png)
+> * **Catatan Retest (07 Oktober 2026)**: Fitur Export Data pada tab Perangkat & Sesi sudah diperbaiki. Request export berhasil masuk ke antrean Export Center dengan normal tanpa error validasi parameter. Issue dinyatakan selesai.
 
 <br>
 
@@ -1366,3 +1369,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-07 | Profile - Keamanan | Verifikasi perbaikan kirim ulang kode pada modal Setup Email OTP selesai (Status: Done) |
 | 2026-10-07 | Report Funding - Daily Sales Agenda | Temuan bug baru: Fitur export pada seluruh tab belum menggunakan standar Export Center (Total 59 bug) |
 | 2026-10-07 | Report Funding / Lending - Daily Sales Agenda | Temuan bug baru: Prospek produk lending dari sales lending masuk ke Daily Sales Agenda Funding (Total 60 bug) |
+| 2026-10-07 | User Authority - Keamanan Akun (Perangkat & Sesi) | Verifikasi perbaikan export error validasi page & limit selesai (Status: Done) |
