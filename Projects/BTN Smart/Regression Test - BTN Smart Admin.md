@@ -155,10 +155,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Profile - Keamanan: Muncul Error "mfa id wajib diisi." Saat Klik "Kirim ulang Kode" pada Modal Setup Email OTP
 
 > * **Menu**: Profile → Keamanan
-> * **Deskripsi**: Saat user melakukan pengaturan/setup awal MFA metode Email OTP di tab Keamanan, menekan tautan/tombol *"Kirim ulang Kode"* pada modal pop-up memicu error validasi toast merah di atas layar: *"mfa id wajib diisi."* dan kode verifikasi tidak terkirim ulang.
+> * **Status**: ✅ Done
+> * **Deskripsi**: Saat user melakukan pengaturan/setup awal MFA metode Email OTP di tab Keamanan, menekan tautan/tombol *"Kirim ulang Kode"* pada modal pop-up sebelumnya memicu error validasi toast merah di atas layar: *"mfa id wajib diisi."* dan kode verifikasi tidak terkirim ulang.
 > * **Expected**: Sistem berhasil memproses pengiriman ulang kode verifikasi OTP ke email user dan memulai timer cooldown tanpa error validasi parameter.
-> * **Actual**: Muncul pesan error toast merah *"mfa id wajib diisi."* di bagian atas layar dan kode OTP tidak terkirim ulang.
-> * **Evidence**: [https://files.catbox.moe/4em4hu.png](https://files.catbox.moe/4em4hu.png)
+> * **Actual**: Kode OTP baru berhasil terkirim normal dengan notifikasi sukses "Kode OTP baru telah dikirim" dan timer cooldown berjalan tanpa error.
+> * **Evidence Awal**: [https://files.catbox.moe/4em4hu.png](https://files.catbox.moe/4em4hu.png)
+> * **Bukti Retest (Done)**: [https://files.catbox.moe/d3vh29.png](https://files.catbox.moe/d3vh29.png)
+> * **Catatan Retest (07 Oktober 2026)**: Tombol "Kirim ulang Kode" pada modal Setup Email OTP sudah diperbaiki. Pengiriman ulang kode OTP email kini berjalan normal dan memunculkan toast hijau "Kode OTP baru telah dikirim". Issue dinyatakan selesai.
 
 <br>
 
@@ -1333,3 +1336,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-06 | Mobile App - Log Absensi | Verifikasi perbaikan peta Google Maps pada Log Absent Detail tab Clock In & Clock Out selesai (Status: Done) |
 | 2026-10-06 | Report Funding - Personal Funnel | Temuan bug baru: Hasil export masuk Aktivitas Export tapi tidak tercatat di Riwayat Export (Total 57 bug) |
 | 2026-10-06 | Report Lending - Personal Funnel | Temuan bug baru: Hasil export masuk Aktivitas Export tapi tidak tercatat di Riwayat Export (Total 58 bug) |
+| 2026-10-07 | Profile - Keamanan | Verifikasi perbaikan kirim ulang kode pada modal Setup Email OTP selesai (Status: Done) |
