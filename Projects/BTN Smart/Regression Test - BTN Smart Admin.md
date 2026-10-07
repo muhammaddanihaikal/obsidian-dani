@@ -18,7 +18,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 7 | Authentication | Logout | Fito | ✅ Done |
 | 8 | Profile | Biodata diri | Alam | ⬜ Belum |
 | 9 | Profile | Ganti kata sandi | Alam | ⬜ Belum |
-| 10 | Profile | Keamanan | Alam | 🐛 Bug |
+| 10 | Profile | Keamanan | Alam | ✅ Done |
 | 11 | Profile | Keamanan - Riwayat login | Alam | ⬜ Belum |
 | 12 | Profile | Keamanan - Perangkat terhubung | Alam | ✅ Done |
 | 13 | Overview | Overview Fund | Alam | ⬜ Belum |
@@ -77,12 +77,12 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 71 | Sales Force | Pipeline - Input Pipeline | Ahrul | 🔄 On Going |
 | 72 | Sales Force | Pipeline - Dashboard Validate Pipeline | Ahrul | 🔄 On Going |
 | 73 | Report Funding | Daily Sales Agenda | Ahrul | 🐛 Bug |
-| 74 | Report Funding | Personal Funnel | Ahrul | 🐛 Bug |
+| 74 | Report Funding | Personal Funnel | Ahrul | ✅ Done |
 | 75 | Report Funding | Rekap Funnel | Ahrul | ⬜ Belum |
 | 76 | Report Funding | Regional Funnel | Ahrul | ⬜ Belum |
 | 77 | Report Funding | Pengaturan Funnel | Ahrul | ⬜ Belum |
 | 78 | Report Lending | Daily Sales Agenda | Ahrul | 🐛 Bug |
-| 79 | Report Lending | Personal Funnel | Ahrul | 🐛 Bug |
+| 79 | Report Lending | Personal Funnel | Ahrul | ✅ Done |
 | 80 | Report Lending | Rekap Funnel | Ahrul | ⬜ Belum |
 | 81 | Report Lending | Regional Funnel | Ahrul | ⬜ Belum |
 | 82 | Report Lending | Pengaturan Funnel | Ahrul | ⬜ Belum |
@@ -181,10 +181,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Profile - Keamanan: Mengubah Metode MFA Dapat Langsung Dipilih Tanpa Meminta Verifikasi Kata Sandi Akun
 
 > * **Menu**: Profile → Keamanan
+> * **Status**: ❌ Rejected (US-640 / By Design)
+> * **Status Huly**: ❌ Rejected (US-640)
 > * **Deskripsi**: Saat user mengklik tombol "Ganti Metode" pada pengaturan autentikasi dua faktor (MFA), sistem langsung menampilkan pilihan metode baru (TOTP / Email OTP) dan dapat langsung dipilih tanpa meminta verifikasi kata sandi (password) akun terlebih dahulu.
 > * **Expected**: Mengklik tombol "Ganti Metode" wajib memunculkan modal verifikasi kata sandi akun terlebih dahulu (re-authentication) sebelum mengizinkan user memilih atau mengubah ke metode MFA lain demi keamanan akun.
 > * **Actual**: Sistem tidak meminta konfirmasi kata sandi sama sekali dan user dapat langsung memilih metode MFA baru.
 > * **Evidence**: [https://files.catbox.moe/mpzqp1.png](https://files.catbox.moe/mpzqp1.png)
+> * **Catatan (Rejected 07/10)**: Issue di-reject / dibatalkan di Huly (US-640) sesuai alur dan ketentuan autentikasi sistem.
 
 <br>
 
@@ -1043,6 +1046,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Report Funding - Personal Funnel: Hasil Export Masuk ke Aktivitas Export tetapi Tidak Tercatat di Riwayat Export
 
 > * **Menu**: Report Funding → Personal Funnel / Export Center → Riwayat Export
+> * **Status**: ❌ Rejected (US-649 / By Design)
+> * **Status Huly**: ❌ Rejected (US-649)
 > * **Akun Pengujian**:
 >   * Akun Request Export: `report_funding_pbo@gmail.com` (PW: `Batara123!`)
 >   * Akun Cek Export Center: `monitoring_dani@gmail.com` (PW: `P@ssw0rd`)
@@ -1057,12 +1062,15 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Form Personal Funnel & Tombol Export: [https://files.catbox.moe/j8klim.png](https://files.catbox.moe/j8klim.png)
 >   * Aktivitas Export (Tercatat Status Tersedia): [https://files.catbox.moe/u4g1kl.png](https://files.catbox.moe/u4g1kl.png)
 >   * Riwayat Export (Data Tidak Tercatat): [https://files.catbox.moe/oqzq9n.png](https://files.catbox.moe/oqzq9n.png)
+> * **Catatan (Rejected 07/10)**: Issue di-reject / dibatalkan di Huly (US-649) sesuai alur dan pembagian fungsi Export Center.
 
 <br>
 
 ### 🐞 [BUG] | Report Lending - Personal Funnel: Hasil Export Masuk ke Aktivitas Export tetapi Tidak Tercatat di Riwayat Export
 
 > * **Menu**: Report Lending → Personal Funnel / Export Center → Riwayat Export
+> * **Status**: ❌ Rejected (US-650 / By Design)
+> * **Status Huly**: ❌ Rejected (US-650)
 > * **Akun Pengujian**:
 >   * Akun Request Export: `report_lending@gmail.com` (PW: `Batara123!`)
 >   * Akun Cek Export Center: `monitoring_dani@gmail.com` (PW: `P@ssw0rd`)
@@ -1077,6 +1085,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Form Personal Funnel & Tombol Export: [https://files.catbox.moe/h10rym.png](https://files.catbox.moe/h10rym.png)
 >   * Aktivitas Export (Tercatat Status Tersedia): [https://files.catbox.moe/gbu84f.png](https://files.catbox.moe/gbu84f.png)
 >   * Riwayat Export (Data Tidak Tercatat): [https://files.catbox.moe/0urs4a.png](https://files.catbox.moe/0urs4a.png)
+> * **Catatan (Rejected 07/10)**: Issue di-reject / dibatalkan di Huly (US-650) sesuai alur dan pembagian fungsi Export Center.
 
 <br>
 
@@ -1096,6 +1105,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Report Funding - Daily Sales Agenda: Prospek Produk Lending dari Sales Lending Masuk ke Daily Sales Agenda Funding (Tab Prospek Referal & Referal Closing)
 
 > * **Menu**: Report Funding → Daily Sales Agenda (Tab Prospek Referal & Prospek Referal Closing)
+> * **Status**: ❌ Rejected (US-652 / By Design)
+> * **Status Huly**: ❌ Rejected (US-652)
 > * **Deskripsi**: Prospek dengan produk Lending (contoh: Kredit Agunan Rumah / KAR) yang direferalkan oleh sales Lending (Job Role CLS Non Subsidi / MSLD) tercatat dan muncul pada menu Report Funding → Daily Sales Agenda pada tab Prospek Referal dan Prospek Referal Closing.
 > * **Expected**: Prospek dengan kategori produk Lending dari sales Lending seharusnya masuk ke menu Report Lending → Daily Sales Agenda, bukan masuk ke Report Funding.
 > * **Actual**: Data prospek referal produk Lending dari sales Lending tersebut masuk dan ditampilkan pada menu Report Funding → Daily Sales Agenda.
@@ -1104,6 +1115,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Bukti Sales Pemberi Referal adalah User Lending: [https://files.catbox.moe/7rqzjg.png](https://files.catbox.moe/7rqzjg.png)
 >   * Tab Prospek Referal Closing (Produk KAR Muncul di Funding): [https://files.catbox.moe/lpfa69.png](https://files.catbox.moe/lpfa69.png)
 >   * Bukti Sales Pemberi Referal Closing adalah User Lending: [https://files.catbox.moe/m50yvg.png](https://files.catbox.moe/m50yvg.png)
+> * **Catatan (Rejected 07/10)**: Issue di-reject / dibatalkan di Huly (US-652) karena penempatan data referral lending pada flow Daily Sales Agenda Funding sesuai dengan ketentuan dan alur sistem saat ini.
 
 <br>
 
@@ -1122,10 +1134,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Report Funding & Lending - Daily Sales Agenda: Prospek dengan Status Referral "Tidak" Masuk ke Tab Prospek Referal
 
-> * **Menu**: Report Funding & Report Lending → Daily Sales Agenda (Tab Prospek Referal & Prospek Referal Closing)
-> * **Deskripsi**: Data prospek nasabah yang memiliki Status Referral "Tidak" (bukan prospek referral) masih masuk dan ditampilkan pada tab "Prospek Referal" di menu Daily Sales Agenda (Funding dan Lending), dengan kolom "Nama Sales Pemberi Referral" bernilai kosong / strip (-).
-> * **Expected**: Tab Prospek Referal dan Prospek Referal Closing hanya menampilkan data prospek yang berstatus referral "Ya" (memiliki sales pemberi referral). Prospek dengan status referral "Tidak" seharusnya hanya masuk ke tab Prospek Masuk atau Prospek Closing.
-> * **Actual**: Prospek dengan status referral "Tidak" (contoh: prospek "test referal yes2") tetap masuk dan tampil pada tab Prospek Referal.
+> * **Menu**: `Report Funding` & `Report Lending` → `Daily Sales Agenda` (Tab `Prospek Referal` & `Prospek Referal Closing`)
+> * **Deskripsi**: Data prospek nasabah yang memiliki Status Referral `"Tidak"` (bukan prospek referral) masih masuk dan ditampilkan pada tab `Prospek Referal` di menu `Daily Sales Agenda` (Funding dan Lending), dengan kolom `Nama Sales Pemberi Referral` bernilai kosong / strip (`-`).
+> * **Expected**: Tab `Prospek Referal` dan `Prospek Referal Closing` hanya menampilkan data prospek yang berstatus referral `"Ya"` (memiliki sales pemberi referral). Prospek dengan status referral `"Tidak"` seharusnya hanya masuk ke tab `Prospek Masuk` atau `Prospek Closing`.
+> * **Actual**: Prospek dengan status referral `"Tidak"` (contoh: prospek `test referal yes2`) tetap masuk dan tampil pada tab `Prospek Referal`.
 > * **Evidence**:
 >   * Tab Prospek Referal Menampilkan Data Bukan Referral: [https://files.catbox.moe/thq732.png](https://files.catbox.moe/thq732.png)
 >   * Detail Prospek Memiliki Status Referral "Tidak": [https://files.catbox.moe/xwz7ko.png](https://files.catbox.moe/xwz7ko.png)
@@ -1405,3 +1417,7 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-07 | Profile - Keamanan (Perangkat Terhubung) | Penutupan issue tombol Putuskan Semua Perangkat Terhubung disabled (Status: Rejected di Huly US-639 / By Design) |
 | 2026-10-07 | Report Lending - Daily Sales Agenda | Temuan bug baru: Fitur export pada seluruh tab belum menggunakan standar Export Center (Total 61 bug) |
 | 2026-10-07 | Report Funding / Lending - Daily Sales Agenda | Temuan bug baru: Prospek status referral "Tidak" masuk ke tab Prospek Referal (Total 62 bug) |
+| 2026-10-07 | Profile - Keamanan | Penutupan issue ubah metode MFA tanpa verifikasi password (Status: Rejected di Huly US-640 / By Design) |
+| 2026-10-07 | Report Funding - Personal Funnel | Penutupan issue hasil export tidak tercatat di Riwayat Export (Status: Rejected di Huly US-649 / By Design) |
+| 2026-10-07 | Report Lending - Personal Funnel | Penutupan issue hasil export tidak tercatat di Riwayat Export (Status: Rejected di Huly US-650 / By Design) |
+| 2026-10-07 | Report Funding - Daily Sales Agenda | Penutupan issue prospek produk lending masuk Daily Sales Agenda Funding (Status: Rejected di Huly US-652 / By Design) |
