@@ -25,7 +25,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 14 | Overview | Overview Lend | Alam | ⬜ Belum |
 | 15 | Overview | Pengaturan Overview | Alam | ⬜ Belum |
 | 16 | User Authority | User | Alam | ✅ Done |
-| 17 | User Authority | Group Role | Alam | 🐛 Bug |
+| 17 | User Authority | Group Role | Alam | ✅ Done |
 | 18 | User Authority | Tipe Karyawan | Alam | ✅ Done |
 | 19 | User Authority | Hak Akses Role | Alam | ✅ Done |
 | 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | 🐛 Bug |
@@ -377,12 +377,15 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Group Role: Ketiadaan Peringatan Validasi Kolom Akses Menu Website Saat Edit Group Role
 
 > * **Menu**: User Authority → Group Role
-> * **Deskripsi**: Pada form Edit Group Role, ketika seluruh opsi pada kolom "Akses Menu Website" tidak dipilih/dikosongkan dan tombol simpan ditekan, sistem tidak menampilkan pesan peringatan atau alert validasi bahwa Akses Menu Website wajib diisi. Hal ini tidak konsisten dengan form Tambah Group Role (Add Role) yang sudah memiliki validasi peringatan jika Akses Menu Website belum dipilih.
+> * **Status**: ✅ Done
+> * **Deskripsi**: Pada form Edit Group Role, ketika seluruh opsi pada kolom "Akses Menu Website" tidak dipilih/dikosongkan dan tombol simpan ditekan, sistem sebelumnya tidak menampilkan pesan peringatan atau alert validasi bahwa Akses Menu Website wajib diisi. Hal ini tidak konsisten dengan form Tambah Group Role (Add Role) yang sudah memiliki validasi peringatan jika Akses Menu Website belum dipilih.
 > * **Expected**: Form Edit Group Role konsisten dengan form Tambah Role, yaitu memunculkan alert/peringatan validasi bahwa kolom "Akses Menu Website" wajib diisi/dipilih sebelum data disimpan.
-> * **Actual**: Tidak ada alert atau pesan peringatan validasi yang muncul pada form Edit saat Akses Menu Website dikosongkan.
-> * **Evidence**:
->   * Form Edit Group Role (Belum Ada Alert): [https://files.catbox.moe/9w0glq.png](https://files.catbox.moe/9w0glq.png)
->   * Form Tambah Group Role (Contoh Ada Alert): [https://files.catbox.moe/mz8dhs.png](https://files.catbox.moe/mz8dhs.png)
+> * **Actual**: Muncul notifikasi peringatan/alert di bagian atas layar: "Pilih minimal satu menu website sebelum menyimpan role" saat form disimpan tanpa memilih menu website.
+> * **Evidence Awal**:
+>   * Form Edit Group Role (Sebelumnya Belum Ada Alert): [https://files.catbox.moe/9w0glq.png](https://files.catbox.moe/9w0glq.png)
+>   * Form Tambah Group Role (Referensi Alert): [https://files.catbox.moe/mz8dhs.png](https://files.catbox.moe/mz8dhs.png)
+> * **Bukti Retest (Done)**: [https://files.catbox.moe/uexsyl.png](https://files.catbox.moe/uexsyl.png)
+> * **Catatan Retest (07 Oktober 2026)**: Peringatan validasi pada form Edit Group Role sudah ditambahkan. Saat form disimpan tanpa memilih menu website, kini muncul alert validasi "Pilih minimal satu menu website sebelum menyimpan role". Issue dinyatakan selesai.
 
 <br>
 
@@ -1370,3 +1373,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-07 | Report Funding - Daily Sales Agenda | Temuan bug baru: Fitur export pada seluruh tab belum menggunakan standar Export Center (Total 59 bug) |
 | 2026-10-07 | Report Funding / Lending - Daily Sales Agenda | Temuan bug baru: Prospek produk lending dari sales lending masuk ke Daily Sales Agenda Funding (Total 60 bug) |
 | 2026-10-07 | User Authority - Keamanan Akun (Perangkat & Sesi) | Verifikasi perbaikan export error validasi page & limit selesai (Status: Done) |
+| 2026-10-07 | User Authority - Group Role | Verifikasi perbaikan peringatan validasi akses menu website saat edit group role selesai (Status: Done) |
