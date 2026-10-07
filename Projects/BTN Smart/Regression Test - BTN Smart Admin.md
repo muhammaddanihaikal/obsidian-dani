@@ -1118,6 +1118,18 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Tampilan Drawer Masih Download Export: [https://litter.catbox.moe/cxz8xs.png](https://litter.catbox.moe/cxz8xs.png)
 >   * Referensi Standar Tampilan Export Center: [https://litter.catbox.moe/dgv428.png](https://litter.catbox.moe/dgv428.png)
 
+<br>
+
+### 🐞 [BUG] | Report Funding & Lending - Daily Sales Agenda: Prospek dengan Status Referral "Tidak" Masuk ke Tab Prospek Referal
+
+> * **Menu**: Report Funding & Report Lending → Daily Sales Agenda (Tab Prospek Referal & Prospek Referal Closing)
+> * **Deskripsi**: Data prospek nasabah yang memiliki Status Referral "Tidak" (bukan prospek referral) masih masuk dan ditampilkan pada tab "Prospek Referal" di menu Daily Sales Agenda (Funding dan Lending), dengan kolom "Nama Sales Pemberi Referral" bernilai kosong / strip (-).
+> * **Expected**: Tab Prospek Referal dan Prospek Referal Closing hanya menampilkan data prospek yang berstatus referral "Ya" (memiliki sales pemberi referral). Prospek dengan status referral "Tidak" seharusnya hanya masuk ke tab Prospek Masuk atau Prospek Closing.
+> * **Actual**: Prospek dengan status referral "Tidak" (contoh: prospek "test referal yes2") tetap masuk dan tampil pada tab Prospek Referal.
+> * **Evidence**:
+>   * Tab Prospek Referal Menampilkan Data Bukan Referral: [https://files.catbox.moe/thq732.png](https://files.catbox.moe/thq732.png)
+>   * Detail Prospek Memiliki Status Referral "Tidak": [https://files.catbox.moe/xwz7ko.png](https://files.catbox.moe/xwz7ko.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -1392,3 +1404,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-07 | User Authority - Group Role | Verifikasi perbaikan peringatan validasi akses menu website saat edit group role selesai (Status: Done) |
 | 2026-10-07 | Profile - Keamanan (Perangkat Terhubung) | Penutupan issue tombol Putuskan Semua Perangkat Terhubung disabled (Status: Rejected di Huly US-639 / By Design) |
 | 2026-10-07 | Report Lending - Daily Sales Agenda | Temuan bug baru: Fitur export pada seluruh tab belum menggunakan standar Export Center (Total 61 bug) |
+| 2026-10-07 | Report Funding / Lending - Daily Sales Agenda | Temuan bug baru: Prospek status referral "Tidak" masuk ke tab Prospek Referal (Total 62 bug) |
