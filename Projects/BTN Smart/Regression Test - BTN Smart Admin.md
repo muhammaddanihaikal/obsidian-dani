@@ -1105,6 +1105,19 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Tab Prospek Referal Closing (Produk KAR Muncul di Funding): [https://files.catbox.moe/lpfa69.png](https://files.catbox.moe/lpfa69.png)
 >   * Bukti Sales Pemberi Referal Closing adalah User Lending: [https://files.catbox.moe/m50yvg.png](https://files.catbox.moe/m50yvg.png)
 
+<br>
+
+### 🐞 [BUG] | Report Lending - Daily Sales Agenda: Fitur Export di Seluruh Tab Belum Menggunakan Standar Export Center
+
+> * **Menu**: Report Lending → Daily Sales Agenda (Tab Prospek Masuk, Prospek Closing, Prospek Referal, Prospek Referal Closing)
+> * **Deskripsi**: Fitur export data pada seluruh tab di menu Daily Sales Agenda Lending masih menggunakan tampilan/mekanisme drawer lama ("Download Export") dan belum diintegrasikan dengan standar fitur "Export Center".
+> * **Expected**: Saat klik tombol Export pada seluruh tab, proses export terintegrasi dengan drawer/halaman Export Center sesuai standar sistem (menampilkan Request ID, status Diminta/Menunggu/Disetujui/Tersedia, dan tercatat di Riwayat Export).
+> * **Actual**: Tombol Export masih membuka drawer lama ("Download Export") dan belum terhubung ke sistem Export Center.
+> * **Evidence**:
+>   * Form Daily Sales Agenda Lending & Tombol Export: [https://litter.catbox.moe/hh9xp2.png](https://litter.catbox.moe/hh9xp2.png)
+>   * Tampilan Drawer Masih Download Export: [https://litter.catbox.moe/cxz8xs.png](https://litter.catbox.moe/cxz8xs.png)
+>   * Referensi Standar Tampilan Export Center: [https://litter.catbox.moe/dgv428.png](https://litter.catbox.moe/dgv428.png)
+
 ---
 
 ## ❓ Catatan Konfirmasi Dev / BA
@@ -1378,3 +1391,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-07 | User Authority - Keamanan Akun (Perangkat & Sesi) | Verifikasi perbaikan export error validasi page & limit selesai (Status: Done) |
 | 2026-10-07 | User Authority - Group Role | Verifikasi perbaikan peringatan validasi akses menu website saat edit group role selesai (Status: Done) |
 | 2026-10-07 | Profile - Keamanan (Perangkat Terhubung) | Penutupan issue tombol Putuskan Semua Perangkat Terhubung disabled (Status: Rejected di Huly US-639 / By Design) |
+| 2026-10-07 | Report Lending - Daily Sales Agenda | Temuan bug baru: Fitur export pada seluruh tab belum menggunakan standar Export Center (Total 61 bug) |
