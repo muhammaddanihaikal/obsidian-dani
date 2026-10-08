@@ -76,12 +76,12 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 70 | Sales Force | Pipeline - Input komitmen | Ahrul | 🔄 On Going |
 | 71 | Sales Force | Pipeline - Input Pipeline | Ahrul | 🔄 On Going |
 | 72 | Sales Force | Pipeline - Dashboard Validate Pipeline | Ahrul | 🔄 On Going |
-| 73 | Report Funding | Daily Sales Agenda | Ahrul | 🐛 Bug |
+| 73 | Report Funding | Daily Sales Agenda | Ahrul | ✅ Done |
 | 74 | Report Funding | Personal Funnel | Ahrul | ✅ Done |
 | 75 | Report Funding | Rekap Funnel | Ahrul | 🐛 Bug |
 | 76 | Report Funding | Regional Funnel | Ahrul | ⬜ Belum |
 | 77 | Report Funding | Pengaturan Funnel | Ahrul | ⬜ Belum |
-| 78 | Report Lending | Daily Sales Agenda | Ahrul | 🐛 Bug |
+| 78 | Report Lending | Daily Sales Agenda | Ahrul | ✅ Done |
 | 79 | Report Lending | Personal Funnel | Ahrul | ✅ Done |
 | 80 | Report Lending | Rekap Funnel | Ahrul | ⬜ Belum |
 | 81 | Report Lending | Regional Funnel | Ahrul | ⬜ Belum |
@@ -1146,12 +1146,20 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Report Funding & Lending - Daily Sales Agenda: Prospek dengan Status Referral "Tidak" Masuk ke Tab Prospek Referal
 
 > * **Menu**: `Report Funding` & `Report Lending` → `Daily Sales Agenda` (Tab `Prospek Referal` & `Prospek Referal Closing`)
-> * **Deskripsi**: Data prospek nasabah yang memiliki Status Referral `"Tidak"` (bukan prospek referral) masih masuk dan ditampilkan pada tab `Prospek Referal` di menu `Daily Sales Agenda` (Funding dan Lending), dengan kolom `Nama Sales Pemberi Referral` bernilai kosong / strip (`-`).
+> * **Status**: ✅ Done
+> * **Status Huly**: ✅ Done
+> * **Deskripsi**: Data prospek nasabah yang memiliki Status Referral `"Tidak"` (bukan prospek referral) sebelumnya masih masuk dan ditampilkan pada tab `Prospek Referal` di menu `Daily Sales Agenda` (Funding dan Lending), dengan kolom `Nama Sales Pemberi Referral` bernilai kosong / strip (`-`).
 > * **Expected**: Tab `Prospek Referal` dan `Prospek Referal Closing` hanya menampilkan data prospek yang berstatus referral `"Ya"` (memiliki sales pemberi referral). Prospek dengan status referral `"Tidak"` seharusnya hanya masuk ke tab `Prospek Masuk` atau `Prospek Closing`.
-> * **Actual**: Prospek dengan status referral `"Tidak"` (contoh: prospek `test referal yes2`) tetap masuk dan tampil pada tab `Prospek Referal`.
-> * **Evidence**:
+> * **Actual**: Seluruh data yang tampil pada tab `Prospek Referal` dan `Prospek Referal Closing` (baik Funding maupun Lending) kini hanya berisi data prospek referral yang memiliki `Nama Sales Pemberi Referral` valid. Data dengan status referral `"Tidak"` sudah tidak muncul lagi.
+> * **Evidence Awal**:
 >   * Tab Prospek Referal Menampilkan Data Bukan Referral: [https://files.catbox.moe/thq732.png](https://files.catbox.moe/thq732.png)
 >   * Detail Prospek Memiliki Status Referral "Tidak": [https://files.catbox.moe/xwz7ko.png](https://files.catbox.moe/xwz7ko.png)
+> * **Bukti Retest (Done)**:
+>   * Lending - Tab Prospek Referal: [https://files.catbox.moe/h253r8.png](https://files.catbox.moe/h253r8.png)
+>   * Lending - Tab Prospek Referal Closing: [https://files.catbox.moe/0wwh0e.png](https://files.catbox.moe/0wwh0e.png)
+>   * Funding - Tab Prospek Referal: [https://files.catbox.moe/59ic75.png](https://files.catbox.moe/59ic75.png)
+>   * Funding - Tab Prospek Referal Closing: [https://files.catbox.moe/p3526o.png](https://files.catbox.moe/p3526o.png)
+> * **Catatan Retest (08 Oktober 2026)**: Validasi filter tab Prospek Referal dan Prospek Referal Closing sudah diperbaiki di Report Funding dan Report Lending. Seluruh data yang muncul sudah terverifikasi memiliki Sales Pemberi Referral, dan prospek dengan status referral "Tidak" tidak lagi masuk ke kedua tab tersebut. Issue dinyatakan selesai (Done).
 
 <br>
 
@@ -1448,3 +1456,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-08 | User Authority - Keamanan Akun (Daftar Akun) | Verifikasi perbaikan export file Excel tab Daftar Akun selesai (Status: Done) |
 | 2026-10-08 | Report Funding - Daily Sales Agenda | Verifikasi perbaikan fitur export seluruh tab terintegrasi Export Center selesai (Status: Done) |
 | 2026-10-08 | Report Lending - Daily Sales Agenda | Verifikasi perbaikan fitur export seluruh tab terintegrasi Export Center selesai (Status: Done) |
+| 2026-10-08 | Report Funding / Lending - Daily Sales Agenda | Verifikasi perbaikan prospek status referral "Tidak" tidak lagi masuk tab Prospek Referal selesai (Status: Done) |
