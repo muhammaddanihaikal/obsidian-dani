@@ -28,7 +28,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 17 | User Authority | Group Role | Alam | ✅ Done |
 | 18 | User Authority | Tipe Karyawan | Alam | ✅ Done |
 | 19 | User Authority | Hak Akses Role | Alam | ✅ Done |
-| 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | 🐛 Bug |
+| 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | ✅ Done |
 | 21 | User Authority | Keamanan Akun - Permintaan Reset MFA | Alam | ✅ Done |
 | 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | ✅ Done |
 | 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | 🐛 Bug |
@@ -514,12 +514,15 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Keamanan Akun: File Excel Hasil Export pada Tab Daftar Akun Kosong Tanpa Baris Data
 
 > * **Menu**: User Authority → Keamanan Akun (Daftar Akun)
+> * **Status**: ✅ Done
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Saat menekan tombol "Export Data" pada tab Daftar Akun, file Excel yang terunduh (keamanan-akun-daftar-akun-*.xlsx) hanya memuat baris header kolom saja tanpa adanya baris data pengguna (kosong/blank), padahal pada tabel sistem terdapat 12.070 data pengguna.
 > * **Expected**: File Excel hasil export memuat seluruh baris data pengguna secara lengkap sesuai dengan data yang terdaftar pada sistem (12.070 data).
 > * **Actual**: File Excel hasil export kosong dan tidak memuat baris data pengguna sama sekali (hanya memuat baris header kolom).
 > * **Evidence**:
 >   * Halaman Web Admin (12.070 Data & Tombol Export Data): [https://files.catbox.moe/qqf2yf.png](https://files.catbox.moe/qqf2yf.png)
 >   * File Excel Hasil Export Kosong Tanpa Baris Data: [https://files.catbox.moe/g0t3mq.png](https://files.catbox.moe/g0t3mq.png)
+> * **Catatan Retest (08 Oktober 2026)**: Fitur Export Data pada tab Daftar Akun sudah diperbaiki. File Excel hasil export sudah memuat seluruh baris data pengguna secara lengkap. Issue dinyatakan selesai (Done).
 
 <br>
 
@@ -1434,3 +1437,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-07 | Report Lending - Personal Funnel | Penutupan issue hasil export tidak tercatat di Riwayat Export (Status: Rejected di Huly US-650 / By Design) |
 | 2026-10-07 | Report Funding - Daily Sales Agenda | Penutupan issue prospek produk lending masuk Daily Sales Agenda Funding (Status: Rejected di Huly US-652 / By Design) |
 | 2026-10-07 | Report Funding - Rekap Funnel | Temuan bug baru: Tombol reset filter tidak mereset field Fee Based, Info Bulan, dan Info Tahun (Total 63 bug) |
+| 2026-10-08 | User Authority - Keamanan Akun (Daftar Akun) | Verifikasi perbaikan export file Excel tab Daftar Akun selesai (Status: Done) |
