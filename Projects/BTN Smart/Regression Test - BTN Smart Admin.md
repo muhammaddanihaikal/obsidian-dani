@@ -1159,7 +1159,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Lending - Tab Prospek Referal Closing: [https://files.catbox.moe/0wwh0e.png](https://files.catbox.moe/0wwh0e.png)
 >   * Funding - Tab Prospek Referal: [https://files.catbox.moe/59ic75.png](https://files.catbox.moe/59ic75.png)
 >   * Funding - Tab Prospek Referal Closing: [https://files.catbox.moe/p3526o.png](https://files.catbox.moe/p3526o.png)
-> * **Catatan Retest (08 Oktober 2026)**: Validasi filter tab Prospek Referal dan Prospek Referal Closing sudah diperbaiki di Report Funding dan Report Lending. Seluruh data yang muncul sudah terverifikasi memiliki Sales Pemberi Referral, dan prospek dengan status referral "Tidak" tidak lagi masuk ke kedua tab tersebut. Issue dinyatakan selesai (Done).
+> * **Catatan Retest (08 Oktober 2026)**: Validasi filter tab Prospek Referal dan Prospek Referal Closing sudah diperbaiki di Report Funding dan Report Lending. Seperti yang ditandai pada kotak merah di bukti retest, seluruh baris data pada kolom Nama Sales Pemberi Referral sudah terisi lengkap dengan nama sales (tidak ada lagi yang bernilai kosong atau strip `-`), memastikan seluruh data yang tampil valid berstatus referral "Ya", dan data berstatus referral "Tidak" tidak lagi masuk. Issue dinyatakan selesai (Done).
 
 <br>
 
