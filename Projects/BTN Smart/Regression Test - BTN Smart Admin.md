@@ -1095,6 +1095,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Report Funding - Daily Sales Agenda: Fitur Export di Seluruh Tab Belum Menggunakan Standar Export Center
 
 > * **Menu**: Report Funding → Daily Sales Agenda (Tab Prospek Masuk, Prospek Closing, Prospek Referal, Prospek Referal Closing)
+> * **Status**: ✅ Done
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Fitur export data pada seluruh tab di menu Daily Sales Agenda masih menggunakan tampilan/mekanisme drawer lama ("Download Export") dan belum diintegrasikan dengan standar fitur "Export Center".
 > * **Expected**: Saat klik tombol Export pada seluruh tab, proses export terintegrasi dengan drawer/halaman Export Center sesuai standar sistem (menampilkan Request ID, status Diminta/Menunggu/Disetujui/Tersedia, dan tercatat di Riwayat Export).
 > * **Actual**: Tombol Export masih membuka drawer lama ("Download Export") dan belum terhubung ke sistem Export Center.
@@ -1102,6 +1104,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Form Daily Sales Agenda & Tombol Export: [https://files.catbox.moe/c1uyel.png](https://files.catbox.moe/c1uyel.png)
 >   * Tampilan Drawer Masih Download Export: [https://files.catbox.moe/9ms3hn.png](https://files.catbox.moe/9ms3hn.png)
 >   * Referensi Standar Tampilan Export Center: [https://files.catbox.moe/d1jumm.png](https://files.catbox.moe/d1jumm.png)
+> * **Bukti Retest (Done - 08/10)**: [https://files.catbox.moe/3rpt87.png](https://files.catbox.moe/3rpt87.png)
+> * **Catatan Retest (08 Oktober 2026)**: Fitur Export di seluruh tab Daily Sales Agenda Funding (Prospek Masuk, Prospek Closing, Prospek Referal, Prospek Referal Closing) sudah terintegrasi dengan drawer Export Center. Status export tercatat normal (Diminta/Tersedia/Disetujui). Issue dinyatakan selesai (Done).
 
 <br>
 
@@ -1438,3 +1442,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-07 | Report Funding - Daily Sales Agenda | Penutupan issue prospek produk lending masuk Daily Sales Agenda Funding (Status: Rejected di Huly US-652 / By Design) |
 | 2026-10-07 | Report Funding - Rekap Funnel | Temuan bug baru: Tombol reset filter tidak mereset field Fee Based, Info Bulan, dan Info Tahun (Total 63 bug) |
 | 2026-10-08 | User Authority - Keamanan Akun (Daftar Akun) | Verifikasi perbaikan export file Excel tab Daftar Akun selesai (Status: Done) |
+| 2026-10-08 | Report Funding - Daily Sales Agenda | Verifikasi perbaikan fitur export seluruh tab terintegrasi Export Center selesai (Status: Done) |
