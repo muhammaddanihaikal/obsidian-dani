@@ -575,21 +575,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Expected**: Seluruh aktivitas MFA dan manajemen Perangkat & Sesi otomatis tercatat secara akurat, lengkap, dan sesuai dengan aksi nyata yang dilakukan user/admin.
 > * **Actual**: Sebagian aktivitas MFA salah label/prematur/hilang, dan seluruh aktivitas Perangkat & Sesi sama sekali tidak tercatat di Log Aktivitas.
 > * **Evidence**: [https://files.catbox.moe/5xeegv.png](https://files.catbox.moe/5xeegv.png)
-> * **Status Retest Saat Ini (29-30 September 2026 - On Progress)**:
->   * `[MFA] Verifikasi Berhasil (OTP)`: ❌ *Belum Sesuai / Masih Issue* ([https://files.catbox.moe/c5aigt.png](https://files.catbox.moe/c5aigt.png))
+> * **Status Retest Saat Ini (Update 09 Oktober 2026 - On Progress)**:
+>   * `[MFA] Verifikasi Berhasil (OTP)`: 🔄 *Sedang Diuji* ([https://files.catbox.moe/c5aigt.png](https://files.catbox.moe/c5aigt.png))
 >   * `[MFA] Verifikasi dengan Kode Cadangan`: ✅ *Done / Sesuai* ([https://files.catbox.moe/xktbi9.png](https://files.catbox.moe/xktbi9.png))
 >   * `[MFA] Verifikasi Gagal`: ✅ *Done / Sesuai* ([https://files.catbox.moe/kxjmdp.png](https://files.catbox.moe/kxjmdp.png))
->   * `[MFA] Permintaan Reset Ditolak`: ❌ *Belum Sesuai / Masih Issue* (log belum muncul)
->   * `[MFA] Permintaan Reset Disetujui`: ❌ *Belum Sesuai / Masih Issue* (log belum muncul)
->   * `[MFA] Reset MFA`: ❌ *Belum Sesuai / Masih Issue* (log belum tercatat)
->   * `[MFA] Mengubah Metode`: ❌ *Belum Sesuai / Masih Issue* (log belum muncul)
->   * `[MFA] MFA Diaktifkan`: ❌ *Belum Sesuai / Masih Issue* (log belum masuk)
->   * `[MFA] MFA Dinonaktifkan`: ❌ *Belum Sesuai / Masih Issue* (log belum masuk)
+>   * `[MFA] Permintaan Reset Ditolak`: 🔄 *Sedang Diuji*
+>   * `[MFA] Permintaan Reset Disetujui`: 🔄 *Sedang Diuji*
+>   * `[MFA] Reset MFA`: 🔄 *Sedang Diuji*
+>   * `[MFA] Mengubah Metode`: 🔄 *Sedang Diuji*
+>   * `[MFA] Diaktifkan`: 🔄 *Sedang Diuji*
+>   * `[MFA] Dinonaktifkan`: ❌ *Belum Sesuai / Masih Issue*
 >   * `[Sesi] Mempercayai Perangkat`: ✅ *Done / Sesuai*
->   * `[Sesi] Menghapus Perangkat Terpercaya`: ❌ *Belum Sesuai / Masih Issue* (log belum masuk)
->   * `[Sesi] Memberi Label Perangkat`: ❌ *Belum Sesuai / Masih Issue* (log belum masuk)
->   * `[Sesi] Mencabut Semua Sesi`: ⚠️ *Blocked (Terhalang tombol Putuskan Semua Perangkat Terhubung disabled)* ([https://files.catbox.moe/qggijm.png](https://files.catbox.moe/qggijm.png))
-> * **Hasil Retest (30 September 2026)**: ❌ **Masih Issue** (3 Sesuai, 10 Belum Muncul Log, 1 Blocked)
+>   * `[Sesi] Menghapus Perangkat Terpercaya`: ✅ *Done / Sesuai*
+>   * `[Sesi] Memberi Label Perangkat`: 🔄 *Sedang Diuji*
+>   * `[Sesi] Mencabut Sesi Perangkat`: 🔄 *Sedang Diuji*
+>   * `[Sesi] Mencabut Semua Sesi`: ✅ *Done / Sesuai*
 
 <br>
 
@@ -1457,3 +1457,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-08 | Report Funding - Daily Sales Agenda | Verifikasi perbaikan fitur export seluruh tab terintegrasi Export Center selesai (Status: Done) |
 | 2026-10-08 | Report Lending - Daily Sales Agenda | Verifikasi perbaikan fitur export seluruh tab terintegrasi Export Center selesai (Status: Done) |
 | 2026-10-08 | Report Funding / Lending - Daily Sales Agenda | Verifikasi perbaikan prospek status referral "Tidak" tidak lagi masuk tab Prospek Referal selesai (Status: Done) |
+| 2026-10-09 | User Authority - Keamanan Akun (Log Aktivitas) | Retest lanjutan inkonsistensi log audit MFA & Sesi: Menghapus Perangkat Terpercaya & Mencabut Semua Sesi selesai (Status: On Progress) |
