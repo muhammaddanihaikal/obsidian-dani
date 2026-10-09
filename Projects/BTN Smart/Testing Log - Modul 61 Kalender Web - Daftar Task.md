@@ -10,7 +10,7 @@ Catatan pengujian portal **BTN SMART Web** untuk penambahan test case dan bukti 
 * **Fitur**: Daftar Task (Header Kalender Web)
 * **Tanggal Update**: 9 Oktober 2026
 * **Tester**: Dani & Team QA
-* **Status**: **TC SELESAI DIEKSEKUSI (18 TC LENGKAP, 2 TC STANDBY) - DOKUMEN & HASIL UJI SYNCED** ✅
+* **Status**: **SELURUH TC MODUL 61 SELESAI DIEKSEKUSI (20 TC LENGKAP 100%) - DOKUMEN & HASIL UJI SYNCED** ✅
 
 ---
 
@@ -37,8 +37,8 @@ Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender 
 | **61.16** | Kalender | - | Membatalkan task | Positive Case | High | Pada drawer Edit Task, klik button Batalkan - Klik button Ya, Batalkan pada pop-up konfirmasi aksi | Berhasil membatalkan task. | **2 SS Embedded** ✅ |
 | **61.17** | Kalender | - | Mengubah data task | Positive Case | High | Pada tabel Daftar Task, klik baris task atau icon titik tiga - Pilih menu Edit - Ubah data pada drawer Edit Task - Klik tombol Simpan | Berhasil mengubah data task. | **2 SS Embedded** ✅ |
 | **61.18** | Kalender | - | Menghapus task secara permanen | Positive Case | Normal | Pada drawer Edit Task atau menu titik tiga, klik menu Hapus - Klik button Hapus pada pop-up konfirmasi Hapus task ini secara permanen? | Berhasil menghapus task secara permanen. | **2 SS Embedded** ✅ |
-| **61.19** | Kalender | - | Membagikan task kepada user | Positive Case | High | Pada drawer Edit Task, klik button Bagikan - Pada pop-up Bagikan Task, pilih penerima dan role - Klik Tambahkan | Berhasil membagikan task kepada user. | Standby (Empty / Menunggu SS) ⏳ |
-| **61.20** | Kalender | - | Menghapus penugasan task kepada user | Positive Case | Normal | Pada pop-up Bagikan Task, klik icon Hapus (tempat sampah) pada user yang ditugaskan - Tutup pop-up | Berhasil menghapus penugasan task kepada user. | Standby (Empty / Menunggu SS) ⏳ |
+| **61.19** | Kalender | - | Membagikan task kepada user | Positive Case | High | Pada drawer Edit Task, klik button Bagikan - Pada pop-up Bagikan Task, pilih penerima dan role - Klik Tambahkan | Berhasil membagikan task kepada user. | **3 SS Embedded** ✅ |
+| **61.20** | Kalender | - | Menghapus penugasan task kepada user | Positive Case | Normal | Pada pop-up Bagikan Task, klik icon Hapus (tempat sampah) pada user yang ditugaskan - Tutup pop-up | Berhasil menghapus penugasan task kepada user. | **2 SS Embedded** ✅ |
 
 ---
 
@@ -56,9 +56,7 @@ Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender 
    * Table 62 (Modul 61 Kalender): Bertambah menjadi 21 baris (Header + 20 TC: 61.1 s/d 61.20).
 
 3. **Hasil Uji Word (`Hasil Uji\Dokumen_Hasil_Uji_Web.docx`)**:
-   * **Total Bukti Uji Ter-embed**: **33 Tangkapan Layar** (TC 61.1 s/d 61.18 lengkap 100%).
-   * **TC 61.19 & 61.20 (Bagikan & Hapus Bagikan Task)**:
-     * Cell gambar dalam status **STANDBY / KOSONG / NO PICTURE** sesuai SOP penambahan TC baru agar tester tim yang mengisi bukti screenshot-nya.
+   * **Total Bukti Uji Ter-embed**: **38 Tangkapan Layar** (TC 61.1 s/d 61.20 LENGKAP 100%).
    * **TC 61.1 s/d 61.6 (11 SS)**:
      * `61.1`: 1 SS (Full Screen, As-Is) — Bukti pembuka menu Kalender pada sidebar.
      * `61.2`: 2 SS (Full Body Crop: Hapus Sidebar 60px & Navbar 72px, `1845x833`).
@@ -71,15 +69,17 @@ Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender 
      * `61.8`: 3 SS (Hapus Label: 1. Drawer List Label `1845x905`, 2. Popover Konfirmasi Hapus `1860x905`, 3. Toast Sukses Hapus Label `1845x905`).
      * `61.9`: 2 SS (Buka Daftar Task: 1. Full Body Crop tombol Daftar Task `1845x833`, 2. Full Body Crop tabel Daftar Task `1845x833`).
      * `61.10`: 1 SS (Filter Daftar Task: 1. Full Body Crop tabel terfilter `1845x833`).
-   * **TC 61.11 s/d 61.18 (13 SS Ter-embed)**:
+   * **TC 61.11 s/d 61.20 (18 SS Ter-embed)**:
      * `61.11`: 1 SS (Cari valid: Full Body Crop `1845x833`).
      * `61.12`: 1 SS (Cari invalid: Full Body Crop `1845x833`).
      * `61.13`: 1 SS (Reset filter: Full Body Crop `1845x833`).
-     * `61.14`: 2 SS (Mulai task: 1. Dropdown titik tiga 'Mulai' `1845x833`, 2. Toast alert 'Task dimulai' `1845x905` [Navbar dipertahankan]).
-     * `61.15`: 2 SS (Buka kembali: 1. Dropdown titik tiga 'Buka Kembali' `1845x833`, 2. Toast alert 'Task dibuka kembali' `1845x905` [Navbar dipertahankan]).
-     * `61.16`: 2 SS (Batalkan task: 1. Dropdown titik tiga 'Batalkan' `1845x833`, 2. Toast alert 'Task dibatalkan' `1845x905` [Navbar dipertahankan]).
-     * `61.17`: 2 SS (Mengubah data task: 1. Drawer Edit Task `1845x905`, 2. Tabel Daftar Task hasil ubah `1845x833`).
-     * `61.18`: 2 SS (Hapus permanen: 1. Dropdown titik tiga 'Hapus Permanen' `1845x833`, 2. Toast alert 'Task dihapus permanen' `1845x905` [Navbar dipertahankan]).
+     * `61.14`: 2 SS (Mulai task: 1. Dropdown titik tiga 'Mulai' `1845x833`, 2. Toast alert 'Task dimulai' `1845x905`).
+     * `61.15`: 2 SS (Buka kembali: 1. Dropdown titik tiga 'Buka Kembali' `1845x833`, 2. Toast alert 'Task dibuka kembali' `1845x905`).
+     * `61.16`: 2 SS (Batalkan task: 1. Dropdown titik tiga 'Batalkan' `1845x833`, 2. Toast alert 'Task dibatalkan' `1845x905`).
+     * `61.17`: 2 SS (Mengubah data task: 1. Tabel Daftar Task pilih baris `1845x833`, 2. Drawer Edit Task klik Simpan `1845x905`).
+     * `61.18`: 2 SS (Hapus permanen: 1. Dropdown titik tiga 'Hapus Permanen' `1845x833`, 2. Toast alert 'Task dihapus permanen' `1845x905`).
+     * `61.19`: 3 SS (Membagikan task: 1. Drawer tombol Bagikan `1845x905`, 2. Modal tombol Tambahkan Watcher `1845x905`, 3. Toast alert '2 user ditambahkan sebagai Watcher' `1845x905`).
+     * `61.20`: 2 SS (Menghapus penugasan: 1. Modal icon tempat sampah user penugasan `1845x905`, 2. Toast alert 'User dilepas dari task' `1845x905`).
    * Table of Contents (TOC) telah diperbarui via Word COM.
    * XML attributes duplicate `paraId` dan `textId` dibersihkan 100%.
 
@@ -91,7 +91,7 @@ Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender 
    * **Local D**: `D:\Project\BTN Smart\Refactor`
    * **Drive H**: `H:\My Drive\Zegen\BTN Smart\Refactor` (Zero-Backup clean, tepat 77 modul)
    * **Drive G**: `G:\My Drive\Zegen\BTN Smart\Refactor`
-   * Seluruh dokumen hasil uji, SIT Excel, SIT Word, dan folder screenshot tersinkron identik di ketiga drive.
+   * Seluruh dokumen hasil uji, SIT Excel, SIT Word, dan seluruh 38 screenshot aktif tersinkron 100% identik di ketiga drive.
 
 6. **Git Version Control**:
    * Branch: `main`
