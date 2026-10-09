@@ -202,12 +202,18 @@ flowchart TD
    - Laporkan detail perubahannya terlebih dahulu ke Mas Dani (nomor TC, judul skenario, modul terkait).
    - Setelah mendapat persetujuan ("Proceed" / "Lanjut"), baru gunakan metode **Two-Phase Rename** untuk menyelaraskan nama folder, mengupdate baris Excel, dan menyusun penomoran tabel di Word.
 
-### C. Tri-Drive Synchronization & Version Control:
-- Setiap kali sinkronisasi berhasil, perubahan disalin serentak ke 3 lokasi:
-  - `D:\Project\BTN Smart\Refactor\`
-  - `H:\My Drive\Zegen\BTN Smart\Refactor\`
-  - `G:\My Drive\Zegen\BTN Smart\Refactor\`
-- Git commit otomatis dijalankan dengan pesan deskriptif dan dipush ke branch `main`.
+### C. Kebijakan Tri-Drive & Standar Bebas Backup di Drive Utama (Disepakati 7 Okt 2026):
+1. **Drive H (`muhammaddanihaikal.dev@gmail.com`) — PURE & CLEAN (Drive Utama):**
+   - **DILARANG KERAS** menyimpan folder atau file backupan (seperti `(Original Full)`, `(Safety Backup)`, dsb.) di Drive H!
+   - Drive H hanya diperuntukkan bagi folder modul resmi aktif (`01. Login` s/d modul terakhir) yang berisi screenshot final ter-crop dan file panduan `.txt`.
+   - Tampilan di Windows Explorer harus selalu rapi dan bersih, tidak boleh ada folder kembaran ganda.
+2. **Drive G (`dainnaxjakarta91@gmail.com`) — Dedicated Cloud Backup:**
+   - Menjadi repositori penyimpanan seluruh folder backup cloud: folder `(Original Full)`, file screenshot mentah uncropped, dan file histori lainnya.
+3. **Local D (`D:\Project\BTN Smart\Refactor\`) — Working Repository & Local Backup:**
+   - Repositori lokal kerja aktif yang juga menyimpan salinan lengkap backup original (`(Original Full)`) dan sinkronisasi Git.
+4. **Aturan Mutlak Sebelum Merapikan:**
+   - **WAJIB meminta persetujuan / ACC Mas Dani (USER)** sebelum melakukan penghapusan atau pembersihan folder di Drive H.
+
 
 ### D. Snapshot Modul yang Selesai & Tertanam 100% (Status Per 30 Sep 2026):
 - **Web (Dokumen_Hasil_Uji_Web.docx)**:
@@ -226,17 +232,39 @@ flowchart TD
   - Modul lainnya: 01 (12 TC), 03 (2 TC), 04 (1 TC), 05 (2 TC), 06 (7 TC), 07 (5 TC), 08 (14 TC), 09 (8 TC), 10 (1 TC), 14 (5 TC), 15 (7 TC).
   - **Total Mobile**: **126 TC** (**277 tangkapan layar**) terisi rapi tanpa missing.
 
-> **Catatan Penting Salinan Dokumen Senior:**
-> File salinan di Google Drive yang berekstensi `.gdoc` (online Google Docs) berukuran ~187 bytes adalah shortcut cloud yang tidak menyimpan part biner gambar lokal. Untuk mengekstrak gambar dan tabel secara lossless, dokumen wajib diunduh via **File → Download → Microsoft Word (.docx)** dan ditaruh di folder `Hasil Uji Ka Fuje`.
+### E. Standardisasi "Sync" Dokumen Senior & Penanganan Test Case Tambahan (Disepakati 7 Okt 2026):
 
+1. **Definisi "Sync" bagi User (End-to-End Content Sync):**
+   - Perintah *"Sync doc hasil uji senior"* **BUKAN** sekadar meng-copy file `.docx` antar drive.
+   - Perintah ini berarti **aliran otomatis penuh (End-to-End)**:
+     $$\text{Ekstrak SS dari Word Senior} \rightarrow \text{Crop Sesuai Aturan} \rightarrow \text{Simpan ke Folder Modul} \rightarrow \text{Embed ke Word Master} \rightarrow \text{Update TOC Word} \rightarrow \text{Tri-Drive Sync & Push Git}$$
+2. **Prinsip Acuan Mutlak:**
+   - Acuan utama struktur modul, folder, dan nomor Test Case adalah **Dokumen & Folder Milik Mas Dani (Master Refactor)**.
+3. **Smart Matching by Nama Fitur (Bukan Nomor Mentah):**
+   - Dokumen senior sering memiliki nomor modul berbeda dengan master kita (misal: Sales Force di senior bernomor `44.x`, di folder master `47.x` atau `50.x`).
+   - Ekstraksi **DILARANG** mencocokkan nomor mentah. Wajib mencocokkan **Judul Test Case / Nama Fitur** (*Semantic Title Matching*) agar screenshot tidak salah kamar.
+4. **Auto-Fill vs Pending ACC (Aturan TC Tambahan Senior):**
+   - **Auto-Fill:** Test Case yang judul/skenarionya **sudah ada di master folder Mas Dani** langsung diekstrak, di-crop, dan di-embed otomatis ke dokumen master.
+   - **Pending ACC (Dilarang Langsung Sentuh/Embed):** Jika di dokumen senior ditemukan Test Case baru/tambahan yang **belum ada di dokumen/folder master Mas Dani** (misal: filter data tambahan, search tambahan, validasi export, dll):
+     - **DILARANG** langsung menambah baris tabel atau folder baru secara sepihak.
+     - **WAJIB kumpulkan dalam daftar dan laporkan ke Mas Dani (USER)** agar Mas Dani dapat mendiskusikannya dengan tim terlebih dahulu sebelum diputuskan untuk diadopsi atau diskip.
+5. **Kepatuhan Zero-Backup Drive H:**
+   - Seluruh blob screenshot mentahan diekstrak dan disimpan ke Drive G (`dainnaxjakarta91@gmail.com`) dan Local D.
+   - Drive H (`muhammaddanihaikal.dev@gmail.com`) hanya menerima file screenshot final di dalam folder aktif, bebas dari folder cadangan `(Original Full)`.
 
 ---
 
-## ?? 9. Aturan Potong Screenshot Web (Web Crop Rules)
 
-Disepakati pada: 5 Oktober 2026
+## 📌 9. Aturan Potong Screenshot Web (Web Crop Rules)
 
-Aturan ini digunakan sebagai standar untuk mengklasifikasi dan memotong gambar UI Web agar bukti hasil uji tetap utuh konteksnya.
+Disepakati pada: 5 Oktober 2026 (Diperbarui: 9 Oktober 2026)
+
+> [!IMPORTANT] 🛡️ ATURAN MUTLAK SEBELUM CROP (SAFETY FIRST)
+> **SEBELUM MEMULAI PROSES CROP APAPUN PADA SCREENSHOT:**
+> 1. **WAJIB Backup File Asli**: Salin seluruh file screenshot asli/mentahan (terutama yang sudah memuat highlight / kotak merah dari tester Mas Dani) ke folder backup lokal (`scratch/backup_...` atau `(Original Full)` di Local D dan Drive G).
+> 2. **WAJIB Git Commit File Asli Terlebih Dahulu**: Lakukan `git add` dan `git commit` terhadap kondisi file asli sebelum manipulasi/crop dijalankan. Hal ini mutlak dilakukan untuk mencegah kehilangan file berharga tester dan memastikan histori selalu bisa di-restore kapan saja.
+
+Aturan ini digunakan sebagai standar untuk mengklasifikasi dan memotong gambar UI Web agar bukti hasil uji tetap utuh konteksnya:
 
 1. **Halaman Awal (Screenshot .1, misal 33.1.png)**
    - **Tindakan:** FULL SCREEN (Tidak ada yang dipotong).
@@ -261,3 +289,32 @@ Aturan ini digunakan sebagai standar untuk mengklasifikasi dan memotong gambar U
 
 > [!CAUTION] ?? ATURAN MUTLAK KETIKA RAGU
 > Jika script AI bingung atau ragu dalam mengklasifikasikan gambar tertentu (misal UI tumpang tindih atau tidak biasa), **DILARANG LANGSUNG MEMOTONG**. AI wajib memberikan **Report Klasifikasi / List Gambar** dan meminta **ACC** ke Mas Dani (USER) terlebih dahulu sebelum eksekusi pemotongan dilakukan.
+
+---
+
+## 📌 10. Standar Sinkronisasi SIT: Word vs Excel (Disepakati 8 Oktober 2026)
+
+- **Dokumen Acuan Tunggal:** `SIT\SIT BTN SMART Web.docx` (981 Test Cases di 75 Modul).
+- **Target Sinkronisasi:** `SIT\Test Case.xlsx` (Sheet: `TC BTN SMART Web`).
+- **File Dilindungi:** `Test Script\Uji Sistem.xlsx` (Dilarang disentuh / diubah).
+- **Hasil Sinkronisasi:** Seluruh baris TC di Excel telah 100% sejajar dengan dokumen Word SIT (nomor, judul modul, sub-menu, judul TC, dan langkah pengujian asli dipertahankan).
+- **Tri-Drive Mirroring:** Selalu disinkronkan ke Local D, Drive H (`muhammaddanihaikal.dev@gmail.com`), dan Drive G (`dainnaxjakarta91@gmail.com`).
+
+---
+
+## 📌 11. SOP Penyesuaian Test Case & Sinkronisasi Dokumen Senior (Disepakati 8 Oktober 2026)
+
+### Prinsip Utama:
+1. **Pemisahan Scope Kerja Mutlak:**
+   - Modul milik Mas Dani (**Web:** `01`, `06`–`12`, `32`–`35`, `40`–`42`, `60`–`67` | **Mobile:** `01`, `05`, `06`, `07`, `15`) adalah master absolut yang dilindungi dan **DILARANG** diubah atau ditimpa oleh update rekan tim lain.
+   - Modul milik rekan tim / senior diselaraskan secara modular setelah mendapatkan persetujuan (ACC) dari Mas Dani.
+2. **Alur Eksekusi Sinkronisasi (Rule 2-Step):**
+   - **Langkah 1 (TC Title & SIT):** Update penomoran, TC Title, dan struktur alur di `SIT\Test Case.xlsx` (Sheet `TC BTN SMART Web`) dan dokumen Word `SIT\SIT BTN SMART Web.docx` / `SIT BTN SMART Web (Updated).docx` terlebih dahulu.
+   - **Langkah 2 (Dokumen Hasil Uji):** Sesuaikan struktur tabel pada Dokumen Hasil Uji (`Dokumen_Hasil_Uji_Web.docx` & `Dokumen_Hasil_Uji_Mobile.docx`), lalu sematkan (embed) gambar screenshot yang sudah ter-crop sesuai aturan.
+3. **Standar Penanganan TC Tambahan & Redundan:**
+   - Pemangkasan TC redundan *"Menampilkan daftar data..."* yang dihilangkan oleh senior diadopsi agar nomor TC sejajar.
+   - TC baru seperti skenario positif CRUD (*data valid*), validasi hasil export file, dan fitur baru (misal: Pipeline NTB di Sales Force) diadopsi ke Test Case aktif.
+4. **Tri-Drive & Git Integrity:**
+   - Setiap kali penyesuaian selesai, wajib dilakukan verifikasi MD5 hash pada Local D, Drive H, dan Drive G, lalu lakukan Git commit & push ke GitHub `main`.
+
+
