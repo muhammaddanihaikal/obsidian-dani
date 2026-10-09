@@ -27,8 +27,8 @@ Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender 
 
 | No TC | Modul | Sub Menu | Judul Test Case | Tipe | Prioritas | Test Steps (Skenario) | Expected Result | Status Bukti Uji |
 | :---: | :---: | :---: | :--- | :---: | :---: | :--- | :--- | :---: |
-| **61.9** | Kalender | - | Membuka halaman Daftar Task | Positive Case | High | Pada halaman Kalender, klik tombol Daftar Task | Berhasil menampilkan halaman Daftar Task. | Standby (Empty) |
-| **61.10** | Kalender | - | Melakukan filter Daftar Task | Positive Case | High | Pada halaman Daftar Task, pilih kriteria filter (Kepemilikan, Status, Prioritas, Label, atau Rentang Tenggat) | Berhasil menampilkan data task sesuai filter yang dipilih. | Standby (Empty) |
+| **61.9** | Kalender | - | Membuka halaman Daftar Task | Positive Case | High | Pada halaman Kalender, klik tombol Daftar Task | Berhasil menampilkan halaman Daftar Task. | **2 SS Embedded** ✅ |
+| **61.10** | Kalender | - | Melakukan filter Daftar Task | Positive Case | High | Pada halaman Daftar Task, pilih kriteria filter (Kepemilikan, Status, Prioritas, Label, atau Rentang Tenggat) | Berhasil menampilkan data task sesuai filter yang dipilih. | **1 SS Embedded** ✅ |
 | **61.11** | Kalender | - | Memulai pengerjaan task | Positive Case | High | Pada tabel Daftar Task, klik icon titik tiga pada task berstatus Terbuka - Pilih menu Mulai | Berhasil mengubah status task menjadi Berjalan. | Standby (Empty) |
 | **61.12** | Kalender | - | Membuka kembali task yang telah selesai | Positive Case | High | Pada tabel Daftar Task, klik icon titik tiga pada task berstatus Selesai - Pilih menu Buka Kembali | Berhasil membuka kembali task. | Standby (Empty) |
 | **61.13** | Kalender | - | Membatalkan task | Positive Case | High | Pada drawer Edit Task, klik button Batalkan - Klik button Ya, Batalkan pada pop-up konfirmasi aksi | Berhasil membatalkan task. | Standby (Empty) |
@@ -51,7 +51,8 @@ Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender 
    * Table 62 (Modul 61 Kalender): Bertambah dari 9 baris menjadi 16 baris (Header + 15 TC: 61.1 s/d 61.15).
 
 3. **Hasil Uji Word (`Hasil Uji\Dokumen_Hasil_Uji_Web.docx`)**:
-   * **TC 61.1 s/d 61.6**: Telah di-embed 11 tangkapan layar pengujian lengkap dengan highlight kotak merah (Table 123 & Table 124).
+   * **Total Bukti Uji Ter-embed**: **20 Tangkapan Layar** (TC 61.1 s/d 61.10).
+   * **TC 61.1 s/d 61.6 (11 SS)**:
      * `61.1`: 1 SS (Full Screen, As-Is) — Bukti pembuka menu Kalender pada sidebar.
      * `61.2`: 2 SS (Full Body Crop: Hapus Sidebar 60px & Navbar 72px, `1845x833`).
      * `61.3`: 1 SS (Full Body Crop: Hapus Sidebar 60px & Navbar 72px, `1845x1131`).
@@ -64,7 +65,12 @@ Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender 
        - `1.png`: Full Body Crop (Hapus Sidebar & Navbar, dropdown utuh, `1845x833`).
        - `2.png`: Hapus Sidebar saja (Navbar & header drawer *Tambah Event* utuh, tombol *Buat Event* aman, `1845x905`).
        - `3.png`: Hapus Sidebar saja (Toast alert *Acara berhasil dibuat* utuh di atas, `1845x905`).
-   * **TC 61.7 s/d 61.15 (Kelola Label & Daftar Task)**: Cell gambar tetap dalam status **Standby / Siap Isi** menunggu screenshot lanjutan dari tim.
+   * **TC 61.7 s/d 61.10 (9 SS Baru)**:
+     * `61.7`: 3 SS (Kelola Label: 1. Full Body Crop tombol Kelola Label `1845x833`, 2. Drawer Buat Label `1845x905`, 3. Toast Sukses Buat Label `1845x905`).
+     * `61.8`: 3 SS (Hapus Label: 1. Drawer List Label `1845x905`, 2. Popover Konfirmasi Hapus `1860x905`, 3. Toast Sukses Hapus Label `1845x905`).
+     * `61.9`: 2 SS (Buka Daftar Task: 1. Full Body Crop tombol Daftar Task `1845x833`, 2. Full Body Crop tabel Daftar Task `1845x833`).
+     * `61.10`: 1 SS (Filter Daftar Task: 1. Full Body Crop tabel terfilter `1845x833`).
+   * **TC 61.11 s/d 61.15 (Daftar Task Action)**: Cell gambar tetap dalam status **Standby / Siap Isi** menunggu screenshot lanjutan dari tim.
    * Table of Contents (TOC) telah diperbarui via Word COM.
    * XML attributes duplicate `paraId` dan `textId` dibersihkan 100%.
 
