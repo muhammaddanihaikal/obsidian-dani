@@ -52,12 +52,18 @@ Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender 
 
 3. **Hasil Uji Word (`Hasil Uji\Dokumen_Hasil_Uji_Web.docx`)**:
    * **TC 61.1 s/d 61.6**: Telah di-embed 11 tangkapan layar pengujian lengkap dengan highlight kotak merah (Table 123 & Table 124).
-     * `61.1`: 1 SS (Full Screen, As-Is).
-     * `61.2`: 2 SS (Crop Scrollbar 15px).
-     * `61.3`: 1 SS (Full Screen, As-Is).
-     * `61.4`: 1 SS (Full Screen, As-Is).
-     * `61.5`: 3 SS (Crop Scrollbar 15px, kotak merah tombol *Buat Task* dan alert sukses utuh).
-     * `61.6`: 3 SS (Crop Scrollbar 15px, kotak merah tombol *Buat Event* dan alert sukses utuh).
+     * `61.1`: 1 SS (Full Screen, As-Is) — Bukti pembuka menu Kalender pada sidebar.
+     * `61.2`: 2 SS (Full Body Crop: Hapus Sidebar 60px & Navbar 72px, `1845x833`).
+     * `61.3`: 1 SS (Full Body Crop: Hapus Sidebar 60px & Navbar 72px, `1845x1131`).
+     * `61.4`: 1 SS (Full Body Crop: Hapus Sidebar 60px & Navbar 72px, `1845x1131`).
+     * `61.5`: 3 SS:
+       - `1.png`: Full Body Crop (Hapus Sidebar & Navbar, dropdown utuh, `1845x833`).
+       - `2.png`: Hapus Sidebar saja (Navbar & header drawer *Tambah Task* utuh, tombol *Buat Task* aman, `1845x905`).
+       - `3.png`: Hapus Sidebar saja (Toast alert *Task berhasil dibuat* utuh di atas, `1845x905`).
+     * `61.6`: 3 SS:
+       - `1.png`: Full Body Crop (Hapus Sidebar & Navbar, dropdown utuh, `1845x833`).
+       - `2.png`: Hapus Sidebar saja (Navbar & header drawer *Tambah Event* utuh, tombol *Buat Event* aman, `1845x905`).
+       - `3.png`: Hapus Sidebar saja (Toast alert *Acara berhasil dibuat* utuh di atas, `1845x905`).
    * **TC 61.7 s/d 61.15 (Kelola Label & Daftar Task)**: Cell gambar tetap dalam status **Standby / Siap Isi** menunggu screenshot lanjutan dari tim.
    * Table of Contents (TOC) telah diperbarui via Word COM.
    * XML attributes duplicate `paraId` dan `textId` dibersihkan 100%.
