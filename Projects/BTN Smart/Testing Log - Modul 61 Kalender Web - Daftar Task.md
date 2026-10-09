@@ -18,24 +18,25 @@ Catatan pengujian portal **BTN SMART Web** untuk penambahan test case dan bukti 
 Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender web (Breadcrumb: `Kalender / Daftar Task`). Sesuai arahan Mas Dani:
 1. **Tidak Ada Sub Menu**: Kolom Sub Modul dikosongkan (`-` / `None`).
 2. **Standardisasi Penamaan Mencontek Mobile**: Judul test case, alur, dan format expected result diselaraskan dengan standar **Modul 10 Kalender versi Mobile** (misal: *Memulai pengerjaan task*, *Membatalkan task*, *Membuka kembali task yang telah selesai*).
-3. **Penomoran Terpadu di Modul 61**: Test case dimasukkan sebagai kelanjutan Modul 61 Kalender (**TC 61.9 s/d 61.17**), sehingga tidak menggeser modul 62 s/d 77.
-4. **Total Test Case Web**: Bertambah menjadi **916 Test Case** (resmi terdaftar di SIT Word & Excel).
+3. **Penomoran Terpadu di Modul 61**: Test case dimasukkan sebagai kelanjutan Modul 61 Kalender (**TC 61.9 s/d 61.18**), sehingga tidak menggeser modul 62 s/d 77.
+4. **Total Test Case Web**: Bertambah menjadi **917 Test Case** (resmi terdaftar di SIT Word & Excel).
 
 ---
 
-## 📋 Daftar 9 Test Case Baru: Daftar Task (Web)
+## 📋 Daftar 10 Test Case Baru: Daftar Task (Web)
 
 | No TC | Modul | Sub Menu | Judul Test Case | Tipe | Prioritas | Test Steps (Skenario) | Expected Result | Status Bukti Uji |
 | :---: | :---: | :---: | :--- | :---: | :---: | :--- | :--- | :---: |
 | **61.9** | Kalender | - | Membuka halaman Daftar Task | Positive Case | High | Pada halaman Kalender, klik tombol Daftar Task | Berhasil menampilkan halaman Daftar Task. | **2 SS Embedded** ✅ |
 | **61.10** | Kalender | - | Melakukan filter Daftar Task | Positive Case | High | Pada halaman Daftar Task, pilih kriteria filter (Kepemilikan, Status, Prioritas, Label, atau Rentang Tenggat) | Berhasil menampilkan data task sesuai filter yang dipilih. | **1 SS Embedded** ✅ |
-| **61.11** | Kalender | - | Melakukan pencarian task | Positive Case | Normal | Pada halaman Daftar Task, masukkan kata kunci pada field Cari task | Berhasil menampilkan data task sesuai kata kunci pencarian. | Standby (Empty) |
-| **61.12** | Kalender | - | Mereset filter Daftar Task | Positive Case | Normal | Pada halaman Daftar Task, klik tombol Reset Filter | Berhasil mereset filter dan menampilkan seluruh data task ke kondisi default. | Standby (Empty) |
-| **61.13** | Kalender | - | Memulai pengerjaan task | Positive Case | High | Pada tabel Daftar Task, klik icon titik tiga pada task berstatus Terbuka - Pilih menu Mulai | Berhasil mengubah status task menjadi Berjalan. | Standby (Empty) |
-| **61.14** | Kalender | - | Membuka kembali task yang telah selesai | Positive Case | High | Pada tabel Daftar Task, klik icon titik tiga pada task berstatus Selesai - Pilih menu Buka Kembali | Berhasil membuka kembali task. | Standby (Empty) |
-| **61.15** | Kalender | - | Membatalkan task | Positive Case | High | Pada drawer Edit Task, klik button Batalkan - Klik button Ya, Batalkan pada pop-up konfirmasi aksi | Berhasil membatalkan task. | Standby (Empty) |
-| **61.16** | Kalender | - | Melihat detail task | Positive Case | High | Pada tabel Daftar Task, klik baris atau judul task yang berstatus Selesai | Berhasil menampilkan drawer detail task. | Standby (Empty) |
-| **61.17** | Kalender | - | Menghapus task secara permanen | Positive Case | Normal | Pada drawer Edit Task atau menu titik tiga, klik menu Hapus - Klik button Hapus pada pop-up konfirmasi Hapus task ini secara permanen? | Berhasil menghapus task secara permanen. | Standby (Empty) |
+| **61.11** | Kalender | - | Mencari task dengan keyword valid | Positive Case | Normal | Pada halaman Daftar Task, masukkan kata kunci valid pada field Cari task | Berhasil menampilkan data task yang sesuai dengan kata kunci pencarian. | Standby (Empty) |
+| **61.12** | Kalender | - | Mencari task dengan keyword tidak valid | Negative Case | Normal | Pada halaman Daftar Task, masukkan kata kunci yang tidak valid / tidak terdaftar pada field Cari task | Berhasil menampilkan informasi bahwa data task tidak ditemukan. | Standby (Empty) |
+| **61.13** | Kalender | - | Mereset filter Daftar Task | Positive Case | Normal | Pada halaman Daftar Task, klik tombol Reset Filter | Berhasil mereset filter dan menampilkan seluruh data task ke kondisi default. | Standby (Empty) |
+| **61.14** | Kalender | - | Memulai pengerjaan task | Positive Case | High | Pada tabel Daftar Task, klik icon titik tiga pada task berstatus Terbuka - Pilih menu Mulai | Berhasil mengubah status task menjadi Berjalan. | Standby (Empty) |
+| **61.15** | Kalender | - | Membuka kembali task yang telah selesai | Positive Case | High | Pada tabel Daftar Task, klik icon titik tiga pada task berstatus Selesai - Pilih menu Buka Kembali | Berhasil membuka kembali task. | Standby (Empty) |
+| **61.16** | Kalender | - | Membatalkan task | Positive Case | High | Pada drawer Edit Task, klik button Batalkan - Klik button Ya, Batalkan pada pop-up konfirmasi aksi | Berhasil membatalkan task. | Standby (Empty) |
+| **61.17** | Kalender | - | Melihat detail task | Positive Case | High | Pada tabel Daftar Task, klik baris atau judul task yang berstatus Selesai | Berhasil menampilkan drawer detail task. | Standby (Empty) |
+| **61.18** | Kalender | - | Menghapus task secara permanen | Positive Case | Normal | Pada drawer Edit Task atau menu titik tiga, klik menu Hapus - Klik button Hapus pada pop-up konfirmasi Hapus task ini secara permanen? | Berhasil menghapus task secara permanen. | Standby (Empty) |
 
 ---
 
@@ -43,17 +44,19 @@ Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender 
 
 1. **Excel Master (`SIT\Test Case.xlsx`)**:
    * Sheet `TC BTN SMART Web`:
-     * Disisipkan total 9 baris setelah row 755 (TC 61.8).
-     * TC 61.9 s/d 61.17 berada di baris 756 s/d 766.
-     * Baris 767 tetap Modul 62.1 Report Funding Personal Funnel.
-     * Total Test Case Web resmi: **916 Test Case** (917 baris termasuk header).
+     * Disisipkan total 10 baris setelah row 755 (TC 61.8).
+     * TC 61.9 s/d 61.18 berada di baris 756 s/d 767.
+     * Baris 768 tetap Modul 62.1 Report Funding Personal Funnel.
+     * Total Test Case Web resmi: **917 Test Case** (918 baris termasuk header).
 
 2. **SIT Word (`SIT\SIT BTN SMART Web.docx`)**:
-   * Table 1 (Info Table): `Jumlah Script : 916`.
-   * Table 62 (Modul 61 Kalender): Bertambah menjadi 18 baris (Header + 17 TC: 61.1 s/d 61.17).
+   * Table 1 (Info Table): `Jumlah Script : 917`.
+   * Table 62 (Modul 61 Kalender): Bertambah menjadi 19 baris (Header + 18 TC: 61.1 s/d 61.18).
 
 3. **Hasil Uji Word (`Hasil Uji\Dokumen_Hasil_Uji_Web.docx`)**:
    * **Total Bukti Uji Ter-embed**: **20 Tangkapan Layar** (TC 61.1 s/d 61.10).
+   * **TC 61.11 s/d 61.18 (Daftar Task Actions & Controls)**:
+     * Cell gambar dalam status **STANDBY / KOSONG / NO PICTURE** sesuai permintaan Mas Dani agar tester tim yang mengisi bukti screenshot-nya.
    * **TC 61.1 s/d 61.6 (11 SS)**:
      * `61.1`: 1 SS (Full Screen, As-Is) — Bukti pembuka menu Kalender pada sidebar.
      * `61.2`: 2 SS (Full Body Crop: Hapus Sidebar 60px & Navbar 72px, `1845x833`).
