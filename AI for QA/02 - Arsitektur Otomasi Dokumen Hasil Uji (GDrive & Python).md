@@ -142,6 +142,26 @@ Saat ritme kerja sedang longgar (*post-sprint / regression phase*):
 
 ---
 
+### E. Kebijakan Manajemen Cloud & Pemisahan Drive (Zero-Backup di Drive Utama)
+Disepakati standar manajemen Google Drive agar ruang kerja utama tetap rapi dan tidak dipenuhi folder cadangan/kembaran:
+1. **Drive Utama (`muhammaddanihaikal.dev@gmail.com` / Drive H):**
+   - **Zero-Backup Policy:** DILARANG menaruh folder cadangan, file duplikat, atau folder bertuliskan `(Original Full)` / `(Safety Backup)`.
+   - Hanya berisi folder modul resmi bernomor urut (`01. Login`, `02. Profile`, dst.) dengan tangkapan layar final yang siap sematkan.
+2. **Dedicated Backup Drive (`dainnaxjakarta91@gmail.com` / Drive G) & Local D:**
+   - Menjadi tempat penampungan seluruh screenshot mentah (*Original Full*), file revisi, dan histori pengujian.
+3. **Konfirmasi Wajib:**
+   - Setiap operasi pembersihan atau penghapusan folder backup di Drive Utama **wajib meminta izin / ACC dari Mas Dani (USER)** sebelum dijalankan.
+
+---
+
+### F. Mekanisme "Sync" End-to-End Dokumen Senior & Semantic Matching
+Ketika ada pembaharuan dari dokumen senior (`Dokumen Hasil Uji_UT Upgrade Server Web Terbaru .docx`):
+1. **End-to-End Execution:** Kata *"Sync"* mencakup penarikan blob gambar dari Word senior, auto-crop scrollbar, pengisian ke folder disk, embedding ke Word master, update TOC via Word COM, Tri-Drive replication, dan Git push.
+2. **Semantic Matching (Bukan Nomor Tabel):** Modul dan Test Case dipetakan berdasarkan kesamaan string teks judul skenario (*Title Cleaning & Substring Match*), bukan nomor mentah, guna menghindari dislokasi gambar karena perbedaan numbering antar tester.
+3. **Guardrail TC Baru (Pending ACC):** Skenario yang ada di senior tapi belum ada di master user tidak dieksekusi sepihak; melainkan dikompilasi menjadi laporan disparitas untuk di-ACC oleh user setelah koordinasi tim.
+
+---
+
 ## 5. Ringkasan SOP Harian
 
 1. **Persiapan:** Generate struktur folder & file `.txt` dari file Excel menggunakan script generator.

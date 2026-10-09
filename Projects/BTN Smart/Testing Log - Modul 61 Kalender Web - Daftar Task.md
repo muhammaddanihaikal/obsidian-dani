@@ -10,7 +10,7 @@ Catatan pengujian portal **BTN SMART Web** untuk penambahan test case dan bukti 
 * **Fitur**: Daftar Task (Header Kalender Web)
 * **Tanggal Update**: 9 Oktober 2026
 * **Tester**: Dani & Team QA
-* **Status**: **TC SELESAI DIEKSEKUSI (7 TC) - DOKUMEN & HASIL UJI SYNCED** ✅
+* **Status**: **TC SELESAI DIEKSEKUSI (17 TC LENGKAP, 1 TC STANDBY) - DOKUMEN & HASIL UJI SYNCED** ✅
 
 ---
 
@@ -29,14 +29,14 @@ Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender 
 | :---: | :---: | :---: | :--- | :---: | :---: | :--- | :--- | :---: |
 | **61.9** | Kalender | - | Membuka halaman Daftar Task | Positive Case | High | Pada halaman Kalender, klik tombol Daftar Task | Berhasil menampilkan halaman Daftar Task. | **2 SS Embedded** ✅ |
 | **61.10** | Kalender | - | Melakukan filter Daftar Task | Positive Case | High | Pada halaman Daftar Task, pilih kriteria filter (Kepemilikan, Status, Prioritas, Label, atau Rentang Tenggat) | Berhasil menampilkan data task sesuai filter yang dipilih. | **1 SS Embedded** ✅ |
-| **61.11** | Kalender | - | Mencari task dengan keyword valid | Positive Case | Normal | Pada halaman Daftar Task, masukkan kata kunci valid pada field Cari task | Berhasil menampilkan data task yang sesuai dengan kata kunci pencarian. | Standby (Empty) |
-| **61.12** | Kalender | - | Mencari task dengan keyword tidak valid | Negative Case | Normal | Pada halaman Daftar Task, masukkan kata kunci yang tidak valid / tidak terdaftar pada field Cari task | Berhasil menampilkan informasi bahwa data task tidak ditemukan. | Standby (Empty) |
-| **61.13** | Kalender | - | Mereset filter Daftar Task | Positive Case | Normal | Pada halaman Daftar Task, klik tombol Reset Filter | Berhasil mereset filter dan menampilkan seluruh data task ke kondisi default. | Standby (Empty) |
-| **61.14** | Kalender | - | Memulai pengerjaan task | Positive Case | High | Pada tabel Daftar Task, klik icon titik tiga pada task berstatus Terbuka - Pilih menu Mulai | Berhasil mengubah status task menjadi Berjalan. | Standby (Empty) |
-| **61.15** | Kalender | - | Membuka kembali task yang telah selesai | Positive Case | High | Pada tabel Daftar Task, klik icon titik tiga pada task berstatus Selesai - Pilih menu Buka Kembali | Berhasil membuka kembali task. | Standby (Empty) |
-| **61.16** | Kalender | - | Membatalkan task | Positive Case | High | Pada drawer Edit Task, klik button Batalkan - Klik button Ya, Batalkan pada pop-up konfirmasi aksi | Berhasil membatalkan task. | Standby (Empty) |
-| **61.17** | Kalender | - | Melihat detail task | Positive Case | High | Pada tabel Daftar Task, klik baris atau judul task yang berstatus Selesai | Berhasil menampilkan drawer detail task. | Standby (Empty) |
-| **61.18** | Kalender | - | Menghapus task secara permanen | Positive Case | Normal | Pada drawer Edit Task atau menu titik tiga, klik menu Hapus - Klik button Hapus pada pop-up konfirmasi Hapus task ini secara permanen? | Berhasil menghapus task secara permanen. | Standby (Empty) |
+| **61.11** | Kalender | - | Mencari task dengan keyword valid | Positive Case | Normal | Pada halaman Daftar Task, masukkan kata kunci valid pada field Cari task | Berhasil menampilkan data task yang sesuai dengan kata kunci pencarian. | **1 SS Embedded** ✅ |
+| **61.12** | Kalender | - | Mencari task dengan keyword tidak valid | Negative Case | Normal | Pada halaman Daftar Task, masukkan kata kunci yang tidak valid / tidak terdaftar pada field Cari task | Berhasil menampilkan informasi bahwa data task tidak ditemukan. | **1 SS Embedded** ✅ |
+| **61.13** | Kalender | - | Mereset filter Daftar Task | Positive Case | Normal | Pada halaman Daftar Task, klik tombol Reset Filter | Berhasil mereset filter dan menampilkan seluruh data task ke kondisi default. | **1 SS Embedded** ✅ |
+| **61.14** | Kalender | - | Memulai pengerjaan task | Positive Case | High | Pada tabel Daftar Task, klik icon titik tiga pada task berstatus Terbuka - Pilih menu Mulai | Berhasil mengubah status task menjadi Berjalan. | **2 SS Embedded** ✅ |
+| **61.15** | Kalender | - | Membuka kembali task yang telah selesai | Positive Case | High | Pada tabel Daftar Task, klik icon titik tiga pada task berstatus Selesai - Pilih menu Buka Kembali | Berhasil membuka kembali task. | **2 SS Embedded** ✅ |
+| **61.16** | Kalender | - | Membatalkan task | Positive Case | High | Pada drawer Edit Task, klik button Batalkan - Klik button Ya, Batalkan pada pop-up konfirmasi aksi | Berhasil membatalkan task. | **2 SS Embedded** ✅ |
+| **61.17** | Kalender | - | Melihat detail task | Positive Case | High | Pada tabel Daftar Task, klik baris atau judul task yang berstatus Selesai | Berhasil menampilkan drawer detail task. | Standby (Empty / Menunggu SS) ⏳ |
+| **61.18** | Kalender | - | Menghapus task secara permanen | Positive Case | Normal | Pada drawer Edit Task atau menu titik tiga, klik menu Hapus - Klik button Hapus pada pop-up konfirmasi Hapus task ini secara permanen? | Berhasil menghapus task secara permanen. | **2 SS Embedded** ✅ |
 
 ---
 
@@ -54,9 +54,9 @@ Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender 
    * Table 62 (Modul 61 Kalender): Bertambah menjadi 19 baris (Header + 18 TC: 61.1 s/d 61.18).
 
 3. **Hasil Uji Word (`Hasil Uji\Dokumen_Hasil_Uji_Web.docx`)**:
-   * **Total Bukti Uji Ter-embed**: **20 Tangkapan Layar** (TC 61.1 s/d 61.10).
-   * **TC 61.11 s/d 61.18 (Daftar Task Actions & Controls)**:
-     * Cell gambar dalam status **STANDBY / KOSONG / NO PICTURE** sesuai permintaan Mas Dani agar tester tim yang mengisi bukti screenshot-nya.
+   * **Total Bukti Uji Ter-embed**: **31 Tangkapan Layar** (TC 61.1 s/d 61.16 & 61.18).
+   * **TC 61.17 (Melihat detail task)**:
+     * Cell gambar dalam status **STANDBY / KOSONG / NO PICTURE** menunggu screenshot diunggah oleh tester tim.
    * **TC 61.1 s/d 61.6 (11 SS)**:
      * `61.1`: 1 SS (Full Screen, As-Is) — Bukti pembuka menu Kalender pada sidebar.
      * `61.2`: 2 SS (Full Body Crop: Hapus Sidebar 60px & Navbar 72px, `1845x833`).
@@ -64,13 +64,20 @@ Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender 
      * `61.4`: 1 SS (Full Body Crop: Hapus Sidebar 60px & Navbar 72px, `1845x1131`).
      * `61.5`: 3 SS (Dropdown `1845x833`, Drawer `1845x905`, Toast `1845x905`).
      * `61.6`: 3 SS (Dropdown `1845x833`, Drawer `1845x905`, Toast `1845x905`).
-   * **TC 61.7 s/d 61.10 (9 SS Baru)**:
+   * **TC 61.7 s/d 61.10 (9 SS)**:
      * `61.7`: 3 SS (Kelola Label: 1. Full Body Crop tombol Kelola Label `1845x833`, 2. Drawer Buat Label `1845x905`, 3. Toast Sukses Buat Label `1845x905`).
      * `61.8`: 3 SS (Hapus Label: 1. Drawer List Label `1845x905`, 2. Popover Konfirmasi Hapus `1860x905`, 3. Toast Sukses Hapus Label `1845x905`).
      * `61.9`: 2 SS (Buka Daftar Task: 1. Full Body Crop tombol Daftar Task `1845x833`, 2. Full Body Crop tabel Daftar Task `1845x833`).
      * `61.10`: 1 SS (Filter Daftar Task: 1. Full Body Crop tabel terfilter `1845x833`).
-   * **TC 61.11 s/d 61.17 (Daftar Task Actions & Controls)**:
-     * Cell gambar dalam status **STANDBY / KOSONG / NO PICTURE** sesuai permintaan Mas Dani agar tester tim yang mengisi bukti screenshot-nya.
+   * **TC 61.11 s/d 61.18 (11 SS Baru Ter-embed)**:
+     * `61.11`: 1 SS (Cari valid: Full Body Crop `1845x833`).
+     * `61.12`: 1 SS (Cari invalid: Full Body Crop `1845x833`).
+     * `61.13`: 1 SS (Reset filter: Full Body Crop `1845x833`).
+     * `61.14`: 2 SS (Mulai task: 1. Dropdown titik tiga 'Mulai' `1845x833`, 2. Toast alert 'Task dimulai' `1845x905` [Navbar dipertahankan]).
+     * `61.15`: 2 SS (Buka kembali: 1. Dropdown titik tiga 'Buka Kembali' `1845x833`, 2. Toast alert 'Task dibuka kembali' `1845x905` [Navbar dipertahankan]).
+     * `61.16`: 2 SS (Batalkan task: 1. Dropdown titik tiga 'Batalkan' `1845x833`, 2. Toast alert 'Task dibatalkan' `1845x905` [Navbar dipertahankan]).
+     * `61.17`: 0 SS (Standby Kosong).
+     * `61.18`: 2 SS (Hapus permanen: 1. Dropdown titik tiga 'Hapus Permanen' `1845x833`, 2. Toast alert 'Task dihapus permanen' `1845x905` [Navbar dipertahankan]).
    * Table of Contents (TOC) telah diperbarui via Word COM.
    * XML attributes duplicate `paraId` dan `textId` dibersihkan 100%.
 
