@@ -10,20 +10,20 @@ Catatan pengujian portal **BTN SMART Web** untuk penambahan test case dan bukti 
 * **Fitur**: Daftar Task (Header Kalender Web)
 * **Tanggal Update**: 9 Oktober 2026
 * **Tester**: Dani & Team QA
-* **Status**: **TC SELESAI DIEKSEKUSI (17 TC LENGKAP, 1 TC STANDBY) - DOKUMEN & HASIL UJI SYNCED** ✅
+* **Status**: **TC SELESAI DIEKSEKUSI (18 TC LENGKAP, 2 TC STANDBY) - DOKUMEN & HASIL UJI SYNCED** ✅
 
 ---
 
 ## 🔍 Ringkasan Penambahan Test Case (Daftar Task)
 Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender web (Breadcrumb: `Kalender / Daftar Task`). Sesuai arahan Mas Dani:
 1. **Tidak Ada Sub Menu**: Kolom Sub Modul dikosongkan (`-` / `None`).
-2. **Standardisasi Penamaan Mencontek Mobile**: Judul test case, alur, dan format expected result diselaraskan dengan standar **Modul 10 Kalender versi Mobile** (misal: *Memulai pengerjaan task*, *Membatalkan task*, *Membuka kembali task yang telah selesai*).
-3. **Penomoran Terpadu di Modul 61**: Test case dimasukkan sebagai kelanjutan Modul 61 Kalender (**TC 61.9 s/d 61.18**), sehingga tidak menggeser modul 62 s/d 77.
-4. **Total Test Case Web**: Bertambah menjadi **917 Test Case** (resmi terdaftar di SIT Word & Excel).
+2. **Standardisasi Penamaan Mencontek Mobile**: Judul test case, alur, dan format expected result diselaraskan dengan standar **Modul 10 Kalender versi Mobile** (misal: *Memulai pengerjaan task*, *Membatalkan task*, *Membuka kembali task yang telah selesai*, *Mengubah data task*, *Membagikan task kepada user*, *Menghapus penugasan task kepada user*).
+3. **Penomoran Terpadu di Modul 61**: Test case dimasukkan sebagai kelanjutan Modul 61 Kalender (**TC 61.9 s/d 61.20**), sehingga tidak menggeser modul 62 s/d 77.
+4. **Total Test Case Web**: Bertambah menjadi **919 Test Case** (resmi terdaftar di SIT Word & Excel).
 
 ---
 
-## 📋 Daftar 10 Test Case Baru: Daftar Task (Web)
+## 📋 Daftar 12 Test Case Fitur Daftar Task (Web)
 
 | No TC | Modul | Sub Menu | Judul Test Case | Tipe | Prioritas | Test Steps (Skenario) | Expected Result | Status Bukti Uji |
 | :---: | :---: | :---: | :--- | :---: | :---: | :--- | :--- | :---: |
@@ -35,8 +35,10 @@ Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender 
 | **61.14** | Kalender | - | Memulai pengerjaan task | Positive Case | High | Pada tabel Daftar Task, klik icon titik tiga pada task berstatus Terbuka - Pilih menu Mulai | Berhasil mengubah status task menjadi Berjalan. | **2 SS Embedded** ✅ |
 | **61.15** | Kalender | - | Membuka kembali task yang telah selesai | Positive Case | High | Pada tabel Daftar Task, klik icon titik tiga pada task berstatus Selesai - Pilih menu Buka Kembali | Berhasil membuka kembali task. | **2 SS Embedded** ✅ |
 | **61.16** | Kalender | - | Membatalkan task | Positive Case | High | Pada drawer Edit Task, klik button Batalkan - Klik button Ya, Batalkan pada pop-up konfirmasi aksi | Berhasil membatalkan task. | **2 SS Embedded** ✅ |
-| **61.17** | Kalender | - | Melihat detail task | Positive Case | High | Pada tabel Daftar Task, klik baris atau judul task yang berstatus Selesai | Berhasil menampilkan drawer detail task. | Standby (Empty / Menunggu SS) ⏳ |
+| **61.17** | Kalender | - | Mengubah data task | Positive Case | High | Pada tabel Daftar Task, klik baris task atau icon titik tiga - Pilih menu Edit - Ubah data pada drawer Edit Task - Klik tombol Simpan | Berhasil mengubah data task. | **2 SS Embedded** ✅ |
 | **61.18** | Kalender | - | Menghapus task secara permanen | Positive Case | Normal | Pada drawer Edit Task atau menu titik tiga, klik menu Hapus - Klik button Hapus pada pop-up konfirmasi Hapus task ini secara permanen? | Berhasil menghapus task secara permanen. | **2 SS Embedded** ✅ |
+| **61.19** | Kalender | - | Membagikan task kepada user | Positive Case | High | Pada drawer Edit Task, klik button Bagikan - Pada pop-up Bagikan Task, pilih penerima dan role - Klik Tambahkan | Berhasil membagikan task kepada user. | Standby (Empty / Menunggu SS) ⏳ |
+| **61.20** | Kalender | - | Menghapus penugasan task kepada user | Positive Case | Normal | Pada pop-up Bagikan Task, klik icon Hapus (tempat sampah) pada user yang ditugaskan - Tutup pop-up | Berhasil menghapus penugasan task kepada user. | Standby (Empty / Menunggu SS) ⏳ |
 
 ---
 
@@ -44,19 +46,19 @@ Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender 
 
 1. **Excel Master (`SIT\Test Case.xlsx`)**:
    * Sheet `TC BTN SMART Web`:
-     * Disisipkan total 10 baris setelah row 755 (TC 61.8).
-     * TC 61.9 s/d 61.18 berada di baris 756 s/d 767.
-     * Baris 768 tetap Modul 62.1 Report Funding Personal Funnel.
-     * Total Test Case Web resmi: **917 Test Case** (918 baris termasuk header).
+     * TC 61.17 diperbarui menjadi `Mengubah data task`.
+     * Ditambahkan baris baru untuk TC 61.19 dan TC 61.20.
+     * Baris 770 tetap Modul 62.1 Report Funding Personal Funnel.
+     * Total Test Case Web resmi: **919 Test Case** (920 baris termasuk header).
 
 2. **SIT Word (`SIT\SIT BTN SMART Web.docx`)**:
-   * Table 1 (Info Table): `Jumlah Script : 917`.
-   * Table 62 (Modul 61 Kalender): Bertambah menjadi 19 baris (Header + 18 TC: 61.1 s/d 61.18).
+   * Table 1 (Info Table): `Jumlah Script : 919`.
+   * Table 62 (Modul 61 Kalender): Bertambah menjadi 21 baris (Header + 20 TC: 61.1 s/d 61.20).
 
 3. **Hasil Uji Word (`Hasil Uji\Dokumen_Hasil_Uji_Web.docx`)**:
-   * **Total Bukti Uji Ter-embed**: **31 Tangkapan Layar** (TC 61.1 s/d 61.16 & 61.18).
-   * **TC 61.17 (Melihat detail task)**:
-     * Cell gambar dalam status **STANDBY / KOSONG / NO PICTURE** menunggu screenshot diunggah oleh tester tim.
+   * **Total Bukti Uji Ter-embed**: **33 Tangkapan Layar** (TC 61.1 s/d 61.18 lengkap 100%).
+   * **TC 61.19 & 61.20 (Bagikan & Hapus Bagikan Task)**:
+     * Cell gambar dalam status **STANDBY / KOSONG / NO PICTURE** sesuai SOP penambahan TC baru agar tester tim yang mengisi bukti screenshot-nya.
    * **TC 61.1 s/d 61.6 (11 SS)**:
      * `61.1`: 1 SS (Full Screen, As-Is) — Bukti pembuka menu Kalender pada sidebar.
      * `61.2`: 2 SS (Full Body Crop: Hapus Sidebar 60px & Navbar 72px, `1845x833`).
@@ -69,14 +71,14 @@ Fitur **Daftar Task** diakses langsung melalui tombol/menu pada header kalender 
      * `61.8`: 3 SS (Hapus Label: 1. Drawer List Label `1845x905`, 2. Popover Konfirmasi Hapus `1860x905`, 3. Toast Sukses Hapus Label `1845x905`).
      * `61.9`: 2 SS (Buka Daftar Task: 1. Full Body Crop tombol Daftar Task `1845x833`, 2. Full Body Crop tabel Daftar Task `1845x833`).
      * `61.10`: 1 SS (Filter Daftar Task: 1. Full Body Crop tabel terfilter `1845x833`).
-   * **TC 61.11 s/d 61.18 (11 SS Baru Ter-embed)**:
+   * **TC 61.11 s/d 61.18 (13 SS Ter-embed)**:
      * `61.11`: 1 SS (Cari valid: Full Body Crop `1845x833`).
      * `61.12`: 1 SS (Cari invalid: Full Body Crop `1845x833`).
      * `61.13`: 1 SS (Reset filter: Full Body Crop `1845x833`).
      * `61.14`: 2 SS (Mulai task: 1. Dropdown titik tiga 'Mulai' `1845x833`, 2. Toast alert 'Task dimulai' `1845x905` [Navbar dipertahankan]).
      * `61.15`: 2 SS (Buka kembali: 1. Dropdown titik tiga 'Buka Kembali' `1845x833`, 2. Toast alert 'Task dibuka kembali' `1845x905` [Navbar dipertahankan]).
      * `61.16`: 2 SS (Batalkan task: 1. Dropdown titik tiga 'Batalkan' `1845x833`, 2. Toast alert 'Task dibatalkan' `1845x905` [Navbar dipertahankan]).
-     * `61.17`: 0 SS (Standby Kosong).
+     * `61.17`: 2 SS (Mengubah data task: 1. Drawer Edit Task `1845x905`, 2. Tabel Daftar Task hasil ubah `1845x833`).
      * `61.18`: 2 SS (Hapus permanen: 1. Dropdown titik tiga 'Hapus Permanen' `1845x833`, 2. Toast alert 'Task dihapus permanen' `1845x905` [Navbar dipertahankan]).
    * Table of Contents (TOC) telah diperbarui via Word COM.
    * XML attributes duplicate `paraId` dan `textId` dibersihkan 100%.
