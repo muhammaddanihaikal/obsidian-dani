@@ -31,22 +31,22 @@ Berdasarkan arahan Mas Dani dan analisis navigasi antarmuka portal BTN SMART Web
 | **3.2** | Notifikasi | - | Mencari notifikasi dengan kata kunci valid | Positive Case | Normal | Masukkan kata kunci valid pada kolom Cari notifikasi | Berhasil menampilkan data notifikasi yang dicari. | Embedded (1 SS: Input "file ekspor") |
 | **3.3** | Notifikasi | - | Mencari notifikasi dengan kata kunci tidak valid | Negative Case | Normal | Masukkan kata kunci tidak valid pada kolom Cari notifikasi | Berhasil menampilkan informasi data tidak ditemukan. | Embedded (1 SS: Input "tidak ada") |
 | **3.4** | Notifikasi | - | Melihat data notifikasi Belum Dibaca | Positive Case | Normal | Pada daftar notifikasi, klik tab Belum Dibaca | Berhasil menampilkan data notifikasi belum dibaca. | Embedded (1 SS: Tab Belum Dibaca) |
-| **3.5** | Notifikasi | - | Melihat data notifikasi Diarsipkan | Positive Case | Normal | Pada halaman Pengaturan Profile - Notifikasi, klik tab Diarsipkan | Berhasil menampilkan data notifikasi diarsipkan. | Embedded (1 SS: Tab Diarsipkan) |
-| **3.6** | Notifikasi | - | Menandai semua notifikasi telah dibaca | Positive Case | High | Pada notifikasi, klik tombol Tandai semua dibaca | Berhasil menandai seluruh notifikasi telah dibaca. | Embedded (2 SS: Tombol & Counter 0) |
-| **3.7** | Notifikasi | - | Membuka halaman Notifikasi pada Pengaturan Profile | Positive Case | High | Klik tombol Lihat semua pada notifikasi header (atau masuk via menu Pengaturan Profile) | Berhasil menampilkan halaman penuh Notifikasi pada Pengaturan Profile. | Embedded (2 SS: Tombol & Full Page) |
-| **3.8** | Notifikasi | - | Mengarsipkan notifikasi | Positive Case | High | Pada halaman Detail Notifikasi, klik tombol Arsipkan | Berhasil mengarsipkan notifikasi. | Embedded (3 SS: Klik Item, Tombol Arsip, Hasil Tab Diarsipkan) |
-| **3.9** | Notifikasi | - | Membatalkan arsip notifikasi | Positive Case | High | Pada halaman Detail Notifikasi yang diarsipkan, klik tombol Kembalikan dari arsip | Berhasil membatalkan arsip notifikasi. | Embedded (3 SS: Klik Item Arsip, Tombol Unarsip, Hasil Kembali) |
-| **3.10** | Notifikasi | - | Melihat detail notifikasi | Positive Case | High | Pada daftar notifikasi, klik salah satu notifikasi yang ingin dilihat | Berhasil menampilkan halaman Detail Notifikasi. | Embedded (2 SS: Klik Item Popover & Halaman Detail Notif) |
+| **3.5** | Notifikasi | - | Menandai semua notifikasi telah dibaca | Positive Case | High | Pada notifikasi, klik tombol Tandai semua dibaca | Berhasil menandai seluruh notifikasi telah dibaca. | Embedded (2 SS: Tombol & Counter 0) |
+| **3.6** | Notifikasi | - | Membuka halaman Notifikasi pada Pengaturan Profile | Positive Case | High | Klik tombol Lihat semua pada notifikasi header (atau masuk via menu Pengaturan Profile) | Berhasil menampilkan halaman penuh Notifikasi pada Pengaturan Profile. | Embedded (2 SS: Tombol & Full Page) |
+| **3.7** | Notifikasi | - | Melihat data notifikasi Diarsipkan | Positive Case | Normal | Pada halaman Pengaturan Profile - Notifikasi, klik tab Diarsipkan | Berhasil menampilkan data notifikasi diarsipkan. | Embedded (1 SS: Tab Diarsipkan) |
+| **3.8** | Notifikasi | - | Melihat detail notifikasi | Positive Case | High | Pada daftar notifikasi, klik salah satu notifikasi yang ingin dilihat | Berhasil menampilkan halaman Detail Notifikasi. | Embedded (2 SS: Klik Item Popover & Halaman Detail Notif) |
+| **3.9** | Notifikasi | - | Mengarsipkan notifikasi | Positive Case | High | Pada halaman Detail Notifikasi, klik tombol Arsipkan | Berhasil mengarsipkan notifikasi. | Embedded (3 SS: Klik Item, Tombol Arsip, Hasil Tab Diarsipkan) |
+| **3.10** | Notifikasi | - | Membatalkan arsip notifikasi | Positive Case | High | Pada halaman Detail Notifikasi yang diarsipkan, klik tombol Kembalikan dari arsip | Berhasil membatalkan arsip notifikasi. | Embedded (3 SS: Klik Item Arsip, Tombol Unarsip, Hasil Kembali) |
 
 ---
 
 ## ✂️ Standardisasi Pemotongan Screenshot (Clean Web Crop)
 Sesuai arahan Mas Dani (*"crop nya pake versi yg biasa aja bro hilangin sidebar navbar aja bro"*):
-1. **Aksi Popover & Header (TC 3.1, 3.2, 3.3, 3.4, 3.6, 3.7.1, 3.10.1)**:
+1. **Aksi Popover & Header (TC 3.1, 3.2, 3.3, 3.4, 3.5, 3.6.1, 3.8.1)**:
    - Sidebar kiri dihapus (`x = 300px`).
    - Navbar atas **TETAP ADA** (`y = 0`) agar badge icon lonceng, red box, dan card popover dropdown tidak terpotong.
    - Scrollbar browser kanan dipotong 15px (`x = 1905px`).
-2. **Halaman Menu Profile (TC 3.5, 3.7.2, 3.8, 3.9, 3.10.2)**:
+2. **Halaman Menu Profile (TC 3.6.2, 3.7, 3.8.2, 3.9, 3.10)**:
    - **Full Body Crop**: Sidebar kiri dihapus (`x = 300px`) dan Navbar atas dihapus (`y = 64px`).
    - Menghasilkan tampilan frame *"Pengaturan Profile"* yang ter-zoom maksimal, bersih, proporsional, dan seluruh red bounding box tetap utuh 100%.
 
