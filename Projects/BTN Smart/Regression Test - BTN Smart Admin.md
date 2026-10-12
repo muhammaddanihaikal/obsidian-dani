@@ -78,7 +78,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 72 | Sales Force | Pipeline - Dashboard Validate Pipeline | Ahrul | 🔄 On Going |
 | 73 | Report Funding | Daily Sales Agenda | Ahrul | ✅ Done |
 | 74 | Report Funding | Personal Funnel | Ahrul | ✅ Done |
-| 75 | Report Funding | Rekap Funnel | Ahrul | 🐛 Bug |
+| 75 | Report Funding | Rekap Funnel | Ahrul | ✅ Done |
 | 76 | Report Funding | Regional Funnel | Ahrul | ⬜ Belum |
 | 77 | Report Funding | Pengaturan Funnel | Ahrul | ⬜ Belum |
 | 78 | Report Lending | Daily Sales Agenda | Ahrul | ✅ Done |
@@ -1166,12 +1166,18 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Report Funding - Rekap Funnel: Tombol Reset pada Drawer Filter Tidak Mereset Field Fee Based, Info Bulan, dan Info Tahun
 
 > * **Menu**: `Report Funding` → `Rekap Funnel` (Drawer `Filter`)
-> * **Deskripsi**: Saat user membuka drawer `Filter` dan menekan tombol `Reset`, sistem hanya mereset sebagian kolom filter (seperti `Unit Bisnis`, `Produk`, dan `Role`), sedangkan kolom `Fee Based`, `Info Bulan`, dan `Info Tahun` tidak ikut ter-reset dan tetap mempertahankan nilai yang sebelumnya dipilih (misal: `Fee Based` tetap `Non Banking`, `Info Bulan` tetap `Agustus`, dan `Info Tahun` tetap `2026`).
-> * **Expected**: Menekan tombol `Reset` pada drawer `Filter` seharusnya mereset seluruh opsi filter yang ada ke kondisi awal / default (seperti `Fee Based` kembali ke placeholder/default, serta `Info Bulan` dan `Info Tahun` ter-reset ke nilai default sistem / bulan & tahun berjalan).
-> * **Actual**: Field `Fee Based`, `Info Bulan`, dan `Info Tahun` tidak ter-reset sama sekali setelah tombol `Reset` diklik.
-> * **Evidence**:
+> * **Status**: ✅ Done
+> * **Status Huly**: ✅ Done
+> * **Deskripsi**: Saat user membuka drawer `Filter` dan menekan tombol `Reset`, sistem sebelumnya hanya mereset sebagian kolom filter (seperti `Unit Bisnis`, `Produk`, dan `Role`), sedangkan kolom `Fee Based`, `Info Bulan`, dan `Info Tahun` tidak ikut ter-reset dan tetap mempertahankan nilai yang sebelumnya dipilih.
+> * **Expected**: Menekan tombol `Reset` pada drawer `Filter` seharusnya mereset seluruh opsi filter yang ada ke kondisi awal / default.
+> * **Actual**: Tombol `Reset` kini berhasil mereset seluruh field pada drawer `Filter` kembali ke kondisi placeholder awal secara menyeluruh.
+> * **Evidence Awal**:
 >   * Kondisi Filter Sebelum Klik Reset: [https://files.catbox.moe/mbn2cw.png](https://files.catbox.moe/mbn2cw.png)
 >   * Kondisi Setelah Klik Reset (Field Fee Based, Info Bulan, dan Info Tahun Tidak Kereset): [https://files.catbox.moe/a9ssv5.png](https://files.catbox.moe/a9ssv5.png)
+> * **Bukti Retest (Done)**:
+>   * Kondisi Filter Sebelum Reset: [https://files.catbox.moe/2dl6i3.png](https://files.catbox.moe/2dl6i3.png)
+>   * Kondisi Setelah Klik Reset (Seluruh Field Berhasil Ter-reset): [https://files.catbox.moe/lozbzl.png](https://files.catbox.moe/lozbzl.png)
+> * **Catatan Retest (12 Oktober 2026)**: Fungsi tombol Reset pada drawer Filter di menu Rekap Funnel Funding sudah diperbaiki. Seluruh field (termasuk Info Bulan dan Info Tahun) berhasil ter-reset ke placeholder awal. Issue dinyatakan selesai (Done).
 
 ---
 
@@ -1458,3 +1464,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-08 | Report Lending - Daily Sales Agenda | Verifikasi perbaikan fitur export seluruh tab terintegrasi Export Center selesai (Status: Done) |
 | 2026-10-08 | Report Funding / Lending - Daily Sales Agenda | Verifikasi perbaikan prospek status referral "Tidak" tidak lagi masuk tab Prospek Referal selesai (Status: Done) |
 | 2026-10-09 | User Authority - Keamanan Akun (Log Aktivitas) | Retest lanjutan inkonsistensi log audit MFA & Sesi: Menghapus Perangkat Terpercaya & Mencabut Semua Sesi selesai (Status: On Progress) |
+| 2026-10-12 | Report Funding - Rekap Funnel | Verifikasi perbaikan tombol reset filter berhasil mereset seluruh field selesai (Status: Done) |
