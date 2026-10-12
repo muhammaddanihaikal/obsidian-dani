@@ -25,7 +25,7 @@ type: standard
 |---|---|---|
 | **Orientasi** | Portrait | Standar dokumen A4 |
 | **Ukuran Kertas** | A4 (21.01 cm × 29.7 cm) | `11910 dxa × 16838 dxa` |
-| **Margin Atas** | 1.48 cm | `840 dxa` |
+| **Margin Atas (Section 3 UAT)** | 4.76 cm (135 pt) | 2700 dxa (wajib 135 pt / 2700 dxa agar tidak bertabrakan dengan tabel floating header) |
 | **Margin Bawah** | 0.49 cm | `280 dxa` |
 | **Margin Kiri** | 1.55 cm | `880 dxa` (Section 3 UAT) |
 | **Margin Kanan** | 0.35 cm | `180 dxa` (Section 3 UAT) |
