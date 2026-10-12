@@ -31,7 +31,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 20 | User Authority | Keamanan Akun - Daftar Akun | Alam | ✅ Done |
 | 21 | User Authority | Keamanan Akun - Permintaan Reset MFA | Alam | ✅ Done |
 | 22 | User Authority | Keamanan Akun - Perangkat & Sesi | Alam | ✅ Done |
-| 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | 🐛 Bug |
+| 23 | User Authority | Keamanan Akun - Log Aktivitas | Alam | ✅ Done |
 | 24 | Profile Nasabah & Sales | Sales | Fito | ✅ Done |
 | 25 | Profile Nasabah & Sales | Nasabah Perorangan | Fito | ✅ Done |
 | 26 | Bisnis dan Produk | Unit Bisnis | Fito | ⬜ Belum |
@@ -557,6 +557,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | User Authority - Keamanan Akun: Inkonsistensi dan Ketiadaan Pencatatan Log Audit pada Kategori MFA serta Perangkat & Sesi
 
 > * **Menu**: User Authority → Keamanan Akun
+> * **Status**: ✅ Done
+> * **Status Huly**: ✅ Done
 > * **Deskripsi**: Terdapat inkonsistensi pencatatan dan ketiadaan log audit pada tab Log Aktivitas untuk kategori keamanan akun (MFA serta Perangkat & Sesi):
 >   * **[MFA] Verifikasi Berhasil (OTP)**: *Actual* malah tercatat *"Login berhasil tanpa verifikasi MFA"*.
 >   * **[MFA] Verifikasi dengan Kode Cadangan**: *Actual* malah tercatat *"Login berhasil tanpa verifikasi MFA"*.
@@ -574,22 +576,18 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * **[Sesi] Mencabut Semua Sesi**: Tidak masuk ke log saat tombol cabut semua sesi ditekan.
 > * **Expected**: Seluruh aktivitas MFA dan manajemen Perangkat & Sesi otomatis tercatat secara akurat, lengkap, dan sesuai dengan aksi nyata yang dilakukan user/admin.
 > * **Actual**: Sebagian aktivitas MFA salah label/prematur/hilang, dan seluruh aktivitas Perangkat & Sesi sama sekali tidak tercatat di Log Aktivitas.
-> * **Evidence**: [https://files.catbox.moe/5xeegv.png](https://files.catbox.moe/5xeegv.png)
-> * **Status Retest Saat Ini (Update 09 Oktober 2026 - On Progress)**:
->   * `[MFA] Verifikasi Berhasil (OTP)`: 🔄 *Sedang Diuji* ([https://files.catbox.moe/c5aigt.png](https://files.catbox.moe/c5aigt.png))
->   * `[MFA] Verifikasi dengan Kode Cadangan`: ✅ *Done / Sesuai* ([https://files.catbox.moe/xktbi9.png](https://files.catbox.moe/xktbi9.png))
->   * `[MFA] Verifikasi Gagal`: ✅ *Done / Sesuai* ([https://files.catbox.moe/kxjmdp.png](https://files.catbox.moe/kxjmdp.png))
->   * `[MFA] Permintaan Reset Ditolak`: 🔄 *Sedang Diuji*
->   * `[MFA] Permintaan Reset Disetujui`: 🔄 *Sedang Diuji*
->   * `[MFA] Reset MFA`: 🔄 *Sedang Diuji*
->   * `[MFA] Mengubah Metode`: 🔄 *Sedang Diuji*
->   * `[MFA] Diaktifkan`: 🔄 *Sedang Diuji*
->   * `[MFA] Dinonaktifkan`: ❌ *Belum Sesuai / Masih Issue*
->   * `[Sesi] Mempercayai Perangkat`: ✅ *Done / Sesuai*
->   * `[Sesi] Menghapus Perangkat Terpercaya`: ✅ *Done / Sesuai*
->   * `[Sesi] Memberi Label Perangkat`: 🔄 *Sedang Diuji*
->   * `[Sesi] Mencabut Sesi Perangkat`: 🔄 *Sedang Diuji*
->   * `[Sesi] Mencabut Semua Sesi`: ✅ *Done / Sesuai*
+> * **Evidence Awal**: [https://files.catbox.moe/5xeegv.png](https://files.catbox.moe/5xeegv.png)
+> * **Bukti Retest (Done - 12 Oktober 2026)**:
+>   * `[MFA] Verifikasi Berhasil (OTP)`: ✅ *Done* ([https://files.catbox.moe/3pinh5.png](https://files.catbox.moe/3pinh5.png))
+>   * `[MFA] Verifikasi dengan Kode Cadangan`: ✅ *Done* ([https://files.catbox.moe/xktbi9.png](https://files.catbox.moe/xktbi9.png))
+>   * `[MFA] Verifikasi Gagal`: ✅ *Done* ([https://files.catbox.moe/kxjmdp.png](https://files.catbox.moe/kxjmdp.png))
+>   * `[MFA] Permintaan Reset Ditolak`: ✅ *Done* ([https://files.catbox.moe/9o2kuf.png](https://files.catbox.moe/9o2kuf.png))
+>   * `[MFA] Permintaan Reset Disetujui`, `Reset MFA`, & `[Sesi] Menghapus Perangkat Terpercaya`: ✅ *Done* ([https://files.catbox.moe/2ja4v9.png](https://files.catbox.moe/2ja4v9.png))
+>   * `[MFA] Mengubah Metode` & `Mengaktifkan MFA (User)`: ✅ *Done* ([https://files.catbox.moe/3phc0m.png](https://files.catbox.moe/3phc0m.png))
+>   * `[MFA] Diaktifkan (Admin)`: ✅ *Done* ([https://files.catbox.moe/rn9rfw.png](https://files.catbox.moe/rn9rfw.png))
+>   * `[MFA] Dinonaktifkan`: ℹ️ *Tidak Ada di Sistem (Diwakili melalui log `Reset MFA`)*
+>   * `[Sesi] Mempercayai Perangkat`, `Menghapus Perangkat Terpercaya`, `Memberi Label`, `Mencabut Sesi`: ✅ *Done*
+> * **Catatan Retest (12 Oktober 2026)**: Seluruh pencatatan log audit pada tab Log Aktivitas untuk kategori MFA serta Perangkat & Sesi sudah diperbaiki dan tercatat sesuai. Issue dinyatakan selesai (Done).
 
 <br>
 
@@ -1465,3 +1463,4 @@ Pengujian fungsionalitas absensi mobile berdasarkan titik lokasi dan sensor:
 | 2026-10-08 | Report Funding / Lending - Daily Sales Agenda | Verifikasi perbaikan prospek status referral "Tidak" tidak lagi masuk tab Prospek Referal selesai (Status: Done) |
 | 2026-10-09 | User Authority - Keamanan Akun (Log Aktivitas) | Retest lanjutan inkonsistensi log audit MFA & Sesi: Menghapus Perangkat Terpercaya & Mencabut Semua Sesi selesai (Status: On Progress) |
 | 2026-10-12 | Report Funding - Rekap Funnel | Verifikasi perbaikan tombol reset filter berhasil mereset seluruh field selesai (Status: Done) |
+| 2026-10-12 | User Authority - Keamanan Akun (Log Aktivitas) | Verifikasi perbaikan seluruh pencatatan log audit kategori MFA serta Perangkat & Sesi selesai (Status: Done) |
