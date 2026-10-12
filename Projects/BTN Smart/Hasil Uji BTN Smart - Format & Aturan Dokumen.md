@@ -7,210 +7,146 @@ tags:
   - Format
   - Word
   - HasilUji
-date: 2026-09-18
+date: 2026-10-12
 project: BTN Smart
 type: standard
 ---
 
 # 📄 Hasil Uji BTN Smart - Format & Aturan Dokumen Word
 
-> Standar format dokumen Word Hasil Uji yang digunakan untuk **BTN SMART**.
-> Di-generate secara otomatis menggunakan script Python berbasis struktur folder Google Drive.
+> Standar format dokumen Word Hasil Uji yang digunakan untuk **BTN SMART** (Web & Mobile).
+> Di-generate dan distandarisasi secara otomatis menggunakan script Python berbasis struktur folder Google Drive dan file master SIT.
 
 ---
 
 ## 📐 Layout Halaman
 
-| Property | Value |
-|---|---|
-| **Orientasi** | Portrait |
-| **Ukuran Kertas** | A4 (21.01 cm × 29.7 cm) |
-| **Margin Atas** | 1.48 cm |
-| **Margin Bawah** | 0.49 cm |
-| **Margin Kiri** | 1.55 cm |
-| **Margin Kanan** | 0.35 cm |
+| Property | Value | Keterangan |
+|---|---|---|
+| **Orientasi** | Portrait | Standar dokumen A4 |
+| **Ukuran Kertas** | A4 (21.01 cm × 29.7 cm) | `11910 dxa × 16838 dxa` |
+| **Margin Atas** | 1.48 cm | `840 dxa` |
+| **Margin Bawah** | 0.49 cm | `280 dxa` |
+| **Margin Kiri** | 1.55 cm | `880 dxa` (Section 3 UAT) |
+| **Margin Kanan** | 0.35 cm | `180 dxa` (Section 3 UAT) |
 
 ---
 
 ## 🗂️ Struktur Dokumen Keseluruhan
 
 ```
-Cover Page
+Cover & Halaman Awal
 ├── Table 0 - Informasi Dokumen (6 baris × 2 kolom)
 ├── Table 1 - Penandatangan Penyedia Jasa (5 baris × 4 kolom)
 ├── Table 2 - Diketahui Oleh BTN (4 baris × 1 kolom)
 └── Table 3 - Histori Perbaikan (2 baris × 5 kolom)
 
-Isi (per Modul)
-├── Heading 1: "Modul [Nama Modul]"
-├── Paragraf kosong
-├── TC Table PERTAMA (4 baris: header + judul + ss + expected)
-├── TC Table KEDUA (3 baris: tanpa header row)
-└── ... dst
+Isi UAT (1 Tabel Utuh per Modul — Total 77 Tabel di Web, 20 Tabel di Mobile)
+├── Heading 1: "[No]. Modul [Nama Modul]" (Tanpa baris enter kosong!)
+└── Table UAT Utuh Modul:
+    ├── Row 0: Blue Header (No. | User Acceptance Testing (UAT))
+    ├── Row 1: Header TC Pertama (X.1 | [Judul TC]) — Abu-abu D0CECE
+    ├── Row 2: Screenshot TC X.1 (Tanpa enter kosong di awal cell!)
+    ├── Row 3: Expected Result TC X.1 (Compact & Simetris, vAlign Center)
+    ├── Row 4: Header TC Kedua (X.2 | [Judul TC]) — Abu-abu D0CECE
+    ├── Row 5: Screenshot TC X.2
+    ├── Row 6: Expected Result TC X.2
+    └── ... dst mengalir sampai TC terakhir modul tersebut
 ```
 
-> **Pola kunci:** TC **pertama** per modul punya **header row biru**. TC berikutnya **tidak punya header row** (langsung data).
+> [!IMPORTANT]
+> **Pola Kunci 1 Tabel Utuh per Modul:**
+> Seluruh TC dalam satu modul digabungkan menjadi **1 `<w:tbl>` utuh**. DILARANG memecah modul menjadi 2 tabel terpisah (`X.1` dan `X.2 dst.`), karena dua tabel yang menempel akan menyebabkan **garis border hitam tebal 2 lapis** antara `X.1` dan `X.2`.
 
 ---
 
-## 📌 Struktur Tiap TC Table
+## 📌 Struktur Baris di Dalam Tabel UAT
 
-### TC Pertama Per Modul — 4 Rows
+### 1. Blue Header Row (Row 0 Tabel Modul)
+- **Kolom 0 (`No.`):** Width `709 dxa`, Background `#2C5293` (Biru Tua), Font Arial 10pt Bold Putih, **Align Center** (Horizontal & Vertical Center).
+- **Kolom 1 (`User Acceptance Testing (UAT)`):** Width `9084 dxa`, Background `#2C5293`, Font Arial 10pt Bold Putih, **Align Center** (Horizontal & Vertical Center).
 
-| Row | Isi | BG Color | Style |
-|---|---|---|---|
-| Row 0 (Header) | `No.` / `User Acceptance Testing (UAT)` | `2C5293` (biru tua) | Bold, White, Center |
-| Row 1 (Judul TC) | `1.1` / `[Judul TC]` | `D0CECE` (abu-abu) | Normal, Hitam |
-| Row 2 (Screenshot) | kosong / gambar | None (putih) | Center (gambar) |
-| Row 3 (Expected) | kosong / teks expected | None (putih) | Lihat di bawah |
+### 2. Grey TC Header Row (Judul TC, misal `7.1`, `7.2`, dll.)
+- **Kolom 0 (`No.`):**
+  - Background `#D0CECE` (Abu-abu).
+  - Teks: Nomor TC murni tanpa spasi di depan/belakang (`7.1`).
+  - **Alignment:** **Align Center** (Horizontal Center + Vertical Center).
+  - Spacing: `Space Before = 0 pt`, `Space After = 0 pt`, `Line Spacing = 1.0` (single).
+  - Font: Arial 10pt Regular, Hitam.
+- **Kolom 1 (`TC Title`):**
+  - Background `#D0CECE` (Abu-abu).
+  - Teks: Diawali 1 spasi agar berjarak manis dari border vertikal (`" Membuka halaman User"`).
+  - **Alignment:** **Align Center Left** (Horizontal Left + Vertical Center).
+  - Spacing: `Space Before = 0 pt`, `Space After = 0 pt`, `Line Spacing = 1.0` (single).
+  - Font: Arial 10pt Regular, Hitam.
+- **Pagination Rule:** Paragraf pada baris judul TC wajib diset **`keep_with_next = True`** (`<w:keepNext/>`) agar judul TC tidak pernah tertinggal sendirian di bagian bawah halaman terpisah dari gambar screenshot-nya.
 
-### TC Kedua dst — 3 Rows (tanpa header)
+### 3. Screenshot Row
+- **Kolom 0:** Kosong, vertikal merge (`vMerge = restart`).
+- **Kolom 1:** Berisi gambar screenshot inline (`<wp:inline>`).
+- **DILARANG ADA ENTER KOSONG DI AWAL CELL:**
+  - Pastikan paragraf pertama di dalam cell screenshot adalah gambar itu sendiri (`P0` berisi drawing). Dilarang menyisipkan paragraf kosong (`<w:p>`) di atas gambar, karena Word akan memotong paragraf kosong tersebut ke halaman atas dan meninggalkan **kotak putih kosong melompong** setinggi halaman.
+- **Tinggi Baris (`trHeight`):**
+  - Baris screenshot yang sudah memiliki gambar **DILARANG memiliki `<w:trHeight w:val="4316"/>` (tinggi paksa 7.6 cm)**. Biarkan tinggi baris mengikuti ukuran gambar + cell margin.
+- **Spacing Paragraf Gambar:** `Space Before = 6 pt`, `Space After = 6 pt`, `Alignment = Center`.
 
-| Row | Isi |
-|---|---|
-| Row 0 (Judul TC) | `1.2` / `[Judul TC]` — bg abu D0CECE |
-| Row 1 (Screenshot) | gambar — putih |
-| Row 2 (Expected) | teks expected — putih |
-
----
-
-## 🎨 Styling Detail
-
-### Warna
-| Elemen | HEX | Keterangan |
-|---|---|---|
-| Header row bg | `2C5293` | Biru tua |
-| Judul TC row bg | `D0CECE` | Abu-abu muda |
-| Teks header | `FFFFFF` | Putih |
-| Teks No / Judul TC | `000000` | Hitam |
-| `"Hasil yang diharapkan [STATUS]:"` | `000000` | Hitam Bold |
-| Expected result content | `2C5293` | Biru |
-
-### Font
-- **Font family**: Arial (semua elemen)
-- **Ukuran**: 10pt (127000 EMU)
-- Header row: **Bold**
-- Judul TC: Normal
-- `"Hasil yang diharapkan [STATUS]:"`: **Bold**
-- Expected result content: Normal, warna biru `2C5293`
-
-### Spacing (space_before per paragraf)
-- Header row & Judul TC: `5.8pt`
-- Screenshot row: `5.8pt`
-- `"Hasil yang diharapkan [STATUS]:"`: `5.8pt`
-- Expected result content: `6.5pt`
-
-### ⚠️ Aturan Teks "Hasil yang diharapkan [STATUS]:"
-- **Sumber Teks Baku**: **WAJIB mengambil teks dari dokumen SIT secara langsung** (berupa ringkasan / 1 kalimat narasi utuh dari SIT).
-- **❌ DILARANG KERAS menggunakan penomoran (`1. 2. 3. ...`)** pada cell Hasil yang diharapkan di Dokumen Word!
-  - Penomoran `1. 2. 3.` hanya berlaku untuk file panduan `.txt` dan Test Script.
-  - Di Dokumen Hasil Uji Word, teks harus mengalir rapi dalam 1 paragraf sesuai template baku BTN.
-- **❌ DILARANG double enter / baris kosong acak**:
-  - Teks tidak boleh diselingi baris kosong atau enter yang tidak konsisten.
-  - Spacing paragraf: Space Before `5.8pt` (label) dan `6.5pt` (isi narasi).
-- **🎨 Standardisasi Warna & Gaya Font (Wajib Konsisten)**:
-  - **Label** `"Hasil yang diharapkan [STATUS]:"`: Arial 10pt, **Hitam (`#000000`)**, **Bold**.
-  - **Isi Narasi SIT**: Arial 10pt, **Biru BTN (`#2C5293`)**, **Normal / Regular** (Wajib biru, dilarang hitam atau abu-abu).
-  - **Tag Status Akhir** (` - [Success]` / ` - [Failed]`): Arial 10pt, **Biru BTN (`#2C5293`)**, **Normal / Regular (JANGAN TEBAL / BUKAN BOLD)**. Seluruh kalimat narasi dan status mengalir seragam tanpa ada font tebal.
-- **Contoh Format Baku**:
-  > **Hasil yang diharapkan [Success]:**
-  > Sistem berhasil menampilkan daftar data pengguna pada tabel User Authority. - [Success]
+### 4. Expected Result Row (`Hasil yang diharapkan [STATUS]:`)
+- **Kolom 0:** Kosong, vertikal merge (`vMerge`).
+- **Kolom 1:** Berisi teks hasil yang diharapkan dan status hasil uji.
+- **Standar Dimensi & Vertical Alignment:**
+  - **DILARANG memiliki tinggi paksa `1290 dxa` (`64.5 pt` / `2.3 cm`)** yang membuat bagian bawah cell melompong.
+  - Cell diset **Vertical Alignment: Center** (`<w:vAlign w:val="center"/>`).
+  - **Padding Simetris:** Paragraf label pertama diberi `Space Before = 6 pt`, paragraf narasi/status terakhir diberi `Space After = 6 pt`, dan antar-paragraf `Space After = 2 pt`, `Line Spacing = 1.15`.
+  - Hasilnya: Jarak putih di atas label dan di bawah status sama rata (simetris) dan padat proporsional.
 
 ---
 
-## 🟥 Standar Kotak Merah (Red Bounding Box)
+## 🎨 Standar Teks "Hasil yang diharapkan [STATUS]:"
 
-Untuk memperjelas bukti verifikasi pada elemen UI yang diuji:
-1. **Spesifikasi Teknis Garis**:
-   - **Warna**: Pure Red (`#FF0000` / RGB `(255, 0, 0)`).
-   - **Ketebalan (Stroke)**: `3px` solid.
-   - **Padding**: Wajib memberi ruang napas yang cukup (padding horizontal `8 - 10px`, vertikal `4 - 6px` dari batas teks/elemen) agar tidak sempit dan garis merah tidak menempel pada teks.
-   - **Kualitas Gambar**: Wajib diproses secara **Lossless PNG** (tanpa kompresi lossy JPEG).
-
-2. **Elemen yang Wajib Diberi Kotak Merah**:
-   - **Sidebar Menu & Submenu (TC .1)**: Kotak merah pada parent menu yang aktif dan submenu yang sedang dibuka.
-   - **Form Pencarian / Filter**: Kotak merah pada search bar/dropdown filter dan tombol cari/submit.
-   - **Tombol Aksi Utama**: Tombol aksi yang menjadi fokus pengujian (misal: `Update`, `Simpan`, `Tambah`, `Hapus`, `Export`).
-   - **Pesan Validasi & Error Alert**: Tulisan pesan error validasi merah di bawah input textbox serta banner alert error.
-   - **Modal Dialog / Pop-up**: Jendela/card modal dialog yang muncul di tengah layar sebagai bukti verifikasi.
+1. **Sumber Teks Baku:** Wajib mengambil teks ringkasan resmi dari dokumen SIT.
+2. **❌ Dilarang Keras Penomoran Angka (`1. 2. 3. ...`):**
+   - Di dokumen Word, teks harus mengalir rapi dalam bentuk narasi (bukan numbered list).
+3. **Format & Warna Font:**
+   - **Label** `"Hasil yang diharapkan [STATUS]:"`: Arial 10pt, **Hitam (`#000000`)**, **Bold**.
+   - **Isi Narasi SIT**: Arial 10pt, **Biru BTN (`#2C5293`)**, **Regular / Normal**.
+   - **Tag Status Akhir** (` - [Success]` / ` - [Failed]`): Arial 10pt, **Biru BTN (`#2C5293`)**, **Regular / Normal (DILARANG BOLD)**.
+4. **Contoh Tampilan Baku:**
+   > **Hasil yang diharapkan [STATUS]:**
+   > Berhasil menampilkan halaman User. - [Success]
 
 ---
 
-## ✂️ Standar Pemotongan UI Web (Web Crop Rules)
+## 🏷️ Judul Modul (Heading 1) & Header Page Rules
 
-Standar klasifikasi dan pemotongan screenshot UI Web agar bukti hasil uji tetap utuh konteksnya dan tabel/data ter-zoom maksimal di Word:
+### 1. Aturan Paragraph Spacing Judul Modul
+- **DILARANG MENYISIPKAN ENTER KOSONG DI BAWAH JUDUL MODUL:**
+  - Di bawah judul modul (`Heading 1`), tabel UAT langsung menyambung tanpa diselingi paragraf kosong.
+- **Paragraph Spacing Baku:**
+  - `Space Before`: `12 pt` (memberikan ruang lega dari tabel modul sebelumnya).
+  - `Space After`: `6 pt` (memberi jarak proporsional ke header tabel biru).
+  - `Keep with Next`: `True` (judul modul tidak boleh menggantung di ujung bawah halaman).
 
-1. **Aturan 1: Halaman Awal / TC Pembuka (`.1`, misal `6.1`, `7.1`)**
-   - **Tindakan:** **FULL SCREEN** (`0, 0, w, h` - tidak dipotong sama sekali).
-   - **Alasan:** Sebagai penanda modul & menu utama yang sedang diakses di sidebar.
-2. **Aturan 2: Ada Notifikasi (Alert / Toast di Kanan Atas)**
-   - **Tindakan:** Hapus Sidebar saja (`x = 338px` atau `x = 80px`). Navbar atas **TETAP ADA** (`y = 0`).
-   - **Alasan:** Menjaga agar pop-up banner notifikasi sukses/gagal di pojok kanan atas tidak terpotong.
-3. **Aturan 3: Drawer / Filter dari Samping Kanan**
-   - **Tindakan:** Hapus Sidebar saja. Navbar atas **TETAP ADA** (`y = 0`).
-   - **Alasan:** Menjaga struktur visual dan proporsi panel drawer samping kanan.
-4. **Aturan 4: Drawer dari Bawah**
-   - **Tindakan:** Hapus Navbar saja (`y = 72px`). Sidebar **TETAP ADA** (`x = 0`).
-   - **Alasan:** Drawer bawah memanjang horizontal, butuh sidebar sebagai penyeimbang layout.
-5. **Aturan 5: Sidebar Diperkecil (Minimized / Collapsed Sidebar ~80px)**
-   - **Tindakan:** Sidebar ikon kecil dapat dihapus (`x = 80px`) selama tidak melanggar aturan 1 s/d 4.
-6. **Aturan 6: Pop-up / Modal Dialog di Tengah Layar**
-   - **Tindakan:** Bisa Hapus Sidebar saja (`y = 0`), atau Hapus Sidebar & Navbar (Full Body Crop `y = 72px`) jika proporsional dan tidak memotong bagian atas dialog modal.
-   - **Alasan:** Menjaga agar jendela dialog modal tetap simetris di tengah.
-7. **Aturan 7: Halaman Tabel / Data / Form Normal (Kondisi Default)**
-   - **Tindakan:** **Full Body Crop** (Hapus Sidebar `x = 338px`/`80px` dan Navbar `y = 72px`).
-   - **Alasan:** Area tabel dan form ter-zoom maksimal sehingga data mudah dibaca jelas di dokumen Word.
-8. **Aturan 8: Menu / Tabel Vertikal Sangat Panjang (Stitching Atas & Bawah)**
-   - **Tindakan:** Potong bagian tengah yang kosong/berulang, lalu gabungkan (stitch) bagian atas dan bagian bawah secara seamless tanpa menurunkan resolusi piksel.
-   - **Alasan:** Menghindari gambar yang terlalu panjang/tinggi di dokumen Word tanpa menghilangkan header dan tombol aksi penting di bawah.
-9. **Aturan 9: Scrollbar Tepi Kanan (Vertical Browser Scrollbar)**
-   - **Tindakan:** Potong (trim) tepi kanan sebesar `14 - 15px` di mana batang abu-abu scrollbar berada.
-   - **Alasan:** Menghilangkan artefak scrollbar browser yang mengganggu, membuat padding margin kanan simetris (~20px) dengan margin kiri (~20px), serta menjaga dokumen hasil uji tampak clean dan profesional tanpa memotong tombol aksi (+ Tambah, Export) atau ikon filter di kanan.
-
-> [!CAUTION] 🚨 ATURAN MUTLAK KETIKA RAGU
-> Jika script AI bingung atau ragu dalam mengklasifikasikan gambar tertentu (misal tata letak UI tidak biasa atau tumpang tindih), **DILARANG LANGSUNG MEMOTONG**. AI wajib memberikan **Report Klasifikasi / List Gambar** dan meminta **ACC** ke Mas Dani terlebih dahulu sebelum eksekusi pemotongan dilakukan.
+### 2. Aturan Logo Header (Mencegah Judul Terbelah)
+- **Masalah:** Jika logo di header menggunakan mode `wrapSquare` (Square wrap), judul modul yang berada di paling atas halaman akan terdorong dan membungkus logo (misal angka `1.` terlempar ke kanan logo, dan teks `Modul Login` turun ke bawah).
+- **Aturan Baku:**
+  - Seluruh gambar logo di `word/header1.xml` WAJIB menggunakan mode **`wrapNone`** (`<wp:wrapNone/>`).
+  - Dengan `wrapNone`, logo header tidak akan pernah bertabrakan atau memecah susunan teks judul modul di dokumen body.
 
 ---
 
-## 🖼️ Gambar Screenshot
+## 📊 Ukuran Kolom & Geometri Tabel UAT
 
-- **Tipe**: Inline image
-- **Alignment**: CENTER dalam cell
-- **Target lebar maks**: `15.0 cm` (5.400.000 EMU)
-- **Tinggi**: Proporsional otomatis sesuai aspek rasio gambar asli
+| Kolom | Lebar (dxa) | ≈ cm | Alignment Horisontal | Alignment Vertikal |
+|---|---|---|---|---|
+| **Col 0 (No.)** | `709 dxa` / `720 dxa` | ~1.25 cm | Center | Center |
+| **Col 1 (Content/Title)** | `9084 dxa` / `9090 dxa` | ~16.0 cm | Left (spasi depan) | Center |
+| **Total Tabel** | **9793 dxa – 9810 dxa** | **~17.3 cm** | **Center** | - |
 
-### 📸 Aturan Khusus Screenshot Fitur Filter
-- **Filter Inline (Mobile/Web):** Jika filter dan data berada dalam satu layar yang sama, gunakan **2 screenshot (Before & After)**:
-  1. `01.png`: Tampilan sebelum filter (kondisi default / form filter kosong).
-  2. `02.png`: Tampilan setelah filter dipilih dan data berhasil tersaring.
-  - Tujuannya memberikan bukti visual kontras dan otentik bahwa penyaringan data benar-benar berfungsi.
+- **Table Alignment:** `<w:jc w:val="center"/>` dengan `<w:tblInd w:w="0" w:type="dxa"/>`.
+- **Table Borders:** Single line, `sz = 4` (0.5 pt), warna `#000000`.
 
 ---
 
-## 📊 Ukuran Kolom
-
-| Kolom | Lebar (dxa) | ≈ cm |
-|---|---|---|
-| Col 0 (No.) | 709 dxa | ~1.25 cm |
-| Col 1 (Content) | 9084 dxa | ~16.0 cm |
-| **Total** | **9793 dxa** | **~17.25 cm** |
-
----
-
-## 🔲 Border Tabel
-
-- Style: `single`, sz: `4` (0.5pt), warna: `000000`
-- Berlaku untuk semua sisi: top, left, bottom, right, insideH, insideV
-
----
-
-## 🏷️ Heading 1
-
-- Style name: `Heading 1`
-- Format teks: `"Modul [Nama Modul]"`
-- Space before: `1.8pt`
-
----
-
-## 🔗 Referensi Terkait
-- [[Hasil Uji BTN Smart - Panduan Generator & Siklus Uji]] — Panduan SOP perubahan TC, script sinkronisasi, dan troubleshooting teknis.
+## 🔗 Referensi & SOP Terkait
+- [[Hasil Uji BTN Smart - Panduan Generator & Siklus Uji]] — Siklus sinkronisasi Tri-Drive (Local D, Drive H, Drive G) dan automasi Git.
+- Repository GitHub: `https://github.com/muhammaddanihaikal/btn-smart-refactor.git`
