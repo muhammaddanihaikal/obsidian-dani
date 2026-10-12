@@ -135,6 +135,12 @@ Isi UAT (1 Tabel Utuh per Modul — Total 77 Tabel di Web, 20 Tabel di Mobile)
   - Seluruh gambar logo di `word/header1.xml` WAJIB menggunakan mode **`wrapNone`** (`<wp:wrapNone/>`).
   - Posisi vertikal logo BTN wajib menggunakan **`relativeFrom="page"`** dengan `posOffset="617042"` (terkunci ke batas fisik atas halaman), sehingga posisi logo tetap berada tepat di tengah cell tabel header dan border bawah tabel tidak terpotong.
 
+### 3. Aturan Indentasi Judul Modul (Flush Alignment dengan Tabel UAT)
+- **Masalah Indentasi:** Jika paragraf judul modul memiliki properti `<w:ind w:firstLine="..."/>` atau indentasi lokal, teks judul (misal `1. Modul Login`) akan bergeser ke kanan dan tidak rata dengan garis tepi kiri tabel UAT (`No.`).
+- **Aturan Baku:**
+  - Paragraf `Heading 1` modul tidak boleh memiliki atribut indentasi lokal `<w:ind>` (`w:ind = None`).
+  - Teks judul modul wajib mewarisi indentasi default style (`w:left="111"`) sehingga berada pada posisi yang rata sempurna (*flush*) dengan garis border kiri tabel UAT (`tblInd = 137 dxa`).
+
 ---
 
 ## 📊 Ukuran Kolom & Geometri Tabel UAT
