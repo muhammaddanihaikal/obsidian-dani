@@ -128,11 +128,12 @@ Isi UAT (1 Tabel Utuh per Modul — Total 77 Tabel di Web, 20 Tabel di Mobile)
   - `Space After`: `6 pt` (memberi jarak proporsional ke header tabel biru).
   - `Keep with Next`: `True` (judul modul tidak boleh menggantung di ujung bawah halaman).
 
-### 2. Aturan Logo Header (Mencegah Judul Terbelah)
-- **Masalah:** Jika logo di header menggunakan mode `wrapSquare` (Square wrap), judul modul yang berada di paling atas halaman akan terdorong dan membungkus logo (misal angka `1.` terlempar ke kanan logo, dan teks `Modul Login` turun ke bawah).
+### 2. Aturan Logo Header (Mencegah Judul Terbelah & Border Terpotong)
+- **Masalah 1 (Judul Terbelah):** Jika logo di header menggunakan mode `wrapSquare` (Square wrap), judul modul yang berada di paling atas halaman akan terdorong dan membungkus logo.
+- **Masalah 2 (Border Bawah Terpotong):** Jika logo BTN menggunakan `relativeFrom="margin"`, saat margin atas halaman disesuaikan, logo akan ikut bergeser ke bawah dan menabrak/menutupi garis border bawah tabel header.
 - **Aturan Baku:**
   - Seluruh gambar logo di `word/header1.xml` WAJIB menggunakan mode **`wrapNone`** (`<wp:wrapNone/>`).
-  - Dengan `wrapNone`, logo header tidak akan pernah bertabrakan atau memecah susunan teks judul modul di dokumen body.
+  - Posisi vertikal logo BTN wajib menggunakan **`relativeFrom="page"`** dengan `posOffset="617042"` (terkunci ke batas fisik atas halaman), sehingga posisi logo tetap berada tepat di tengah cell tabel header dan border bawah tabel tidak terpotong.
 
 ---
 
