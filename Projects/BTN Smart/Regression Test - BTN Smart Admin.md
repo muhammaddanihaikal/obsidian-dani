@@ -578,16 +578,30 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Sebagian aktivitas MFA salah label/prematur/hilang, dan seluruh aktivitas Perangkat & Sesi sama sekali tidak tercatat di Log Aktivitas.
 > * **Evidence Awal**: [https://files.catbox.moe/5xeegv.png](https://files.catbox.moe/5xeegv.png)
 > * **Bukti Retest (Done - 12 Oktober 2026)**:
->   * `[MFA] Verifikasi Berhasil (OTP)`: ✅ *Done* ([https://files.catbox.moe/3pinh5.png](https://files.catbox.moe/3pinh5.png))
->   * `[MFA] Verifikasi dengan Kode Cadangan`: ✅ *Done* ([https://files.catbox.moe/xktbi9.png](https://files.catbox.moe/xktbi9.png))
->   * `[MFA] Verifikasi Gagal`: ✅ *Done* ([https://files.catbox.moe/kxjmdp.png](https://files.catbox.moe/kxjmdp.png))
->   * `[MFA] Permintaan Reset Ditolak`: ✅ *Done* ([https://files.catbox.moe/9o2kuf.png](https://files.catbox.moe/9o2kuf.png))
->   * `[MFA] Permintaan Reset Disetujui`, `Reset MFA`, & `[Sesi] Menghapus Perangkat Terpercaya`: ✅ *Done* ([https://files.catbox.moe/2ja4v9.png](https://files.catbox.moe/2ja4v9.png))
->   * `[MFA] Mengubah Metode` & `Mengaktifkan MFA (User)`: ✅ *Done* ([https://files.catbox.moe/3phc0m.png](https://files.catbox.moe/3phc0m.png))
->   * `[MFA] Diaktifkan (Admin)`: ✅ *Done* ([https://files.catbox.moe/rn9rfw.png](https://files.catbox.moe/rn9rfw.png))
->   * `[MFA] Dinonaktifkan`: ℹ️ *Tidak Ada di Sistem (Diwakili melalui log `Reset MFA`)*
->   * `[Sesi] Mempercayai Perangkat`, `Menghapus Perangkat Terpercaya`, `Memberi Label`, `Mencabut Sesi`: ✅ *Done*
-> * **Catatan Retest (12 Oktober 2026)**: Seluruh pencatatan log audit pada tab Log Aktivitas untuk kategori MFA serta Perangkat & Sesi sudah diperbaiki dan tercatat sesuai. Issue dinyatakan selesai (Done).
+>   * `Verifikasi MFA Berhasil`: [https://files.catbox.moe/wejytd.png](https://files.catbox.moe/wejytd.png)
+>   * `Verifikasi MFA Gagal`: [https://files.catbox.moe/gqkf1l.png](https://files.catbox.moe/gqkf1l.png)
+>   * `Permintaan Reset MFA Ditolak`: [https://files.catbox.moe/bkv1ef.png](https://files.catbox.moe/bkv1ef.png)
+>   * `Permintaan Reset MFA Disetujui`: [https://files.catbox.moe/b3qb6p.png](https://files.catbox.moe/b3qb6p.png)
+>   * `Permintaan Reset MFA`: [https://files.catbox.moe/umcdhm.png](https://files.catbox.moe/umcdhm.png)
+>   * `MFA diaktifkan`: [https://files.catbox.moe/m6z452.png](https://files.catbox.moe/m6z452.png)
+>   * `Reset MFA`: [https://files.catbox.moe/8gagtt.png](https://files.catbox.moe/8gagtt.png)
+>   * `Mengubah Metode MFA`: [https://files.catbox.moe/ve3ugu.png](https://files.catbox.moe/ve3ugu.png)
+>   * `Mengaktifkan MFA`: [https://files.catbox.moe/ezg84b.png](https://files.catbox.moe/ezg84b.png)
+>   * `Kode Cadangan MFA Diperbarui`: [https://files.catbox.moe/bbtd47.png](https://files.catbox.moe/bbtd47.png)
+>   * `Verifikasi MFA Berhasil dengan Kode Cadangan`: [https://files.catbox.moe/u5raq2.png](https://files.catbox.moe/u5raq2.png)
+>   * `Melihat Kode Cadangan MFA`: [https://files.catbox.moe/u9os7z.png](https://files.catbox.moe/u9os7z.png)
+>   * `Password diubah`: [https://files.catbox.moe/qdhncm.png](https://files.catbox.moe/qdhncm.png)
+>   * `Logout`: [https://files.catbox.moe/7falsa.png](https://files.catbox.moe/7falsa.png)
+>   * `Percobaan login gagal`: [https://files.catbox.moe/d01ii9.png](https://files.catbox.moe/d01ii9.png)
+>   * `Login berhasil`: [https://files.catbox.moe/0kz982.png](https://files.catbox.moe/0kz982.png)
+>   * `Mencabut Semua Sesi Perangkat`: [https://files.catbox.moe/ulz88a.png](https://files.catbox.moe/ulz88a.png)
+>   * `Mencabut Sesi Perangkat`: [https://files.catbox.moe/vhhgno.png](https://files.catbox.moe/vhhgno.png)
+>   * `Memberi Label Perangkat`: [https://files.catbox.moe/ik0ctf.png](https://files.catbox.moe/ik0ctf.png)
+>   * `Menghapus Perangkat`: [https://files.catbox.moe/cu9t2d.png](https://files.catbox.moe/cu9t2d.png)
+>   * `Menghapus Perangkat Terpercaya`: [https://files.catbox.moe/hj1e22.png](https://files.catbox.moe/hj1e22.png)
+>   * `Mempercayai Perangkat`: [https://files.catbox.moe/wcfmqd.png](https://files.catbox.moe/wcfmqd.png)
+>   * `Logout karena tidak aktif`: [https://files.catbox.moe/tfrrb6.png](https://files.catbox.moe/tfrrb6.png)
+> * **Catatan Retest (12 Oktober 2026)**: Seluruh pencatatan log audit pada tab Log Aktivitas berdasarkan Tipe Aktivitas sudah diperbaiki dan tercatat dengan sesuai. Issue dinyatakan selesai (Done).
 
 <br>
 
