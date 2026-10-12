@@ -39,7 +39,9 @@ Cover & Halaman Awal
 ├── Table 0 - Informasi Dokumen (6 baris × 2 kolom)
 ├── Table 1 - Penandatangan Penyedia Jasa (5 baris × 4 kolom)
 ├── Table 2 - Diketahui Oleh BTN (4 baris × 1 kolom)
-└── Table 3 - Histori Perbaikan (2 baris × 5 kolom)
+├── Daftar Isi (TOC Section - Field w:sdt, mengalir normal)
+└── Histori Perbaikan (Wajib di Halaman Baru — pageBreakBefore=True & keepWithNext=True)
+    └── Table 3 - Histori Perbaikan (2 baris × 5 kolom)
 
 Isi UAT (1 Tabel Utuh per Modul — Total 77 Tabel di Web, 20 Tabel di Mobile)
 ├── Heading 1: "[No]. Modul [Nama Modul]" (Tanpa baris enter kosong!)
