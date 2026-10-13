@@ -75,3 +75,15 @@ Dilakukan audit 4 sisi terhadap seluruh 31 Test Case (25 TC Modul 26 + 6 TC Modu
    * Commit 1: `39340a1` — *feat(web): sync and standardize new screenshots for Module 26 and Module 67*
    * Commit 2: `ff1f1f8` — *feat(web): embed Modul 26 and 67 screenshots into Dokumen_Hasil_Uji_Web.docx and cleanup redundant 0x.png*
    * Branch: `main` (pushed via Git LFS).
+
+
+---
+
+## 6. 🔲 Pemisahan Kotak Test Case (Layout Standar Mobile)
+* **Permintaan User**: Kotak tabel tiap Test Case di Dokumen_Hasil_Uji_Web.docx yang sebelumnya menyatu dalam satu tabel besar per modul, dipisahkan per kotak individual dengan spasi paragraf antar-tabel agar identik dengan tampilan Dokumen_Hasil_Uji_Mobile.docx.
+* **Eksekusi**:
+  * Seluruh 71 modul tabel berhasil dipisahkan menjadi tabel-tabel per TC.
+  * Total tabel di dokumen Web meningkat dari 75 menjadi **931 tabel**.
+  * Tiap TC memiliki batas border tertutup sendiri dan dipisahkan oleh paragraf kosong (<w:p/>), menghasilkan visual layout yang rapi dan terisolasi.
+  * Tri-drive sync ke Drive H dan Drive G selesai 100%.
+  * Git commit e956086 pushed ke main.
