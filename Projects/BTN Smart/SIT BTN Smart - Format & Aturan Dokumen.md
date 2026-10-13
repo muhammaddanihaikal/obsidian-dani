@@ -57,6 +57,11 @@ Setiap file `.docx` (per modul) memiliki struktur berikut:
 5. sectPr (page settings)
 ```
 
+> [!NOTE]
+> **Aturan Nomor Halaman (Header vs Footer):**
+> * Nomor halaman resmi dokumen SIT BTN diletakkan pada **Header Table di pojok kanan atas** (`Page <PAGE>`).
+> * Bagian **Footer sengaja dikosongkan (clean)** tanpa floating text box atau nomor halaman bawah, guna menghindari kemunculan artefak visual atau angka sisa template lama di bawah tabel.
+
 ---
 
 ## 🏷️ Aturan Judul & Penomoran
