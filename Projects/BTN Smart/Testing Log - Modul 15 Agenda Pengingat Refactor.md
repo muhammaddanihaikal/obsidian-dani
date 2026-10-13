@@ -52,10 +52,12 @@ Aplikasi BTN Smart Mobile telah melakukan perombakan besar (refactor) pada modul
    - Seluruh baris screenshot **dikosongkan (blank)** sesuai instruksi QA.
 2. **SIT Excel (`SIT\Test Case.xlsx` sheet `TC BTN SMART Mobile`)**:
    - Baris 185 s/d 198 telah diperbarui memuat 14 TC lengkap (Steps & Expected Results).
-3. **SIT Word (`SIT\SIT BTN SMART Mobile (Updated).docx`)**:
-   - Table 23 telah diperbarui memuat TC 9.1 s/d 9.14 (Pengingat) dan penomoran Daily Sales Agenda disesuaikan menjadi 9.15 s/d 9.22.
-4. **Struktur Folder Bukti Uji**:
-   - Folder sub-TC di `Hasil Uji\Screenshot\Mobile\15. Agenda - Pengingat\` telah dibuat 14 folder lengkap dengan file spesifikasi `.txt` (tanpa gambar screenshot).
-5. **Tri-Drive Sync**:
-   - Local D, Google Drive H (`H:\My Drive\Zegen\BTN Smart\Refactor`), dan Google Drive G (`G:\My Drive\Zegen\BTN Smart\Refactor`) memiliki MD5 hash yang identik 100%.
-   - Git commit: `6f00506` ter-push ke `origin/main`.
+3. **SIT Word (`SIT\SIT BTN SMART Mobile.docx`)**:
+   - Table 16 telah diperbarui memuat 14 TC lengkap (TC 15.1 s/d 15.14) dan Table 1 (Jumlah Script) diperbarui menjadi 260.
+   - **Audit Template Layout**: XML formatting (Trebuchet MS 11pt, `<w:vAlign w:val="center"/>`, `<w:jc w:val="center"/>`, `tblPr`, `tblGrid`, `trPr` cantSplit/trHeight) telah distandarisasi 100% presisi dan identik dengan template resmi BTN (`Form Script`).
+4. **Test Script Excel (Test Script\\Test Script BTN Smart Refactor.xlsx)**:
+   - Sheet TC BTN SMART Mobile diperbarui memuat 14 TC lengkap (TC 15.1 s/d 15.14).
+5. **Struktur Folder Bukti Uji**:
+   - Folder sub-TC di Hasil Uji\\Screenshot\\Mobile\\15. Agenda - Pengingat\\ telah dibuat 14 folder lengkap dengan file spesifikasi .txt.
+6. **Tri-Drive Sync**:
+   - Local D, Google Drive H (H:\\My Drive\\Zegen\\BTN Smart\\Refactor), dan Google Drive G (G:\\My Drive\\Zegen\\BTN Smart\\Refactor) memiliki MD5 hash yang identik 100%.

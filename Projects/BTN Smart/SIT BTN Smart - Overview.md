@@ -100,7 +100,7 @@ type: project-note
 | **Scenario** | Diambil dari kolom **Steps** di Excel |
 | **Expected Result** | Diambil dari kolom **Expected Results** di Excel |
 | **Actual Result** | Sama dengan Expected, tiap baris dipastikan diawali **"Berhasil"**, jumlah baris sama |
-| **Test Status** | **P** (Passed) — untuk semua baris |
+| **Test Status** | **P** (Passed) — **Wajib huruf kapital `P`**, bukan huruf kecil `p`, rata tengah (Center / Center) |
 | **Remarks** | Kosong |
 
 ---

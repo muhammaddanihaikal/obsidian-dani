@@ -193,6 +193,9 @@ Berdasarkan review senior (21 September 2026), terdapat 5 aturan baru yang wajib
     - Folder screenshot di Local (`d:\Project\BTN\Hasil Uji\Screenshot\Web`) dan Google Drive (`H:\My Drive\Zegen\BTN Smart\Refactor\Hasil Uji\Screenshot\Web`) disusun per sub menu: `01. Login` s.d. `75. Export data management - Persetujuan export`.
     - Di dalamnya terdapat folder per TC: `{sec_idx}.{tc_idx} {tc_title}` lengkap dengan file `.txt` deskripsi langkah pengujian & expected result.
     - Screenshot tester dipetakan dan dipindahkan ke nomor baris baru (5 gambar modul User tersimpan aman di `06. User Authority - User/6.1`, `6.2`, dan `6.4`).
+11. **Format Status Pengujian Wajib Kapital (`P`):**
+    - Kolom Test Status pada dokumen SIT wajib berupa **huruf kapital tunggal `P`** (Passed), **tidak boleh** menggunakan huruf kecil `p`, `Pass`, atau `Passed`.
+    - Nilai diset rata tengah horizontal (`center`) dan vertikal (`center`) dengan font `Trebuchet MS 11pt Regular`.
 
 ---
 

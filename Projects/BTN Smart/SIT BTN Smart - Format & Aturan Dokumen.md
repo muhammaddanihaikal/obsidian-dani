@@ -79,19 +79,27 @@ Setiap file `.docx` (per modul) memiliki struktur berikut:
 | Kolom | Header | Horizontal Align | Vertical Align |
 |-------|--------|-----------------|----------------|
 | 0 | No | Center | Center |
-| 1 | Test Case | Left | Center |
-| 2 | Scenario | Left | **Top** |
-| 3 | Expected Result | Left | **Top** |
-| 4 | Actual Result | Left | **Top** |
-| 5 | Test Status (P/F) | Left | Center |
-| 6 | Remarks | Left | **Top** |
+| 1 | Test Case | Center / Left | Center |
+| 2 | Scenario | Center / Left | Center / Top |
+| 3 | Expected Result | Center / Left | Center / Top |
+| 4 | Actual Result | Center / Left | Center / Top |
+| 5 | Test Status (P/F) | **Center** | **Center** |
+| 6 | Remarks | Center / Left | Center / Top |
+
+> [!NOTE]
+> Pada dokumen master gabungan (`SIT BTN SMART Web.docx` & `SIT BTN SMART Mobile.docx`), seluruh sel tabel (kolom 0 s/d 6) diset **rata tengah (Center / Center)** secara horizontal (`jc='center'`) dan vertikal (`vAlign='center'`) sesuai hasil review dan standarisasi template perbankan BTN.
 
 ### Isi Kolom
-- **Scenario** ← diambil dari kolom **Steps** di Excel
-- **Expected Result** ← diambil dari kolom **Expected Results** di Excel
-- **Actual Result** ← dikosongkan (diisi saat testing)
-- **Test Status** ← dikosongkan (diisi saat testing)
-- **Remarks** ← dikosongkan (diisi saat testing)
+- **Scenario** ← diambil dari kolom **Steps** di Excel.
+- **Expected Result** ← diambil dari kolom **Expected Results** di Excel.
+- **Actual Result** ← Sama dengan Expected Result, tiap baris diawali **"Berhasil"**.
+- **Test Status (P/F)** ← Wajib diisi huruf kapital **`P`** (Passed) untuk pengujian yang berhasil atau **`F`** (Failed) jika gagal.
+  > [!IMPORTANT]
+  > **Aturan Penulisan Status `P` (Kapital):**
+  > 1. Status **WAJIB** menggunakan **huruf kapital tunggal `P`** (bukan huruf kecil `p`, bukan `Pass`, bukan `Passed`).
+  > 2. Format sel: font **Trebuchet MS 11pt Regular**, alignment **Center** horizontal dan **Center** vertikal.
+  > 3. Semua baris test case yang lulus uji diisi dengan **`P`**.
+- **Remarks** ← dikosongkan (diisi catatan jika ada defect / blocker).
 
 ### Format Multiline
 - Steps/Expected yang di Excel mengandung `\n` (Enter) → di Word menjadi **paragraf terpisah** dalam satu cell (bukan `\n` biasa)
