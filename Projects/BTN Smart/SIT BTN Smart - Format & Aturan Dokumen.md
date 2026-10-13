@@ -45,9 +45,11 @@ Setiap file `.docx` (per modul) memiliki struktur berikut:
    ├── Row 2: Modul: <nomor. nama modul (platform)> | Estimasi | Last Update
    └── Row 3: [merged, kosong]
 
-3. Title Paragraph (List Paragraph style, Bold)
-   └── "<No>. <Modul> - <Sub Menu> (<Platform>)"
-       atau "<No>. <Modul> (<Platform>)" jika tidak ada Sub Menu
+3. Title Paragraph (List Paragraph style, 20 pt)
+   ├── Style: List Paragraph (`DaftarParagraf`)
+   ├── Font: Trebuchet MS 20 pt (`w:sz w:val="40"`), Regular
+   ├── Warna: Dark Navy Blue (`#0E4660`)
+   └── Teks: "<No>. <Modul> - <Sub Menu>" atau "<No>. <Modul>"
 
 4. Data Table
    └── Header + baris test case
@@ -59,7 +61,11 @@ Setiap file `.docx` (per modul) memiliki struktur berikut:
 
 ## 🏷️ Aturan Judul & Penomoran
 
-### Judul Modul
+### Format Judul Modul (Title Heading)
+- **Style**: `List Paragraph` (`DaftarParagraf`)
+- **Font**: `Trebuchet MS`, **20 pt** (regular, bukan bold), warna **`#0E4660`**
+- **Indent & Spacing**: Indent kiri `259 dxa`, spacing before `120 dxa` (6 pt), after `160 dxa` (8 pt)
+- **Page Break**: Setiap judul modul ke-2 dan seterusnya disematkan `<w:pageBreakBefore/>`
 - **Ada Sub Menu**: `1. Login - Verifikasi OTP`
 - **Tidak ada Sub Menu**: `1. Login`
 
