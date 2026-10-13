@@ -34,12 +34,12 @@ Fitur Notifikasi pada aplikasi BTN SMART Mobile menyediakan pusat riwayat pember
 | :---: | :---: | :--- | :---: | :---: | :--- | :--- | :---: |
 | **20.1** | Notifikasi | Membuka halaman Notifikasi | Positive Case | High | Buka aplikasi BTN Smart - Masuk ke Beranda - Klik icon Lonceng (Notifikasi) | Berhasil menampilkan halaman Notifikasi. | Embedded (2 SS) |
 | **20.2** | Notifikasi | Mencari notifikasi dengan kata kunci valid | Positive Case | Normal | Masukkan kata kunci valid pada Search Bar | Berhasil menampilkan data notifikasi yang dicari. | Embedded (1 SS) |
-| **20.3** | Notifikasi | Mencari notifikasi dengan kata kunci tidak valid | Negative Case | Normal | Masukkan kata kunci tidak valid pada Search Bar | Berhasil menampilkan informasi data tidak ditemukan. | Standby (Empty) |
+| **20.3** | Notifikasi | Mencari notifikasi dengan kata kunci tidak valid | Negative Case | Normal | Masukkan kata kunci tidak valid pada Search Bar | Berhasil menampilkan informasi data tidak ditemukan. | Embedded (1 SS) |
 | **20.4** | Notifikasi | Melihat data notifikasi Belum Dibaca | Positive Case | Normal | Pada halaman Notifikasi, klik tab Belum Dibaca | Berhasil menampilkan data notifikasi belum dibaca. | Embedded (1 SS) |
 | **20.5** | Notifikasi | Melihat data notifikasi Diarsipkan | Positive Case | Normal | Pada halaman Notifikasi, klik tab Diarsipkan | Berhasil menampilkan data notifikasi diarsipkan. | Embedded (1 SS) |
-| **20.6** | Notifikasi | Melihat detail notifikasi | Positive Case | High | Pada halaman Notifikasi, klik salah satu notifikasi | Berhasil menampilkan detail notifikasi. | Embedded (1 SS) |
-| **20.7** | Notifikasi | Mengarsipkan notifikasi | Positive Case | High | Pada halaman Detail Notifikasi, klik icon Arsipkan | Berhasil mengarsipkan notifikasi. | Embedded (1 SS) |
-| **20.8** | Notifikasi | Membatalkan arsip notifikasi | Positive Case | High | Pada detail notifikasi di tab Diarsipkan, klik icon Buka Arsip | Berhasil membatalkan arsip notifikasi. | Standby (Empty) |
+| **20.6** | Notifikasi | Melihat detail notifikasi | Positive Case | High | Pada halaman Notifikasi, klik salah satu notifikasi | Berhasil menampilkan detail notifikasi. | Embedded (2 SS) |
+| **20.7** | Notifikasi | Mengarsipkan notifikasi | Positive Case | High | Pada halaman Detail Notifikasi, klik icon Arsipkan | Berhasil mengarsipkan notifikasi. | Embedded (3 SS) |
+| **20.8** | Notifikasi | Membatalkan arsip notifikasi | Positive Case | High | Pada detail notifikasi di tab Diarsipkan, klik icon Buka Arsip | Berhasil membatalkan arsip notifikasi. | Embedded (3 SS) |
 
 ---
 

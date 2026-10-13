@@ -75,6 +75,9 @@ flowchart TD
      - **Fase 2:** Rename temporary ke nama target akhir: `{new_no} {Judul}`.
 3. **Pembaruan File `.txt` Panduan:**
    - Tiap folder TC wajib memiliki file `.txt` dengan nama yang sama persis dengan foldernya (`[No] [Judul].txt`) berisi deskripsi, steps, dan expected result terbaru.
+4. **🚫 LARANGAN MUTLAK EKSEKUSI LANGSUNG & MENGISI SCREENSHOT PADA TC BARU:**
+   - **Wajib Draft di Chat Dulu:** Setiap kali Mas Dani meminta dibuatkan Test Case baru (*"buatin TC..."*, *"coba buat nanti aku cek"*), AI **DILARANG KERAS langsung mengeksekusi** perubahan ke Excel, Word, maupun membuat folder. AI wajib menampilkan **draft tabel TC di chat** terlebih dahulu untuk dicek dan dikoreksi oleh Mas Dani, dan baru boleh mengeksekusi ke dokumen/folder setelah ada perintah eksekusi/ACC.
+   - **Dilarang Mengisi Screenshot:** Saat mengeksekusi pembuatan folder TC baru, AI **DILARANG KERAS** memasukkan gambar screenshot apapun ke dalam folder screenshot maupun ke dalam cell screenshot di dokumen Word. Folder TC baru **WAJIB dikosongkan dari file gambar** (hanya berisi file panduan `[No] [Judul].txt`) agar 100% diisi sendiri oleh Mas Dani dan tim.
 
 ---
 
