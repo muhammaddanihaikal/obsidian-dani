@@ -20,8 +20,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | No | Modul / Sub Menu | Total Bug | Status Huly | Rincian Issue |
 |----|------------------|-----------|-------------|---------------|
 | 1 | **Authentication** | 2 | ⏳ Pending (0/2) | Logout (1), Login (1) |
-| 2 | **User Management** | 3 | ⏳ Pending (0/3) | Role (3) |
-| **Total** | | **5** | **0 Reported / 5 Pending** | |
+| 2 | **User Management** | 4 | ⏳ Pending (0/4) | Role (4) |
+| **Total** | | **6** | **0 Reported / 6 Pending** | |
 
 ---
 
@@ -102,6 +102,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Muncul toast error "Gagal menyimpan aksi role" dengan pesan `code=415, message=Unsupported Media Type` dan data aksi tidak tersimpan.
 > * **Evidence Awal**:
 >   * Toast Error Simpan Aksi Role: [https://files.catbox.moe/x29f8c.png](https://files.catbox.moe/x29f8c.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | User Management - Role: Gagal Mengubah Role Muncul Error 415
+
+> * **Menu**: User Management → Role
+> * **Status**: Open
+> * **Deskripsi**: Saat user mengedit data role pada modal Ubah Role dan menekan button Simpan, proses pembaruan data gagal diproses sistem.
+> * **Expected**: Perubahan data role berhasil diperbarui dan tersimpan pada list Daftar Role.
+> * **Actual**: Muncul toast error "Gagal mengubah role" dengan pesan `code=415, message=Unsupported Media Type` dan data role tidak ter-update.
+> * **Evidence Awal**:
+>   * Toast Error Ubah Role: [https://files.catbox.moe/c6n1h7.png](https://files.catbox.moe/c6n1h7.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
