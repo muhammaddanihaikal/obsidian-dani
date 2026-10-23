@@ -21,10 +21,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 | No | Modul / Sub Menu | Total Bug | Status Huly | Rincian Issue |
 |----|------------------|-----------|-------------|---------------|
-| 1 | **Authentication** | 2 | ⏳ Pending (0/2) | Logout (1), Login (1) |
+| 1 | **Authentication** | 3 | ⏳ Pending (0/3) | Logout (2), Login (1) |
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 1 | ⏳ Pending (0/1) | Office Type (1) |
-| **Total** | | **8** | **0 Reported / 8 Pending** | |
+| **Total** | | **9** | **0 Reported / 9 Pending** | |
 
 ---
 
@@ -153,6 +153,23 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Button hapus pada baris data parent "Root" tetap tampil aktif dan dapat ditekan oleh user.
 > * **Evidence Awal**:
 >   * Button Hapus Parent Root: [https://files.catbox.moe/210map.png](https://files.catbox.moe/210map.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Authentication - Logout: Button Halaman Utama Gagal Redirect ke Login Internal
+
+> * **Menu**: Authentication → Logout
+> * **Status**: Open
+> * **Deskripsi**: Saat user berada di halaman auto-logout dan menekan button Halaman Utama, sistem gagal mengarahkan kembali ke form login portal internal.
+> * **Expected**: Button Halaman Utama mengarahkan user kembali ke halaman Login Portal Internal BSN.
+> * **Actual**: Sistem mengarahkan user ke path URL yang salah dan berujung pada halaman 404 situs publik.
+> * **Evidence Awal**:
+>   * Button Halaman Utama: [https://files.catbox.moe/p3u8zt.png](https://files.catbox.moe/p3u8zt.png)
+>   * Hasil Redirect Error: [https://files.catbox.moe/bgx4u8.png](https://files.catbox.moe/bgx4u8.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
