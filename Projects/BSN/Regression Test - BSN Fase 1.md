@@ -27,7 +27,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
 | 4 | **Authentication (External)** | 5 | ⏳ Pending (0/5) | Register Nasabah (2), Login (3) |
-| **Total** | | **16** | **0 Reported / 16 Pending** | |
+| 5 | **Beranda (External)** | 1 | ⏳ Pending (0/1) | Header (1) |
+| **Total** | | **17** | **0 Reported / 17 Pending** | |
 
 ---
 
@@ -286,6 +287,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence Awal**:
 >   * Form Login: [https://files.catbox.moe/214j9d.png](https://files.catbox.moe/214j9d.png)
 >   * Halaman Sesi: [https://files.catbox.moe/c2vb8i.png](https://files.catbox.moe/c2vb8i.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Nama Nasabah Pada Header Navbar Belum Muncul
+
+> * **Menu**: Beranda → Header
+> * **Status**: Open
+> * **Deskripsi**: Saat user nasabah telah berhasil login dan mengakses halaman Beranda, komponen profil akun pada pojok kanan atas header navbar belum memuat identitas nasabah.
+> * **Expected**: Header navbar menampilkan inisial avatar serta nama lengkap nasabah yang sedang login.
+> * **Actual**: Header navbar belum memuat nama nasabah dan hanya menampilkan karakter strip (-) pada badge lingkaran hijau serta teks label (- v).
+> * **Evidence Awal**:
+>   * Badge Profil Navbar: [https://files.catbox.moe/8bm9tu.png](https://files.catbox.moe/8bm9tu.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
