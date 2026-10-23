@@ -90,25 +90,31 @@ Jika bug berkaitan dengan error backend/network, tambahkan blok teknis berikut:
 
 File ini digunakan saat developer menandai issue sudah diperbaiki dan QA melakukan retest.
 
+> [!IMPORTANT]
+> **Prinsip Utama Komentar Huly:**
+> - **Super Ringkas & To The Point (Maksimal 1–2 kalimat saja)**, tanpa basa-basi pembuka/penutup.
+> - **Highlight Kuning Huly**: Bungkus nama fitur, status, atau istilah penting dengan backtick `` `...` `` agar Huly otomatis mewarnainya kuning.
+> - **Clickable Link**: Link bukti Catbox **WAJIB** berupa markdown link ganda `[URL](URL)` agar langsung bisa diklik di Huly.
+
 ### A. Kondisi 1: Retest Berhasil (`Done`)
 ```markdown
 Retest: Done
 
-{Penjelasan ringkas 1 kalimat bahwa fitur/masalah sudah diperbaiki dan sesuai. Kata kunci penting dibungkus backtick `...` agar ter-highlight kuning di Huly}.
+Fitur Export di seluruh tab `Daily Sales Agenda` sudah terintegrasi dengan drawer `Export Center` dan status export tercatat normal.
 
 Bukti Retest:
-* `{Label Skenario/Fitur 1}`: [https://files.catbox.moe/xxx.png](https://files.catbox.moe/xxx.png)
-* `{Label Skenario/Fitur 2}`: [https://files.catbox.moe/yyy.png](https://files.catbox.moe/yyy.png)
+* `Daily Sales Agenda Funding`: [https://files.catbox.moe/3rpt87.png](https://files.catbox.moe/3rpt87.png)
+* `Daily Sales Agenda Lending`: [https://files.catbox.moe/6gznpn.png](https://files.catbox.moe/6gznpn.png)
 ```
 
 ### B. Kondisi 2: Retest Masih Ditemukan Masalah (`Re-Open`)
 ```markdown
 Retest: Re-Open
 
-{Penjelasan ringkas dan tegas kendala atau bug turunan yang masih terjadi setelah dilakukan retest}.
+Saat tombol Reset ditekan, field `Fee Based`, `Info Bulan`, dan `Info Tahun` belum ter-reset dan masih mempertahankan nilai sebelumnya.
 
 Bukti Retest:
-* `{Kondisi Masih Issue}`: [https://files.catbox.moe/xxx.png](https://files.catbox.moe/xxx.png)
+* `Kondisi Filter Setelah Reset`: [https://files.catbox.moe/a9ssv5.png](https://files.catbox.moe/a9ssv5.png)
 ```
 
 ---
