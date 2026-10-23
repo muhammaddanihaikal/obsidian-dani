@@ -27,9 +27,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
 | 4 | **Authentication (External)** | 5 | ⏳ Pending (0/5) | Register Nasabah (2), Login (3) |
-| 5 | **Beranda (External)** | 1 | ⏳ Pending (0/1) | Header (1) |
+| 5 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 6 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| **Total** | | **18** | **0 Reported / 18 Pending** | |
+| **Total** | | **19** | **0 Reported / 19 Pending** | |
 
 ---
 
@@ -320,6 +320,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Tab Profil, Akun, Favorit, dan Notifikasi menampilkan halaman error "Oops! Terjadi kesalahan saat memuat data".
 > * **Evidence Awal**:
 >   * Halaman Error Profil: [https://files.catbox.moe/yxag2f.png](https://files.catbox.moe/yxag2f.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Setelah Logout Navbar Profil Tidak Berubah Menjadi Button Masuk
+
+> * **Menu**: Beranda → Header
+> * **Status**: Open
+> * **Deskripsi**: Saat user nasabah telah melakukan logout dan kembali ke Beranda, komponen header navbar di pojok kanan atas tidak kembali ke status belum login.
+> * **Expected**: Header navbar menampilkan button Masuk setelah proses logout selesai.
+> * **Actual**: Header navbar tetap menampilkan badge profil ([-] - v) dan tidak berubah menjadi button Masuk.
+> * **Evidence Awal**:
+>   * Navbar Setelah Logout: [https://files.catbox.moe/09p09q.png](https://files.catbox.moe/09p09q.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
