@@ -25,12 +25,12 @@ Setiap kali memulai pengujian pada project baru atau modul baru, arsip bukti dan
     ├── 📁 01 - [Judul Singkat Issue 1]/
     │   ├── 📄 report.txt
     │   ├── 📄 komentar_huly.txt
-    │   ├── 🖼️ evidence_awal_01.png
-    │   └── 🖼️ retest_done_01.png
+    │   ├── 🖼️ evidence_01_halaman_error.png
+    │   └── 🖼️ retest_done_01_sukses_logout.png
     ├── 📁 02 - [Judul Singkat Issue 2]/        <-- Nomor otomatis bertambah (+1)
     │   ├── 📄 report.txt
     │   ├── 📄 komentar_huly.txt
-    │   └── 🖼️ evidence_awal.png
+    │   └── 🖼️ evidence_01_export_kosong.png
     └── 📁 03 - [Judul Singkat Issue 3]/        <-- +1 untuk issue berikutnya
 ```
 
@@ -151,9 +151,28 @@ Bukti Retest:
 
 ## 🖼️ 5. Standar Tangkapan Layar (Screenshot) & Catbox
 
-1. **Penamaan File Screenshot Lokal:**
-   * Bukti Awal: `evidence_awal_01.png`, `evidence_awal_02.png`
-   * Bukti Retest: `retest_done_01.png`, `retest_done_02.png` (atau gunakan nama skenario spesifik: `retest_done_filter_reset.png`).
+1. **Aturan Baku Penamaan File Screenshot Lokal (WAJIB RAPI & DESKRIPTIF):**
+   * File screenshot yang disimpan ke dalam folder issue **DILARANG KERAS** dibiarkan dengan nama acak bawaan sistem/clipboard (seperti `image.png`, `Screenshot 2026-10-23.png`, `media_xxx.png`, hash UUID, atau nama acak WhatsApp/Telegram).
+   * **Format Wajib:** Gunakan huruf kecil (`lowercase`), pemisah underscore (`snake_case`), diawali nomor urut 2 digit (`01`, `02`), dan sertakan kata deskriptif isi gambar:
+     * **Bukti Temuan Bug Awal:**
+       - Format: `evidence_[nomor]_[penjelasan_singkat].png` (atau `evidence_awal_[nomor]_[penjelasan].png`)
+       - *Contoh:*
+         - `evidence_01_halaman_error_logout.png`
+         - `evidence_02_toast_error_validasi.png`
+         - `evidence_03_response_network_500.png`
+     * **Bukti Retest (Verifikasi QA):**
+       - Format Retest Sukses: `retest_done_[nomor]_[penjelasan_singkat].png`
+         - *Contoh:* `retest_done_01_sukses_logout.png`, `retest_done_02_data_tersimpan.png`
+       - Format Retest Masih Masalah: `retest_reopen_[nomor]_[penjelasan_singkat].png`
+         - *Contoh:* `retest_reopen_01_field_masih_kosong.png`
+
+   | Status Gambar | ✅ Format Nama Rapi (Wajib Digunakan) | ❌ Contoh Nama DILARANG |
+   | :--- | :--- | :--- |
+   | **Bukti Awal 1** | `evidence_01_halaman_error.png` | `image.png`, `Screenshot 2026-10-23 140021.png` |
+   | **Bukti Awal 2** | `evidence_02_modal_konfirmasi.png` | `media_1792736426107_75eeb5de.png` |
+   | **Retest Done** | `retest_done_01_sukses_logout.png` | `ss_selesai.png`, `bukti.jpg`, `retest.png` |
+   | **Retest Re-Open** | `retest_reopen_01_filter_belum_reset.png` | `error_lagi.png`, `image(1).png` |
+
 2. **Highlight Red Box:**
    * Beri penanda kotak merah pada area yang membuktikan error (misal pesan error toast, kolom yang salah, atau data yang hilang) agar developer langsung memahami konteks masalah.
 3. **Upload Otomatis ke Catbox (API cURL):**
@@ -192,8 +211,8 @@ Saat user mengirimkan screenshot temuan bug / retest baru, AI **WAJIB** mengikut
    * **Tentukan Nomor (+1):** Cek folder menu di direktori laporan (`Issue Report/<Nama Menu>/`), hitung nomor issue berikutnya (+1 dari nomor terakhir, misal `01`, `02`, `03`...).
    * **Buat Folder Issue:** Buat folder dengan format `[Nomor Issue] - [Judul Singkat Masalah]`.
    * **Simpan & Upload Screenshot:**
-     * Simpan file screenshot ke folder issue tersebut.
-     * Upload file gambar ke Catbox via cURL API (`https://catbox.moe/user/api.php`) untuk mendapatkan URL Catbox.
+     * **Rename Menjadi Rapi**: Ganti nama file screenshot sesuai standar Section 5 (misal: `evidence_01_halaman_error.png` atau `retest_done_01_sukses_logout.png`). **DILARANG KERAS** membiarkan nama default acak atau timestamp. Simpan ke folder issue tersebut.
+     * **Upload ke Catbox**: Upload file gambar yang sudah rapi tersebut ke Catbox via cURL API (`https://catbox.moe/user/api.php`) untuk mendapatkan URL Catbox publik.
    * **Generate Dokumen Lokal (Fase 1: Issue Baru):**
      * Tulis file `report.txt` lengkap (berisi Judul, Menu, Deskripsi, Expected, Actual, dan link Catbox). **DILARANG memasukkan baris Status**.
      * Buat file `komentar_huly.txt` dalam kondisi **KOSONG** (file ini baru diisi nanti saat sesi retest).
