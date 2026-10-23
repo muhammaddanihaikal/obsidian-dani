@@ -120,7 +120,28 @@ Bukti Retest:
    * Bukti Retest: `retest_done_01.png`, `retest_done_02.png` (atau gunakan nama skenario spesifik: `retest_done_filter_reset.png`).
 2. **Highlight Red Box:**
    * Beri penanda kotak merah pada area yang membuktikan error (misal pesan error toast, kolom yang salah, atau data yang hilang) agar developer langsung memahami konteks masalah.
-3. **Upload Catbox & Format Link:**
-   * Seluruh screenshot di-upload ke host Catbox (`https://catbox.moe/user/api.php`).
+3. **Upload Otomatis ke Catbox (API cURL):**
+   * Upload file screenshot ke Catbox menggunakan command cURL:
+     ```bash
+     curl.exe -s -F "reqtype=fileupload" -F "fileToUpload=@<path_file_gambar>" https://catbox.moe/user/api.php
+     ```
+   * Perintah di atas akan langsung mengembalikan URL publik (misal: `https://files.catbox.moe/abc123.png`).
+4. **Format Link di Huly:**
    * Di dalam Huly, link **WAJIB** berupa clickable markdown format:
-     `[https://files.catbox.moe/contoh.png](https://files.catbox.moe/contoh.png)`
+     `[https://files.catbox.moe/abc123.png](https://files.catbox.moe/abc123.png)`
+
+---
+
+## 🤖 6. Alur Kerja Otomatis AI Agent saat Menerima Screenshot Baru
+
+Saat user mengirimkan screenshot temuan bug / retest baru, AI harus otomatis menjalankan tahapan berikut:
+1. **Analisis Gambar:** Buka/inspeksi gambar, cari area kotak merah, pesan error toast, URL/menu yang sedang dibuka, dan kondisi data.
+2. **Tentukan Menu & Nomor (+1):** Cek folder menu di direktori laporan (`Issue Report/<Nama Menu>/`). Hitung nomor issue berikutnya (+1 dari nomor terakhir, misal `01`, `02`, `03`...).
+3. **Buat Folder Issue:** Buat folder dengan format `[Nomor Issue] - [Judul Singkat Masalah]`.
+4. **Simpan & Upload Screenshot:**
+   * Simpan file screenshot ke folder issue tersebut.
+   * Upload file gambar ke Catbox melalui API cURL (`https://catbox.moe/user/api.php`) untuk mendapatkan URL Catbox.
+5. **Generate Dokumen:**
+   * Tulis file `report.txt` lengkap (berisi Judul, Menu, Deskripsi, Expected, Actual, dan link Catbox).
+   * Tulis file `komentar_huly.txt` (format ringkas siap copas untuk Huly).
+6. **Sajikan ke User:** Tampilkan ringkasan temuan dan teks siap copas di chat.
