@@ -20,7 +20,7 @@ project: Standard
 Setiap kali memulai pengujian pada project baru atau modul baru, arsip bukti dan laporan di File Explorer wajib disusun secara rapi dan hierarkis:
 
 ```
-📁 Issue Report/ (atau Hasil Test/)
+📁 Bug Report/
 └── 📁 [Nama Modul atau Menu]/
     ├── 📁 01 - [Judul Singkat Issue 1]/
     │   ├── 📄 report.txt
@@ -35,7 +35,7 @@ Setiap kali memulai pengujian pada project baru atau modul baru, arsip bukti dan
 ```
 
 ### 📌 Aturan Penamaan & Penomoran Folder (+1 Rule):
-1. **Root Folder**: Gunakan nama `Issue Report` atau `Hasil Test`.
+1. **Root Folder**: Gunakan nama `Bug Report`.
 2. **Folder Menu**: Dikelompokkan berdasarkan nama Menu atau Modul sistem (misal: `User Authority`, `Menu Absent`, `Report Funding`).
 3. **Folder Issue**: Dibuat **1 folder khusus untuk 1 issue**.
    * Format nama folder: `[Nomor Issue] - [Judul Singkat Masalah]`
@@ -208,7 +208,7 @@ Saat user mengirimkan screenshot temuan bug / retest baru, AI **WAJIB** mengikut
      * **Deskripsi & Actual vs Expected**: Tulis dengan kalimat bersih fungsional (**DILARANG menempelkan URL panjang atau query parameter mentah**).
    * Minta User konfirmasi terlebih dahulu sebelum membuat file apapun.
 3. **Eksekusi Setelah User Konfirmasi ("Ya" / "Gas"):**
-   * **Tentukan Nomor (+1):** Cek folder menu di direktori laporan (`Issue Report/<Nama Menu>/`), hitung nomor issue berikutnya (+1 dari nomor terakhir, misal `01`, `02`, `03`...).
+   * **Tentukan Nomor (+1):** Cek folder menu di direktori laporan (`Bug Report/<Nama Menu>/`), hitung nomor issue berikutnya (+1 dari nomor terakhir, misal `01`, `02`, `03`...).
    * **Buat Folder Issue:** Buat folder dengan format `[Nomor Issue] - [Judul Singkat Masalah]`.
    * **Simpan & Upload Screenshot:**
      * **Rename Menjadi Rapi**: Ganti nama file screenshot sesuai standar Section 5 (misal: `evidence_01_halaman_error.png` atau `retest_done_01_sukses_logout.png`). **DILARANG KERAS** membiarkan nama default acak atau timestamp. Simpan ke folder issue tersebut.
@@ -249,7 +249,7 @@ Dalam penulisan seluruh teks bug report (`Deskripsi`, `Expected`, `Actual`, `Lan
 
 Setiap ada penambahan issue baru atau pembaruan retest:
 1. **Single Source of Truth:**
-   * Selain membuat folder fisik lokal (`Issue Report/<Menu>/<No> - <Judul>/`), seluruh laporan **WAJIB dicatat salinannya** ke file master tracker di Obsidian:
+   * Selain membuat folder fisik lokal (`Bug Report/<Menu>/<No> - <Judul>/`), seluruh laporan **WAJIB dicatat salinannya** ke file master tracker di Obsidian:
      `D:\Obsidian\dani\Projects\<Nama Project>\Regression Test - <Nama Project>.md` (atau `Bug Tracker - <Nama Project>.md`).
 2. **Format Salinan di Obsidian:**
    * Gunakan format blockquote standar yang seragam dengan seluruh issue sebelumnya:
