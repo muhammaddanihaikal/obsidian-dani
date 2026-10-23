@@ -13,6 +13,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2 | Authentication | Login | 🐛 Bug |
 | 3 | User Management | Role | 🐛 Bug |
 | 4 | User Management | User | 🐛 Bug |
+| 5 | Office Management | Office Type | 🐛 Bug |
 
 ---
 
@@ -22,7 +23,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 |----|------------------|-----------|-------------|---------------|
 | 1 | **Authentication** | 2 | ⏳ Pending (0/2) | Logout (1), Login (1) |
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
-| **Total** | | **7** | **0 Reported / 7 Pending** | |
+| 3 | **Office Management** | 1 | ⏳ Pending (0/1) | Office Type (1) |
+| **Total** | | **8** | **0 Reported / 8 Pending** | |
 
 ---
 
@@ -135,6 +137,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Dropdown Kantor kosong dan hanya menampilkan "No data", sehingga proses submit data user tidak dapat diselesaikan.
 > * **Evidence Awal**:
 >   * Dropdown Kantor No Data: [https://files.catbox.moe/u2z6fh.png](https://files.catbox.moe/u2z6fh.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Office Management - Office Type: Button Hapus Tetap Aktif Pada Parent Root
+
+> * **Menu**: Office Management → Office Type
+> * **Status**: Open
+> * **Deskripsi**: Pada tabel daftar tipe kantor, baris data dengan parent Root (Kantor Pusat) masih memiliki button hapus yang aktif pada kolom Action.
+> * **Expected**: Data tipe kantor yang menjadi parent "Root" tidak dapat dihapus (button hapus dinonaktifkan/disabled atau disembunyikan).
+> * **Actual**: Button hapus pada baris data parent "Root" tetap tampil aktif dan dapat ditekan oleh user.
+> * **Evidence Awal**:
+>   * Button Hapus Parent Root: [https://files.catbox.moe/210map.png](https://files.catbox.moe/210map.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
