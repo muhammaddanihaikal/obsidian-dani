@@ -25,8 +25,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Authentication** | 3 | ⏳ Pending (0/3) | Logout (2), Login (1) |
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
-| 4 | **Authentication (External)** | 1 | ⏳ Pending (0/1) | Register Nasabah (1) |
-| **Total** | | **12** | **0 Reported / 12 Pending** | |
+| 4 | **Authentication (External)** | 2 | ⏳ Pending (0/2) | Register Nasabah (2) |
+| **Total** | | **13** | **0 Reported / 13 Pending** | |
 
 ---
 
@@ -220,6 +220,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Pesan "Kata sandi harus terdiri dari huruf besar, huruf kecil, angka, dan karakter khusus." tetap muncul dan tidak berubah meskipun password sudah sesuai.
 > * **Evidence Awal**:
 >   * Peringatan Validasi Konfirmasi: [https://files.catbox.moe/5dlimo.png](https://files.catbox.moe/5dlimo.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Submit Pendaftaran Tidak Menampilkan Notifikasi dan Gagal Redirect ke Login
+
+> * **Menu**: Authentication → Register Nasabah
+> * **Status**: Open
+> * **Deskripsi**: Saat user menyetujui Syarat & Ketentuan di langkah terakhir dan menekan button Daftar Sekarang, tidak ada notifikasi sukses dan user diarahkan kembali ke halaman pendaftaran.
+> * **Expected**: Sistem memunculkan notifikasi/informasi pendaftaran berhasil dan langsung mengarahkan user ke halaman Login.
+> * **Actual**: Tidak ada notifikasi sukses yang muncul dan sistem malah me-redirect user kembali ke form pendaftaran awal.
+> * **Evidence Awal**:
+>   * Button Daftar Sekarang: [https://files.catbox.moe/b00i5x.png](https://files.catbox.moe/b00i5x.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
