@@ -11,6 +11,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 |----|------|----------|--------|
 | 1 | Authentication | Logout | 🐛 Bug |
 | 2 | Authentication | Login | 🐛 Bug |
+| 3 | User Management | Role | 🐛 Bug |
 
 ---
 
@@ -19,7 +20,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | No | Modul / Sub Menu | Total Bug | Status Huly | Rincian Issue |
 |----|------------------|-----------|-------------|---------------|
 | 1 | **Authentication** | 2 | ⏳ Pending (0/2) | Logout (1), Login (1) |
-| **Total** | | **2** | **0 Reported / 2 Pending** | |
+| 2 | **User Management** | 1 | ⏳ Pending (0/1) | Role (1) |
+| **Total** | | **3** | **0 Reported / 3 Pending** | |
 
 ---
 
@@ -51,6 +53,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Button Masuk dengan akun lain tidak berfungsi saat ditekan dan user tetap tertahan di halaman Konfirmasi Identitas.
 > * **Evidence Awal**:
 >   * Button Masuk Akun Lain: [https://files.catbox.moe/n4w7iw.png](https://files.catbox.moe/n4w7iw.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | User Management - Role: Gagal Menambah Role Baru Muncul Error 415
+
+> * **Menu**: User Management → Role
+> * **Status**: Open
+> * **Deskripsi**: Saat user mengisi form modal Tambah Role dan menekan button Tambah, proses simpan gagal diproses oleh sistem.
+> * **Expected**: Data role baru berhasil ditambahkan dan langsung terdaftar pada list Daftar Role.
+> * **Actual**: Muncul toast error "Gagal menambah role" dengan keterangan `code=415, message=Unsupported Media Type` dan data role baru tidak tersimpan.
+> * **Evidence Awal**:
+>   * Toast Error Tambah Role: [https://files.catbox.moe/y85oza.png](https://files.catbox.moe/y85oza.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
