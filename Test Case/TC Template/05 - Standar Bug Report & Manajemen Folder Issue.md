@@ -68,7 +68,7 @@ Gunakan template markdown ini saat membuat file `report.txt` (format ini siap la
 * **Expected**: {Kondisi ideal/seharusnya sesuai PRD atau aturan bisnis}
 * **Actual**: {Kondisi error, cacat sistem, atau penyimpangan yang terjadi saat ini}
 * **Evidence**:
-  * [https://files.catbox.moe/xxx.png](https://files.catbox.moe/xxx.png)
+  * {Label 1-2 Kata}: [https://files.catbox.moe/xxx.png](https://files.catbox.moe/xxx.png)
 ```
 
 > [!IMPORTANT]
@@ -84,9 +84,16 @@ Gunakan template markdown ini saat membuat file `report.txt` (format ini siap la
 > 2. **Penyebutan Akun / Role User**:
 >    - **HANYA sebutkan role/akun user JIKA User memberi tahu di chat** (misal User bilang: *"ini aku test pakai superadmin"* $\rightarrow$ baru tulis *"Saat user login sebagai Superadmin..."*).
 >    - Jika User **TIDAK** menyebutkan akun apa yang dipakai, **JANGAN MENGARANG ROLE**. Cukup gunakan kata umum: *"Saat user menekan button Keluar..."*.
-> 3. **Ringkas & Padat**:
+> 3. **Label Singkat pada Evidence (1–2 Kata)**:
+>    - Setiap link screenshot pada bagian **Evidence** (baik di `report.txt` maupun di master tracker Obsidian) **WAJIB** diawali label ringkas 1–2 kata untuk menjelaskan apa tangkapan layar tersebut sebelum link Catbox-nya.
+>    - *Contoh:*
+>      * `* Halaman Error: [https://files.catbox.moe/abc123.png](https://files.catbox.moe/abc123.png)`
+>      * `* Modal Konfirmasi: [https://files.catbox.moe/def456.png](https://files.catbox.moe/def456.png)`
+>      * `* Respons Error: [https://files.catbox.moe/ghi789.png](https://files.catbox.moe/ghi789.png)`
+>    - Dilarang menaruh link polosan tanpa label penjelas.
+> 4. **Ringkas & Padat**:
 >    - Isi `Deskripsi`, `Expected`, dan `Actual` harus langsung menusuk ke inti masalah (maksimal 1–2 kalimat per bagian).
-> 4. **Aturan Langkah Reproduksi (Steps to Reproduce / STR)**:
+> 5. **Aturan Langkah Reproduksi (Steps to Reproduce / STR)**:
 >    - **DILARANG membuat STR jika langkahnya sedikit / pendek**: Jika masalahnya langsung muncul dalam 1–2 klik (misal: klik button Logout langsung error, klik button Export file kosong, klik button Reset field tidak tereset), **JANGAN** membuat section Steps to Reproduce. Cukup jelaskan aksinya langsung di bagian **Deskripsi**.
 >    - **HANYA gunakan STR jika alurnya panjang / kompleks**: Tambahkan `* **Langkah Reproduksi**:` hanya ketika bug membutuhkan skenario bertahap lintas halaman atau multi-aksi.
 
@@ -156,8 +163,8 @@ Bukti Retest:
      ```
    * Perintah di atas akan langsung mengembalikan URL publik (misal: `https://files.catbox.moe/abc123.png`).
 4. **Format Link di Huly:**
-   * Di dalam Huly, link **WAJIB** berupa clickable markdown format:
-     `[https://files.catbox.moe/abc123.png](https://files.catbox.moe/abc123.png)`
+   * Di dalam Huly, link **WAJIB** diawali label ringkas 1–2 kata dan berupa clickable markdown format ganda:
+     `* {Label Singkat}: [https://files.catbox.moe/abc123.png](https://files.catbox.moe/abc123.png)`
 
 ---
 
@@ -236,7 +243,7 @@ Setiap ada penambahan issue baru atau pembaruan retest:
      > * **Expected**: ...
      > * **Actual**: ...
      > * **Evidence Awal**:
-     >   * [https://files.catbox.moe/xxx.png](https://files.catbox.moe/xxx.png)
+     >   * {Label 1-2 Kata}: [https://files.catbox.moe/xxx.png](https://files.catbox.moe/xxx.png)
      ```
 3. **Pembaruan Hasil Retest:**
    * Saat status issue di Huly di-update (menjadi `Done`, `Re-Open`, atau `Rejected`), perbarui juga baris `> * **Status**:` dan tambahkan `> * **Bukti Retest (Done)**:` beserta link Catbox dan catatan retest di file Obsidian tersebut.
