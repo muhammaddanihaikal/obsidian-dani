@@ -26,8 +26,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Authentication** | 3 | ⏳ Pending (0/3) | Logout (2), Login (1) |
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
-| 4 | **Authentication (External)** | 4 | ⏳ Pending (0/4) | Register Nasabah (2), Login (2) |
-| **Total** | | **15** | **0 Reported / 15 Pending** | |
+| 4 | **Authentication (External)** | 5 | ⏳ Pending (0/5) | Register Nasabah (2), Login (3) |
+| **Total** | | **16** | **0 Reported / 16 Pending** | |
 
 ---
 
@@ -269,6 +269,23 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Muncul toast info "Harap konfirmasi tindakan ini dengan memverifikasi bahwa ini benar-benar Kamu" dan user tetap tertahan di halaman login.
 > * **Evidence Awal**:
 >   * Toast Daftar Gratis Sekarang: [https://files.catbox.moe/av606w.png](https://files.catbox.moe/av606w.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Klik Lupa Kata Sandi Malah Diarahkan ke Halaman Sesi
+
+> * **Menu**: Authentication → Login
+> * **Status**: Open
+> * **Deskripsi**: Saat user berada di form login dan menekan link button Lupa kata sandi?, sistem tidak mengarahkan ke form pemulihan/reset kata sandi akun.
+> * **Expected**: Sistem mengarahkan user ke halaman reset kata sandi dengan field input email untuk verifikasi pemulihan akun.
+> * **Actual**: Sistem malah mengarahkan user ke halaman sesi auth dengan keterangan "Anda belum masuk ke akun manapun" dan button "Masuk Sekarang".
+> * **Evidence Awal**:
+>   * Form Login: [https://files.catbox.moe/214j9d.png](https://files.catbox.moe/214j9d.png)
+>   * Halaman Sesi: [https://files.catbox.moe/c2vb8i.png](https://files.catbox.moe/c2vb8i.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
