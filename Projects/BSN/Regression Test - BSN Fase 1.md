@@ -32,8 +32,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Expected**: Sistem berhasil membersihkan session login user dan mengarahkan kembali ke halaman Login.
 > * **Actual**: Sistem mengarahkan user ke halaman error dengan pesan "Permintaan Tidak Dapat Diproses" dan user gagal logout.
 > * **Evidence Awal**:
->   * [https://files.catbox.moe/ujkwhl.png](https://files.catbox.moe/ujkwhl.png)
->   * [https://files.catbox.moe/mbunqm.png](https://files.catbox.moe/mbunqm.png)
+>   * Button Keluar: [https://files.catbox.moe/ujkwhl.png](https://files.catbox.moe/ujkwhl.png)
+>   * Halaman Error: [https://files.catbox.moe/mbunqm.png](https://files.catbox.moe/mbunqm.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
