@@ -20,8 +20,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | No | Modul / Sub Menu | Total Bug | Status Huly | Rincian Issue |
 |----|------------------|-----------|-------------|---------------|
 | 1 | **Authentication** | 2 | ⏳ Pending (0/2) | Logout (1), Login (1) |
-| 2 | **User Management** | 1 | ⏳ Pending (0/1) | Role (1) |
-| **Total** | | **3** | **0 Reported / 3 Pending** | |
+| 2 | **User Management** | 2 | ⏳ Pending (0/2) | Role (2) |
+| **Total** | | **4** | **0 Reported / 4 Pending** | |
 
 ---
 
@@ -69,6 +69,23 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Muncul toast error "Gagal menambah role" dengan keterangan `code=415, message=Unsupported Media Type` dan data role baru tidak tersimpan.
 > * **Evidence Awal**:
 >   * Toast Error Tambah Role: [https://files.catbox.moe/y85oza.png](https://files.catbox.moe/y85oza.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | User Management - Role: Gagal Menghapus Role Muncul Toast Error
+
+> * **Menu**: User Management → Role
+> * **Status**: Open
+> * **Deskripsi**: Saat user menekan icon hapus pada salah satu data role dan mengonfirmasi dengan button Ya, Hapus, proses penghapusan gagal diproses sistem.
+> * **Expected**: Data role berhasil dihapus dan otomatis terhapus dari list Daftar Role.
+> * **Actual**: Muncul toast error "Gagal menghapus role" dengan pesan "Oops something went wrong, Contact Developer for the issue" dan data role tetap ada di list.
+> * **Evidence Awal**:
+>   * Modal Konfirmasi Hapus: [https://files.catbox.moe/a2dlfq.png](https://files.catbox.moe/a2dlfq.png)
+>   * Toast Error Hapus: [https://files.catbox.moe/ypdpob.png](https://files.catbox.moe/ypdpob.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
