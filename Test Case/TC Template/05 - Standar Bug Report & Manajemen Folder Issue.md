@@ -140,14 +140,31 @@ Bukti Retest:
 
 ## 🤖 6. Alur Kerja Otomatis AI Agent saat Menerima Screenshot Baru
 
-Saat user mengirimkan screenshot temuan bug / retest baru, AI harus otomatis menjalankan tahapan berikut:
+Saat user mengirimkan screenshot temuan bug / retest baru, AI **WAJIB** mengikuti alur bertahap berikut:
+
+> [!CAUTION]
+> ### 🛑 ATURAN WAJIB: KONFIRMASI DULU SEBELUM EKSEKUSI!
+> AI **DILARANG KERAS** langsung membuat folder issue fisik atau menulis file `report.txt` / `komentar_huly.txt` sebelum meminta izin dan mendapatkan konfirmasi/persetujuan eksplisit dari User!
+> 
+> **Yang wajib dilakukan AI terlebih dahulu:**
+> Tampilkan draft preview ringkas di chat (Calon Judul Issue, Menu, Deskripsi, Expected, Actual), lalu tanyakan ke User:
+> *"Apakah temuan issue ini sudah pas bro? Mau langsung dibuatkan folder dan report-nya atau ada yang perlu dikoreksi?"*
+
+### Tahapan Eksekusi AI:
 1. **Analisis Gambar:** Buka/inspeksi gambar, cari area kotak merah, pesan error toast, URL/menu yang sedang dibuka, dan kondisi data.
-2. **Tentukan Menu & Nomor (+1):** Cek folder menu di direktori laporan (`Issue Report/<Nama Menu>/`). Hitung nomor issue berikutnya (+1 dari nomor terakhir, misal `01`, `02`, `03`...).
-3. **Buat Folder Issue:** Buat folder dengan format `[Nomor Issue] - [Judul Singkat Masalah]`.
-4. **Simpan & Upload Screenshot:**
-   * Simpan file screenshot ke folder issue tersebut.
-   * Upload file gambar ke Catbox melalui API cURL (`https://catbox.moe/user/api.php`) untuk mendapatkan URL Catbox.
-5. **Generate Dokumen:**
-   * Tulis file `report.txt` lengkap (berisi Judul, Menu, Deskripsi, Expected, Actual, dan link Catbox).
-   * Tulis file `komentar_huly.txt` (format ringkas siap copas untuk Huly).
-6. **Sajikan ke User:** Tampilkan ringkasan temuan dan teks siap copas di chat.
+2. **Draft Preview & Minta Konfirmasi (WAJIB):**
+   * Sajikan rancangan ringkas:
+     * **Judul**: `🐞 [BUG] | [Modul] - [Sub Menu]: [Ringkasan Masalah]`
+     * **Menu**: `[Modul] → [Sub Menu]`
+     * **Masalah (Deskripsi & Actual vs Expected)**
+   * Minta User konfirmasi terlebih dahulu sebelum membuat file apapun.
+3. **Eksekusi Setelah User Konfirmasi ("Ya" / "Gas"):**
+   * **Tentukan Nomor (+1):** Cek folder menu di direktori laporan (`Issue Report/<Nama Menu>/`), hitung nomor issue berikutnya (+1 dari nomor terakhir, misal `01`, `02`, `03`...).
+   * **Buat Folder Issue:** Buat folder dengan format `[Nomor Issue] - [Judul Singkat Masalah]`.
+   * **Simpan & Upload Screenshot:**
+     * Simpan file screenshot ke folder issue tersebut.
+     * Upload file gambar ke Catbox via cURL API (`https://catbox.moe/user/api.php`) untuk mendapatkan URL Catbox.
+   * **Generate Dokumen:**
+     * Tulis file `report.txt` lengkap (berisi Judul, Menu, Deskripsi, Expected, Actual, dan link Catbox).
+     * Tulis file `komentar_huly.txt` (format ringkas siap copas untuk Huly).
+4. **Sajikan ke User:** Tampilkan konfirmasi folder selesai dibuat beserta teks siap copas ke Huly di chat.
