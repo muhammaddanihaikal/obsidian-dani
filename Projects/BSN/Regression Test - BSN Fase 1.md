@@ -15,6 +15,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 4 | User Management | User | 🐛 Bug |
 | 5 | Office Management | Office Type | 🐛 Bug |
 | 6 | Authentication (External) | Register Nasabah | 🐛 Bug |
+| 7 | Authentication (External) | Login | 🐛 Bug |
 
 ---
 
@@ -25,8 +26,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Authentication** | 3 | ⏳ Pending (0/3) | Logout (2), Login (1) |
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
-| 4 | **Authentication (External)** | 2 | ⏳ Pending (0/2) | Register Nasabah (2) |
-| **Total** | | **13** | **0 Reported / 13 Pending** | |
+| 4 | **Authentication (External)** | 3 | ⏳ Pending (0/3) | Register Nasabah (2), Login (1) |
+| **Total** | | **14** | **0 Reported / 14 Pending** | |
 
 ---
 
@@ -236,6 +237,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Tidak ada notifikasi sukses yang muncul dan sistem malah me-redirect user kembali ke form pendaftaran awal.
 > * **Evidence Awal**:
 >   * Button Daftar Sekarang: [https://files.catbox.moe/b00i5x.png](https://files.catbox.moe/b00i5x.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Button Masuk dengan Akun Lain Tidak Berfungsi
+
+> * **Menu**: Authentication → Login
+> * **Status**: Open
+> * **Deskripsi**: Saat user berada di halaman Konfirmasi Identitas dan menekan button Masuk dengan akun lain, tidak ada respons apa pun dari sistem.
+> * **Expected**: Sistem mengarahkan user kembali ke halaman/form login awal untuk memasukkan email atau akun lain.
+> * **Actual**: Button Masuk dengan akun lain tidak berfungsi saat ditekan dan user tetap tertahan di halaman Konfirmasi Identitas.
+> * **Evidence Awal**:
+>   * Button Masuk Akun Lain: [https://files.catbox.moe/6nlq0m.png](https://files.catbox.moe/6nlq0m.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
