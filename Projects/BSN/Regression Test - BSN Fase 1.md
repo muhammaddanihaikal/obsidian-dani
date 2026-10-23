@@ -14,6 +14,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 3 | User Management | Role | 🐛 Bug |
 | 4 | User Management | User | 🐛 Bug |
 | 5 | Office Management | Office Type | 🐛 Bug |
+| 6 | Authentication (External) | Register Nasabah | 🐛 Bug |
 
 ---
 
@@ -24,7 +25,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Authentication** | 3 | ⏳ Pending (0/3) | Logout (2), Login (1) |
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
-| **Total** | | **11** | **0 Reported / 11 Pending** | |
+| 4 | **Authentication (External)** | 1 | ⏳ Pending (0/1) | Register Nasabah (1) |
+| **Total** | | **12** | **0 Reported / 12 Pending** | |
 
 ---
 
@@ -202,6 +204,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Fitur filter belum berfungsi dan tabel tidak merespons perubahan data pencarian setelah button Cari ditekan.
 > * **Evidence Awal**:
 >   * Filter Tipe Kantor: [https://files.catbox.moe/cuno1j.png](https://files.catbox.moe/cuno1j.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Validasi Konfirmasi Kata Sandi Tidak Hilang Meskipun Password Sesuai
+
+> * **Menu**: Authentication → Register Nasabah
+> * **Status**: Open
+> * **Deskripsi**: Saat user mengisi field Konfirmasi Kata Sandi dengan nilai yang identik dan telah memenuhi seluruh kriteria keamanan, teks peringatan validasi di bawah field tidak hilang.
+> * **Expected**: Peringatan validasi otomatis hilang saat input Konfirmasi Kata Sandi sudah cocok dengan Kata Sandi.
+> * **Actual**: Pesan "Kata sandi harus terdiri dari huruf besar, huruf kecil, angka, dan karakter khusus." tetap muncul dan tidak berubah meskipun password sudah sesuai.
+> * **Evidence Awal**:
+>   * Peringatan Validasi Konfirmasi: [https://files.catbox.moe/5dlimo.png](https://files.catbox.moe/5dlimo.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
