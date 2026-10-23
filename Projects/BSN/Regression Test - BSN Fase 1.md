@@ -23,8 +23,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 |----|------------------|-----------|-------------|---------------|
 | 1 | **Authentication** | 3 | ⏳ Pending (0/3) | Logout (2), Login (1) |
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
-| 3 | **Office Management** | 1 | ⏳ Pending (0/1) | Office Type (1) |
-| **Total** | | **9** | **0 Reported / 9 Pending** | |
+| 3 | **Office Management** | 2 | ⏳ Pending (0/2) | Office Type (2) |
+| **Total** | | **10** | **0 Reported / 10 Pending** | |
 
 ---
 
@@ -170,6 +170,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence Awal**:
 >   * Button Halaman Utama: [https://files.catbox.moe/p3u8zt.png](https://files.catbox.moe/p3u8zt.png)
 >   * Hasil Redirect Error: [https://files.catbox.moe/bgx4u8.png](https://files.catbox.moe/bgx4u8.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Dropdown Pilihan Parent Kosong No Data
+
+> * **Menu**: Office Management → Office Type
+> * **Status**: Open
+> * **Deskripsi**: Saat user mengisi form tambah tipe kantor dan membuka dropdown Parent, daftar pilihan parent tidak muncul dan hanya menampilkan status "No data".
+> * **Expected**: Dropdown Parent menampilkan daftar opsi tipe kantor (misal: Root, Kantor Pusat, dll.) yang dapat dipilih sebagai induk hierarki.
+> * **Actual**: Dropdown Parent kosong dan hanya menampilkan "No data", sehingga proses penambahan tipe kantor baru terhambat.
+> * **Evidence Awal**:
+>   * Dropdown Parent No Data: [https://files.catbox.moe/iw6luy.png](https://files.catbox.moe/iw6luy.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
