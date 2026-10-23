@@ -26,8 +26,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Authentication** | 3 | ⏳ Pending (0/3) | Logout (2), Login (1) |
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
-| 4 | **Authentication (External)** | 3 | ⏳ Pending (0/3) | Register Nasabah (2), Login (1) |
-| **Total** | | **14** | **0 Reported / 14 Pending** | |
+| 4 | **Authentication (External)** | 4 | ⏳ Pending (0/4) | Register Nasabah (2), Login (2) |
+| **Total** | | **15** | **0 Reported / 15 Pending** | |
 
 ---
 
@@ -253,6 +253,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Button Masuk dengan akun lain tidak berfungsi saat ditekan dan user tetap tertahan di halaman Konfirmasi Identitas.
 > * **Evidence Awal**:
 >   * Button Masuk Akun Lain: [https://files.catbox.moe/6nlq0m.png](https://files.catbox.moe/6nlq0m.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Klik "Daftar gratis sekarang" Malah Memunculkan Toast Konfirmasi
+
+> * **Menu**: Authentication → Login
+> * **Status**: Open
+> * **Deskripsi**: Saat user berada di form login dan menekan link button Daftar gratis sekarang, sistem tidak mengarahkan ke form registrasi akun baru.
+> * **Expected**: Sistem mengarahkan user ke halaman pendaftaran akun baru (Register).
+> * **Actual**: Muncul toast info "Harap konfirmasi tindakan ini dengan memverifikasi bahwa ini benar-benar Kamu" dan user tetap tertahan di halaman login.
+> * **Evidence Awal**:
+>   * Toast Daftar Gratis Sekarang: [https://files.catbox.moe/av606w.png](https://files.catbox.moe/av606w.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
