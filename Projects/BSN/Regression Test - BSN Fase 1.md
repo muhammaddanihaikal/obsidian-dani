@@ -28,7 +28,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
 | 4 | **Authentication (External)** | 5 | ⏳ Pending (0/5) | Register Nasabah (2), Login (3) |
 | 5 | **Beranda (External)** | 1 | ⏳ Pending (0/1) | Header (1) |
-| **Total** | | **17** | **0 Reported / 17 Pending** | |
+| 6 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
+| **Total** | | **18** | **0 Reported / 18 Pending** | |
 
 ---
 
@@ -303,6 +304,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Header navbar belum memuat nama nasabah dan hanya menampilkan karakter strip (-) pada badge lingkaran hijau serta teks label (- v).
 > * **Evidence Awal**:
 >   * Badge Profil Navbar: [https://files.catbox.moe/8bm9tu.png](https://files.catbox.moe/8bm9tu.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Tab Profil, Akun, Favorit, dan Notifikasi Gagal Memuat Data
+
+> * **Menu**: User Profile (Tab Profil, Akun, Favorit, Notifikasi)
+> * **Status**: Open
+> * **Deskripsi**: Saat user nasabah mengakses halaman profil akun, hanya tab Daftar Pesanan yang dapat dibuka, sedangkan tab menu lainnya gagal memuat konten.
+> * **Expected**: Seluruh tab menu (Profil, Akun, Favorit, Notifikasi) dapat diakses dan menampilkan konten data nasabah dengan normal.
+> * **Actual**: Tab Profil, Akun, Favorit, dan Notifikasi menampilkan halaman error "Oops! Terjadi kesalahan saat memuat data".
+> * **Evidence Awal**:
+>   * Halaman Error Profil: [https://files.catbox.moe/yxag2f.png](https://files.catbox.moe/yxag2f.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
