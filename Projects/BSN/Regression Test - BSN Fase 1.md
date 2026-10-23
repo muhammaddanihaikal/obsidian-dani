@@ -23,8 +23,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 |----|------------------|-----------|-------------|---------------|
 | 1 | **Authentication** | 3 | ⏳ Pending (0/3) | Logout (2), Login (1) |
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
-| 3 | **Office Management** | 2 | ⏳ Pending (0/2) | Office Type (2) |
-| **Total** | | **10** | **0 Reported / 10 Pending** | |
+| 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
+| **Total** | | **11** | **0 Reported / 11 Pending** | |
 
 ---
 
@@ -186,6 +186,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Dropdown Parent kosong dan hanya menampilkan "No data", sehingga proses penambahan tipe kantor baru terhambat.
 > * **Evidence Awal**:
 >   * Dropdown Parent No Data: [https://files.catbox.moe/iw6luy.png](https://files.catbox.moe/iw6luy.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Filter Pencarian Tipe Kantor Belum Berfungsi
+
+> * **Menu**: Office Management → Office Type
+> * **Status**: Open
+> * **Deskripsi**: Saat user mengisi parameter pencarian pada bar filter dan menekan button Cari, sistem tidak melakukan penyaringan data pada tabel.
+> * **Expected**: Tabel menampilkan daftar tipe kantor yang sesuai dengan kriteria filter yang dimasukkan oleh user.
+> * **Actual**: Fitur filter belum berfungsi dan tabel tidak merespons perubahan data pencarian setelah button Cari ditekan.
+> * **Evidence Awal**:
+>   * Filter Tipe Kantor: [https://files.catbox.moe/cuno1j.png](https://files.catbox.moe/cuno1j.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
