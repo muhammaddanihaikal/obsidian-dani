@@ -12,6 +12,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | Authentication | Logout | 🐛 Bug |
 | 2 | Authentication | Login | 🐛 Bug |
 | 3 | User Management | Role | 🐛 Bug |
+| 4 | User Management | User | 🐛 Bug |
 
 ---
 
@@ -20,8 +21,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | No | Modul / Sub Menu | Total Bug | Status Huly | Rincian Issue |
 |----|------------------|-----------|-------------|---------------|
 | 1 | **Authentication** | 2 | ⏳ Pending (0/2) | Logout (1), Login (1) |
-| 2 | **User Management** | 4 | ⏳ Pending (0/4) | Role (4) |
-| **Total** | | **6** | **0 Reported / 6 Pending** | |
+| 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
+| **Total** | | **7** | **0 Reported / 7 Pending** | |
 
 ---
 
@@ -118,6 +119,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Muncul toast error "Gagal mengubah role" dengan pesan `code=415, message=Unsupported Media Type` dan data role tidak ter-update.
 > * **Evidence Awal**:
 >   * Toast Error Ubah Role: [https://files.catbox.moe/c6n1h7.png](https://files.catbox.moe/c6n1h7.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | User Management - User: Dropdown Pilihan Kantor Kosong (No Data)
+
+> * **Menu**: User Management → User
+> * **Status**: Open
+> * **Deskripsi**: Saat user mengisi form tambah user dan membuka dropdown Kantor, opsi daftar kantor tidak muncul dan hanya menampilkan status "No data".
+> * **Expected**: Dropdown Kantor menampilkan seluruh daftar kantor cabang yang aktif dan dapat dipilih oleh user.
+> * **Actual**: Dropdown Kantor kosong dan hanya menampilkan "No data", sehingga proses submit data user tidak dapat diselesaikan.
+> * **Evidence Awal**:
+>   * Dropdown Kantor No Data: [https://files.catbox.moe/u2z6fh.png](https://files.catbox.moe/u2z6fh.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
