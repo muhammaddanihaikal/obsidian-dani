@@ -10,6 +10,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | No | Menu | Sub Menu | Status |
 |----|------|----------|--------|
 | 1 | Authentication | Logout | 🐛 Bug |
+| 2 | Authentication | Login | 🐛 Bug |
 
 ---
 
@@ -17,8 +18,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 | No | Modul / Sub Menu | Total Bug | Status Huly | Rincian Issue |
 |----|------------------|-----------|-------------|---------------|
-| 1 | **Authentication** | 1 | ⏳ Pending (0/1) | Logout (1) |
-| **Total** | | **1** | **0 Reported / 1 Pending** | |
+| 1 | **Authentication** | 2 | ⏳ Pending (0/2) | Logout (1), Login (1) |
+| **Total** | | **2** | **0 Reported / 2 Pending** | |
 
 ---
 
@@ -34,6 +35,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence Awal**:
 >   * Button Keluar: [https://files.catbox.moe/ujkwhl.png](https://files.catbox.moe/ujkwhl.png)
 >   * Halaman Error: [https://files.catbox.moe/mbunqm.png](https://files.catbox.moe/mbunqm.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Authentication - Login: Button "Masuk dengan akun lain" Tidak Berfungsi
+
+> * **Menu**: Authentication → Login
+> * **Status**: Open
+> * **Deskripsi**: Saat user berada di halaman Konfirmasi Identitas dan menekan button Masuk dengan akun lain, tidak ada respons apa pun dari sistem.
+> * **Expected**: Sistem mengarahkan user kembali ke form login awal untuk memasukkan email atau akun yang berbeda.
+> * **Actual**: Button Masuk dengan akun lain tidak berfungsi saat ditekan dan user tetap tertahan di halaman Konfirmasi Identitas.
+> * **Evidence Awal**:
+>   * Button Masuk Akun Lain: [https://files.catbox.moe/n4w7iw.png](https://files.catbox.moe/n4w7iw.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
