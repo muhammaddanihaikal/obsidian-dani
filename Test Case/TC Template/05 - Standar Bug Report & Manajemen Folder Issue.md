@@ -64,7 +64,7 @@ Gunakan template markdown ini saat membuat file `report.txt`:
 
 > * **Menu**: {Modul} → {Sub Menu} (Tab {Nama Tab jika ada})
 > * **Status**: Open
-> * **Deskripsi**: {Jelaskan alur masalah secara runut, jelas, dan kapan issue ini terpicu}
+> * **Deskripsi**: {Jelaskan alur masalah secara runut, padat, dan to the point (1–2 kalimat)}
 > * **Expected**: {Kondisi ideal/seharusnya sesuai PRD atau aturan bisnis}
 > * **Actual**: {Kondisi error, cacat sistem, atau penyimpangan yang terjadi saat ini}
 > * **Evidence Awal**:
@@ -74,6 +74,15 @@ Gunakan template markdown ini saat membuat file `report.txt`:
 > * **Catatan Retest**:
 >   * {Catatan ringkas verifikasi hasil pengujian setelah bug diperbaiki}
 ```
+
+> [!TIP]
+> ### 🎯 PRINSIP PENULISAN: SIMPLE & TO THE POINT (NO BASA-BASI)
+> 1. **Ringkas & Padat**:
+>    - Isi `Deskripsi`, `Expected`, dan `Actual` harus langsung menusuk ke inti masalah (maksimal 1–2 kalimat per bagian).
+>    - Hindari kalimat bertele-tele atau pengulangan kata yang tidak perlu.
+> 2. **Aturan Langkah Reproduksi (Steps to Reproduce / STR)**:
+>    - **DILARANG membuat STR jika langkahnya sedikit / pendek**: Jika masalahnya langsung muncul dalam 1–2 klik (misal: klik tombol Keluar langsung error, klik tombol Export file kosong, klik Reset field tidak tereset), **JANGAN** membuat section Steps to Reproduce. Cukup jelaskan aksinya langsung di bagian **Deskripsi**.
+>    - **HANYA gunakan STR jika alurnya panjang / kompleks**: Tambahkan `> * **Langkah Reproduksi**:` hanya ketika bug membutuhkan skenario bertahap lintas halaman atau multi-aksi (misal: input data di Form A $\rightarrow$ ubah status di Tab B $\rightarrow$ lakukan approval di Menu C $\rightarrow$ terjadi error kalkulasi).
 
 > [!WARNING]
 > ### 🚫 DILARANG MENYISIPKAN LINK PANJANG / QUERY PARAMETER DI DALAM TEKS!
