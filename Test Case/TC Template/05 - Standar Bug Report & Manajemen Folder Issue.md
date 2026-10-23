@@ -75,6 +75,14 @@ Gunakan template markdown ini saat membuat file `report.txt`:
 >   * {Catatan ringkas verifikasi hasil pengujian setelah bug diperbaiki}
 ```
 
+> [!WARNING]
+> ### 🚫 DILARANG MENYISIPKAN LINK PANJANG / QUERY PARAMETER DI DALAM TEKS!
+> - **DILARANG KERAS** menaruh URL domain lengkap atau rentetan query parameter panjang di bagian **Deskripsi**, **Expected**, maupun **Actual** (contoh buruk: `https://terasrumah-sandbox.zegen.app/auth/error?error=invalid_request&error_description=The+request+is+missing+a+required+parameter...`). Hal ini membuat laporan berantakan dan membingungkan yang membaca!
+> - Tulis kalimat fungsional yang bersih, manusiawi, dan to the point:
+>   * ❌ **JANGAN:** `Sistem ter-redirect ke https://terasrumah-sandbox.zegen.app/auth/error dengan pesan "Permintaan Tidak Dapat Diproses" (query parameter: error=invalid_request&error_description=The+request+is+missing...)`
+>   * ✅ **GUNAKAN:** `Sistem mengarahkan pengguna ke halaman error dengan pesan "Permintaan Tidak Dapat Diproses" dan proses logout gagal.`
+> - **Satu-satunya link URL yang diperbolehkan** hanyalah link bukti screenshot Catbox di bagian **Evidence**!
+
 ### 🛠️ Opsional: Technical Evidence (Jika Ada Error DevTools / API)
 Jika bug berkaitan dengan error backend/network, tambahkan blok teknis berikut:
 ```markdown
@@ -156,7 +164,7 @@ Saat user mengirimkan screenshot temuan bug / retest baru, AI **WAJIB** mengikut
    * Sajikan rancangan ringkas:
      * **Judul**: `🐞 [BUG] | [Modul] - [Sub Menu]: [Ringkasan Masalah]`
      * **Menu**: `[Modul] → [Sub Menu]`
-     * **Masalah (Deskripsi & Actual vs Expected)**
+     * **Deskripsi & Actual vs Expected**: Tulis dengan kalimat bersih fungsional (**DILARANG menempelkan URL panjang atau query parameter mentah**).
    * Minta User konfirmasi terlebih dahulu sebelum membuat file apapun.
 3. **Eksekusi Setelah User Konfirmasi ("Ya" / "Gas"):**
    * **Tentukan Nomor (+1):** Cek folder menu di direktori laporan (`Issue Report/<Nama Menu>/`), hitung nomor issue berikutnya (+1 dari nomor terakhir, misal `01`, `02`, `03`...).
