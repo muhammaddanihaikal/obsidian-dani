@@ -57,32 +57,37 @@ Di dalam setiap folder issue, **WAJIB** terdapat 2 file teks utama:
 
 ## 📋 3. Template Baku `report.txt` (Input Issue Baru Huly)
 
-Gunakan template markdown ini saat membuat file `report.txt`:
+Gunakan template markdown ini saat membuat file `report.txt` (format ini siap langsung di-copas ke deskripsi Huly):
 
 ```markdown
 🐞 [BUG] | {Nama Modul} - {Sub Menu}: {Ringkasan Singkat Masalah}
 
-> * **Menu**: {Modul} → {Sub Menu} (Tab {Nama Tab jika ada})
-> * **Status**: Open
-> * **Deskripsi**: {Jelaskan alur masalah secara runut, padat, dan to the point (1–2 kalimat)}
-> * **Expected**: {Kondisi ideal/seharusnya sesuai PRD atau aturan bisnis}
-> * **Actual**: {Kondisi error, cacat sistem, atau penyimpangan yang terjadi saat ini}
-> * **Evidence Awal**:
->   * [https://files.catbox.moe/xxx.png](https://files.catbox.moe/xxx.png)
-> * **Bukti Retest (Done)**:
->   * [https://files.catbox.moe/yyy.png](https://files.catbox.moe/yyy.png)
-> * **Catatan Retest**:
->   * {Catatan ringkas verifikasi hasil pengujian setelah bug diperbaiki}
+* **Menu**: {Modul} → {Sub Menu} (Tab {Nama Tab jika ada})
+* **Deskripsi**: {Jelaskan alur masalah secara runut, padat, dan to the point (1–2 kalimat)}
+* **Expected**: {Kondisi ideal/seharusnya sesuai PRD atau aturan bisnis}
+* **Actual**: {Kondisi error, cacat sistem, atau penyimpangan yang terjadi saat ini}
+* **Evidence**:
+  * [https://files.catbox.moe/xxx.png](https://files.catbox.moe/xxx.png)
 ```
+
+> [!IMPORTANT]
+> ### 🚫 ATURAN STATUS DI `report.txt` VS OBSIDIAN
+> - **Di file `report.txt` DILARANG memasukkan baris `Status:`**: Karena di aplikasi Huly status sudah memiliki dropdown tersendiri di panel kanan (Open, In Progress, Closed, dll.), sehingga tidak boleh ada tulisan status di dalam teks deskripsi issue!
+> - **Di file Master Tracker Obsidian (`Regression Test - ...md`) BARIS STATUS TETAP WAJIB ADA**: Status (`Open`, `Done`, `Re-Open`, `Rejected`) tetap dicatat di Obsidian untuk melacak rekapitulasi pengujian.
 
 > [!TIP]
 > ### 🎯 PRINSIP PENULISAN: SIMPLE & TO THE POINT (NO BASA-BASI)
-> 1. **Ringkas & Padat**:
+> 1. **Aturan Judul (Maksimal 15 Kata)**:
+>    - Format wajib: `🐞 [BUG] | [Menu] - [Sub Menu]: [Gejala Masalah Ringkas]`
+>    - Judul harus singkat, padat, dan to the point (jangan lebih dari 15 kata).
+> 2. **Penyebutan Akun / Role User**:
+>    - **HANYA sebutkan role/akun user JIKA User memberi tahu di chat** (misal User bilang: *"ini aku test pakai superadmin"* $\rightarrow$ baru tulis *"Saat user login sebagai Superadmin..."*).
+>    - Jika User **TIDAK** menyebutkan akun apa yang dipakai, **JANGAN MENGARANG ROLE**. Cukup gunakan kata umum: *"Saat user menekan button Keluar..."*.
+> 3. **Ringkas & Padat**:
 >    - Isi `Deskripsi`, `Expected`, dan `Actual` harus langsung menusuk ke inti masalah (maksimal 1–2 kalimat per bagian).
->    - Hindari kalimat bertele-tele atau pengulangan kata yang tidak perlu.
-> 2. **Aturan Langkah Reproduksi (Steps to Reproduce / STR)**:
->    - **DILARANG membuat STR jika langkahnya sedikit / pendek**: Jika masalahnya langsung muncul dalam 1–2 klik (misal: klik tombol Keluar langsung error, klik tombol Export file kosong, klik Reset field tidak tereset), **JANGAN** membuat section Steps to Reproduce. Cukup jelaskan aksinya langsung di bagian **Deskripsi**.
->    - **HANYA gunakan STR jika alurnya panjang / kompleks**: Tambahkan `> * **Langkah Reproduksi**:` hanya ketika bug membutuhkan skenario bertahap lintas halaman atau multi-aksi (misal: input data di Form A $\rightarrow$ ubah status di Tab B $\rightarrow$ lakukan approval di Menu C $\rightarrow$ terjadi error kalkulasi).
+> 4. **Aturan Langkah Reproduksi (Steps to Reproduce / STR)**:
+>    - **DILARANG membuat STR jika langkahnya sedikit / pendek**: Jika masalahnya langsung muncul dalam 1–2 klik (misal: klik button Logout langsung error, klik button Export file kosong, klik button Reset field tidak tereset), **JANGAN** membuat section Steps to Reproduce. Cukup jelaskan aksinya langsung di bagian **Deskripsi**.
+>    - **HANYA gunakan STR jika alurnya panjang / kompleks**: Tambahkan `* **Langkah Reproduksi**:` hanya ketika bug membutuhkan skenario bertahap lintas halaman atau multi-aksi.
 
 > [!WARNING]
 > ### 🚫 DILARANG MENYISIPKAN LINK PANJANG / QUERY PARAMETER DI DALAM TEKS!
