@@ -20,8 +20,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | No | Modul / Sub Menu | Total Bug | Status Huly | Rincian Issue |
 |----|------------------|-----------|-------------|---------------|
 | 1 | **Authentication** | 2 | ⏳ Pending (0/2) | Logout (1), Login (1) |
-| 2 | **User Management** | 2 | ⏳ Pending (0/2) | Role (2) |
-| **Total** | | **4** | **0 Reported / 4 Pending** | |
+| 2 | **User Management** | 3 | ⏳ Pending (0/3) | Role (3) |
+| **Total** | | **5** | **0 Reported / 5 Pending** | |
 
 ---
 
@@ -86,6 +86,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence Awal**:
 >   * Modal Konfirmasi Hapus: [https://files.catbox.moe/a2dlfq.png](https://files.catbox.moe/a2dlfq.png)
 >   * Toast Error Hapus: [https://files.catbox.moe/ypdpob.png](https://files.catbox.moe/ypdpob.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | User Management - Role: Gagal Menyimpan Aksi Role Muncul Error 415
+
+> * **Menu**: User Management → Role
+> * **Status**: Open
+> * **Deskripsi**: Saat user memilih checkbox pada bagian Aksi Umum Role dan menekan button Simpan Aksi, proses penyimpanan gagal diproses sistem.
+> * **Expected**: Pengaturan aksi umum role berhasil disimpan dan sistem memunculkan toast konfirmasi sukses.
+> * **Actual**: Muncul toast error "Gagal menyimpan aksi role" dengan pesan `code=415, message=Unsupported Media Type` dan data aksi tidak tersimpan.
+> * **Evidence Awal**:
+>   * Toast Error Simpan Aksi Role: [https://files.catbox.moe/x29f8c.png](https://files.catbox.moe/x29f8c.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
