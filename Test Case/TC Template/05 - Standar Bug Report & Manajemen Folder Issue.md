@@ -52,6 +52,7 @@ Setiap kali memulai pengujian pada project baru atau modul baru, arsip bukti dan
 Di dalam setiap folder issue, **WAJIB** terdapat 2 file teks utama:
 1. `report.txt` $\rightarrow$ Dokumen sumber utama yang berisi detail lengkap bug untuk di-input sebagai **Issue Baru di Huly**.
 2. `komentar_huly.txt` $\rightarrow$ Template teks siap *copy-paste* untuk kolom **Komentar / Update Retest di Huly**.
+   * **PENTING**: Saat issue baru pertama kali dibuat, file `komentar_huly.txt` ini **WAJIB DIBIARKAN KOSONG** (karena belum ada aktivitas retest). File ini baru diisi nanti saat proses retest/verifikasi perbaikan bug dilakukan.
 
 ---
 
@@ -186,15 +187,17 @@ Saat user mengirimkan screenshot temuan bug / retest baru, AI **WAJIB** mengikut
    * **Simpan & Upload Screenshot:**
      * Simpan file screenshot ke folder issue tersebut.
      * Upload file gambar ke Catbox via cURL API (`https://catbox.moe/user/api.php`) untuk mendapatkan URL Catbox.
-   * **Generate Dokumen Lokal:**
-     * Tulis file `report.txt` lengkap (berisi Judul, Menu, Deskripsi, Expected, Actual, dan link Catbox).
-     * Tulis file `komentar_huly.txt` (format ringkas siap copas untuk Huly).
+   * **Generate Dokumen Lokal (Fase 1: Issue Baru):**
+     * Tulis file `report.txt` lengkap (berisi Judul, Menu, Deskripsi, Expected, Actual, dan link Catbox). **DILARANG memasukkan baris Status**.
+     * Buat file `komentar_huly.txt` dalam kondisi **KOSONG** (file ini baru diisi nanti saat sesi retest).
    * **Simpan Salinan ke Obsidian (Master Tracker):**
      * Tambahkan blok issue bug tersebut ke dalam file master tracker project di Obsidian:
-       `D:\Obsidian\dani\Projects\<Nama Project>\Regression Test - <Nama Project>.md`
+       `D:\Obsidian\dani\Projects\<Nama Project>\Regression Test - <Nama Project>.md` (sertakan baris `Status: Open`).
      * Update tabel rekapitulasi status jika tersedia di file tersebut.
      * Buat `git commit` di `D:\Obsidian\dani` agar riwayat perubahan aman tercatat.
-4. **Sajikan ke User:** Tampilkan konfirmasi folder selesai dibuat beserta teks siap copas ke Huly di chat.
+4. **Sajikan ke User (Aturan Output Chat Sesuai Fase):**
+   * **Saat Lapor Issue Baru**: AI **HANYA menampilkan teks `report.txt`** (dalam format markdown code block) agar User bisa langsung copy-paste ke issue baru Huly. DILARANG menampilkan komentar di fase ini!
+   * **Saat Selesai Retest**: AI **HANYA menampilkan teks `komentar_huly.txt`** (dalam format markdown code block) agar User bisa langsung copy-paste ke kolom komentar Huly! Isi file `komentar_huly.txt` lokal baru di-update pada fase ini.
 
 ---
 
