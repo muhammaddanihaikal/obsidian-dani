@@ -181,7 +181,57 @@ Saat user mengirimkan screenshot temuan bug / retest baru, AI **WAJIB** mengikut
    * **Simpan & Upload Screenshot:**
      * Simpan file screenshot ke folder issue tersebut.
      * Upload file gambar ke Catbox via cURL API (`https://catbox.moe/user/api.php`) untuk mendapatkan URL Catbox.
-   * **Generate Dokumen:**
+   * **Generate Dokumen Lokal:**
      * Tulis file `report.txt` lengkap (berisi Judul, Menu, Deskripsi, Expected, Actual, dan link Catbox).
      * Tulis file `komentar_huly.txt` (format ringkas siap copas untuk Huly).
+   * **Simpan Salinan ke Obsidian (Master Tracker):**
+     * Tambahkan blok issue bug tersebut ke dalam file master tracker project di Obsidian:
+       `D:\Obsidian\dani\Projects\<Nama Project>\Regression Test - <Nama Project>.md`
+     * Update tabel rekapitulasi status jika tersedia di file tersebut.
+     * Buat `git commit` di `D:\Obsidian\dani` agar riwayat perubahan aman tercatat.
 4. **Sajikan ke User:** Tampilkan konfirmasi folder selesai dibuat beserta teks siap copas ke Huly di chat.
+
+---
+
+## 🗣️ 7. Glosarium Terminologi Tim (Wajib Digunakan AI)
+
+Dalam penulisan seluruh teks bug report (`Deskripsi`, `Expected`, `Actual`, `Langkah Reproduksi`, dan `Komentar`), AI **WAJIB** menggunakan istilah baku industri/tim berikut dan **DILARANG** menggunakan padanan bahasa Indonesia kaku:
+
+| Istilah Baku Tim (✅ Wajib) | Istilah Kaku (❌ DILARANG) |
+| :--- | :--- |
+| **user** | ~~pengguna~~ |
+| **button** | ~~tombol~~ |
+| **field** / **input** | ~~kolom isian / bidang~~ |
+| **dropdown** | ~~menu tarik-turun~~ |
+| **checkbox** | ~~kotak centang~~ |
+| **popup** / **modal** | ~~jendela sembul~~ |
+| **download** / **export** | ~~unduh / ekspor data~~ |
+| **submit** / **save** | ~~kirim / simpan formulir~~ |
+| **mandatory** | ~~wajib diisi~~ *(boleh pakai mandatory/wajib)* |
+
+---
+
+## 📓 8. Sinkronisasi Salinan ke Obsidian Vault
+
+Setiap ada penambahan issue baru atau pembaruan retest:
+1. **Single Source of Truth:**
+   * Selain membuat folder fisik lokal (`Issue Report/<Menu>/<No> - <Judul>/`), seluruh laporan **WAJIB dicatat salinannya** ke file master tracker di Obsidian:
+     `D:\Obsidian\dani\Projects\<Nama Project>\Regression Test - <Nama Project>.md` (atau `Bug Tracker - <Nama Project>.md`).
+2. **Format Salinan di Obsidian:**
+   * Gunakan format blockquote standar yang seragam dengan seluruh issue sebelumnya:
+     ```markdown
+     ### 🐞 [BUG] | {Nama Modul} - {Sub Menu}: {Ringkasan Singkat Masalah}
+
+     > * **Menu**: {Modul} → {Sub Menu} (Tab {Nama Tab jika ada})
+     > * **Status**: Open
+     > * **Deskripsi**: ...
+     > * **Expected**: ...
+     > * **Actual**: ...
+     > * **Evidence Awal**:
+     >   * [https://files.catbox.moe/xxx.png](https://files.catbox.moe/xxx.png)
+     ```
+3. **Pembaruan Hasil Retest:**
+   * Saat status issue di Huly di-update (menjadi `Done`, `Re-Open`, atau `Rejected`), perbarui juga baris `> * **Status**:` dan tambahkan `> * **Bukti Retest (Done)**:` beserta link Catbox dan catatan retest di file Obsidian tersebut.
+4. **Git Versioning:**
+   * Lakukan commit git lokal pada vault `D:\Obsidian\dani` setiap kali selesai menambahkan atau memperbarui status issue:
+     `git commit -m "docs(<project>): log new bug <No> - <Judul>"`
