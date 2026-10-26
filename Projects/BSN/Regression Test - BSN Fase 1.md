@@ -26,10 +26,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Authentication** | 3 | ⏳ Pending (0/3) | Logout (2), Login (1) |
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
-| 4 | **Authentication (External)** | 5 | ⏳ Pending (0/5) | Register Nasabah (2), Login (3) |
+| 4 | **Authentication (External)** | 6 | ⏳ Pending (0/6) | Register Nasabah (3), Login (3) |
 | 5 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 6 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| **Total** | | **19** | **0 Reported / 19 Pending** | |
+| **Total** | | **20** | **0 Reported / 20 Pending** | |
+
+---
+
+## 🏷️ Matriks Status Issue QA
+
+| Status | Total | Rincian Issue |
+|--------|:-----:|---------------|
+| 🟢 **Done** | 0 | - |
+| 🔴 **Open** | 19 | 11 Issue Internal, 8 Issue External |
+| 🟡 **Catatan / Klarifikasi** | 1 | `External/Authentication/06` - Validasi Kata Sandi Breached Muncul di Akhir |
+| 🔄 **Re-Open** | 0 | - |
 
 ---
 
@@ -336,6 +347,24 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Header navbar tetap menampilkan badge profil ([-] - v) dan tidak berubah menjadi button Masuk.
 > * **Evidence Awal**:
 >   * Navbar Setelah Logout: [https://files.catbox.moe/09p09q.png](https://files.catbox.moe/09p09q.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Validasi Kata Sandi Breached Muncul di Langkah Terakhir dan Melempar User ke Awal
+
+> * **Menu**: Authentication → Register Nasabah
+> * **Status**: Catatan / Clarification
+> * **Deskripsi**: Saat mendaftar akun nasabah, indikator kata sandi di Langkah 1 valid dan berwarna hijau ("Kuat"). Namun saat menekan button Daftar Sekarang di Langkah 3, sistem menolak pendaftaran dengan pesan pelanggaran data dan melempar user kembali ke Langkah 1.
+> * **Expected**: Validasi kata sandi (termasuk deteksi data breach) dievaluasi langsung di Langkah 1 sebelum user melanjutkan ke langkah berikutnya, atau indikator kekuatan kata sandi menampilkan peringatan sejak awal.
+> * **Actual**: User berhasil menyelesaikan form hingga Langkah 3, namun gagal submit dengan toast error "Kata sandi ditemukan dalam pelanggaran data dan tidak boleh digunakan lagi" dan otomatis diarahkan kembali ke Langkah 1.
+> * **Catatan Tim**: Menunggu klarifikasi tim terkait security policy HaveIBeenPwned (HIBP) / breached password di auth backend dan kesesuaian alur UX di Langkah 1 vs Langkah 3.
+> * **Evidence Awal**:
+>   * Submit Langkah 3: [https://files.catbox.moe/0eqyh8.png](https://files.catbox.moe/0eqyh8.png)
+>   * Error Langkah 1: [https://files.catbox.moe/37o3lw.png](https://files.catbox.moe/37o3lw.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
