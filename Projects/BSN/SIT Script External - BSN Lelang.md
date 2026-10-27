@@ -69,7 +69,7 @@ converter: markitdown
 | 4 | Melakukan Search menggunakan Jenis Property saja | Pada section search asset, isi Jenis Property lalu klik cari | Direct ke halaman after search dan menampilkan hasil pencarian yang relevan, menampilkan wording khusus "\*Pilihan Properti\* dijual di semua Lokasi" |  |  |  |
 | 5 | Melakukan Search tanpa mengisi kolom Lokasi dan Jenis Property | Pada section search asset, klik cari tanpa mengisi kolom | Direct ke halaman after search dan menampilkan hasil pencarian yang relevan, menampilkan wording khusus "Properti dijual di semua Lokasi" |  |  |  |
 | 6 | Melakukan Search dengan hasil akhir berupa data tidak tersedia | Pada section search asset, isi Jenis Property dan Lokasi dengan data tidak cocok lalu klik cari | Menampilkan empty page dengan Wording yang sesuai |  |  |  |
-| 7 | Melakukan Pengecekkan Section Rekomendasi hunian untuk Kamu | Scroll slider untuk menemukan section Rekomendasi | Menampilkan aset rekomendasi hunian kamu |  |  |  |
+| 7 | Melakukan Pengecekkan Section Rekomendasi hunian untuk Kamu | Scroll slider untuk menemukan section Rekomendasi | Menampilkan aset rekomendasi hunian kamu | Section rekomendasi hunian kosong dan memunculkan empty state "Oops! Tidak Ada Data Rekomendasi Yang Ditemukan" | F | Issue: External Beranda 03 - Seluruh Section Data Rekomendasi Lelang dan FAQ di Beranda Belum Tampil |
 | 8 | Melakukan pengecekkan Slider pada Section Rekomendasi Aset Idaman Kam | Klik pada button < atau > pada Section Rekomendasi Asset Idaman Kamu | Saat di klik dapat menggeser asset sesuai arah slider yang di klik |  |  |  |
 | 9 | Melihat lebih banyak aset | Klik button selengkapnya | Direct ke halaman after search dan menampilkan list semua aset yang tersedia |  |  |  |
 
@@ -103,7 +103,7 @@ converter: markitdown
 
 | **No** | **Test Case** | **Scenario** | **Expected Result** | **Actual Result** | **Test Status (P=Passed, F=Failed)** | **Remarks** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Membuka halaman jenis angunan | Klik jenis angunan - lalu klik gedung | Menampilkan halman sesuai jenis angunan yang dipilih |  |  |  |
+| 1 | Membuka halaman jenis angunan | Klik jenis angunan - lalu klik gedung | Menampilkan halman sesuai jenis angunan yang dipilih | Dropdown Jenis Agunan muncul sebagai kotak putih kosong (blank) tanpa pilihan item kategori, sehingga halaman kategori tidak dapat diakses | F | Issue: 01 - Menu Dropdown Jenis Agunan Blank Putih dan Halaman Gagal Dibuka |
 | 2 | Melihat data rumah pada jenis angunan | Klik jenis angunan - klik rumah | Menampilkan halaman dan list data rumah |  |  |  |
 | 3 | Melihat data gudang pada jenis angunan | klik jenis angunan - klik gudang | Menampilkan halaman dan list data gudang |  |  |  |
 | 4 | Melihat data hotel pada jenis angunan | Klik jenis angunan - klik hotel | Menampilkan halaman dan list data hotel |  |  |  |
@@ -123,7 +123,7 @@ converter: markitdown
 
 | **No** | **Test Case** | **Scenario** | **Expected Result** | **Actual Result** | **Test Status (P=Passed, F=Failed)** | **Remarks** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Membuka halaman estimasi lelang | klik estimasi lelang | Berhasil menampilkan Halaman Estimasi Lelang |  |  |  |
+| 1 | Membuka halaman estimasi lelang | klik estimasi lelang | Berhasil menampilkan Halaman Estimasi Lelang | Halaman Estimasi Lelang berhasil terbuka namun langsung memunculkan empty state "Oops! Tidak Ada Data Aset Yang Ditemukan" (0 data aset) | F | Issue: 01 - Halaman Estimasi Lelang Kosong Memunculkan Oops Tidak Ada Data Aset |
 | 2 | Filter menggunakan Lokasi Dekat Saya dan klik Cari | Pilih filter dekat saya - klik button cari | Menampilkan semua data lelang dengan lokasi radius 50 km dari lokasi pengecekan |  |  |  |
 | 3 | Filter menggunakan Lokasi yang diinginkan lalu klik Cari | klik filter dekat saya - Pilih filter sesuai lokasi yang diinginkan - klik button cari | Menampilkan data lelang sesuai lokasi yang dipilih |  |  |  |
 | 4 | Filter menggunakan satu tipe asset | Klik filter tipe properti (semua) - Pilih 1 tipe property - Klik button terapkan - klik button cari | Menampilkan data lelang sesuai tipe properti yang dipilih |  |  |  |
