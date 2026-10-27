@@ -53,7 +53,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ## 🐛 Bug Report / Isu Temuan
 
-### 🐞 [BUG] | Authentication - Logout: Gagal Keluar Akun dan Muncul Halaman Error
+### 🐞 [BUG] | Gagal Logout dan Muncul Halaman Error
 
 > * **Menu**: Authentication → Logout
 > * **Status**: Open
@@ -70,7 +70,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Authentication - Login: Button "Masuk dengan akun lain" Tidak Berfungsi
+### 🐞 [BUG] | Button Masuk Akun Lain Tidak Berfungsi
 
 > * **Menu**: Authentication → Login
 > * **Status**: Open
@@ -86,7 +86,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Management - Role: Gagal Menambah Role Baru Muncul Error 415
+### 🐞 [BUG] | Gagal Menambah Role Baru Muncul Error 415
 
 > * **Menu**: User Management → Role
 > * **Status**: Open
@@ -102,7 +102,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Management - Role: Gagal Menghapus Role Muncul Toast Error
+### 🐞 [BUG] | Gagal Menghapus Data Role Muncul Toast Error
 
 > * **Menu**: User Management → Role
 > * **Status**: Open
@@ -119,7 +119,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Management - Role: Gagal Menyimpan Aksi Role Muncul Error 415
+### 🐞 [BUG] | Gagal Menyimpan Aksi Role Muncul Error 415
 
 > * **Menu**: User Management → Role
 > * **Status**: Open
@@ -135,7 +135,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Management - Role: Gagal Mengubah Role Muncul Error 415
+### 🐞 [BUG] | Gagal Mengubah Data Role Muncul Error 415
 
 > * **Menu**: User Management → Role
 > * **Status**: Open
@@ -151,7 +151,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | User Management - User: Dropdown Pilihan Kantor Kosong (No Data)
+### 🐞 [BUG] | Dropdown Pilihan Kantor Kosong No Data
 
 > * **Menu**: User Management → User
 > * **Status**: Open
@@ -167,7 +167,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Office Management - Office Type: Button Hapus Tetap Aktif Pada Parent Root
+### 🐞 [BUG] | Button Hapus Tetap Aktif Pada Parent Root
 
 > * **Menu**: Office Management → Office Type
 > * **Status**: Open
@@ -183,7 +183,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Authentication - Logout: Button Halaman Utama Gagal Redirect ke Login Internal
+### 🐞 [BUG] | Button Halaman Utama Gagal Redirect ke Login
 
 > * **Menu**: Authentication → Logout
 > * **Status**: Open
@@ -494,7 +494,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Email Tautan Pemulihan Kata Sandi Tidak Terkirim ke Mailpit
+### 🐞 [BUG] | Email Reset Password Gagal Masuk Mailpit
 
 > * **Menu**: Authentication → Lupa Kata Sandi
 > * **Status**: Open
