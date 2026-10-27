@@ -37,27 +37,27 @@ converter: markitdown
 
 | **No** | **Test Case** | **Scenario** | **Expected Result** | **Actual Result** | **Test Status (P=Passed, F=Failed)** | **Remarks** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Melakukan Login menggunakan data yang benar | Input email dan kata sandi dengan data yang benar > klik masuk | Masuk ke halaman beranda/Home page |  |  |  |
-| 2 | Melakukan Login dengan mengosongkan email | Input kata sandi, kosongkan email dan klik masuk | Gagal login dan menampilkan validasi field email kosong |  |  |  |
-| 3 | Melakukan Login dengan email invalid pada form | Input data dengan email invalid lalu klik masuk | Menampilkan validasi email tidak valid / tidak ditemukan |  |  |  |
-| 4 | Melakukan Login dengan mengosongkan kata sandi | Input email, kosongkan kata sandi dan klik masuk | Gagal login dan menampilkan validasi field kata sandi kosong |  |  |  |
-| 5 | Melakukan Login dengan kata sandi salah | Input email dan kata sandi yang salah lalu klik masuk | Menampilkan validasi value field salah |  |  |  |
-| 6 | Klik pada tombol Lupa Kata Sandi | Klik pada tombol Lupa Kata Sandi | Direct user ke page lupa kata sandi |  |  |  |
-| 7 | Melakukan input email dengan data valid lalu klik lanjutkan | input email yang relevan lalu klik lanjutkan | Direct user ke halaman proses selanjutnya untuk memasukkan kata sandi baru |  |  |  |
-| 8 | Melakukan input email yang tidak sesuai | imput email yang tida relevan lalu klik lanjutkan | Menampilkan alert "email tidak sesuai" |  |  |  |
+| 1 | Melakukan Login menggunakan data yang benar | Input email dan kata sandi dengan data yang benar > klik masuk | Masuk ke halaman beranda/Home page | Masuk ke halaman beranda/Home page | P | Catatan: Teks 'Anda masuk sebagai' kosong pada konfirmasi identitas (Issue 13) dan label tanpa bintang mandatory (Issue 10) |
+| 2 | Melakukan Login dengan mengosongkan email | Input kata sandi, kosongkan email dan klik masuk | Gagal login dan menampilkan validasi field email kosong | Gagal login dan menampilkan validasi field email kosong | P | - |
+| 3 | Melakukan Login dengan email invalid pada form | Input data dengan email invalid lalu klik masuk | Menampilkan validasi email tidak valid / tidak ditemukan | Menampilkan validasi email tidak valid / tidak ditemukan | P | - |
+| 4 | Melakukan Login dengan mengosongkan kata sandi | Input email, kosongkan kata sandi dan klik masuk | Gagal login dan menampilkan validasi field kata sandi kosong | Gagal login dan menampilkan validasi field kata sandi kosong | P | - |
+| 5 | Melakukan Login dengan kata sandi salah | Input email dan kata sandi yang salah lalu klik masuk | Menampilkan validasi value field salah | Menampilkan validasi value field salah | P | - |
+| 6 | Klik pada tombol Lupa Kata Sandi | Klik pada tombol Lupa Kata Sandi | Direct user ke page lupa kata sandi | Sistem malah mengarahkan user ke halaman sesi auth (/auth) dengan pesan "Anda belum masuk ke akun manapun" | F | Issue: 05 - Klik Lupa Kata Sandi Malah Diarahkan ke Halaman Sesi |
+| 7 | Melakukan input email dengan data valid lalu klik lanjutkan | input email yang relevan lalu klik lanjutkan | Direct user ke halaman proses selanjutnya untuk memasukkan kata sandi baru | Direct user ke halaman proses selanjutnya untuk memasukkan kata sandi baru | P | - |
+| 8 | Melakukan input email yang tidak sesuai | imput email yang tida relevan lalu klik lanjutkan | Menampilkan alert "email tidak sesuai" | Menampilkan alert "email tidak sesuai" | P | - |
 
 # Modul Akun - lupa kata sandi
 
 | **No** | **Test Case** | **Scenario** | **Expected Result** | **Actual Result** | **Test Status (P=Passed, F=Failed)** | **Remarks** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Masuk ke halaman Ubah Kata Sandi | Klik pada button Kirim di menu OTP > Direct user ke menu | Menampilkan komponen : 1. Field Kata Sandi Baru 2. Field Konfirmasi Kata Sandi Baru 3. Button simpan 4. Eye icon |  |  |  |
-| 2 | Melakukan Simpan dengan menginput semua data di field | Input semua data > Simpan | Berhasil menyimpan kata sandi baru |  |  |  |
-| 3 | Melakukan Simpan dengan tidak menginput semua data di field | Input salah satu data > Simpan | Menampilkan validasi terkait data yang belum diinput |  |  |  |
-| 4 | Melakukansimpan setelah mengisi kata sandi dan konfirmasi kata sandi dengan data yang berbeda | Input semua data dengan data yang tidak sama > Simpan | Menampilkan validasi konfirmasi kata sandi tidak sama dengan kata sandi |  |  |  |
-| 5 | Menginput kata sandi tidak valid / tidak sesuai ketentuan | Input kata sandi dengan value tidak valid / seperti email pengguna | menampilkan validasi value tidak valid / tidak sesuai ketentuan |  |  |  |
-| 6 | Melakukan Login dengan kata sandi baru | Input kata sandi baru pada form login lalu klik login | Berhasil login menggunakan kata sandi baru |  |  |  |
-| 7 | Melakukan Login dengan kata sandi lama | Input kata sandi lama pada form login lalu klik login | Gagal Login dengan kata sandi lama |  |  |  |
-| 8 | Melakukan Logout | Klik profile = klik keluar - konfirmasi "ya keluar" | Berhasil logout akun |  |  |  |
+| 1 | Masuk ke halaman Ubah Kata Sandi | Klik pada button Kirim di menu OTP > Direct user ke menu | Menampilkan komponen : 1. Field Kata Sandi Baru 2. Field Konfirmasi Kata Sandi Baru 3. Button simpan 4. Eye icon | Menampilkan komponen : 1. Field Kata Sandi Baru 2. Field Konfirmasi Kata Sandi Baru 3. Button simpan 4. Eye icon | P | Catatan: Label kata sandi baru & konfirmasi tanpa bintang mandatory (Issue 11) |
+| 2 | Melakukan Simpan dengan menginput semua data di field | Input semua data > Simpan | Berhasil menyimpan kata sandi baru | Berhasil menyimpan kata sandi baru | P | - |
+| 3 | Melakukan Simpan dengan tidak menginput semua data di field | Input salah satu data > Simpan | Menampilkan validasi terkait data yang belum diinput | Menampilkan validasi terkait data yang belum diinput | P | - |
+| 4 | Melakukansimpan setelah mengisi kata sandi dan konfirmasi kata sandi dengan data yang berbeda | Input semua data dengan data yang tidak sama > Simpan | Menampilkan validasi konfirmasi kata sandi tidak sama dengan kata sandi | Menampilkan validasi konfirmasi kata sandi tidak sama dengan kata sandi | P | - |
+| 5 | Menginput kata sandi tidak valid / tidak sesuai ketentuan | Input kata sandi dengan value tidak valid / seperti email pengguna | menampilkan validasi value tidak valid / tidak sesuai ketentuan | menampilkan validasi value tidak valid / tidak sesuai ketentuan | P | - |
+| 6 | Melakukan Login dengan kata sandi baru | Input kata sandi baru pada form login lalu klik login | Berhasil login menggunakan kata sandi baru | Setelah reset kata sandi, button Masuk Sekarang terpental kembali ke halaman sesi (/auth) dan gagal membuka form login | F | Issue: 12 - Button Masuk Sekarang Terpental ke Halaman Sesi dan Gagal Membuka Login |
+| 7 | Melakukan Login dengan kata sandi lama | Input kata sandi lama pada form login lalu klik login | Gagal Login dengan kata sandi lama | Gagal Login dengan kata sandi lama | P | - |
+| 8 | Melakukan Logout | Klik profile = klik keluar - konfirmasi "ya keluar" | Berhasil logout akun | Setelah logout akun, header navbar tetap mempertahankan badge profil dan tidak kembali ke button Masuk | F | Issue: External Beranda 02 - Setelah Logout Navbar Profil Tidak Berubah Menjadi Button Masuk |
 
 # Modul Beranda - Home Page
 

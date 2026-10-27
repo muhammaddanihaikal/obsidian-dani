@@ -23,10 +23,10 @@ converter: markitdown
 
 | **No** | **Test Case** | **Scenario** | **Expected Result** | **Actual Result** | **Test Status (P=Passed, F=Failed)** | **Remarks** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Mengakses website BSN Lelang | Buka Akses Link Web BSN Lelang Internal | Berhasil menampilkan halaman form login |  |  |  |
-| 2 | Melakukan login | Input email & Password - Klik button Login | Login Berhasil dan menampilkan halaman Dashboard |  |  |  |
-| 3 | Melakukan login hanya menggunakan email | Input email - Klik button Login | Login Gagal dan Menampilkan alert "Isian password tidak boleh kosong." |  |  |  |
-| 4 | Melakukan login dengan Password Salah | Input email - Input Password salah - Klik button Login | Login Gagal dan Menampilkan alert "Email atau kata sandi salah" |  |  |  |
+| 1 | Mengakses website BSN Lelang | Buka Akses Link Web BSN Lelang Internal | Berhasil menampilkan halaman form login | Berhasil menampilkan halaman form login | P | - |
+| 2 | Melakukan login | Input email & Password - Klik button Login | Login Berhasil dan menampilkan halaman Dashboard | Login Berhasil dan menampilkan halaman Dashboard | P | Catatan: Button 'Masuk dengan akun lain' pada halaman konfirmasi identitas tidak berfungsi (Issue 02 Internal) |
+| 3 | Melakukan login hanya menggunakan email | Input email - Klik button Login | Login Gagal dan Menampilkan alert "Isian password tidak boleh kosong." | Login Gagal dan Menampilkan alert "Isian password tidak boleh kosong." | P | - |
+| 4 | Melakukan login dengan Password Salah | Input email - Input Password salah - Klik button Login | Login Gagal dan Menampilkan alert "Email atau kata sandi salah" | Login Gagal dan Menampilkan alert "Email atau kata sandi salah" | P | - |
 
 # Modul User Authority - Role
 
