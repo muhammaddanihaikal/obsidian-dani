@@ -16,7 +16,7 @@ converter: markitdown
 |  |  |  |
 | --- | --- | --- |
 | **Application : BSN Lelang** | **Jumlah Script : 181** | **Version :** 1.0 |
-| **Modul :**   * **Modul Login** * **Modul User Authority – Role** * **Modul User Authority – User** * **Modul Dashboard** * **Modul Inventory Aset – Aset** * **Modul Inventory Aset – Approval aset** * **Modul Inventory Aset – Katalog Marketing** * **Modul Customer Management – Ticket** * **Modul Customer Management – Leads** * **Modul Audit Trail** | **Estimasi Jangka Waktu Pengujian :** 1 hari |  |
+| **Modul :**   * **Modul Login** * **Modul User Authority – Role** * **Modul User Authority – User** * **Modul Dashboard** * **Modul Inventory Aset – Aset** * **Modul Inventory Aset – Approval aset** * **Modul Inventory Aset – Katalog Marketing** * **Modul Customer Management – Ticket** * **Modul Customer Management – Leads** * **Modul Audit Trail** * **Modul Developer – List Developer** | **Estimasi Jangka Waktu Pengujian :** 1 hari |  |
 |  |  |
 
 # Modul Login
@@ -351,3 +351,9 @@ converter: markitdown
 | 5 | Filter Data Audit Trail yang sesuai | Input nama user, Pilih Aksi, Pilih tanggal- kemudian klik button Search | Menampilkan data sesuai dengan kata kunci yang di cari |  |  |  |
 | 6 | Filter Data Audit Trail yang tidak sesuai | Input kata kunci tidak ada pada list data - Klik button Search | Menampilkan tabel kosong dengan keterangan no data |  |  |  |
 | 7 | Pagination data Audit Trail | Klik pagination sesuai dengan data yang ingin di tampilkan (10/page) | Menampilkan data Audit trail sesuai dengan pagination yang di pilih |  |  |  |
+
+# Modul Developer - List Developer
+
+| **No** | **Test Case** | **Scenario** | **Expected Result** | **Actual Result** | **Test Status (P=Passed, F=Failed)** | **Remarks** |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Menambahkan Proyek / Aset Baru Developer | Buka menu Developer - Klik List Developer - Klik Detail salah satu developer - Klik button + Tambah Proyek / Aset Baru | Berhasil membuka form/modal penambahan proyek aset baru developer | Button tidak membuka form input dan memunculkan toast informasi "Fitur ini belum tersedia, menunggu API" | F | Issue: 01 - Button Tambah Proyek Aset Baru Memunculkan Notifikasi Fitur Belum Tersedia Menunggu API |
