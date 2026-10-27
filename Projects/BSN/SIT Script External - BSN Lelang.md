@@ -23,15 +23,15 @@ converter: markitdown
 
 | **No** | **Test Case** | **Scenario** | **Expected Result** | **Actual Result** | **Test Status (P=Passed, F=Failed)** | **Remarks** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Masuk ke Menu Login | Klik pada Button masuk di Header | Direct user ke menu Login |  |  |  |
-| 2 | Melakukan daftar dengan mengisi semua data dengan benar | Klik daftar gratis sekarang - masukan semua data dengan benar - checklis TnC - kemudian klik button daftar sekarang | Berhasil daftar dan masuk ke halaman verifikasi / OTP |  |  |  |
-| 3 | Melakukan daftar dengan mengosongkan salah satu atau beberapa field | Kosongkan beberapa field lalu klik pada Daftar sekarang | Menampilkan validasi field tidak boleh kosong, gagal direct ke proses selanjutnya |  |  |  |
-| 4 | Melakukan input email dengan data tidak valid | Input field email dengan data tidak valid, contoh dengan email yang tidak terdaftar atau struktur yang tidak valid, contoh "fuji" tanpa bagan "@email" lalu klik Daftar | Menampilkan validasi error handling saat mencoba klik Daftar |  |  |  |
-| 5 | Melakukan input Kata Sandi kurang dari 8 karakter | Input kata sandi dengan karakter kurang dari 8 | Menampilkan validasi karakter kurang dari 8 |  |  |  |
-| 6 | Melakukan input Kata Sandi dengan tidak sesuai ketentuan penulisan | Input tanpa salah satu karakter khusus, huruf besar, huruf kecil dan angka | Menampilkan validasi kata sandi tidak sesuai ketentuan |  |  |  |
-| 7 | Melakukan klik Daftar tanpa centang bagian TnC | Input data sesuai tanpa checklist di bagian TnC | Menampilkan validasi bahwa checklist harus tercentang |  |  |  |
-| 8 | Melakukan daftar dengan email yang sudah terdaftar | Input email dengan yang sudah terdaftar lalu klik pada daftar | Menampilkan validasi email sudah terdaftar / email sudah digunakan. |  |  |  |
-| 9 | Melakukan login menggunakan akun google | Klik masuk dengan google - pilih email aktif - klik lanjutkan | Berhasil daftar dan masuk ke halaman verifikasi / OTP |  |  |  |
+| 1 | Masuk ke Menu Login | Klik pada Button masuk di Header | Direct user ke menu Login | Direct user ke menu Login | P | - |
+| 2 | Melakukan daftar dengan mengisi semua data dengan benar | Klik daftar gratis sekarang - masukan semua data dengan benar - checklis TnC - kemudian klik button daftar sekarang | Berhasil daftar dan masuk ke halaman verifikasi / OTP | Validasi konfirmasi kata sandi tidak sinkron saat input data; submit pendaftaran tidak menampilkan notifikasi berhasil dan gagal redirect ke OTP / login (tertahan di form) | F | Issue: 01 - Validasi Konfirmasi Kata Sandi & 02 - Submit Pendaftaran Gagal Redirect |
+| 3 | Melakukan daftar dengan mengosongkan salah satu atau beberapa field | Kosongkan beberapa field lalu klik pada Daftar sekarang | Menampilkan validasi field tidak boleh kosong, gagal direct ke proses selanjutnya | Menampilkan validasi field tidak boleh kosong, gagal direct ke proses selanjutnya | P | - |
+| 4 | Melakukan input email dengan data tidak valid | Input field email dengan data tidak valid, contoh dengan email yang tidak terdaftar atau struktur yang tidak valid, contoh "fuji" tanpa bagan "@email" lalu klik Daftar | Menampilkan validasi error handling saat mencoba klik Daftar | Menampilkan validasi error handling saat mencoba klik Daftar | P | - |
+| 5 | Melakukan input Kata Sandi kurang dari 8 karakter | Input kata sandi dengan karakter kurang dari 8 | Menampilkan validasi karakter kurang dari 8 | Menampilkan validasi karakter kurang dari 8 | P | - |
+| 6 | Melakukan input Kata Sandi dengan tidak sesuai ketentuan penulisan | Input tanpa salah satu karakter khusus, huruf besar, huruf kecil dan angka | Menampilkan validasi kata sandi tidak sesuai ketentuan | Menampilkan validasi kata sandi tidak sesuai ketentuan | P | - |
+| 7 | Melakukan klik Daftar tanpa centang bagian TnC | Input data sesuai tanpa checklist di bagian TnC | Menampilkan validasi bahwa checklist harus tercentang | Menampilkan validasi bahwa checklist harus tercentang | P | - |
+| 8 | Melakukan daftar dengan email yang sudah terdaftar | Input email dengan yang sudah terdaftar lalu klik pada daftar | Menampilkan validasi email sudah terdaftar / email sudah digunakan. | Menampilkan validasi email sudah terdaftar / email sudah digunakan. | P | - |
+| 9 | Melakukan login menggunakan akun google | Klik masuk dengan google - pilih email aktif - klik lanjutkan | Berhasil daftar dan masuk ke halaman verifikasi / OTP | Button berubah menjadi "Memproses" secara terus-menerus (stuck loading) dan tidak terjadi redirect ke Google OAuth | F | Issue: 07 - Button Daftar dengan Google Stuck Memproses dan Tidak Berfungsi |
 
 # Modul Akun - Login
 
