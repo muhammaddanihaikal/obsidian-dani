@@ -26,10 +26,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Authentication** | 3 | ⏳ Pending (0/3) | Logout (2), Login (1) |
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
-| 4 | **Authentication (External)** | 7 | ⏳ Pending (0/7) | Register Nasabah (4), Login (3) |
+| 4 | **Authentication (External)** | 8 | ⏳ Pending (0/8) | Register Nasabah (4), Login (4) |
 | 5 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 6 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| **Total** | | **21** | **0 Reported / 21 Pending** | |
+| **Total** | | **22** | **0 Reported / 22 Pending** | |
 
 ---
 
@@ -38,7 +38,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 0 | - |
-| 🔴 **Open** | 20 | 11 Issue Internal, 9 Issue External |
+| 🔴 **Open** | 21 | 11 Issue Internal, 10 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 1 | `External/Authentication/06` - Validasi Kata Sandi Breached Muncul di Akhir |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -382,6 +382,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence Awal**:
 >   * Button Google: [https://files.catbox.moe/96bd6e.png](https://files.catbox.moe/96bd6e.png)
 >   * Status Memproses: [https://files.catbox.moe/uzp8ik.png](https://files.catbox.moe/uzp8ik.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Tidak Ada Button Navigasi Kembali ke Login Pada Halaman Verifikasi OTP
+
+> * **Menu**: Authentication → Login
+> * **Status**: Open
+> * **Deskripsi**: Saat user berada di halaman verifikasi OTP ("Masukkan Kode Verifikasi"), tidak tersedia button atau navigasi untuk membatalkan proses dan kembali ke form login awal.
+> * **Expected**: Halaman verifikasi OTP menyediakan button atau link navigasi Kembali ke Login (atau tombol kembali) agar user dapat mengganti akun jika terjadi salah input email.
+> * **Actual**: Halaman hanya menyediakan button Lanjutkan dan Kirim ulang kode tanpa ada opsi navigasi kembali ke login.
+> * **Evidence Awal**:
+>   * Halaman Verifikasi OTP: [https://files.catbox.moe/ibxwqj.png](https://files.catbox.moe/ibxwqj.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
