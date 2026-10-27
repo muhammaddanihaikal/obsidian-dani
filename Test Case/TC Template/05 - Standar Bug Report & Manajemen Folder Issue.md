@@ -61,7 +61,7 @@ Di dalam setiap folder issue, **WAJIB** terdapat 2 file teks utama:
 Gunakan template markdown ini saat membuat file `report.txt` (format ini siap langsung di-copas ke deskripsi Huly):
 
 ```markdown
-🐞 [BUG] | {Nama Modul} - {Sub Menu}: {Ringkasan Singkat Masalah}
+🐞 [BUG] | {Ringkasan Singkat Masalah (5–7 Kata)}
 
 > * **Menu**: `{Modul}` → `{Sub Menu}` (Tab `{Nama Tab jika ada}`)
 > * **Deskripsi**: {Jelaskan alur masalah secara runut, padat, dan to the point (1–2 kalimat)}
@@ -87,9 +87,19 @@ Gunakan template markdown ini saat membuat file `report.txt` (format ini siap la
 
 > [!TIP]
 > ### 🎯 PRINSIP PENULISAN: SIMPLE & TO THE POINT (NO BASA-BASI)
-> 1. **Aturan Judul (Maksimal 15 Kata)**:
->    - Format wajib: `🐞 [BUG] | [Menu] - [Sub Menu]: [Gejala Masalah Ringkas]`
->    - Judul harus singkat, padat, dan to the point (jangan lebih dari 15 kata).
+> 1. **Aturan Judul Baku - The Golden Formula QA Profesional (Ideal 5–7 Kata, Maksimal 10 Kata)**:
+>    - **Format Wajib**: `🐞 [BUG] | [Komponen / Fitur] + [Kondisi Cacat Sistem]` (TANPA mencantumkan nama modul/menu di judul).
+>    - **Target Panjang**: Sangat dianjurkan **5 – 7 kata** agar terbaca penuh di Kanban Board Huly tanpa terpotong (*ellipsis* `...`), dengan batas toleransi keras **maksimal 10 kata**.
+>    - **Prinsip Utama**:
+>      * ✅ **Objektif & Profesional**: Menyebutkan komponen spesifik dan kondisi cacatnya (contoh: `Button Tambah Proyek Aset Belum Berfungsi`, `Dropdown Jenis Agunan Muncul Blank Putih`).
+>      * ❌ **Bukan Bahasa Curhat/Komplain Nasabah**: Hindari format keluhan pengguna seperti *"Belum bisa..."*, *"Gak bisa..."*, atau *"Tolong..."*, karena terdengar seperti tiket helpdesk WhatsApp, bukan temuan pengujian QA yang objektif.
+>      * ❌ **Bukan Salinan Toast Mentah**: Dilarang menyalin teks notifikasi/toast panjang ke judul (misal: *"Memunculkan Notifikasi Fitur Belum Tersedia Menunggu API"*). Teks lengkap toast cukup ditaruh di bagian **Actual Result**.
+>    - **Matriks Rumus Judul Cepat (Cheat Sheet)**:
+>      * `[Button ...] + [Tidak Berfungsi / Stuck Memproses / Terpental ke Sesi]`
+>      * `[Dropdown ...] + [Muncul Blank Putih / Kosong No Data]`
+>      * `[Field ...] + [Tanpa Indikator Bintang Mandatory / Validasi Error]`
+>      * `[Data ...] + [Kosong Tanpa Data / Belum Muncul]`
+>      * `[Email ...] + [Gagal Terkirim ke Mailpit]`
 > 2. **Penyebutan Akun / Role User**:
 >    - **HANYA sebutkan role/akun user JIKA User memberi tahu di chat** (misal User bilang: *"ini aku test pakai superadmin"* $\rightarrow$ baru tulis *"Saat user login sebagai Superadmin..."*).
 >    - Jika User **TIDAK** menyebutkan akun apa yang dipakai, **JANGAN MENGARANG ROLE**. Cukup gunakan kata umum: *"Saat user menekan button Keluar..."*.
@@ -263,7 +273,7 @@ Setiap ada penambahan issue baru atau pembaruan retest:
 2. **Format Salinan di Obsidian:**
    * Gunakan format blockquote standar yang seragam dengan seluruh issue sebelumnya:
      ```markdown
-     ### 🐞 [BUG] | {Nama Modul} - {Sub Menu}: {Ringkasan Singkat Masalah}
+     ### 🐞 [BUG] | {Ringkasan Singkat Masalah (5–7 Kata)}
 
      > * **Menu**: {Modul} → {Sub Menu} (Tab {Nama Tab jika ada})
      > * **Status**: Open

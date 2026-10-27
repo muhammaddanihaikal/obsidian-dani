@@ -356,4 +356,4 @@ converter: markitdown
 
 | **No** | **Test Case** | **Scenario** | **Expected Result** | **Actual Result** | **Test Status (P=Passed, F=Failed)** | **Remarks** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Menambahkan Proyek / Aset Baru Developer | Buka menu Developer - Klik List Developer - Klik Detail salah satu developer - Klik button + Tambah Proyek / Aset Baru | Berhasil membuka form/modal penambahan proyek aset baru developer | Button tidak membuka form input dan memunculkan toast informasi "Fitur ini belum tersedia, menunggu API" | F | Issue: 01 - Belum Bisa Tambah Proyek atau Asset Baru |
+| 1 | Menambahkan Proyek / Aset Baru Developer | Buka menu Developer - Klik List Developer - Klik Detail salah satu developer - Klik button + Tambah Proyek / Aset Baru | Berhasil membuka form/modal penambahan proyek aset baru developer | Button tidak membuka form input dan memunculkan toast informasi "Fitur ini belum tersedia, menunggu API" | F | Issue: 01 - Button Tambah Proyek Aset Belum Berfungsi |
