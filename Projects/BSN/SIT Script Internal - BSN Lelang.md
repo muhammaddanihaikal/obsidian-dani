@@ -27,6 +27,7 @@ converter: markitdown
 | 2 | Melakukan login | Input email & Password - Klik button Login | Login Berhasil dan menampilkan halaman Dashboard | Login Berhasil dan menampilkan halaman Dashboard | P | Catatan: Button 'Masuk dengan akun lain' pada halaman konfirmasi identitas tidak berfungsi (Issue 02 Internal) |
 | 3 | Melakukan login hanya menggunakan email | Input email - Klik button Login | Login Gagal dan Menampilkan alert "Isian password tidak boleh kosong." | Login Gagal dan Menampilkan alert "Isian password tidak boleh kosong." | P | - |
 | 4 | Melakukan login dengan Password Salah | Input email - Input Password salah - Klik button Login | Login Gagal dan Menampilkan alert "Email atau kata sandi salah" | Login Gagal dan Menampilkan alert "Email atau kata sandi salah" | P | - |
+| 5 | Melakukan pemulihan akun (Lupa Kata Sandi) | Klik Lupa kata sandi - Input email terdaftar - Klik button Lanjutkan | Email berisi tautan pemulihan berhasil terkirim dan diterima di inbox Mailpit | Muncul toast notifikasi email terkirim, namun email tautan pemulihan tidak pernah masuk/diterima di Mailpit | F | Issue: 04 - Email Tautan Pemulihan Kata Sandi Tidak Terkirim ke Mailpit |
 
 # Modul User Authority - Role
 
