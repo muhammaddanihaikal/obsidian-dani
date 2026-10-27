@@ -26,10 +26,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Authentication** | 3 | ⏳ Pending (0/3) | Logout (2), Login (1) |
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
-| 4 | **Authentication (External)** | 9 | ⏳ Pending (0/9) | Register Nasabah (4), Login (5) |
+| 4 | **Authentication (External)** | 10 | ⏳ Pending (0/10) | Register Nasabah (4), Login (6) |
 | 5 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 6 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| **Total** | | **23** | **0 Reported / 23 Pending** | |
+| **Total** | | **24** | **0 Reported / 24 Pending** | |
 
 ---
 
@@ -38,7 +38,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 0 | - |
-| 🔴 **Open** | 21 | 11 Issue Internal, 10 Issue External |
+| 🔴 **Open** | 22 | 11 Issue Internal, 11 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/06`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/09`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -416,6 +416,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence Awal**:
 >   * Form Login: [https://files.catbox.moe/gmq0kc.png](https://files.catbox.moe/gmq0kc.png)
 >   * Konfirmasi Identitas: [https://files.catbox.moe/5hfldp.png](https://files.catbox.moe/5hfldp.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Field Email dan Kata Sandi Tidak Memiliki Indikator Bintang Mandatory
+
+> * **Menu**: Authentication → Login
+> * **Status**: Open
+> * **Deskripsi**: Saat user berada di form login, label pada field Email dan Kata Sandi tidak dilengkapi dengan simbol asterisk/tanda bintang (*) penanda field wajib diisi.
+> * **Expected**: Label field menampilkan simbol asterisk merah (Email * & Kata Sandi *) sebagai penanda bahwa kedua field tersebut mandatory/wajib diisi.
+> * **Actual**: Label hanya menampilkan teks Email dan Kata Sandi polos tanpa indikator bintang mandatory.
+> * **Evidence Awal**:
+>   * Form Login: [https://files.catbox.moe/pkauex.png](https://files.catbox.moe/pkauex.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
