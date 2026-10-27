@@ -23,13 +23,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 | No | Modul / Sub Menu | Total Bug | Status Huly | Rincian Issue |
 |----|------------------|-----------|-------------|---------------|
-| 1 | **Authentication** | 3 | ⏳ Pending (0/3) | Logout (2), Login (1) |
+| 1 | **Authentication** | 4 | ⏳ Pending (0/4) | Logout (2), Login (1), Lupa Kata Sandi (1) |
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
 | 4 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
 | 5 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 6 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| **Total** | | **27** | **0 Reported / 27 Pending** | |
+| **Total** | | **28** | **0 Reported / 28 Pending** | |
 
 ---
 
@@ -38,7 +38,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 0 | - |
-| 🔴 **Open** | 25 | 11 Issue Internal, 14 Issue External |
+| 🔴 **Open** | 26 | 12 Issue Internal, 14 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/06`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/09`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -480,6 +480,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Keterangan "Anda masuk sebagai" kosong tanpa menampilkan email atau data user yang sedang diverifikasi.
 > * **Evidence Awal**:
 >   * Halaman Konfirmasi Identitas: [https://files.catbox.moe/34yhsf.png](https://files.catbox.moe/34yhsf.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Email Tautan Pemulihan Kata Sandi Tidak Terkirim ke Mailpit
+
+> * **Menu**: Authentication → Lupa Kata Sandi
+> * **Status**: Open
+> * **Deskripsi**: Saat user mengajukan pemulihan kata sandi akun internal dan sistem memunculkan toast bahwa email telah dikirim, pesan berisi tautan pemulihan tidak pernah masuk/diterima di Mailpit.
+> * **Expected**: Sistem berhasil mengirimkan email berisi tautan/kode pemulihan kata sandi ke server Mailpit.
+> * **Actual**: Toast info menyatakan email telah dikirim, namun inbox Mailpit tidak menerima email pemulihan apa pun.
+> * **Evidence Awal**:
+>   * Toast Pemulihan Akun: [https://files.catbox.moe/6rd9fo.png](https://files.catbox.moe/6rd9fo.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
