@@ -26,10 +26,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Authentication** | 3 | ⏳ Pending (0/3) | Logout (2), Login (1) |
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
-| 4 | **Authentication (External)** | 8 | ⏳ Pending (0/8) | Register Nasabah (4), Login (4) |
+| 4 | **Authentication (External)** | 9 | ⏳ Pending (0/9) | Register Nasabah (4), Login (5) |
 | 5 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 6 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| **Total** | | **22** | **0 Reported / 22 Pending** | |
+| **Total** | | **23** | **0 Reported / 23 Pending** | |
 
 ---
 
@@ -39,7 +39,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 |--------|:-----:|---------------|
 | 🟢 **Done** | 0 | - |
 | 🔴 **Open** | 21 | 11 Issue Internal, 10 Issue External |
-| 🟡 **Catatan / Klarifikasi** | 1 | `External/Authentication/06` - Validasi Kata Sandi Breached Muncul di Akhir |
+| 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/06`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/09`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 0 | - |
 
 ---
@@ -398,6 +398,23 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Halaman hanya menyediakan button Lanjutkan dan Kirim ulang kode tanpa ada opsi navigasi kembali ke login.
 > * **Evidence Awal**:
 >   * Halaman Verifikasi OTP: [https://files.catbox.moe/ibxwqj.png](https://files.catbox.moe/ibxwqj.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Label Banner Login External Masih Tertulis Sistem Portal Internal
+
+> * **Menu**: Authentication → Login
+> * **Status**: Catatan / Clarification
+> * **Deskripsi**: Saat user mengakses halaman login external (nasabah), teks sub-judul pada banner sebelah kiri masih menampilkan label "Sistem Portal Internal".
+> * **Expected**: Banner sebelah kiri menampilkan label yang sesuai dengan portal publik/external nasabah (misalnya "Sistem Portal Nasabah" atau "Portal Lelang BSN").
+> * **Actual**: Banner sebelah kiri masih tertulis "Sistem Portal Internal", yang tidak sesuai dengan konteks portal external nasabah.
+> * **Catatan Tim**: Menunggu klarifikasi tim apakah teks banner kiri pada portal nasabah/external memang seharusnya 'Sistem Portal Nasabah / External' atau teks 'Sistem Portal Internal' adalah copywriting sementara/salah template.
+> * **Evidence Awal**:
+>   * Banner Login External: [https://files.catbox.moe/gmq0kc.png](https://files.catbox.moe/gmq0kc.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
