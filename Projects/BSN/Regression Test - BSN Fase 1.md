@@ -558,13 +558,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Button Tambah Proyek Aset Baru Memunculkan Notifikasi Fitur Belum Tersedia Menunggu API
+### 🐞 [BUG] | Button Tambah Proyek Aset Baru Belum Tersedia
 
-> * **Menu**: Developer → List Developer → Detail Developer
+> * **Menu**: `Developer` → `List Developer` → `Detail Developer`
 > * **Status**: Open
-> * **Deskripsi**: Saat user membuka halaman detail salah satu developer dan menekan button "+ Tambah Proyek / Aset Baru" pada section Daftar Proyek & Portofolio Aset Developer, form/modal penginputan proyek aset baru tidak terbuka. Sistem justru memunculkan toast notifikasi informasi bahwa fitur belum tersedia karena masih menunggu kesiapan API.
+> * **Deskripsi**: Saat user membuka detail salah satu developer dan menekan button `+ Tambah Proyek / Aset Baru` pada section *Daftar Proyek & Portofolio Aset Developer*, form input tidak terbuka dan sistem menampilkan toast bahwa fitur belum tersedia karena masih menunggu kesiapan API.
 > * **Expected**: Sistem menampilkan formulir/modal input untuk menambahkan data proyek, klaster, atau unit aset baru developer.
-> * **Actual**: Form tidak terbuka dan sistem memunculkan toast informasi "Fitur ini belum tersedia, menunggu API".
+> * **Actual**: Button tidak membuka form input dan memunculkan toast info `Fitur ini belum tersedia, menunggu API`.
 > * **Evidence Awal**:
 >   * Detail Developer: [https://files.catbox.moe/79re76.png](https://files.catbox.moe/79re76.png)
 > * **Bukti Retest (Done)**:
