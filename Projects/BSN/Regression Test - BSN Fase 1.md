@@ -26,10 +26,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Authentication** | 3 | ⏳ Pending (0/3) | Logout (2), Login (1) |
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
-| 4 | **Authentication (External)** | 12 | ⏳ Pending (0/12) | Register Nasabah (4), Login (6), Lupa Kata Sandi (2) |
+| 4 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
 | 5 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 6 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| **Total** | | **26** | **0 Reported / 26 Pending** | |
+| **Total** | | **27** | **0 Reported / 27 Pending** | |
 
 ---
 
@@ -38,7 +38,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 0 | - |
-| 🔴 **Open** | 24 | 11 Issue Internal, 13 Issue External |
+| 🔴 **Open** | 25 | 11 Issue Internal, 14 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/06`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/09`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -464,6 +464,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Saat menekan button Masuk Sekarang, sistem sempat membuka form login namun langsung terpental kembali ke halaman sesi /auth ("Anda belum masuk ke akun manapun").
 > * **Evidence Awal**:
 >   * Halaman Sesi Auth: [https://files.catbox.moe/acnx02.png](https://files.catbox.moe/acnx02.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Identitas Akun User Tidak Muncul Pada Halaman Konfirmasi Identitas
+
+> * **Menu**: Authentication → Login
+> * **Status**: Open
+> * **Deskripsi**: Saat user melanjutkan alur login ke tahap Konfirmasi Identitas, teks penjelas akun tidak menampilkan alamat email atau nama akun user.
+> * **Expected**: Halaman Konfirmasi Identitas menampilkan identitas user yang sedang login (misalnya: "Anda masuk sebagai user@email.com").
+> * **Actual**: Keterangan "Anda masuk sebagai" kosong tanpa menampilkan email atau data user yang sedang diverifikasi.
+> * **Evidence Awal**:
+>   * Halaman Konfirmasi Identitas: [https://files.catbox.moe/34yhsf.png](https://files.catbox.moe/34yhsf.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
