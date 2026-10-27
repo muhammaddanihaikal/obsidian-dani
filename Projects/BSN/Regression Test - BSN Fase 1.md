@@ -558,7 +558,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Button Tambah Proyek Aset Baru Belum Tersedia
+### 🐞 [BUG] | Belum Bisa Tambah Proyek atau Asset Baru
 
 > * **Menu**: `Developer` → `List Developer` → `Detail Developer`
 > * **Status**: Open
