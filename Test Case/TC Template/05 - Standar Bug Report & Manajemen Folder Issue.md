@@ -87,19 +87,23 @@ Gunakan template markdown ini saat membuat file `report.txt` (format ini siap la
 
 > [!TIP]
 > ### 🎯 PRINSIP PENULISAN: SIMPLE & TO THE POINT (NO BASA-BASI)
-> 1. **Aturan Judul Baku - The Golden Formula QA Profesional (Ideal 5–7 Kata, Maksimal 10 Kata)**:
->    - **Format Wajib**: `🐞 [BUG] | [Komponen / Fitur] + [Kondisi Cacat Sistem]` (TANPA mencantumkan nama modul/menu di judul).
->    - **Target Panjang**: Sangat dianjurkan **5 – 7 kata** agar terbaca penuh di Kanban Board Huly tanpa terpotong (*ellipsis* `...`), dengan batas toleransi keras **maksimal 10 kata**.
+> 1. **Aturan Judul Baku - The Golden Formula QA Profesional (Prioritas Utama: 7–10 Kata)**:
+>    - **Format Wajib**: `🐞 [BUG] | [Komponen / Fitur Spesifik] + [Kondisi Cacat Sistem]` (TANPA mencantumkan nama modul/menu di judul).
+>    - **Skema Prioritas Panjang Judul**:
+>      * 🥇 **Prioritas Utama (Target Emas)**: **7 – 10 kata** (Wajib diutamakan agar konteks jelas & lengkap).
+>      * 🥈 **Toleransi Khusus**: **5 – 6 kata** (Jarang-jarang saja, jika dipaksakan menambah kata malah tidak wajar).
+>      * 🚫 **Dilarang Keras**: $\le$ 4 kata (terlalu buntung) dan $>$ 10 kata (kepanjangan & terpotong di board Huly).
+>    - **Aturan Tipografi & Besar-Kecil Huruf (Title Case Headline)**:
+>      * **Wajib Huruf KAPITAL di Awal Kata**: Huruf pertama judul dan seluruh **Kata Utama** (Kata Benda, Kata Kerja, Kata Sifat, Istilah Teknis). Contoh: `Button`, `Halaman`, `Form`, `Gagal`, `Redirect`, `Logout`, `Kosong`, `Error`.
+>      * **Wajib Huruf KECIL (*lowercase*)**: Seluruh **Kata Hubung & Preposisi**: `dan`, `atau`, `ke`, `di`, `pada`, `dari`, `saat`, `dengan`, `untuk`, `yang`.
+>      * *Contoh:*
+>        - ✅ `Button Halaman Utama Gagal Redirect ke Form Login Internal` ('ke' kecil).
+>        - ✅ `Button Masuk dengan Akun Lain Tidak Merespons saat Diklik` ('dengan' dan 'saat' kecil).
+>        - ✅ `Button Hapus Tetap Aktif pada Data Parent Root Kantor` ('pada' kecil).
 >    - **Prinsip Utama**:
->      * ✅ **Objektif & Profesional**: Menyebutkan komponen spesifik dan kondisi cacatnya (contoh: `Button Tambah Proyek Aset Belum Berfungsi`, `Dropdown Jenis Agunan Muncul Blank Putih`).
->      * ❌ **Bukan Bahasa Curhat/Komplain Nasabah**: Hindari format keluhan pengguna seperti *"Belum bisa..."*, *"Gak bisa..."*, atau *"Tolong..."*, karena terdengar seperti tiket helpdesk WhatsApp, bukan temuan pengujian QA yang objektif.
->      * ❌ **Bukan Salinan Toast Mentah**: Dilarang menyalin teks notifikasi/toast panjang ke judul (misal: *"Memunculkan Notifikasi Fitur Belum Tersedia Menunggu API"*). Teks lengkap toast cukup ditaruh di bagian **Actual Result**.
->    - **Matriks Rumus Judul Cepat (Cheat Sheet)**:
->      * `[Button ...] + [Tidak Berfungsi / Stuck Memproses / Terpental ke Sesi]`
->      * `[Dropdown ...] + [Muncul Blank Putih / Kosong No Data]`
->      * `[Field ...] + [Tanpa Indikator Bintang Mandatory / Validasi Error]`
->      * `[Data ...] + [Kosong Tanpa Data / Belum Muncul]`
->      * `[Email ...] + [Gagal Terkirim ke Mailpit]`
+>      * ✅ **Objektif & Profesional**: Menyebutkan komponen spesifik dan kondisi cacatnya.
+>      * ❌ **Bukan Bahasa Curhat/Komplain Nasabah**: Hindari format keluhan pengguna (*"Belum bisa..."*, *"Gak bisa..."*).
+>      * ❌ **Bukan Salinan Toast Mentah**: Teks lengkap toast cukup ditaruh di bagian **Actual Result**.
 > 2. **Penyebutan Akun / Role User**:
 >    - **HANYA sebutkan role/akun user JIKA User memberi tahu di chat** (misal User bilang: *"ini aku test pakai superadmin"* $\rightarrow$ baru tulis *"Saat user login sebagai Superadmin..."*).
 >    - Jika User **TIDAK** menyebutkan akun apa yang dipakai, **JANGAN MENGARANG ROLE**. Cukup gunakan kata umum: *"Saat user menekan button Keluar..."*.

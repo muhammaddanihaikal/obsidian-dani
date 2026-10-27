@@ -24,10 +24,10 @@ converter: markitdown
 | **No** | **Test Case** | **Scenario** | **Expected Result** | **Actual Result** | **Test Status (P=Passed, F=Failed)** | **Remarks** |
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Mengakses website BSN Lelang | Buka Akses Link Web BSN Lelang Internal | Berhasil menampilkan halaman form login | Berhasil menampilkan halaman form login | P | - |
-| 2 | Melakukan login | Input email & Password - Klik button Login | Login Berhasil dan menampilkan halaman Dashboard | Login Berhasil dan menampilkan halaman Dashboard | P | Catatan: Button 'Masuk dengan akun lain' pada halaman konfirmasi identitas tidak berfungsi (Issue 02 Internal) |
+| 2 | Melakukan login | Input email & Password - Klik button Login | Login Berhasil dan menampilkan halaman Dashboard | Login Berhasil dan menampilkan halaman Dashboard | P | Catatan: Button 'Masuk dengan akun lain' pada halaman konfirmasi identitas tidak berfungsi (Issue: 02 - Button Masuk dengan Akun Lain Tidak Merespons saat Diklik) |
 | 3 | Melakukan login hanya menggunakan email | Input email - Klik button Login | Login Gagal dan Menampilkan alert "Isian password tidak boleh kosong." | Login Gagal dan Menampilkan alert "Isian password tidak boleh kosong." | P | - |
 | 4 | Melakukan login dengan Password Salah | Input email - Input Password salah - Klik button Login | Login Gagal dan Menampilkan alert "Email atau kata sandi salah" | Login Gagal dan Menampilkan alert "Email atau kata sandi salah" | P | - |
-| 5 | Melakukan pemulihan akun (Lupa Kata Sandi) | Klik Lupa kata sandi - Input email terdaftar - Klik button Lanjutkan | Email berisi tautan pemulihan berhasil terkirim dan diterima di inbox Mailpit | Muncul toast notifikasi email terkirim, namun email tautan pemulihan tidak pernah masuk/diterima di Mailpit | F | Issue: 04 - Email Reset Password Gagal Masuk Mailpit |
+| 5 | Melakukan pemulihan akun (Lupa Kata Sandi) | Klik Lupa kata sandi - Input email terdaftar - Klik button Lanjutkan | Email berisi tautan pemulihan berhasil terkirim dan diterima di inbox Mailpit | Muncul toast notifikasi email terkirim, namun email tautan pemulihan tidak pernah masuk/diterima di Mailpit | F | Issue: 04 - Email Tautan Reset Password Gagal Terkirim ke Mailpit |
 
 # Modul User Authority - Role
 
@@ -356,4 +356,4 @@ converter: markitdown
 
 | **No** | **Test Case** | **Scenario** | **Expected Result** | **Actual Result** | **Test Status (P=Passed, F=Failed)** | **Remarks** |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Menambahkan Proyek / Aset Baru Developer | Buka menu Developer - Klik List Developer - Klik Detail salah satu developer - Klik button + Tambah Proyek / Aset Baru | Berhasil membuka form/modal penambahan proyek aset baru developer | Button tidak membuka form input dan memunculkan toast informasi "Fitur ini belum tersedia, menunggu API" | F | Issue: 01 - Button Tambah Proyek Aset Belum Berfungsi |
+| 1 | Menambahkan Proyek / Aset Baru Developer | Buka menu Developer - Klik List Developer - Klik Detail salah satu developer - Klik button + Tambah Proyek / Aset Baru | Berhasil membuka form/modal penambahan proyek aset baru developer | Button tidak membuka form input dan memunculkan toast informasi "Fitur ini belum tersedia, menunggu API" | F | Issue: 01 - Button Tambah Proyek Aset Baru Developer Belum Berfungsi |
