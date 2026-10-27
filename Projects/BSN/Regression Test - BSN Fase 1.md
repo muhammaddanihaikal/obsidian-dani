@@ -26,10 +26,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Authentication** | 3 | ⏳ Pending (0/3) | Logout (2), Login (1) |
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
-| 4 | **Authentication (External)** | 11 | ⏳ Pending (0/11) | Register Nasabah (4), Login (6), Lupa Kata Sandi (1) |
+| 4 | **Authentication (External)** | 12 | ⏳ Pending (0/12) | Register Nasabah (4), Login (6), Lupa Kata Sandi (2) |
 | 5 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 6 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| **Total** | | **25** | **0 Reported / 25 Pending** | |
+| **Total** | | **26** | **0 Reported / 26 Pending** | |
 
 ---
 
@@ -38,7 +38,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 0 | - |
-| 🔴 **Open** | 23 | 11 Issue Internal, 12 Issue External |
+| 🔴 **Open** | 24 | 11 Issue Internal, 13 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/06`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/09`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -448,6 +448,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Label hanya menampilkan teks Kata Sandi dan Konfirmasi Kata Sandi polos tanpa indikator bintang mandatory.
 > * **Evidence Awal**:
 >   * Form Reset Password: [https://files.catbox.moe/rwoifa.png](https://files.catbox.moe/rwoifa.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Button Masuk Sekarang Terpental ke Halaman Sesi dan Gagal Membuka Login
+
+> * **Menu**: Authentication → Lupa Kata Sandi
+> * **Status**: Open
+> * **Deskripsi**: Setelah user selesai mereset kata sandi dan diarahkan ke halaman sesi auth, penekanan button Masuk Sekarang mengalami mental (redirect loop) kembali ke /auth sehingga user tidak bisa mengakses form login.
+> * **Expected**: Sistem mengarahkan user ke form login dan user dapat memasukkan kata sandi baru untuk masuk ke akun.
+> * **Actual**: Saat menekan button Masuk Sekarang, sistem sempat membuka form login namun langsung terpental kembali ke halaman sesi /auth ("Anda belum masuk ke akun manapun").
+> * **Evidence Awal**:
+>   * Halaman Sesi Auth: [https://files.catbox.moe/acnx02.png](https://files.catbox.moe/acnx02.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
