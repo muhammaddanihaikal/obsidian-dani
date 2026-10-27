@@ -86,22 +86,22 @@ Gunakan template markdown ini saat membuat file `report.txt` (format ini siap la
 > - **Di file Master Tracker Obsidian (`Regression Test - ...md`) BARIS STATUS TETAP WAJIB ADA**: Status (`Open`, `Done`, `Re-Open`, `Rejected`) tetap dicatat di Obsidian untuk melacak rekapitulasi pengujian.
 
 > [!TIP]
-> ### 🎯 PRINSIP PENULISAN: SIMPLE & TO THE POINT (NO BASA-BASI)
-> 1. **Aturan Judul Baku - The Golden Formula QA Profesional (Prioritas Utama: 7–10 Kata)**:
+> ### 🎯 PRINSIP PENULISAN: SIMPLE & ENAK DIBACA (NATURAL FLOW, BEBAS KATA MUBAZIR)
+> 1. **Aturan Judul Baku - The Golden Formula QA Profesional (Simple & Enak Dibaca)**:
 >    - **Format Wajib**: `🐞 [BUG] | [Komponen / Fitur Spesifik] + [Kondisi Cacat Sistem]` (TANPA mencantumkan nama modul/menu di judul).
->    - **Skema Prioritas Panjang Judul**:
->      * 🥇 **Prioritas Utama (Target Emas)**: **7 – 10 kata** (Wajib diutamakan agar konteks jelas & lengkap).
->      * 🥈 **Toleransi Khusus**: **5 – 6 kata** (Jarang-jarang saja, jika dipaksakan menambah kata malah tidak wajar).
->      * 🚫 **Dilarang Keras**: $\le$ 4 kata (terlalu buntung) dan $>$ 10 kata (kepanjangan & terpotong di board Huly).
+>    - **Filosofi Panjang & Ritme (Natural Flow)**:
+>      * 🎯 **Fokus Utama**: **Simple, To The Point, dan Enak Dibaca**. Judul harus mengalir secara alami dan langsung dipahami dalam sekali baca oleh Developer atau PM.
+>      * 🚫 **Bebas Kuota Kaku & Anti-Mubazir**: Jangan memaksakan kuota jumlah kata dengan menyelipkan kata pengganjal (*filler words*) seperti *"Normal"*, *"Tanpa Data"*, *"Data"*, atau *"Pesan/Respon"*.
+>      * 📏 **Panjang Fleksibel**: Boleh 5–7 kata jika sudah padat dan jelas, atau 8–10 kata jika memang membutuhkan konteks lokasi/alur yang spesifik. Panjang berapapun diperbolehkan selama tidak bertele-tele dan enak dibaca.
 >    - **Aturan Tipografi & Besar-Kecil Huruf (Title Case Headline)**:
 >      * **Wajib Huruf KAPITAL di Awal Kata**: Huruf pertama judul dan seluruh **Kata Utama** (Kata Benda, Kata Kerja, Kata Sifat, Istilah Teknis). Contoh: `Button`, `Halaman`, `Form`, `Gagal`, `Redirect`, `Logout`, `Kosong`, `Error`.
 >      * **Wajib Huruf KECIL (*lowercase*)**: Seluruh **Kata Hubung & Preposisi**: `dan`, `atau`, `ke`, `di`, `pada`, `dari`, `saat`, `dengan`, `untuk`, `yang`.
 >      * *Contoh:*
->        - ✅ `Button Halaman Utama Gagal Redirect ke Form Login Internal` ('ke' kecil).
->        - ✅ `Button Masuk dengan Akun Lain Tidak Merespons saat Diklik` ('dengan' dan 'saat' kecil).
->        - ✅ `Button Hapus Tetap Aktif pada Data Parent Root Kantor` ('pada' kecil).
+>        - ✅ `Button Halaman Utama Gagal Redirect ke Login Internal` ('ke' kecil).
+>        - ✅ `Button Masuk dengan Akun Lain Tidak Berfungsi` ('dengan' kecil).
+>        - ✅ `Button Hapus Tetap Aktif pada Parent Root Kantor` ('pada' kecil).
 >    - **Prinsip Utama**:
->      * ✅ **Objektif & Profesional**: Menyebutkan komponen spesifik dan kondisi cacatnya.
+>      * ✅ **Objektif & Profesional**: Menyebutkan komponen spesifik dan kondisi cacatnya secara ringkas.
 >      * ❌ **Bukan Bahasa Curhat/Komplain Nasabah**: Hindari format keluhan pengguna (*"Belum bisa..."*, *"Gak bisa..."*).
 >      * ❌ **Bukan Salinan Toast Mentah**: Teks lengkap toast cukup ditaruh di bagian **Actual Result**.
 > 2. **Penyebutan Akun / Role User**:
