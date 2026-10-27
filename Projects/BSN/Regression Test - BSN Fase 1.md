@@ -414,7 +414,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Banner sebelah kiri masih tertulis "Sistem Portal Internal", yang tidak sesuai dengan konteks portal external nasabah.
 > * **Catatan Tim**: Menunggu klarifikasi tim apakah teks banner kiri pada portal nasabah/external memang seharusnya 'Sistem Portal Nasabah / External' atau teks 'Sistem Portal Internal' adalah copywriting sementara/salah template.
 > * **Evidence Awal**:
->   * Banner Login External: [https://files.catbox.moe/gmq0kc.png](https://files.catbox.moe/gmq0kc.png)
+>   * Form Login: [https://files.catbox.moe/gmq0kc.png](https://files.catbox.moe/gmq0kc.png)
+>   * Konfirmasi Identitas: [https://files.catbox.moe/5hfldp.png](https://files.catbox.moe/5hfldp.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
