@@ -63,13 +63,22 @@ Gunakan template markdown ini saat membuat file `report.txt` (format ini siap la
 ```markdown
 🐞 [BUG] | {Nama Modul} - {Sub Menu}: {Ringkasan Singkat Masalah}
 
-* **Menu**: {Modul} → {Sub Menu} (Tab {Nama Tab jika ada})
-* **Deskripsi**: {Jelaskan alur masalah secara runut, padat, dan to the point (1–2 kalimat)}
-* **Expected**: {Kondisi ideal/seharusnya sesuai PRD atau aturan bisnis}
-* **Actual**: {Kondisi error, cacat sistem, atau penyimpangan yang terjadi saat ini}
-* **Evidence**:
-  * {Label 1-2 Kata}: [https://files.catbox.moe/xxx.png](https://files.catbox.moe/xxx.png)
+> * **Menu**: `{Modul}` → `{Sub Menu}` (Tab `{Nama Tab jika ada}`)
+> * **Deskripsi**: {Jelaskan alur masalah secara runut, padat, dan to the point (1–2 kalimat)}
+> * **Expected**: {Kondisi ideal/seharusnya sesuai PRD atau aturan bisnis}
+> * **Actual**: {Kondisi error, cacat sistem, atau penyimpangan yang terjadi saat ini}
+> * **Evidence**:
+>   * {Label 1-2 Kata}: [https://files.catbox.moe/xxx.png](https://files.catbox.moe/xxx.png)
 ```
+
+> [!TIP]
+> ### 🎨 STYLING KHAS HULY (GARIS KUNING & HIGHLIGHT KUNING)
+> 1. **Garis Vertikal Kuning/Oranye (Blockquote `> `)**:
+>    - Berikan prefiks `> ` di setiap awal baris list deskripsi.
+>    - Di Huly, format blockquote `> ` ini otomatis dirender sebagai **garis vertikal oranye/kuning yang elegan di sisi kiri**.
+> 2. **Highlight Kuning/Oranye (Inline Backticks `` `...` ``)**:
+>    - Bungkus nama menu, nama tombol/button, nama field, status, atau nilai penting dengan tanda kutip backtick `` `...` ``.
+>    - Huly otomatis merendernya sebagai pill/badge dengan background highlight kuning.
 
 > [!IMPORTANT]
 > ### 🚫 ATURAN STATUS DI `report.txt` VS OBSIDIAN
