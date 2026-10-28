@@ -92,7 +92,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Status**: Open
 > * **Deskripsi**: Saat user mengisi form modal Tambah Role dan menekan button Tambah, proses simpan gagal diproses oleh sistem.
 > * **Expected**: Data role baru berhasil ditambahkan dan langsung terdaftar pada list Daftar Role.
-> * **Actual**: Muncul toast error "Gagal menambah role" dengan keterangan `code=415, message=Unsupported Media Type` dan data role baru tidak tersimpan.
+> * **Actual**: Muncul toast error "Gagal menambah role" dengan keterangan "code=415, message=Unsupported Media Type" dan data role baru tidak tersimpan.
 > * **Evidence Awal**:
 >   * Toast Error Tambah Role: [https://files.catbox.moe/y85oza.png](https://files.catbox.moe/y85oza.png)
 > * **Bukti Retest (Done)**:
@@ -125,7 +125,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Status**: Open
 > * **Deskripsi**: Saat user memilih checkbox pada bagian Aksi Umum Role dan menekan button Simpan Aksi, proses penyimpanan gagal diproses sistem.
 > * **Expected**: Pengaturan aksi umum role berhasil disimpan dan sistem memunculkan toast konfirmasi sukses.
-> * **Actual**: Muncul toast error "Gagal menyimpan aksi role" dengan pesan `code=415, message=Unsupported Media Type` dan data aksi tidak tersimpan.
+> * **Actual**: Muncul toast error "Gagal menyimpan aksi role" dengan pesan "code=415, message=Unsupported Media Type" dan data aksi tidak tersimpan.
 > * **Evidence Awal**:
 >   * Toast Error Simpan Aksi Role: [https://files.catbox.moe/x29f8c.png](https://files.catbox.moe/x29f8c.png)
 > * **Bukti Retest (Done)**:
@@ -141,7 +141,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Status**: Open
 > * **Deskripsi**: Saat user mengedit data role pada modal Ubah Role dan menekan button Simpan, proses pembaruan data gagal diproses sistem.
 > * **Expected**: Perubahan data role berhasil diperbarui dan tersimpan pada list Daftar Role.
-> * **Actual**: Muncul toast error "Gagal mengubah role" dengan pesan `code=415, message=Unsupported Media Type` dan data role tidak ter-update.
+> * **Actual**: Muncul toast error "Gagal mengubah role" dengan pesan "code=415, message=Unsupported Media Type" dan data role tidak ter-update.
 > * **Evidence Awal**:
 >   * Toast Error Ubah Role: [https://files.catbox.moe/c6n1h7.png](https://files.catbox.moe/c6n1h7.png)
 > * **Bukti Retest (Done)**:
@@ -560,11 +560,11 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ### 🐞 [BUG] | Button Tambah Proyek Aset Belum Berfungsi
 
-> * **Menu**: `Developer` → `List Developer` → `Detail Developer`
+> * **Menu**: Developer → List Developer → Detail Developer
 > * **Status**: Open
-> * **Deskripsi**: Saat user membuka detail salah satu developer dan menekan button `+ Tambah Proyek / Aset Baru` pada section *Daftar Proyek & Portofolio Aset Developer*, form input tidak terbuka dan sistem menampilkan toast bahwa fitur belum tersedia karena masih menunggu kesiapan API.
+> * **Deskripsi**: Saat user membuka detail salah satu developer dan menekan button + Tambah Proyek / Aset Baru pada section *Daftar Proyek & Portofolio Aset Developer*, form input tidak terbuka dan sistem menampilkan toast bahwa fitur belum tersedia karena masih menunggu kesiapan API.
 > * **Expected**: Sistem menampilkan formulir/modal input untuk menambahkan data proyek, klaster, atau unit aset baru developer.
-> * **Actual**: Button tidak membuka form input dan memunculkan toast info `Fitur ini belum tersedia, menunggu API`.
+> * **Actual**: Button tidak membuka form input dan memunculkan toast info "Fitur ini belum tersedia, menunggu API".
 > * **Evidence Awal**:
 >   * Detail Developer: [https://files.catbox.moe/79re76.png](https://files.catbox.moe/79re76.png)
 > * **Bukti Retest (Done)**:
