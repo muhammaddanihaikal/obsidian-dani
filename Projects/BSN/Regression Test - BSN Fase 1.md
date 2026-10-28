@@ -232,7 +232,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Validasi Konfirmasi Kata Sandi Tidak Hilang Meskipun Password Sesuai
+### 🐞 [BUG] | Validasi Konfirmasi Kata Sandi Tidak Hilang meskipun Password Sesuai
 
 > * **Menu**: Authentication → Register Nasabah
 > * **Status**: Open
@@ -313,7 +313,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Nama Nasabah Pada Header Navbar Belum Muncul
+### 🐞 [BUG] | Nama Nasabah pada Header Navbar Belum Muncul
 
 > * **Menu**: Beranda → Header
 > * **Status**: Open
@@ -396,7 +396,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Tidak Ada Button Navigasi Kembali ke Login Pada Halaman Verifikasi OTP
+### 🐞 [BUG] | Tidak Ada Button Navigasi Kembali ke Login pada Halaman Verifikasi OTP
 
 > * **Menu**: Authentication → Login
 > * **Status**: Open
@@ -478,7 +478,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Identitas Akun User Tidak Muncul Pada Halaman Konfirmasi Identitas
+### 🐞 [BUG] | Identitas Akun User Tidak Muncul pada Halaman Konfirmasi Identitas
 
 > * **Menu**: Authentication → Login
 > * **Status**: Open
