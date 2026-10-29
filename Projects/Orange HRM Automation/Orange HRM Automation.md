@@ -62,6 +62,22 @@ status: in-progress
 
 ---
 
+## 📑 Modul Tambahan Profile Employee (Otomasi Paralel)
+### 1. Personal Details (`pages/personal_details_page.py`)
+- [x] **TC-PD-01:** `test_update_personal_details_successfully` — Update seluruh data diri & verifikasi persistensi
+- [x] **TC-PD-02:** `test_update_personal_details_empty_mandatory_fields` — Validasi field mandatory
+- [x] **TC-PD-03:** `test_update_personal_details_gender_female` — Pemilihan & persistensi radio button gender Female
+- [x] **TC-PD-04:** `test_navigate_to_personal_details_from_pim_list` — Navigasi dari Employee List ke Personal Details
+
+### 2. Contact Details (`pages/contact_details_page.py`)
+- [x] **TC-PIM-CD-01:** `test_update_contact_details_primary_flow` — Update 11 field kontak (alamat, telp, email) & verifikasi reload
+- [x] **TC-PIM-CD-02:** `test_navigate_to_contact_details_via_tab` — Navigasi via link tab Contact Details
+- [x] **TC-PIM-CD-03:** `test_contact_details_invalid_email_validation` — Validasi format email tidak valid
+- [x] **TC-PIM-CD-04:** `test_contact_details_invalid_telephone_validation` — Validasi format nomor telepon tidak valid
+- [x] **TC-PIM-CD-05:** `test_clear_contact_details` — Pengosongan field opsional contact details
+
+---
+
 ## 🔗 Keterhubungan Pengetahuan (Graph Knowledge)
 - [[SKILL|Playwright Best Practices Master Skill]]
 - [[page-object-model|Page Object Model Deep Dive]]
