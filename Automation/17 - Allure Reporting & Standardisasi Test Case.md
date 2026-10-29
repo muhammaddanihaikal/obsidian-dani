@@ -104,3 +104,65 @@ $$\text{Format:} \quad \mathbf{TC\text{-}[KODE\_MODUL]\text{-}[NOMOR]}$$
 1. **Konteks Instan**: Membaca `TC-PIM-03` langsung memberi tahu penguji bahwa ini adalah modul karyawan, tanpa perlu membuka tiket atau file lain.
 2. **Penomoran Independen**: Setiap modul memulai urutannya dari `01`. Penambahan fitur di modul Admin tidak merusak urutan penomoran di modul PIM.
 3. **Mudah Difilter**: Memudahkan pencarian cepat di Allure Report, Jira, maupun file spreadsheet.
+
+---
+
+## 6. Allure Test Steps (`@allure.step` & `with allure.step`)
+
+Jika `@allure.title` adalah judul buku pengujian, maka **Allure Steps** adalah bab dan langkah-langkah di dalamnya. Tanpa step, laporan Allure hanya menampilkan status *Passed/Failed* secara gelondongan tanpa alur kronologis.
+
+### A. Pola Hybrid (Standar Emas QA Senior) ⭐
+Untuk menjaga kode tetap bersih (*clean code*) dan tidak mengotori file test dengan terlalu banyak indentasi, gunakan **Pola Hybrid**:
+
+1. **Di Page Object (Aksi & Interaksi Form)**: Gunakan dekorator `@allure.step("...")` tepat di atas *Action Method*.
+   ```python
+   # File: pages/admin/admin_page.py
+   import allure
+
+   @allure.step("Mengeklik tombol Add User")
+   def click_add(self):
+       self.add_btn.click()
+
+   @allure.step("Mengisi filter Username dengan '{username}'")
+   def filter_by_username(self, username: str):
+       self.username_filter.fill(username)
+   ```
+   - **Keuntungan**: Didefinisikan 1x di Page Object, otomatis seluruh test case yang memanggil method tersebut memiliki laporan step yang rapi (*DRY - Don't Repeat Yourself*).
+
+2. **Di File Test (Validasi / Assert)**: Gunakan context manager `with allure.step("..."):` khusus untuk memayungi fase Assert.
+   ```python
+   # File: tests/test_user.py
+   # 3. Assert (validasi)
+   with allure.step("Memvalidasi data user baru berhasil disimpan dan muncul di tabel"):
+       expect(page.get_by_text("Successfully Saved")).to_be_visible()
+       expect(page).to_have_url(f"{BASE_URL}/web/index.php/admin/viewSystemUsers")
+       admin_page.filter_by_username(username)
+       admin_page.search()
+       expect(admin_page.user_row(username)).to_be_visible()
+   ```
+
+### B. Standar Tata Bahasa Step (Kata Kerja Aktif Awalan "Me-")
+Gunakan kata kerja aktif berawalan **"Me-"** agar selaras dengan tata bahasa SOP formal dan judul test case:
+
+$$\text{Rumus:} \quad \mathbf{[Kata\ Kerja\ "Me\text{-}"] + [Objek\ /\ Elemen] + [Nilai\ Parameter\ (jika\ ada)]}$$
+
+| Kategori Aksi | Kata Kerja Baku | Contoh Penulisan Step |
+| :--- | :--- | :--- |
+| **Navigasi** | **Membuka / Mengakses** | `@allure.step("Membuka halaman System Users")` |
+| **Tombol** | **Mengeklik** | `@allure.step("Mengeklik tombol Add User")` |
+| **Input Teks** | **Mengisi / Mengosongkan** | `@allure.step("Mengisi field Username")` |
+| **Pilihan / Dropdown** | **Memilih** | `@allure.step("Memilih opsi filter User Role")` |
+| **Checkbox** | **Mencentang / Menghapus centang** | `@allure.step("Mencentang checkbox baris user")` |
+| **Validasi (Assert)** | **Memvalidasi / Memastikan** | `with allure.step("Memvalidasi data user telah terhapus"):` |
+
+> [!WARNING]
+> **JANGAN PERNAH** menaruh password atau token rahasia ke dalam placeholder `{password}` karena teks asli akan terpampang jelas di web dashboard! Gunakan teks umum: `@allure.step("Mengisi field Password")`.
+
+### C. Anatomi UI Allure: Arti Tanda Panah `>` vs Centang `✔`
+Di dalam panel *Test body* pada laporan Allure:
+- **Ikon `>` (Expandable Dropdown)**: Otomatis muncul jika method menerima **argumen / parameter** (disertai label kecil `1 parameter`). Jika diklik, panel akan membuka detail data riil yang diinput robot (misal: `username: 'dani'`).
+- **Ikon `✔` (Centang Bulat Hijau)**: Muncul pada method yang murni berupa aksi atau blok assertion tanpa parameter fungsi (seperti `search()`, `reset()`, atau `with allure.step(...)`).
+
+### D. Prinsip Pengelompokan Assertion (*Logical Grouping*)
+- **DILARANG** membungkus setiap 1 baris `expect` ke dalam 1 `with allure.step` (*overkill/clutter*).
+- **CUKUP 1 STEP** untuk 1 kesatuan tujuan validasi yang menaungi 2–4 baris `expect` terkait. Jika salah satu `expect` gagal, Allure otomatis menandai step tersebut dengan warna merah 🔴 dan menunjuk baris assertion yang gagal.

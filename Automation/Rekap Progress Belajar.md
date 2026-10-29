@@ -10,11 +10,14 @@ Dokumen ini melacak perjalanan belajar *QA Automation* menggunakan Playwright da
 - **SLA Benchmark & Log Structure**: Standarisasi batas respons waktu (<500ms kilat, <2s normal) dan pemisahan log `HTTP`, `EXECUTION`, dan `NETWORK`.
 
 ### 📅 10 September 2026
-**Bulk Action, Batch Fixture & DOM Pointer Events**
+**Bulk Action, Allure Steps Architecture & POM Action Methods**
 - **Bulk Action POM**: Aksi hapus massal (`bulk_delete`) menerima list user dan konfirmasi modal.
 - **Batch Fixture Isolation**: Setup 2 user tumbal via API & efisiensi teardown 1x request `DELETE`.
 - **DOM Pointer Events**: Mengatasi `subtree intercepts pointer events` via tag `<label>`.
 - **Validasi Multi-Row**: Assertion baris spesifik `to_be_hidden()` tanpa mengganggu data lain.
+- **Allure Steps Hybrid Standard**: `@allure.step` di Page Object (Act/Arrange) & `with allure.step` di file test (Assert).
+- **Kompas 3 Pertanyaan POM**: Kapan locator tetap jadi locator (Assert) vs Action Method mandiri vs Composite Action Method.
+- **UI Allure Drill-Down**: Pemahaman ikon expandable `>` (step berparameter) vs centang `✔` (step aksi murni).
 
 ### 📅 7 September 2026
 **Decoupling POM, Multi-Filter & Allure Reporting**

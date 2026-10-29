@@ -12,16 +12,22 @@ Dokumen ini adalah aturan wajib (SOP) untuk penulisan kode automation testing me
 - **Gunakan Action Method (Anti-Micro-Functions):**
   - Jika suatu alur terdiri dari beberapa langkah berurutan (misal: klik hapus di baris tabel lalu klik tombol konfirmasi "Yes, Delete" di popup), **WAJIB** disatukan menjadi satu *Action Method* di Page (contoh: `def delete_user(self, username):`).
   - Ini membuat kode menjadi **DRY (Don't Repeat Yourself)** dan mudah dirawat jika UI aplikasi berubah di masa depan.
+- **Kompas 3 Pertanyaan Emas (Locator vs Action Method):**
+  1. *Apakah elemen dipakai untuk Validasi (ASSERT)?* ➜ **Tetap Locator murni** (contoh: `error_message`, `user_row`, `table_rows`). Playwright butuh objek locator untuk `expect(locator).to_be_visible()`.
+  2. *Apakah ada logika teknis di baliknya?* ➜ **Wajib Action Method** (contoh: network waiting `expect_response`, autocomplete wait, looping).
+  3. *Apakah aksinya berdiri sendiri atau bagian dari alur utuh?*
+     - *Aksi Mandiri (Standalone):* Begitu diklik tujuannya langsung tercapai (buka form, reset, search) ➜ Buat method mandiri (`click_add()`, `reset()`, `search()`).
+     - *Aksi Perantara (Part of Flow):* Rangkaian klik modal/checkbox yang tak terpisahkan ➜ Satukan ke dalam *Composite Action Method* (`bulk_delete()`). Dilarang *over-engineering* memecah tombol modal konfirmasi jika tidak ada skenario pembatalan.
 - **Pola AAA (Arrange, Act, Assert):** Setiap fungsi test wajib memiliki komentar pembatas yang jelas:
-  - `# ARRANGE`: Persiapan data dan inisiasi halaman.
-  - `# ACT`: Eksekusi aksi utama (biasanya cukup 1 baris memanggil Action Method, misal: `admin_page.delete_user(username)`).
-  - `# ASSERT`: Validasi hasil yang diharapkan.
+  - `# 1. Arrange (persiapan)`: Persiapan data dan inisiasi halaman.
+  - `# 2. Act (aksi)`: Eksekusi aksi utama (biasanya cukup 1 baris memanggil Action Method, misal: `admin_page.delete(username)`).
+  - `# 3. Assert (validasi)`: Validasi hasil yang diharapkan dibungkus dengan `with allure.step("..."):`.
 
 ## 2. Standar Penamaan (PEP 8 Python)
 Mengikuti standar umum *programmer* Python:
-- **Nama File & Folder:** Gunakan huruf kecil semua dengan garis bawah (contoh: login_page.py, 	est_login.py).
-- **Nama Class:** Gunakan *PascalCase* (contoh: LoginPage, DashboardPage).
-- **Nama Fungsi & Variabel:** Gunakan *snake_case* (contoh: 	est_login_valid, error_message, login_button).
+- **Nama File & Folder:** Gunakan huruf kecil semua dengan garis bawah (contoh: `login_page.py`, `test_login.py`).
+- **Nama Class:** Gunakan *PascalCase* (contoh: `LoginPage`, `DashboardPage`).
+- **Nama Fungsi & Variabel:** Gunakan *snake_case* (contoh: `test_login_valid`, `error_message`, `login_button`).
 
 ## 3. Strategi Pencarian Elemen (Locator)
 Pencarian elemen **WAJIB** mengikuti urutan prioritas di bawah ini (dari yang paling diutamakan sampai pilihan terakhir):
@@ -34,21 +40,22 @@ Pencarian elemen **WAJIB** mengikuti urutan prioritas di bawah ini (dari yang pa
 
 ## 4. Validasi (Assertion)
 - **Tanpa Percabangan:** **DILARANG** menggunakan logika if-else di dalam file test hanya untuk mengecek hasil. Pisahkan skenario yang berbeda (sukses vs gagal) menjadi fungsi test yang berbeda.
-- **Gunakan Expect:** Selalu gunakan fungsi expect() dari Playwright (contoh: expect(elemen).to_be_visible()).
+- **Gunakan Expect:** Selalu gunakan fungsi `expect()` dari Playwright (contoh: `expect(elemen).to_be_visible()`).
+- **Logical Grouping Allure Step:** Bungkus validasi terkait ke dalam satu blok `with allure.step("..."):` agar laporan Allure rapi dan tidak penuh sesak.
 
 ## 5. Manajemen Data Uji (Test Data)
 - **Fleksibel:** Untuk pengujian cepat atau data yang sangat sedikit, diperbolehkan menuliskannya langsung (*hardcode*) di dalam file test demi kecepatan *development*.
-- **Data Driven:** Namun, jika skenario tes mulai berulang dengan banyak variasi data (seperti validasi form login dengan berbagai kombinasi), disarankan memindahkannya ke file .json dan menggunakan @pytest.mark.parametrize (DDT).
+- **Data Driven:** Namun, jika skenario tes mulai berulang dengan banyak variasi data (seperti validasi form login dengan berbagai kombinasi), disarankan memindahkannya ke file `.json` dan menggunakan `@pytest.mark.parametrize` (DDT).
 
 ## 6. Strategi Menunggu (Wait Strategy)
 - **Wajib Dinamis:** Gunakan pendekatan tunggu yang fleksibel, seperti:
-  - page.wait_for_selector()
-  - with page.expect_response("**/endpoint") (sangat direkomendasikan untuk menghindari *flaky tests* akibat *loading* jaringan).
-- **Haram:** **DILARANG KERAS** menggunakan waktu tunggu statis (contoh: page.wait_for_timeout(5000) atau 	ime.sleep()).
+  - `page.wait_for_selector()`
+  - `with page.expect_response("**/endpoint")` (sangat direkomendasikan untuk menghindari *flaky tests* akibat *loading* jaringan).
+- **Haram:** **DILARANG KERAS** menggunakan waktu tunggu statis (contoh: `page.wait_for_timeout(5000)` atau `time.sleep()`).
 
 ## 7. Standar Komentar & Dokumentasi (Docstring vs Comment)
 - **Docstring (`""" """`):**
-  - **WAJIB** ada di setiap fungsi Page dan fungsi Test (cukup 1 baris ringkas).
-  - Tujuannya agar saat kursor di-hover di VS Code, muncul *tooltip* penjelasan fungsi tersebut tanpa perlu membuka file aslinya.
+  - **WAJIB** ada di setiap fungsi Page (cukup 1 baris ringkas) untuk *hover tooltip* di VS Code.
+  - Di fungsi Test, jika sudah ada `@allure.title(...)`, docstring dihilangkan agar tidak redundan.
 - **Komentar Biasa (`#`):**
-  - Digunakan untuk pembatas pola **AAA** (`# 1. Arrange`, `# 2. Act`, `# 3. Assert`) dan catatan teknis langkah demi langkah di dalam baris kodingan.
+  - Digunakan untuk pembatas pola **AAA** (`# 1. Arrange (persiapan)`, `# 2. Act (aksi)`, `# 3. Assert (validasi)`) dan catatan teknis langkah demi langkah di dalam baris kodingan.
