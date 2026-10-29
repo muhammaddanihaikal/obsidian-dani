@@ -2,6 +2,13 @@
 
 Dokumen ini melacak perjalanan belajar *QA Automation* menggunakan Playwright dan Pytest.
 
+### 📅 28 Oktober 2026
+**Performance Testing Dasar (k6) & Metrik Pengujian**
+- **Konsep & Arsitektur k6**: Transisi dari UI automation (Playwright) ke level API tanpa ketergantungan DOM/locator.
+- **Eksekusi Parallel VUs**: Pengujian beban dengan 5 dan 20 Virtual Users (VUs) paralel via endpoint `test.k6.io`.
+- **Golden Metrics Interpretation**: Memahami signifikansi `p(95)` vs `avg` (Response Time), persentase error `http_req_failed`, serta throughput `iterations`.
+- **SLA Benchmark & Log Structure**: Standarisasi batas respons waktu (<500ms kilat, <2s normal) dan pemisahan log `HTTP`, `EXECUTION`, dan `NETWORK`.
+
 ### 📅 10 September 2026
 **Bulk Action, Batch Fixture & DOM Pointer Events**
 - **Bulk Action POM**: Aksi hapus massal (`bulk_delete`) menerima list user dan konfirmasi modal.

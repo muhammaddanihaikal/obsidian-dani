@@ -23,6 +23,10 @@ Selamat datang di pusat komando! Ini adalah *Map of Content* (Peta Konten) dari 
 - [[13 - Tips Lanjutan API Teardown & UI Desync]]
 - [[15 - Strategi Pengujian (E2E vs Independent) & Markers]]
 - [[16 - Race Condition & Network Waiting Strategy]]
+- [[18 - Bulk Action & Batch Testing Strategy]]
+
+### ⚡ Performance Testing (k6)
+- [[19 - Performance Testing Dasar dengan k6]]
 
 ### 📊 Reporting & Standardisasi
 - [[17 - Allure Reporting & Standardisasi Test Case]]
