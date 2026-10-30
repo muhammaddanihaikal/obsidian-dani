@@ -21,29 +21,33 @@ Setiap kali memulai pengujian pada project baru atau modul baru, arsip bukti dan
 
 ```
 📁 Bug Report/
-└── 📁 [Nama Modul atau Menu]/
-    ├── 📁 01 - [Judul Singkat Issue 1]/
-    │   ├── 📄 report.txt
-    │   ├── 📄 komentar_huly.txt
-    │   ├── 🖼️ evidence_01_halaman_error.png
-    │   └── 🖼️ retest_done_01_sukses_logout.png
-    ├── 📁 02 - [Judul Singkat Issue 2]/        <-- Nomor otomatis bertambah (+1)
-    │   ├── 📄 report.txt
-    │   ├── 📄 komentar_huly.txt
-    │   └── 🖼️ evidence_01_export_kosong.png
-    └── 📁 03 - [Judul Singkat Issue 3]/        <-- +1 untuk issue berikutnya
+└── 📁 [Portal: Internal / External]/
+    └── 📁 [Nama Modul atau Menu Utama]/
+        └── 📁 [Nama Sub Menu]/                      <-- Folder Sub Menu
+            ├── 📁 01 - [Judul Singkat Issue 1]/
+            │   ├── 📄 report.txt
+            │   ├── 📄 komentar_huly.txt
+            │   ├── 🖼️ evidence_01_halaman_error.png
+            │   └── 🖼️ retest_done_01_sukses_logout.png
+            ├── 📁 02 - [Judul Singkat Issue 2]/    <-- Nomor otomatis bertambah (+1) per Sub Menu
+            │   ├── 📄 report.txt
+            │   ├── 📄 komentar_huly.txt
+            │   └── 🖼️ evidence_01_export_kosong.png
+            └── 📁 03 - [Judul Singkat Issue 3]/    <-- +1 untuk issue berikutnya
 ```
 
-### 📌 Aturan Penamaan & Penomoran Folder (+1 Rule):
+### 📌 Aturan Penamaan & Penomoran Folder (+1 Rule per Sub Menu):
 1. **Root Folder**: Gunakan nama `Bug Report`.
-2. **Folder Menu**: Dikelompokkan berdasarkan nama Menu atau Modul sistem (misal: `User Authority`, `Menu Absent`, `Report Funding`).
-3. **Folder Issue**: Dibuat **1 folder khusus untuk 1 issue**.
+2. **Folder Portal**: `Internal` atau `External`.
+3. **Folder Menu Utama**: Dikelompokkan berdasarkan nama Menu atau Modul utama sistem (misal: `User Management`, `Authentication`, `Media & Information`).
+4. **Folder Sub Menu**: Dikelompokkan berdasarkan nama Sub Menu fitur sistem (misal: `Role`, `User`, `User Block`, `FAQ`, `Article`, `Login`, `Register Nasabah`).
+5. **Folder Issue**: Dibuat **1 folder khusus untuk 1 issue** di dalam folder Sub Menu terkait.
    * Format nama folder: `[Nomor Issue] - [Judul Singkat Masalah]`
-   * **Aturan Penomoran Incremental (+1)**: Nomor folder diawali dari `01`, dan jika ada temuan bug baru di menu yang sama, nomor folder otomatis bertambah **+1** (`01`, `02`, `03`, dst.).
+   * **Aturan Penomoran Incremental (+1 per Sub Menu)**: Nomor folder diawali dari `01` pada setiap Sub Menu, dan otomatis bertambah **+1** (`01`, `02`, `03`, dst.) untuk temuan bug baru di Sub Menu yang sama.
    * *Contoh:*
-     * `01 - Validasi Filter Tanggal Tidak Berfungsi`
-     * `02 - File Excel Hasil Export Kosong Tanpa Baris Data`
-     * `03 - Tombol Reset Filter Tidak Mereset Field Bulan dan Tahun`
+     * `User Management / Role / 01 - Gagal Menambah Role Baru Muncul Error 415`
+     * `User Management / User / 01 - Dropdown Kantor pada Form Tambah User Kosong`
+     * `User Management / User Block / 01 - User yang Diblokir Tidak Muncul pada Menu User Block`
 
 ### 🛑 Aturan Alur Pembuatan Issue Baru (Review & Approval Gate):
 * **AI Dilarang Langsung Eksekusi & Dilarang Upload Catbox Sebelum Di-ACC**:

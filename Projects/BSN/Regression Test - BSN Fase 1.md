@@ -50,9 +50,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
-| 🟢 **Done** | 1 | `Internal/User Management/05`: Dropdown Kantor pada Form Tambah User Kosong |
+| 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
 | 🔴 **Open** | 33 | 19 Issue Internal, 14 Issue External |
-| 🟡 **Catatan / Klarifikasi** | 5 | • `External/Authentication/06`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/09`: Label Banner Login External Tertulis Sistem Portal Internal<br>• `External/Beranda/03`: Seluruh Section Data Rekomendasi Lelang dan FAQ Belum Tampil (Konfirmasi Data Dinamis)<br>• `External/Jenis Agunan/01`: Menu Dropdown Jenis Agunan Blank Putih (Konfirmasi Integrasi Kategori)<br>• `External/Estimasi Lelang/01`: Halaman Estimasi Lelang Kosong Memunculkan Oops (Konfirmasi Data Awal Lelang) |
+| 🟡 **Catatan / Klarifikasi** | 5 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal<br>• `External/Beranda/Konten Section/01`: Seluruh Section Data Rekomendasi Lelang dan FAQ Belum Tampil (Konfirmasi Data Dinamis)<br>• `External/Jenis Agunan/Dropdown & Halaman/01`: Menu Dropdown Jenis Agunan Blank Putih (Konfirmasi Integrasi Kategori)<br>• `External/Estimasi Lelang/Katalog Lelang/01`: Halaman Estimasi Lelang Kosong Memunculkan Oops (Konfirmasi Data Awal Lelang) |
 | 🔄 **Re-Open** | 0 | - |
 
 ---
