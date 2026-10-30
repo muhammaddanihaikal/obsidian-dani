@@ -150,29 +150,29 @@ File ini digunakan saat developer menandai issue sudah diperbaiki dan QA melakuk
 
 > [!IMPORTANT]
 > **Prinsip Utama Komentar Huly:**
-> - **Super Ringkas & To The Point (Maksimal 1–2 kalimat saja)**, tanpa basa-basi pembuka/penutup.
-> - **Highlight Kuning Huly**: Bungkus nama fitur, status, atau istilah penting dengan backtick `` `...` `` agar Huly otomatis mewarnainya kuning.
+> - **Super Ringkas & To The Point (Maksimal 1–2 kalimat saja)**, tanpa basa-basi pembuka/penutup, mudah dimengerti.
+> - **Bebas Kuning-Kuning (Zero Backticks)**: DILARANG menggunakan tanda petik miring (backticks) baik pada report maupun komentar retest. Gunakan plain text biasa atau tanda kutip dua `"..."` agar tampilan bersih dan elegan tanpa badge kuning.
 > - **Clickable Link**: Link bukti Catbox **WAJIB** berupa markdown link ganda `[URL](URL)` agar langsung bisa diklik di Huly.
 
-### A. Kondisi 1: Retest Berhasil (`Done`)
+### A. Kondisi 1: Retest Berhasil (Done)
 ```markdown
 Retest: Done
 
-Fitur Export di seluruh tab `Daily Sales Agenda` sudah terintegrasi dengan drawer `Export Center` dan status export tercatat normal.
+Fitur Export pada seluruh tab Daily Sales Agenda sudah terintegrasi dengan drawer Export Center dan status export tercatat normal.
 
 Bukti Retest:
-* `Daily Sales Agenda Funding`: [https://files.catbox.moe/3rpt87.png](https://files.catbox.moe/3rpt87.png)
-* `Daily Sales Agenda Lending`: [https://files.catbox.moe/6gznpn.png](https://files.catbox.moe/6gznpn.png)
+* Daily Sales Agenda Funding: [https://files.catbox.moe/3rpt87.png](https://files.catbox.moe/3rpt87.png)
+* Daily Sales Agenda Lending: [https://files.catbox.moe/6gznpn.png](https://files.catbox.moe/6gznpn.png)
 ```
 
-### B. Kondisi 2: Retest Masih Ditemukan Masalah (`Re-Open`)
+### B. Kondisi 2: Retest Masih Ditemukan Masalah (Re-Open)
 ```markdown
 Retest: Re-Open
 
-Saat tombol Reset ditekan, field `Fee Based`, `Info Bulan`, dan `Info Tahun` belum ter-reset dan masih mempertahankan nilai sebelumnya.
+Saat tombol Reset ditekan, field Fee Based, Info Bulan, dan Info Tahun belum ter-reset dan masih mempertahankan nilai sebelumnya.
 
 Bukti Retest:
-* `Kondisi Filter Setelah Reset`: [https://files.catbox.moe/a9ssv5.png](https://files.catbox.moe/a9ssv5.png)
+* Kondisi Filter Setelah Reset: [https://files.catbox.moe/a9ssv5.png](https://files.catbox.moe/a9ssv5.png)
 ```
 
 ---
