@@ -12,7 +12,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | Authentication | Logout | 🐛 Bug |
 | 2 | Authentication | Login | 🐛 Bug |
 | 3 | User Management | Role | 🐛 Bug |
-| 4 | User Management | User | 🟢 Done |
+| 4 | User Management | User | 🐛 Bug & 🟢 Done |
 | 5 | Office Management | Office Type | 🐛 Bug |
 | 6 | Authentication (External) | Register Nasabah | 🐛 Bug |
 | 7 | Authentication (External) | Login | 🐛 Bug |
@@ -24,6 +24,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 13 | Media & Information | Article | 🐛 Bug |
 | 14 | Media & Information | Banner Setting | 🐛 Bug |
 | 15 | User Management | User Block | 🐛 Bug |
+| 16 | User Management | User External | 🐛 Bug |
 
 ---
 
@@ -32,7 +33,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | No | Modul / Sub Menu | Total Bug | Status Huly | Rincian Issue |
 |----|------------------|-----------|-------------|---------------|
 | 1 | **Authentication** | 4 | ⏳ Pending (0/4) | Logout (2), Login (1), Lupa Kata Sandi (1) |
-| 2 | **User Management** | 8 | ⏳ Pending (0/8) | Role (4), User (2), User Block (2) |
+| 2 | **User Management** | 9 | ⏳ Pending (0/9) | Role (4), User (2), User Block (2), User External (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
 | 4 | **Developer** | 1 | ⏳ Pending (0/1) | List Developer (1) |
 | 5 | **Media & Information** | 3 | ⏳ Pending (0/3) | FAQ (1), Article (1), Banner Setting (1) |
@@ -41,7 +42,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
 | 9 | **Jenis Agunan (External)** | 1 | ⏳ Pending (0/1) | Dropdown Menu (1) |
 | 10 | **Estimasi Lelang (External)** | 1 | ⏳ Pending (0/1) | Katalog Lelang (1) |
-| **Total** | | **38** | **0 Reported / 38 Pending** | |
+| **Total** | | **39** | **0 Reported / 39 Pending** | |
 
 ---
 
@@ -50,7 +51,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/05`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 32 | 18 Issue Internal, 14 Issue External |
+| 🔴 **Open** | 33 | 19 Issue Internal, 14 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 5 | • `External/Authentication/06`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/09`: Label Banner Login External Tertulis Sistem Portal Internal<br>• `External/Beranda/03`: Seluruh Section Data Rekomendasi Lelang dan FAQ Belum Tampil (Konfirmasi Data Dinamis)<br>• `External/Jenis Agunan/01`: Menu Dropdown Jenis Agunan Blank Putih (Konfirmasi Integrasi Kategori)<br>• `External/Estimasi Lelang/01`: Halaman Estimasi Lelang Kosong Memunculkan Oops (Konfirmasi Data Awal Lelang) |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -669,6 +670,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Sistem gagal memvalidasi duplikasi email dan langsung melempar error server "Oops something went wrong, Contact Developer for the issue".
 > * **Evidence Awal**:
 >   * Toast Error Email Terdaftar: [https://files.catbox.moe/hhkfv0.png](https://files.catbox.moe/hhkfv0.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | User External yang Terdaftar Tidak Muncul pada Menu User External
+
+> * **Menu**: User Management → User External
+> * **Status**: Open
+> * **Deskripsi**: Saat user baru berhasil melakukan registrasi melalui portal External, akun tersebut tidak masuk dan tidak ditampilkan pada menu User External portal Internal.
+> * **Expected**: User yang telah terdaftar dari portal External otomatis tercatat pada statistik member dan muncul pada tabel List Update User External.
+> * **Actual**: Total user pada statistik tetap 0 dan tabel User External kosong dengan keterangan "Belum ada user external" meskipun registrasi user external telah dilakukan.
+> * **Evidence Awal**:
+>   * Tabel User External Kosong: [https://files.catbox.moe/ofj739.png](https://files.catbox.moe/ofj739.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
