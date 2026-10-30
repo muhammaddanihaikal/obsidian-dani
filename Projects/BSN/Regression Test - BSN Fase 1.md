@@ -331,15 +331,16 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Tab Profil, Akun, Favorit, dan Notifikasi Gagal Memuat Data
+### 🐞 [BUG] | Seluruh Tab pada Halaman Profil Nasabah Gagal Memuat Data
 
-> * **Menu**: User Profile (Tab Profil, Akun, Favorit, Notifikasi)
+> * **Menu**: User Profile → Profile Tabs
 > * **Status**: Open
-> * **Deskripsi**: Saat user nasabah mengakses halaman profil akun, hanya tab Daftar Pesanan yang dapat dibuka, sedangkan tab menu lainnya gagal memuat konten.
-> * **Expected**: Seluruh tab menu (Profil, Akun, Favorit, Notifikasi) dapat diakses dan menampilkan konten data nasabah dengan normal.
-> * **Actual**: Tab Profil, Akun, Favorit, dan Notifikasi menampilkan halaman error "Oops! Terjadi kesalahan saat memuat data".
+> * **Deskripsi**: Saat user nasabah mengakses halaman profil akun dan berpindah antar tab (Profil, Akun, Daftar Pesanan, Favorit, Notifikasi), seluruh tab gagal memuat konten data.
+> * **Expected**: Seluruh tab menu pada halaman profil nasabah dapat diakses dengan lancar dan menampilkan informasi data nasabah dengan normal.
+> * **Actual**: Seluruh tab menu gagal memuat data dan menampilkan ilustrasi error "Oops! Terjadi kesalahan saat memuat data".
 > * **Evidence Awal**:
->   * Halaman Error Profil: [https://files.catbox.moe/yxag2f.png](https://files.catbox.moe/yxag2f.png)
+>   * Dropdown Navbar Profil: [https://files.catbox.moe/vove9t.png](https://files.catbox.moe/vove9t.png)
+>   * Halaman Error Memuat Data: [https://files.catbox.moe/h5am05.png](https://files.catbox.moe/h5am05.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
