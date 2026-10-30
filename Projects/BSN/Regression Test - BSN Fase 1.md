@@ -16,15 +16,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 5 | Office Management | Office Type | 🐛 Bug |
 | 6 | Authentication (External) | Register Nasabah | 🐛 Bug |
 | 7 | Authentication (External) | Login | 🐛 Bug |
-| 8 | Beranda (External) | Home Page | 🐛 Bug & 📝 Catatan |
-| 9 | Jenis Agunan (External) | Dropdown & Halaman | 📝 Catatan |
-| 10 | Estimasi Lelang (External) | Katalog Lelang | 📝 Catatan |
-| 11 | Developer | List Developer | 🐛 Bug |
-| 12 | Media & Information | FAQ | 🐛 Bug |
-| 13 | Media & Information | Article | 🐛 Bug |
-| 14 | Media & Information | Banner Setting | 🐛 Bug |
-| 15 | User Management | User Block | 🐛 Bug |
-| 16 | User Management | User External | 🐛 Bug |
+| 8 | Beranda (External) | Home Page | 🐛 Bug |
+| 9 | Developer | List Developer | 🐛 Bug |
+| 10 | Media & Information | FAQ | 🐛 Bug |
+| 11 | Media & Information | Article | 🐛 Bug |
+| 12 | Media & Information | Banner Setting | 🐛 Bug |
+| 13 | User Management | User Block | 🐛 Bug |
+| 14 | User Management | User External | 🐛 Bug |
 
 ---
 
@@ -38,11 +36,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 4 | **Developer** | 1 | ⏳ Pending (0/1) | List Developer (1) |
 | 5 | **Media & Information** | 3 | ⏳ Pending (0/3) | FAQ (1), Article (1), Banner Setting (1) |
 | 6 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
-| 7 | **Beranda (External)** | 3 | ⏳ Pending (0/3) | Header (2), Konten Section (1) |
+| 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| 9 | **Jenis Agunan (External)** | 1 | ⏳ Pending (0/1) | Dropdown Menu (1) |
-| 10 | **Estimasi Lelang (External)** | 1 | ⏳ Pending (0/1) | Katalog Lelang (1) |
-| **Total** | | **39** | **0 Reported / 39 Pending** | |
+| **Total** | | **36** | **0 Reported / 36 Pending** | |
 
 ---
 
@@ -52,7 +48,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
 | 🔴 **Open** | 33 | 19 Issue Internal, 14 Issue External |
-| 🟡 **Catatan / Klarifikasi** | 5 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal<br>• `External/Beranda/Konten Section/01`: Seluruh Section Data Rekomendasi Lelang dan FAQ Belum Tampil (Konfirmasi Data Dinamis)<br>• `External/Jenis Agunan/Dropdown & Halaman/01`: Menu Dropdown Jenis Agunan Blank Putih (Konfirmasi Integrasi Kategori)<br>• `External/Estimasi Lelang/Katalog Lelang/01`: Halaman Estimasi Lelang Kosong Memunculkan Oops (Konfirmasi Data Awal Lelang) |
+| 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 0 | - |
 
 ---
@@ -513,54 +509,6 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * -
 > * **Catatan Retest**:
 >   * -
-
-<br>
-
-### 🐞 [BUG] | Seluruh Section Data Rekomendasi Lelang dan FAQ di Beranda Belum Tampil
-
-> * **Menu**: Beranda (External)
-> * **Status**: Catatan / Clarification
-> * **Deskripsi**: Saat user mengakses halaman Beranda portal External, seluruh section dinamis utama tidak menampilkan data katalog sama sekali dan hanya memunculkan empty state "Oops!". Bagian yang kosong meliputi section rekomendasi hunian impian, jadwal lelang terdekat, dan FAQ.
-> * **Expected**: Halaman Beranda menampilkan card aset rekomendasi hunian, daftar jadwal lelang terdekat yang aktif, serta daftar pertanyaan FAQ yang dapat dibaca oleh user.
-> * **Actual**: Seluruh section dinamis di Beranda kosong dan memunculkan ilustrasi empty state "Oops! Tidak Ada Data Rekomendasi Yang Ditemukan", "Oops! Tidak Ada Data Lelang Yang Ditemukan", dan "Oops! Tidak Ada Data FAQ Yang Ditemukan".
-> * **Evidence Awal**:
->   * Halaman Beranda: [https://files.catbox.moe/w7cd6y.png](https://files.catbox.moe/w7cd6y.png)
-> * **Bukti Retest (Done)**:
->   * -
-> * **Catatan Retest**:
->   * Perlu dikonfirmasi terlebih dahulu ke tim dev/product terkait apakah ketiadaan data rekomendasi, lelang terdekat, dan FAQ ini karena database staging belum di-seeding atau kendala integrasi API.
-
-<br>
-
-### 🐞 [BUG] | Menu Dropdown Jenis Agunan Blank Putih dan Halaman Gagal Dibuka
-
-> * **Menu**: Jenis Agunan (External)
-> * **Status**: Catatan / Clarification
-> * **Deskripsi**: Menu dropdown "Jenis Agunan" pada navbar utama saat diklik atau di-hover hanya memunculkan kontainer kotak putih kosong (blank) tanpa menampilkan daftar kategori agunan (seperti Gedung, Rumah, Gudang, Hotel, dll), sehingga user tidak dapat memilih maupun membuka halaman jenis agunan terkait.
-> * **Expected**: Klik atau hover pada menu navbar "Jenis Agunan" menampilkan dropdown menu berisi daftar kategori agunan yang dapat diklik untuk membuka halaman aset terkait.
-> * **Actual**: Dropdown menu muncul berupa kotak putih kosong tanpa opsi item kategori apapun, membuat halaman kategori agunan tidak dapat dibuka.
-> * **Evidence Awal**:
->   * Dropdown Jenis Agunan: [https://files.catbox.moe/yvd13e.png](https://files.catbox.moe/yvd13e.png)
-> * **Bukti Retest (Done)**:
->   * -
-> * **Catatan Retest**:
->   * Perlu dikonfirmasi terlebih dahulu ke tim terkait apakah kategori jenis agunan pada navbar memang belum dipasang/diintegrasikan atau terdapat error render komponen dropdown.
-
-<br>
-
-### 🐞 [BUG] | Halaman Estimasi Lelang Kosong Memunculkan Oops Tidak Ada Data Aset
-
-> * **Menu**: Estimasi Lelang (External)
-> * **Status**: Catatan / Clarification
-> * **Deskripsi**: Saat user membuka menu Estimasi Lelang pada portal External, halaman langsung menampilkan pesan empty state "Oops! Tidak Ada Data Aset Yang Ditemukan" dengan paginasi "Menampilkan 10 dari 0", tanpa memuat daftar katalog aset lelang awal.
-> * **Expected**: Halaman Estimasi Lelang memuat dan menampilkan katalog awal data aset lelang beserta informasi harga limit dan tanggal lelang saat pertama kali diakses.
-> * **Actual**: Halaman Estimasi Lelang kosong dan memunculkan keterangan "Oops! Tidak Ada Data Aset Yang Ditemukan" (0 data aset).
-> * **Evidence Awal**:
->   * Halaman Estimasi Lelang: [https://files.catbox.moe/sijw36.png](https://files.catbox.moe/sijw36.png)
-> * **Bukti Retest (Done)**:
->   * -
-> * **Catatan Retest**:
->   * Perlu dikonfirmasi terlebih dahulu ke tim apakah halaman Estimasi Lelang default-nya memang kosong sebelum user melakukan pencarian spesifik atau seharusnya menampilkan data katalog awal.
 
 <br>
 
