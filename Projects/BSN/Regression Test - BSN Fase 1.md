@@ -20,6 +20,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 9 | Jenis Agunan (External) | Dropdown & Halaman | 📝 Catatan |
 | 10 | Estimasi Lelang (External) | Katalog Lelang | 📝 Catatan |
 | 11 | Developer | List Developer | 🐛 Bug |
+| 12 | Media & Information | FAQ | 🐛 Bug |
 
 ---
 
@@ -31,12 +32,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
 | 4 | **Developer** | 1 | ⏳ Pending (0/1) | List Developer (1) |
-| 5 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
-| 6 | **Beranda (External)** | 3 | ⏳ Pending (0/3) | Header (2), Konten Section (1) |
-| 7 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| 8 | **Jenis Agunan (External)** | 1 | ⏳ Pending (0/1) | Dropdown Menu (1) |
-| 9 | **Estimasi Lelang (External)** | 1 | ⏳ Pending (0/1) | Katalog Lelang (1) |
-| **Total** | | **32** | **0 Reported / 32 Pending** | |
+| 5 | **Media & Information** | 1 | ⏳ Pending (0/1) | FAQ (1) |
+| 6 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
+| 7 | **Beranda (External)** | 3 | ⏳ Pending (0/3) | Header (2), Konten Section (1) |
+| 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
+| 9 | **Jenis Agunan (External)** | 1 | ⏳ Pending (0/1) | Dropdown Menu (1) |
+| 10 | **Estimasi Lelang (External)** | 1 | ⏳ Pending (0/1) | Katalog Lelang (1) |
+| **Total** | | **33** | **0 Reported / 33 Pending** | |
 
 ---
 
@@ -45,7 +47,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 0 | - |
-| 🔴 **Open** | 27 | 13 Issue Internal, 14 Issue External |
+| 🔴 **Open** | 28 | 14 Issue Internal, 14 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 5 | • `External/Authentication/06`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/09`: Label Banner Login External Tertulis Sistem Portal Internal<br>• `External/Beranda/03`: Seluruh Section Data Rekomendasi Lelang dan FAQ Belum Tampil (Konfirmasi Data Dinamis)<br>• `External/Jenis Agunan/01`: Menu Dropdown Jenis Agunan Blank Putih (Konfirmasi Integrasi Kategori)<br>• `External/Estimasi Lelang/01`: Halaman Estimasi Lelang Kosong Memunculkan Oops (Konfirmasi Data Awal Lelang) |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -567,6 +569,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Button tidak membuka form input dan memunculkan toast info "Fitur ini belum tersedia, menunggu API".
 > * **Evidence Awal**:
 >   * Detail Developer: [https://files.catbox.moe/79re76.png](https://files.catbox.moe/79re76.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Submit Tambah FAQ Muncul Error answer dan question cannot be blank
+
+> * **Menu**: Media & Information → FAQ
+> * **Status**: Open
+> * **Deskripsi**: Saat user mengisi field Pertanyaan dan Jawaban lalu menekan button Submit, sistem gagal menyimpan dan memunculkan pesan validasi bahwa kedua field kosong.
+> * **Expected**: FAQ baru berhasil disimpan, muncul notifikasi sukses, dan sistem mengarahkan kembali ke tabel list FAQ.
+> * **Actual**: Muncul toast error "answer: cannot be blank; question: cannot be blank." padahal kedua field wajib sudah terisi.
+> * **Evidence Awal**:
+>   * Form Tambah FAQ: [https://files.catbox.moe/e1tq91.png](https://files.catbox.moe/e1tq91.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
