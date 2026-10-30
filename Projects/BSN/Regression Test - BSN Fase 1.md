@@ -22,6 +22,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 11 | Developer | List Developer | 🐛 Bug |
 | 12 | Media & Information | FAQ | 🐛 Bug |
 | 13 | Media & Information | Article | 🐛 Bug |
+| 14 | Media & Information | Banner Setting | 🐛 Bug |
 
 ---
 
@@ -33,13 +34,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
 | 4 | **Developer** | 1 | ⏳ Pending (0/1) | List Developer (1) |
-| 5 | **Media & Information** | 2 | ⏳ Pending (0/2) | FAQ (1), Article (1) |
+| 5 | **Media & Information** | 3 | ⏳ Pending (0/3) | FAQ (1), Article (1), Banner Setting (1) |
 | 6 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
 | 7 | **Beranda (External)** | 3 | ⏳ Pending (0/3) | Header (2), Konten Section (1) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
 | 9 | **Jenis Agunan (External)** | 1 | ⏳ Pending (0/1) | Dropdown Menu (1) |
 | 10 | **Estimasi Lelang (External)** | 1 | ⏳ Pending (0/1) | Katalog Lelang (1) |
-| **Total** | | **34** | **0 Reported / 34 Pending** | |
+| **Total** | | **35** | **0 Reported / 35 Pending** | |
 
 ---
 
@@ -48,7 +49,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 0 | - |
-| 🔴 **Open** | 29 | 15 Issue Internal, 14 Issue External |
+| 🔴 **Open** | 30 | 16 Issue Internal, 14 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 5 | • `External/Authentication/06`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/09`: Label Banner Login External Tertulis Sistem Portal Internal<br>• `External/Beranda/03`: Seluruh Section Data Rekomendasi Lelang dan FAQ Belum Tampil (Konfirmasi Data Dinamis)<br>• `External/Jenis Agunan/01`: Menu Dropdown Jenis Agunan Blank Putih (Konfirmasi Integrasi Kategori)<br>• `External/Estimasi Lelang/01`: Halaman Estimasi Lelang Kosong Memunculkan Oops (Konfirmasi Data Awal Lelang) |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -602,6 +603,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Sistem gagal menyimpan dan menampilkan toast error "Gagal mengunggah gambar" dengan rincian "Network Error" meskipun indikator kelengkapan gambar utama sudah hijau.
 > * **Evidence Awal**:
 >   * Toast Error Simpan Berita: [https://files.catbox.moe/yxcalm.png](https://files.catbox.moe/yxcalm.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Gagal Menyimpan Banner Baru Muncul Error Unggah Gambar
+
+> * **Menu**: Media & Information → Banner Setting
+> * **Status**: Open
+> * **Deskripsi**: Saat user mengunggah gambar banner dan mengisi judul lalu menekan button Simpan Banner, sistem gagal menyimpan banner dan memunculkan error toast upload gambar.
+> * **Expected**: Banner baru berhasil disimpan, muncul notifikasi sukses, dan sistem mengarahkan kembali ke halaman pengaturan banner.
+> * **Actual**: Sistem gagal menyimpan dan menampilkan toast error "Gagal mengunggah gambar" dengan rincian "Network Error" meskipun indikator kelengkapan gambar banner sudah hijau.
+> * **Evidence Awal**:
+>   * Toast Error Simpan Banner: [https://files.catbox.moe/oiy2ia.png](https://files.catbox.moe/oiy2ia.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
