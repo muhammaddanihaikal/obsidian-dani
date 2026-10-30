@@ -23,6 +23,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 12 | Media & Information | FAQ | 🐛 Bug |
 | 13 | Media & Information | Article | 🐛 Bug |
 | 14 | Media & Information | Banner Setting | 🐛 Bug |
+| 15 | User Management | User Block | 🐛 Bug |
 
 ---
 
@@ -31,7 +32,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | No | Modul / Sub Menu | Total Bug | Status Huly | Rincian Issue |
 |----|------------------|-----------|-------------|---------------|
 | 1 | **Authentication** | 4 | ⏳ Pending (0/4) | Logout (2), Login (1), Lupa Kata Sandi (1) |
-| 2 | **User Management** | 5 | ⏳ Pending (0/5) | Role (4), User (1) |
+| 2 | **User Management** | 6 | ⏳ Pending (0/6) | Role (4), User (1), User Block (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
 | 4 | **Developer** | 1 | ⏳ Pending (0/1) | List Developer (1) |
 | 5 | **Media & Information** | 3 | ⏳ Pending (0/3) | FAQ (1), Article (1), Banner Setting (1) |
@@ -40,7 +41,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
 | 9 | **Jenis Agunan (External)** | 1 | ⏳ Pending (0/1) | Dropdown Menu (1) |
 | 10 | **Estimasi Lelang (External)** | 1 | ⏳ Pending (0/1) | Katalog Lelang (1) |
-| **Total** | | **35** | **0 Reported / 35 Pending** | |
+| **Total** | | **36** | **0 Reported / 36 Pending** | |
 
 ---
 
@@ -49,7 +50,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/05`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 29 | 15 Issue Internal, 14 Issue External |
+| 🔴 **Open** | 30 | 16 Issue Internal, 14 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 5 | • `External/Authentication/06`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/09`: Label Banner Login External Tertulis Sistem Portal Internal<br>• `External/Beranda/03`: Seluruh Section Data Rekomendasi Lelang dan FAQ Belum Tampil (Konfirmasi Data Dinamis)<br>• `External/Jenis Agunan/01`: Menu Dropdown Jenis Agunan Blank Putih (Konfirmasi Integrasi Kategori)<br>• `External/Estimasi Lelang/01`: Halaman Estimasi Lelang Kosong Memunculkan Oops (Konfirmasi Data Awal Lelang) |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -619,6 +620,23 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Sistem gagal menyimpan dan menampilkan toast error "Gagal mengunggah gambar" dengan rincian "Network Error" meskipun indikator kelengkapan gambar banner sudah hijau.
 > * **Evidence Awal**:
 >   * Toast Error Simpan Banner: [https://files.catbox.moe/oiy2ia.png](https://files.catbox.moe/oiy2ia.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | User yang Diblokir Tidak Muncul pada Menu User Block
+
+> * **Menu**: User Management → User Block
+> * **Status**: Open
+> * **Deskripsi**: Saat user menonaktifkan atau memblokir akun user pada menu User, daftar user tersebut tidak masuk dan tidak ditampilkan pada tabel User Block.
+> * **Expected**: User yang berstatus Tidak Aktif atau diblokir otomatis tercatat dan tampil pada daftar tabel di menu User Block.
+> * **Actual**: Tabel pada menu User Block tetap kosong dengan keterangan "Belum ada user yang diblokir" meskipun terdapat user berstatus Tidak Aktif pada menu User.
+> * **Evidence Awal**:
+>   * Status User Tidak Aktif: [https://files.catbox.moe/9pufg4.png](https://files.catbox.moe/9pufg4.png)
+>   * Tabel User Block Kosong: [https://files.catbox.moe/nddkir.png](https://files.catbox.moe/nddkir.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
