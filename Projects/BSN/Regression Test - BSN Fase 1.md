@@ -577,7 +577,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Submit Tambah FAQ Muncul Error answer dan question cannot be blank
+### 🐞 [BUG] | Gagal Menambah FAQ Muncul Error answer dan question cannot be blank
 
 > * **Menu**: Media & Information → FAQ
 > * **Status**: Open
@@ -593,7 +593,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Submit Simpan Berita Muncul Error Gagal Mengunggah Gambar
+### 🐞 [BUG] | Gagal Menyimpan Berita Baru Muncul Error Unggah Gambar
 
 > * **Menu**: Media & Information → Article
 > * **Status**: Open
