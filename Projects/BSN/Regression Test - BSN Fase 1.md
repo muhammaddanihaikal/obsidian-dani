@@ -32,7 +32,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | No | Modul / Sub Menu | Total Bug | Status Huly | Rincian Issue |
 |----|------------------|-----------|-------------|---------------|
 | 1 | **Authentication** | 4 | ⏳ Pending (0/4) | Logout (2), Login (1), Lupa Kata Sandi (1) |
-| 2 | **User Management** | 6 | ⏳ Pending (0/6) | Role (4), User (1), User Block (1) |
+| 2 | **User Management** | 7 | ⏳ Pending (0/7) | Role (4), User (2), User Block (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
 | 4 | **Developer** | 1 | ⏳ Pending (0/1) | List Developer (1) |
 | 5 | **Media & Information** | 3 | ⏳ Pending (0/3) | FAQ (1), Article (1), Banner Setting (1) |
@@ -41,7 +41,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
 | 9 | **Jenis Agunan (External)** | 1 | ⏳ Pending (0/1) | Dropdown Menu (1) |
 | 10 | **Estimasi Lelang (External)** | 1 | ⏳ Pending (0/1) | Katalog Lelang (1) |
-| **Total** | | **36** | **0 Reported / 36 Pending** | |
+| **Total** | | **37** | **0 Reported / 37 Pending** | |
 
 ---
 
@@ -50,7 +50,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/05`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 30 | 16 Issue Internal, 14 Issue External |
+| 🔴 **Open** | 31 | 17 Issue Internal, 14 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 5 | • `External/Authentication/06`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/09`: Label Banner Login External Tertulis Sistem Portal Internal<br>• `External/Beranda/03`: Seluruh Section Data Rekomendasi Lelang dan FAQ Belum Tampil (Konfirmasi Data Dinamis)<br>• `External/Jenis Agunan/01`: Menu Dropdown Jenis Agunan Blank Putih (Konfirmasi Integrasi Kategori)<br>• `External/Estimasi Lelang/01`: Halaman Estimasi Lelang Kosong Memunculkan Oops (Konfirmasi Data Awal Lelang) |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -637,6 +637,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence Awal**:
 >   * Status User Tidak Aktif: [https://files.catbox.moe/9pufg4.png](https://files.catbox.moe/9pufg4.png)
 >   * Tabel User Block Kosong: [https://files.catbox.moe/nddkir.png](https://files.catbox.moe/nddkir.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Gagal Memblokir User tanpa Alasan Muncul Error Oops Something Went Wrong
+
+> * **Menu**: User Management → User
+> * **Status**: Open
+> * **Deskripsi**: Saat user mencoba memblokir akun user dengan mengosongkan field Alasan, proses blokir gagal diproses dan sistem memunculkan toast error server.
+> * **Expected**: Sistem menampilkan pesan validasi form yang jelas jika field Alasan bersifat mandatory, atau proses pemblokiran berhasil tersimpan jika field Alasan bersifat opsional.
+> * **Actual**: Sistem gagal memproses pemblokiran dan memunculkan toast error "Oops something went wrong, Contact Developer for the issue" saat modal konfirmasi ditekan.
+> * **Evidence Awal**:
+>   * Toast Error Blokir User: [https://files.catbox.moe/l671x1.png](https://files.catbox.moe/l671x1.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:

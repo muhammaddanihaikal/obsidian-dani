@@ -46,10 +46,19 @@ Setiap kali memulai pengujian pada project baru atau modul baru, arsip bukti dan
      * `03 - Tombol Reset Filter Tidak Mereset Field Bulan dan Tahun`
 
 ### 🛑 Aturan Alur Pembuatan Issue Baru (Review & Approval Gate):
-* **AI Dilarang Langsung Eksekusi**: Saat ada temuan bug baru atau screenshot baru di folder `tampungan screenshot`, AI **TIDAK BOLEH** langsung membuat folder issue lokal, tidak boleh menghapus/memindahkan file screenshot dari tampungan, dan tidak boleh meng-update tracker Obsidian sebelum draf disetujui USER.
-* **Tahap 1 (Drafting & Review)**: AI mengunggah screenshot ke Catbox dan menyajikan draft issue lengkap (`Judul`, `Menu`, `Deskripsi`, `Expected`, `Actual`, dan link `Evidence [URL](URL)`) ke chat untuk ditinjau oleh user.
-* **Tahap 2 (User Approval)**: AI wajib menunggu konfirmasi persetujuan dari user (contoh: *"gas"*, *"oke"*, *"eksekusi"*).
-* **Tahap 3 (Eksekusi)**: Setelah persetujuan diberikan, baru AI mengeksekusi pembuatan folder issue `01/02/+1`, penyimpanan file `report.txt` dan `komentar_huly.txt`, pembersihan folder tampungan, serta update dan push Git master tracker Obsidian.
+* **AI Dilarang Langsung Eksekusi & Dilarang Upload Catbox Sebelum Di-ACC**:
+  Saat ada temuan bug baru atau screenshot baru di folder `tampungan screenshot`, AI **TIDAK BOLEH** langsung membuat folder issue lokal, tidak boleh menghapus/memindahkan file screenshot, dan **DILARANG mengunggah screenshot ke Catbox sebelum di-ACC oleh user** agar tidak membuang waktu jika ada revisi judul/deskripsi.
+* **Tahap 1 (Fast Draft - Tanpa Upload Catbox Dulu)**:
+  - AI menganalisis screenshot langsung dari file lokal di folder tampungan.
+  - Sajikan draft proposal issue lengkap ke chat (`Judul`, `Menu`, `Deskripsi`, `Expected`, `Actual`).
+  - Pada bagian Evidence draf chat cukup tulis label bukti / nama file lokal (tunda upload Catbox sampai draf disetujui).
+* **Tahap 2 (User Approval)**:
+  - AI wajib menunggu persetujuan/ACC eksplisit dari User (contoh: *"gas"*, *"oke"*, *"eksekusi"*).
+* **Tahap 3 (Eksekusi Setelah Di-ACC)**:
+  - **Baru upload ke Catbox**: AI mengunggah screenshot ke Catbox menggunakan API untuk mendapatkan link publik `[URL](URL)`.
+  - Buat folder issue `01/02/+1`, simpan file `report.txt` (dengan link Catbox yang sudah aktif) dan `komentar_huly.txt` (kosong).
+  - Pindahkan bukti ke folder issue dan bersihkan file dari `tampungan screenshot`.
+  - Update master tracker di Obsidian (`Regression Test - ...md`) dan langsung `git commit` & `push`.
 
 ---
 
