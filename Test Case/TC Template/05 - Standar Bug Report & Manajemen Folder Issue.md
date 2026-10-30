@@ -45,6 +45,12 @@ Setiap kali memulai pengujian pada project baru atau modul baru, arsip bukti dan
      * `02 - File Excel Hasil Export Kosong Tanpa Baris Data`
      * `03 - Tombol Reset Filter Tidak Mereset Field Bulan dan Tahun`
 
+### 🛑 Aturan Alur Pembuatan Issue Baru (Review & Approval Gate):
+* **AI Dilarang Langsung Eksekusi**: Saat ada temuan bug baru atau screenshot baru di folder `tampungan screenshot`, AI **TIDAK BOLEH** langsung membuat folder issue lokal, tidak boleh menghapus/memindahkan file screenshot dari tampungan, dan tidak boleh meng-update tracker Obsidian sebelum draf disetujui USER.
+* **Tahap 1 (Drafting & Review)**: AI mengunggah screenshot ke Catbox dan menyajikan draft issue lengkap (`Judul`, `Menu`, `Deskripsi`, `Expected`, `Actual`, dan link `Evidence [URL](URL)`) ke chat untuk ditinjau oleh user.
+* **Tahap 2 (User Approval)**: AI wajib menunggu konfirmasi persetujuan dari user (contoh: *"gas"*, *"oke"*, *"eksekusi"*).
+* **Tahap 3 (Eksekusi)**: Setelah persetujuan diberikan, baru AI mengeksekusi pembuatan folder issue `01/02/+1`, penyimpanan file `report.txt` dan `komentar_huly.txt`, pembersihan folder tampungan, serta update dan push Git master tracker Obsidian.
+
 ---
 
 ## 📄 2. Standar Dua File `.txt` di Dalam Folder Issue
