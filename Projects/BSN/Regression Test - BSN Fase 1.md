@@ -12,7 +12,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | Authentication | Logout | 🐛 Bug |
 | 2 | Authentication | Login | 🐛 Bug |
 | 3 | User Management | Role | 🐛 Bug |
-| 4 | User Management | User | 🐛 Bug |
+| 4 | User Management | User | 🟢 Done |
 | 5 | Office Management | Office Type | 🐛 Bug |
 | 6 | Authentication (External) | Register Nasabah | 🐛 Bug |
 | 7 | Authentication (External) | Login | 🐛 Bug |
@@ -48,8 +48,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
-| 🟢 **Done** | 0 | - |
-| 🔴 **Open** | 30 | 16 Issue Internal, 14 Issue External |
+| 🟢 **Done** | 1 | `Internal/User Management/05`: Dropdown Kantor pada Form Tambah User Kosong |
+| 🔴 **Open** | 29 | 15 Issue Internal, 14 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 5 | • `External/Authentication/06`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/09`: Label Banner Login External Tertulis Sistem Portal Internal<br>• `External/Beranda/03`: Seluruh Section Data Rekomendasi Lelang dan FAQ Belum Tampil (Konfirmasi Data Dinamis)<br>• `External/Jenis Agunan/01`: Menu Dropdown Jenis Agunan Blank Putih (Konfirmasi Integrasi Kategori)<br>• `External/Estimasi Lelang/01`: Halaman Estimasi Lelang Kosong Memunculkan Oops (Konfirmasi Data Awal Lelang) |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -158,16 +158,16 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Dropdown Kantor pada Form Tambah User Kosong
 
 > * **Menu**: User Management → User
-> * **Status**: Open
+> * **Status**: Done
 > * **Deskripsi**: Saat user mengisi form tambah user dan membuka dropdown Kantor, opsi daftar kantor tidak muncul dan hanya menampilkan status "No data".
 > * **Expected**: Dropdown Kantor menampilkan seluruh daftar kantor cabang yang aktif dan dapat dipilih oleh user.
 > * **Actual**: Dropdown Kantor kosong dan hanya menampilkan "No data", sehingga proses submit data user tidak dapat diselesaikan.
 > * **Evidence Awal**:
 >   * Dropdown Kantor No Data: [https://files.catbox.moe/u2z6fh.png](https://files.catbox.moe/u2z6fh.png)
 > * **Bukti Retest (Done)**:
->   * -
+>   * Dropdown Kantor: [https://files.catbox.moe/s2qycg.png](https://files.catbox.moe/s2qycg.png)
 > * **Catatan Retest**:
->   * -
+>   * Dropdown Kantor sudah berhasil menampilkan daftar kantor cabang aktif.
 
 <br>
 
