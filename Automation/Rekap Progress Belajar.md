@@ -2,6 +2,14 @@
 
 Dokumen ini melacak perjalanan belajar *QA Automation* menggunakan Playwright dan Pytest.
 
+### 📅 2 November 2026
+**Advanced k6: POST JSON, API Chaining & Scope Prioritization**
+- **Testing API POST (JSON Payload)**: Pengiriman payload JSON via `JSON.stringify` dan header `Content-Type: application/json`.
+- **API Chaining Pattern**: Ekstraksi token otentikasi dari respons login (`r.json('accessToken')`) dan *handoff* ke header `Authorization: Bearer <token>` pada endpoint terproteksi (`/auth/me`).
+- **Throughput Multi-Request**: Memahami rasio iterasi vs total HTTP requests pada skenario berantai ($1 \text{ iterasi} = 2 \text{ requests}$).
+- **Scope Prioritization (Jalur Duit & Jalur Macet)**: Strategi memilah fitur kritis (revenue & concurrency tinggi) vs fitur santai yang tidak perlu di-load test.
+- **Root Cause & Troubleshooting Performa**: Pemahaman konsep Database Indexing, Connection Pool (Error 504), Memory Leak, dan Virtual Waiting Room.
+
 ### 📅 28 Oktober 2026
 **Performance Testing Dasar (k6) & Metrik Pengujian**
 - **Konsep & Arsitektur k6**: Transisi dari UI automation (Playwright) ke level API tanpa ketergantungan DOM/locator.
