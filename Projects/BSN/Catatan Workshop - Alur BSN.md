@@ -39,7 +39,7 @@ Terdapat 2 jalur pendaftaran Mitra Developer:
 
 ---
 
-## 🏡 3. Alur & Aturan Aset Baru
+## 🏡 3. Alur, Input & Aturan Aset Baru
 
 ### A. Role Kewenangan Aset Baru
 * **Approval & Publishing**: Dilakukan oleh **Admin Pusat**.
@@ -51,28 +51,67 @@ Terdapat 2 jalur pendaftaran Mitra Developer:
 3. **Ruko**
 4. *Tipe aset lainnya bebas (opsional/fleksibel)*
 
+### C. Alur Form Input Aset (Wizard Steps)
+* **Step 2 (Informasi Harga Aset)**:
+  * Terdapat konfigurasi nominal **Minimal DP** (Down Payment).
+  * Angka yang disetel di Step 2 ini akan menjadi batasan minimal uang muka yang wajib dipenuhi oleh calon pembeli/nasabah.
+
 ---
 
-## 🖥️ 4. Snapshot Tampilan & Modul Terkait (Berdasarkan Sistem)
+## 🎯 4. Siklus Pengelolaan Nasabah (Leads ➔ Ticket ➔ Investor)
 
-### Menu Navigasi Terkait (Stock Management):
-* **Menu Stock Management**:
-  * `Aset Baru`
-  * `Approval Aset Baru` (Khusus Admin Pusat untuk verifikasi & publish)
+Alur pergerakan data calon pembeli dari minat awal hingga akad/pembelian selesai:
+
+```mermaid
+flowchart LR
+    L[Leads Aset Baru<br/>Peminat Aset] -->|Status: Processing| T[Ticket Baru<br/>Customer Management]
+    T -->|Closing / Berhasil Beli| I[Investor<br/>Menu Stock Management]
+```
+
+### A. Leads Aset Baru (`Customer Management` → `Leads Aset Baru`)
+* **Definisi**: Data nasabah/calon pembeli yang menyatakan minat untuk membeli aset baru.
+* **Pipeline Status Leads**:
+  * `Semua`
+  * `Tindak Lanjut`
+  * `Processing` *(Trigger Point)*
+  * `Terverifikasi`
+  * `Selesai`
+  * `Batal`
+* **Auto-generate Ticket**: Saat status leads diproses / mencapai tahap **Processing**, sistem secara otomatis membuat **Ticket Baru** di menu `Ticket Aset Baru` untuk penanganan tindak lanjut sales/CS.
+* **Kondisi Teknis Saat Ini**: Halaman `Leads Aset Baru` saat ini masih menampilkan data fallback dari `Leads Aset Lelang` karena endpoint API khusus aset baru masih dalam proses integrasi backend.
+
+### B. Menu Investor (`Stock Management` → `Investor`)
+* **Definisi**: Kumpulan data nasabah yang **sudah berhasil membeli rumah / aset properti** (closing transaksi tuntas).
+* Berperan sebagai database pembeli resmi / pemilik aset properti terdaftar.
+
+---
+
+## 🖥️ 5. Peta Modul & Navigasi Terkait
+
+* **Customer Management**:
+  * `Leads Aset Baru` (Peminat awal, filter status: Tindak Lanjut, Processing, Terverifikasi, Selesai, Batal)
+  * `Leads Aset Lelang`
+  * `Ticket Aset Baru` (Otomatis ter-generate dari Leads saat status Processing)
+  * `Ticket Aset Lelang`
+* **Stock Management**:
+  * `Aset Baru` (Input wizard berjenjang, Step 2 untuk setting Minimal DP)
+  * `Approval Aset Baru` (Review & Publish oleh Admin Pusat)
   * `Katalog Marketing`
   * `Sold out Aset`
-  * `Favourite Aset Baru`
-* **Menu Developer**:
-  * `Developer` → `List Developer` → `Detail Mitra Developer`
-  * Tampilan Portofolio: Tab `Per Properti`, `Per Klaster`, `Per Unit` + Tombol aksi `+ Tambah Proyek / Aset Baru`
-  * Legalitas: Berkas Legalitas & Dokumen PKS Developer, Verifikasi CIF Developer.
+  * `Favourite Aset Baru` / `Favourite Aset Lelang`
+  * `Investor` (Nasabah yang telah sukses membeli aset)
+* **Developer Management**:
+  * `Detail Mitra Developer` (Kelola data legalitas PKS, CIF, Proyek, Klaster, Unit)
 
 ---
 
-## 💡 5. QA Testing Notes & Checklist
+## 💡 6. QA Testing Notes & Checklist
 
-* [ ] Verifikasi pembuatan developer via **Internal** langsung aktif tanpa trigger workflow approval.
-* [ ] Verifikasi pendaftaran developer via **External** memicu status pending approval dan muncul di antrean approval.
-* [ ] Validasi hirarki pembuatan: pastikan tidak bisa buat Proyek tanpa Developer, tidak bisa buat Unit tanpa Cluster & Tipe.
-* [ ] Uji skenario hak akses role: pastikan tombol approve/publish aset baru hanya bisa dieksekusi oleh role **Admin Pusat**.
-* [ ] Uji urutan pilihan dropdown Tipe Aset Baru (Rumah, Apartemen, Ruko di urutan teratas).
+* [ ] **Approval Developer**: Pastikan via Internal langsung aktif; via External wajib pending approval.
+* [ ] **Hirarki Entitas**: Pastikan validasi berjenjang (Developer → Proyek → Cluster → Tipe → Unit) tidak bisa di-bypass.
+* [ ] **Input Aset Step 2**: Validasi input minimal DP tersimpan dengan benar dan menjadi batas validasi minimal pembayaran nasabah.
+* [ ] **Hak Akses Admin Pusat**: Pastikan tombol/aksi Approve & Publish Aset Baru hanya dapat diakses oleh Admin Pusat.
+* [ ] **Dropdown Tipe Aset**: Verifikasi urutan teratas adalah Rumah, Apartemen, Ruko.
+* [ ] **Automasi Leads ke Tiket**: Verifikasi bahwa perpindahan status leads ke *Processing* benar-benar mentrigger pembuatan tiket baru di menu *Ticket Aset Baru*.
+* [ ] **Validasi Data Investor**: Verifikasi nasabah yang telah selesai transaksi/beli otomatis tercatat dan muncul di menu *Investor*.
+* [ ] **Regression Alert API Leads**: Monitor pemisahan API endpoint Leads Aset Baru dari data fallback Aset Lelang.
