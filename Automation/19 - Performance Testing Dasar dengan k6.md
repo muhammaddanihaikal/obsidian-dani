@@ -686,6 +686,78 @@ flowchart LR
    }
    ```
 
+---
+
+## 23. Standar Baku Environment (.env) & Hub Terpusat (config/options.js)
+
+Untuk mencegah duplikasi (*DRY Violation*) dan memudahkan penggantian target server (Staging vs Production):
+
+### 1. Manajemen Target Server (`.env` & `config/config.js`)
+* **File `.env` di Root:**
+  ```env
+  BASE_URL=https://dummyjson.com
+  TYPE=smoke
+  ```
+* **Jembatan Pembaca (`config/config.js`):**
+  ```javascript
+  const env = typeof __ENV !== "undefined" ? __ENV : (typeof process !== "undefined" ? process.env : {});
+  export const BASE_URL = env.BASE_URL || "https://dummyjson.com";
+  ```
+* **Pemakaian di Service:** Cukup `import { BASE_URL } from "../config/config.js";`.
+
+### 2. Hub Terpusat Opsi Beban & SLA (`config/options.js`)
+Daripada membuat banyak file terpisah, satukan seluruh profil beban (`smoke`, `load`, `stress`) dan SLA per service ke dalam **1 file hub terpusat**:
+
+```javascript
+// config/options.js
+const type = __ENV.TYPE || "smoke";
+
+const presets = {
+  smoke: { vus: 1, duration: "5s" },
+  load: {
+    stages: [
+      { duration: "3s", target: 5 },
+      { duration: "5s", target: 5 },
+      { duration: "2s", target: 0 },
+    ],
+  },
+  stress: {
+    stages: [
+      { duration: "3s", target: 10 },
+      { duration: "5s", target: 20 },
+      { duration: "2s", target: 0 },
+    ],
+  },
+};
+
+const currentPreset = presets[type] || presets.smoke;
+
+export const authOptions = {
+  ...currentPreset,
+  thresholds: {
+    http_req_duration: ["p(95)<1000"],
+    http_req_failed: ["rate==0"],
+  },
+};
+
+export const productOptions = {
+  ...currentPreset,
+  thresholds: {
+    http_req_duration: ["p(95)<1500"],
+    http_req_failed: ["rate==0"],
+  },
+};
+```
+
+### 3. Pemakaian di Seluruh File Test (100% DRY)
+Semua file test tidak lagi menulis angka VUs atau thresholds secara hardcoded. Cukup:
+```javascript
+import { productOptions } from "../../config/options.js";
+
+export const options = productOptions;
+```
+
+
 
 
 
