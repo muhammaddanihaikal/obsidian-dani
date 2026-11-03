@@ -562,6 +562,14 @@ File test dikelompokkan berdasarkan skenario perilaku nyata user di aplikasi (me
 > [!TIP]
 > Kedua pola ini bisa digabungkan dalam 1 proyek: folder `tests/` berisi sub-folder per service (untuk uji modul) dan folder `tests/journeys/` (untuk uji alur nyata pengguna).
 
+---
+
+## 19. Repository Project Belajar k6
+Contoh kode lengkap dan struktur project k6 modular ini tersimpan di GitHub:
+* **Repository:** [belajar-k6 on GitHub](https://github.com/muhammaddanihaikal/belajar-k6)
+* **Branch Utama:** `main`
+
+
 
 
 
