@@ -629,6 +629,64 @@ export default function (data) {
 2. **Fleksibel:** Jika kredensial login atau endpoint auth berubah, cukup update 1 baris di `helpers/setup.helper.js`.
 3. **File Test Bersih:** Skenario test langsung fokus pada alur pengujian tanpa terganggu kode persiapan.
 
+---
+
+## 21. Pemisahan Alur Pengujian: Browsing vs Data Manipulation
+
+Di industri QA, file test **HARUS DIPISAH** berdasarkan karakteristik bebannya:
+
+### 1. Alur Browsing (`tests/product/search-filter.test.js`)
+* **Operasi:** GET (Search & Filter).
+* **Karakter:** Cepat (50-200ms), dibantu database index & cache, dilakukan oleh 90% pengunjung biasa.
+
+### 2. Alur Mutasi Data (`tests/product/delete-tumbal.test.js`, dll.)
+* **Operasi:** POST / PUT / DELETE (Mutasi data).
+* **Karakter:** Berat (200-800ms), melakukan lock baris table & penulisan disk, biasanya hanya dilakukan oleh 10% pengguna (Admin/Penjual).
+
+> [!WARNING]
+> Jangan pernah mencampur Search & Filter dengan DELETE di dalam satu file test karena metrik durasi `p(95)` akan terkontaminasi dan menghasilkan laporan performa yang bias.
+
+---
+
+## 22. Arsitektur Seeder Terpisah (Penyediaan Data Tumbal via API)
+
+Ketika QA **tidak memiliki akses database langsung (hanya via API)** dan butuh menguji UPDATE 500x atau DELETE 500x:
+
+### Alur 3 Langkah Baku Industri:
+```mermaid
+flowchart LR
+    A["1. Script Seeder<br/>(scripts/seed-products.js)"] -->|Simpan ID ke JSON| B["2. File Data Tumbal<br/>(data/tumbal-products.json)"]
+    B -->|Dibaca via SharedArray| C["3. k6 Test Runner<br/>(delete-tumbal.test.js)"]
+```
+
+1. **Jalankan Seeder 1x Sebelum Test:**
+   ```bash
+   node scripts/seed-products.js
+   ```
+   Script ini memanggil API untuk menyiapkan daftar data tumbal dan menyimpannya ke `data/tumbal-products.json`.
+
+2. **Konsumsi Data di Test k6 via `SharedArray`:**
+   ```javascript
+   import { SharedArray } from "k6/data";
+   import { authSetup } from "../../helpers/setup.helper.js";
+   import { deleteProduct } from "../../services/product.service.js";
+
+   // 1. Baca data hasil seeder
+   const tumbalList = new SharedArray("daftar tumbal", function () {
+     return JSON.parse(open("../../data/tumbal-products.json"));
+   });
+
+   // 2. Gunakan helper auth
+   export const setup = authSetup;
+
+   export default function (data) {
+     // Ambil 1 ID data tumbal secara bergantian per robot
+     const item = tumbalList[(__VU - 1) % tumbalList.length];
+     deleteProduct(item.id, data.token);
+   }
+   ```
+
+
 
 
 
