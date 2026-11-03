@@ -521,6 +521,48 @@ Di setiap file skenario pengetesan spesifik service, cukup mengimpor opsi milikn
 2. **Single Source of Truth:** Jika ada perubahan target user (misal produk dinaikkan ke 1.000 VUs), cukup edit 1 baris di `config/service-options.js`.
 3. **File Test Bersih:** File test tidak terbebani oleh puluhan baris konfigurasi JSON options.
 
+---
+
+## 18. Standar Struktur Folder: Service-Oriented vs User Journey
+
+Ketika proyek k6 berkembang besar, ada 2 pendekatan umum untuk mengorganisasi file test:
+
+### 1. Pola Service-Oriented (Component / Isolated Testing)
+Setiap service memiliki file service, file options/config, dan folder test khusus untuk menguji endpoint-endpoint milik service tersebut secara terisolasi.
+
+```text
+coba-k6/
+├── services/
+│   ├── auth.service.js
+│   └── product.service.js
+├── config/
+│   ├── auth.options.js
+│   └── product.options.js
+└── tests/
+    ├── auth/
+    │   ├── login.test.js
+    │   └── refresh-token.test.js
+    └── product/
+        ├── search-filter.test.js
+        └── crud-product.test.js
+```
+* **Kapan Digunakan:** Ketika ingin menguji kapasitas maksimal (stress/load) dari satu modul/microservice secara spesifik tanpa melibatkan modul lain.
+
+### 2. Pola User Journey (End-to-End / Flow Testing)
+File test dikelompokkan berdasarkan skenario perilaku nyata user di aplikasi (menggabungkan beberapa service).
+
+```text
+└── tests/
+    └── journeys/
+        ├── buyer-checkout-flow.test.js  (Auth + Product + Order)
+        └── seller-manage-flow.test.js   (Auth + CRUD Product)
+```
+* **Kapan Digunakan:** Simulasi trafik dunia nyata di mana aktivitas pengguna melintasi beberapa service sekaligus.
+
+> [!TIP]
+> Kedua pola ini bisa digabungkan dalam 1 proyek: folder `tests/` berisi sub-folder per service (untuk uji modul) dan folder `tests/journeys/` (untuk uji alur nyata pengguna).
+
+
 
 
 
