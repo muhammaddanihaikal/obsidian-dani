@@ -705,67 +705,29 @@ Untuk mencegah duplikasi (*DRY Violation*) dan memudahkan penggantian target ser
   ```
 * **Pemakaian di Service:** Cukup `import { BASE_URL } from "../config/config.js";`.
 
-### 2. Opsi Mandiri per Service dengan Tipe Beban (`config/options/`)
-Masing-masing service memiliki kapasitas dan profil beban yang berbeda (tidak digabung ke file preset umum). Pilihan tipe beban (`smoke`, `load`, `stress`) dikelola langsung di dalam file opsi service masing-masing:
+### 2. Opsi Murni Langsung per Service (`config/options/`)
+Masing-masing service memiliki file opsi sendiri yang to the point mendefinisikan VUs, durasi, dan SLA:
 
 * **File `config/options/auth.options.js`:**
   ```javascript
-  const type = __ENV.TYPE || "smoke";
-
-  const types = {
-    smoke: { vus: 1, duration: "5s" },
-    load: {
-      stages: [
-        { duration: "3s", target: 5 },
-        { duration: "5s", target: 5 },
-        { duration: "2s", target: 0 },
-      ],
-    },
-    stress: {
-      stages: [
-        { duration: "3s", target: 10 },
-        { duration: "5s", target: 20 },
-        { duration: "2s", target: 0 },
-      ],
-    },
-  };
-
   export const authOptions = {
-    ...types[type],
+    vus: 2,
+    duration: "5s",
     thresholds: {
       http_req_duration: ["p(95)<1000"], // SLA Auth: < 1 detik
-      http_req_failed: ["rate==0"],
+      http_req_failed: ["rate==0"],      // Error harus 0%
     },
   };
   ```
 
 * **File `config/options/product.options.js`:**
   ```javascript
-  const type = __ENV.TYPE || "smoke";
-
-  const types = {
-    smoke: { vus: 2, duration: "5s" },
-    load: {
-      stages: [
-        { duration: "3s", target: 10 },
-        { duration: "5s", target: 10 },
-        { duration: "2s", target: 0 },
-      ],
-    },
-    stress: {
-      stages: [
-        { duration: "3s", target: 20 },
-        { duration: "5s", target: 50 },
-        { duration: "2s", target: 0 },
-      ],
-    },
-  };
-
   export const productOptions = {
-    ...types[type],
+    vus: 5,
+    duration: "5s",
     thresholds: {
       http_req_duration: ["p(95)<1500"], // SLA Product: < 1.5 detik
-      http_req_failed: ["rate==0"],
+      http_req_failed: ["rate==0"],      // Error harus 0%
     },
   };
   ```
@@ -777,6 +739,23 @@ import { productOptions } from "../../config/options/product.options.js";
 
 export const options = productOptions;
 ```
+
+---
+
+## 24. Enam (6) Tipe Pengujian Performa di Industri (Grafana k6)
+
+Sebagai referensi teori, di industri ada 6 tipe pengujian beban (diibaratkan uji kelayakan lift gedung):
+
+### 1. Tiga Tipe Utama (Sering Dipakai Sehari-hari)
+* **Smoke Testing (Cek Mesin Nyala):** Beban minimal (1–2 VUs, ~5 detik) untuk memastikan script dan server tidak error sebelum tes besar.
+* **Load Testing (Beban Normal Harian):** Beban sesuai ekspektasi jam normal (misal 50–200 VUs) untuk validasi SLA hari biasa.
+* **Stress Testing (Beban Jam Sibuk / Over-capacity):** Beban dinaikkan melebihi batas normal bertahap untuk mencari *breaking point* sistem.
+
+### 2. Tiga Tipe Khusus
+* **Spike Testing (Lonjakan Kilat):** Melompat mendadak dari 0 ke ratusan VUs dalam detik (*Flash Sale 12.12*, War Tiket).
+* **Soak Testing (Uji Ketahanan Durasi Panjang):** Beban stabil dijalankan berjam-jam (4–24 jam) untuk mendeteksi *Memory Leak*.
+* **Breakpoint Testing (Uji Titik Hancur):** Beban dinaikkan terus-menerus tanpa batas sampai server mati total untuk mencari batas fisik hardware.
+
 
 
 
