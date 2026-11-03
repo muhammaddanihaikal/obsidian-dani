@@ -267,3 +267,109 @@ Seorang QA tidak perlu menguji semua fitur aplikasi untuk performance test. Tera
 4. **Virtual Waiting Room (Ruang Tunggu Antrean):**  
    Solusi arsitektur untuk menahan lonjakan trafik berlebih (misal war tiket konser) di luar gerbang agar server inti transaksi tidak tumbang.
 
+---
+
+## 13. Data-Driven Testing (DDT) Multi-User
+
+DDT di k6 memisahkan kode script dari kumpulan data pengujian (`users.json`). Digunakan agar simulasi multi-user realistis dan tidak terjadi tabrakan sesi (*session overwrite*).
+
+### A. Penggunaan `SharedArray` (Super Irit RAM)
+Diimpor dari `k6/data`. File JSON hanya dimuat **1 kali saja** ke memori laptop dan dibagi bersama ke seluruh robot (*shared memory*).
+
+```javascript
+import { SharedArray } from "k6/data";
+
+const users = new SharedArray("daftar user", function () {
+  return JSON.parse(open("./data/users.json"));
+});
+```
+
+### B. Variabel Bawaan k6 (`__VU` & `__ITER`)
+* **`__VU` (Virtual User):** Nomor ID unik tiap robot (mulai dari `1, 2, 3...`).
+* **`__ITER` (Iteration):** Nomor putaran siklus yang sedang dijalankan robot (mulai dari `0, 1, 2...`).
+
+### C. Logika Rotasi Akun (Modulo Pattern)
+```javascript
+const user = users[(__VU - 1) % users.length];
+```
+* **Kenapa `__VU - 1`?** Karena nomor robot mulai dari `1`, sedangkan indeks array JavaScript mulai dari `0`.
+* **Kenapa `% users.length`?** Menggunakan rumus sisa pembagian (sistem jam dinding). Jika jumlah robot melebihi jumlah akun yang tersedia, robot otomatis memutar kembali mengambil akun dari indeks awal tanpa memicu error `undefined`.
+
+---
+
+## 14. Standardisasi Struktur Folder Proyek k6 (API Service Pattern)
+
+Di Playwright, struktur kode dirapikan menggunakan **Page Object Model (POM)**. Di k6, standarisasi industri menggunakan **API Service Pattern**.
+
+### Perbandingan Arsitektur: Playwright vs k6
+
+| Lapisan (Layer) | UI Automation (Playwright Python) | Performance Testing (k6 JavaScript) | Fungsi |
+| :--- | :--- | :--- | :--- |
+| **Data Layer** | `data/test_data.json` | `data/users.json` | File data akun/payload statis |
+| **Object Layer** | `pages/login_page.py` *(POM)* | `services/auth.service.js` *(API Object)* | Fungsi reusable pemanggil endpoint API |
+| **Test Layer** | `tests/test_login.py` | `tests/login-test.js` | Skenario bisnis utama (`export default`) |
+
+### Struktur Folder Rekomendasi Industri:
+```text
+project-k6/
+├── data/
+│   └── users.json           # Kumpulan kredensial pengujian
+├── services/                # Komponen pemanggil API (Pengganti POM)
+│   ├── auth.service.js      # Fungsi login(), logout()
+│   └── user.service.js      # Fungsi getProfile()
+└── tests/                   # Skenario Pengujian (User Journey)
+    └── user-journey-test.js # File eksekusi utama k6
+```
+
+### Contoh Implementasi:
+
+**1. `services/auth.service.js` (Service Layer):**
+```javascript
+import http from "k6/http";
+
+export function login(username, password) {
+  const url = "https://dummyjson.com/auth/login";
+  const payload = JSON.stringify({ username, password });
+  const params = { headers: { "Content-Type": "application/json" } };
+  return http.post(url, payload, params);
+}
+
+export function getProfile(token) {
+  const url = "https://dummyjson.com/auth/me";
+  const params = { headers: { Authorization: `Bearer ${token}` } };
+  return http.get(url, params);
+}
+```
+
+**2. `tests/user-journey-test.js` (Test Layer - Sangat Bersih & Ringkas):**
+```javascript
+import { check, sleep } from "k6";
+import { SharedArray } from "k6/data";
+import { login, getProfile } from "../services/auth.service.js";
+
+const users = new SharedArray("users", () => JSON.parse(open("../data/users.json")));
+
+export const options = {
+  vus: 5,
+  duration: "5s",
+};
+
+export default function () {
+  const user = users[(__VU - 1) % users.length];
+
+  // Eksekusi aksi cukup panggil fungsi service
+  const loginRes = login(user.username, user.password);
+  const token = loginRes.json("accessToken");
+
+  const profileRes = getProfile(token);
+
+  check(profileRes, {
+    "akses profil 200": (r) => r.status === 200,
+    "user cocok": (r) => r.json("username") === user.username,
+  });
+
+  sleep(1);
+}
+```
+
+
