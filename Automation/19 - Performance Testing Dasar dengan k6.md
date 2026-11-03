@@ -705,14 +705,33 @@ Untuk mencegah duplikasi (*DRY Violation*) dan memudahkan penggantian target ser
   ```
 * **Pemakaian di Service:** Cukup `import { BASE_URL } from "../config/config.js";`.
 
-### 2. Opsi Langsung Mandiri per Service (`config/options/`)
-Masing-masing service memiliki kapasitas dan batasan SLA yang berbeda. Opsi ditulis langsung secara bersih dan mandiri tanpa perantara preset:
+### 2. Opsi Mandiri per Service dengan Tipe Beban (`config/options/`)
+Masing-masing service memiliki kapasitas dan profil beban yang berbeda (tidak digabung ke file preset umum). Pilihan tipe beban (`smoke`, `load`, `stress`) dikelola langsung di dalam file opsi service masing-masing:
 
 * **File `config/options/auth.options.js`:**
   ```javascript
+  const type = __ENV.TYPE || "smoke";
+
+  const types = {
+    smoke: { vus: 1, duration: "5s" },
+    load: {
+      stages: [
+        { duration: "3s", target: 5 },
+        { duration: "5s", target: 5 },
+        { duration: "2s", target: 0 },
+      ],
+    },
+    stress: {
+      stages: [
+        { duration: "3s", target: 10 },
+        { duration: "5s", target: 20 },
+        { duration: "2s", target: 0 },
+      ],
+    },
+  };
+
   export const authOptions = {
-    vus: 2,
-    duration: "5s",
+    ...types[type],
     thresholds: {
       http_req_duration: ["p(95)<1000"], // SLA Auth: < 1 detik
       http_req_failed: ["rate==0"],
@@ -722,9 +741,28 @@ Masing-masing service memiliki kapasitas dan batasan SLA yang berbeda. Opsi ditu
 
 * **File `config/options/product.options.js`:**
   ```javascript
+  const type = __ENV.TYPE || "smoke";
+
+  const types = {
+    smoke: { vus: 2, duration: "5s" },
+    load: {
+      stages: [
+        { duration: "3s", target: 10 },
+        { duration: "5s", target: 10 },
+        { duration: "2s", target: 0 },
+      ],
+    },
+    stress: {
+      stages: [
+        { duration: "3s", target: 20 },
+        { duration: "5s", target: 50 },
+        { duration: "2s", target: 0 },
+      ],
+    },
+  };
+
   export const productOptions = {
-    vus: 5,
-    duration: "5s",
+    ...types[type],
     thresholds: {
       http_req_duration: ["p(95)<1500"], // SLA Product: < 1.5 detik
       http_req_failed: ["rate==0"],
@@ -739,6 +777,7 @@ import { productOptions } from "../../config/options/product.options.js";
 
 export const options = productOptions;
 ```
+
 
 
 
