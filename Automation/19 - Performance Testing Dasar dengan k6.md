@@ -705,14 +705,28 @@ Untuk mencegah duplikasi (*DRY Violation*) dan memudahkan penggantian target ser
   ```
 * **Pemakaian di Service:** Cukup `import { BASE_URL } from "../config/config.js";`.
 
-### 2. Opsi Murni Langsung per Service (`config/options/`)
-Masing-masing service memiliki file opsi sendiri yang to the point mendefinisikan VUs, durasi, dan SLA:
+### 2. Opsi per Service dengan 2 Mode Praktis: Smoke vs Load (`config/options/`)
+Di industri, dua mode yang paling sering dipakai adalah **`smoke`** (test flat konstan) dan **`load`** (test bertahap naik-turun menggunakan stages). Dikelola langsung di file opsi masing-masing service:
 
 * **File `config/options/auth.options.js`:**
   ```javascript
+  const type = __ENV.TYPE || "smoke";
+
+  const types = {
+    // 1. Test Biasa (Flat)
+    smoke: { vus: 1, duration: "5s" },
+    // 2. Test Bertahap (Stages)
+    load: {
+      stages: [
+        { duration: "3s", target: 5 },
+        { duration: "5s", target: 5 },
+        { duration: "2s", target: 0 },
+      ],
+    },
+  };
+
   export const authOptions = {
-    vus: 2,
-    duration: "5s",
+    ...types[type],
     thresholds: {
       http_req_duration: ["p(95)<1000"], // SLA Auth: < 1 detik
       http_req_failed: ["rate==0"],      // Error harus 0%
@@ -722,9 +736,23 @@ Masing-masing service memiliki file opsi sendiri yang to the point mendefinisika
 
 * **File `config/options/product.options.js`:**
   ```javascript
+  const type = __ENV.TYPE || "smoke";
+
+  const types = {
+    // 1. Test Biasa (Flat)
+    smoke: { vus: 2, duration: "5s" },
+    // 2. Test Bertahap (Stages)
+    load: {
+      stages: [
+        { duration: "3s", target: 10 },
+        { duration: "5s", target: 10 },
+        { duration: "2s", target: 0 },
+      ],
+    },
+  };
+
   export const productOptions = {
-    vus: 5,
-    duration: "5s",
+    ...types[type],
     thresholds: {
       http_req_duration: ["p(95)<1500"], // SLA Product: < 1.5 detik
       http_req_failed: ["rate==0"],      // Error harus 0%
@@ -739,6 +767,9 @@ import { productOptions } from "../../config/options/product.options.js";
 
 export const options = productOptions;
 ```
+* **Jalankan Default (Smoke / Biasa):** `k6 run tests/product/search-filter.test.js`
+* **Jalankan Stage (Load / Bertahap):** `k6 run -e TYPE=load tests/product/search-filter.test.js`
+
 
 ---
 
