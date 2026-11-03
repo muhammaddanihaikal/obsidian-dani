@@ -705,57 +705,41 @@ Untuk mencegah duplikasi (*DRY Violation*) dan memudahkan penggantian target ser
   ```
 * **Pemakaian di Service:** Cukup `import { BASE_URL } from "../config/config.js";`.
 
-### 2. Hub Terpusat Opsi Beban & SLA (`config/options.js`)
-Daripada membuat banyak file terpisah, satukan seluruh profil beban (`smoke`, `load`, `stress`) dan SLA per service ke dalam **1 file hub terpusat**:
+### 2. Opsi Langsung Mandiri per Service (`config/options/`)
+Masing-masing service memiliki kapasitas dan batasan SLA yang berbeda. Opsi ditulis langsung secara bersih dan mandiri tanpa perantara preset:
 
+* **File `config/options/auth.options.js`:**
+  ```javascript
+  export const authOptions = {
+    vus: 2,
+    duration: "5s",
+    thresholds: {
+      http_req_duration: ["p(95)<1000"], // SLA Auth: < 1 detik
+      http_req_failed: ["rate==0"],
+    },
+  };
+  ```
+
+* **File `config/options/product.options.js`:**
+  ```javascript
+  export const productOptions = {
+    vus: 5,
+    duration: "5s",
+    thresholds: {
+      http_req_duration: ["p(95)<1500"], // SLA Product: < 1.5 detik
+      http_req_failed: ["rate==0"],
+    },
+  };
+  ```
+
+### 3. Pemakaian di Seluruh File Test (Transparan & 100% DRY)
+Semua file test langsung meng-import opsi spesifik service yang bersangkutan:
 ```javascript
-// config/options.js
-const type = __ENV.TYPE || "smoke";
-
-const presets = {
-  smoke: { vus: 1, duration: "5s" },
-  load: {
-    stages: [
-      { duration: "3s", target: 5 },
-      { duration: "5s", target: 5 },
-      { duration: "2s", target: 0 },
-    ],
-  },
-  stress: {
-    stages: [
-      { duration: "3s", target: 10 },
-      { duration: "5s", target: 20 },
-      { duration: "2s", target: 0 },
-    ],
-  },
-};
-
-const currentPreset = presets[type] || presets.smoke;
-
-export const authOptions = {
-  ...currentPreset,
-  thresholds: {
-    http_req_duration: ["p(95)<1000"],
-    http_req_failed: ["rate==0"],
-  },
-};
-
-export const productOptions = {
-  ...currentPreset,
-  thresholds: {
-    http_req_duration: ["p(95)<1500"],
-    http_req_failed: ["rate==0"],
-  },
-};
-```
-
-### 3. Pemakaian di Seluruh File Test (100% DRY)
-Semua file test tidak lagi menulis angka VUs atau thresholds secara hardcoded. Cukup:
-```javascript
-import { productOptions } from "../../config/options.js";
+import { productOptions } from "../../config/options/product.options.js";
 
 export const options = productOptions;
 ```
+
 
 
 
