@@ -569,6 +569,67 @@ Contoh kode lengkap dan struktur project k6 modular ini tersimpan di GitHub:
 * **Repository:** [belajar-k6 on GitHub](https://github.com/muhammaddanihaikal/belajar-k6)
 * **Branch Utama:** `main`
 
+---
+
+## 20. Siklus Hidup k6 (Lifecycle) & Pola Reusable Setup (Anti-DRY)
+
+### 1. Cara Kerja 4 Tahapan Siklus Hidup k6:
+Di k6, kode JavaScript tidak dieksekusi secara linear biasa, melainkan melewati 4 fase:
+
+```mermaid
+flowchart TD
+    Init["1. Init Stage<br/>(Muat file, import modul, set options)"] --> Setup["2. setup()<br/>(JALAN 1x DI AWAL: Login / Seed Data)"]
+    Setup -->|Kirim data| VU["3. default function(data)<br/>(JALAN BERULANG OLEH SEMUA VU: Eksekusi Test)"]
+    VU --> Teardown["4. teardown(data)<br/>(JALAN 1x DI AKHIR: Bersihkan DB / Cleanup)"]
+```
+
+* **Init Stage:** Berjalan saat k6 pertama kali membaca script.
+* **`setup()` (Hanya 1x Total):** Dijalankan oleh 1 proses khusus *sebelum* robot (VU) bekerja. Apapun objek yang di-`return` di sini akan difotokopi dan dibagikan ke semua VU.
+* **`default function(data)`:** Dijalankan berulang-ulang oleh ratusan/ribuan VU sesuai durasi. Parameter `data` menampung hasil return dari `setup()`.
+* **`teardown(data)` (Hanya 1x Total):** Dijalankan setelah semua VU selesai untuk bersih-bersih.
+
+---
+
+### 2. Cara Agar `setup()` Tidak DRY di Banyak File Test
+Jika ada 5 atau 10 file test yang semuanya butuh login dan mengambil token, **jangan copy-paste fungsi setup di setiap file**.
+
+#### Langkah 1: Buat Reusable Setup Helper (`helpers/setup.helper.js`)
+```javascript
+import { login } from "../services/auth.service.js";
+
+// Fungsi helper yang menyiapkan token & userId
+export function authSetup() {
+  const res = login("emilys", "emilyspass");
+  return {
+    token: res.json("accessToken"),
+    userId: res.json("id"),
+  };
+}
+```
+
+#### Langkah 2: Panggil dengan 1 Baris Ajaib di File Test
+Di file test manapun (`tests/product/search-product.test.js`, `tests/auth/profile.test.js`, dll.), cukup panggil dan re-export:
+
+```javascript
+import { check, sleep } from "k6";
+import { authSetup } from "../../helpers/setup.helper.js";
+
+// Cukup 1 baris ini untuk mendaftarkan fungsi setup ke k6:
+export const setup = authSetup;
+
+export default function (data) {
+  // data.token dan data.userId langsung otomatis tersedia!
+  console.log(`Menggunakan token: ${data.token}`);
+  sleep(1);
+}
+```
+
+### Keunggulan Pola Ini:
+1. **Zero Duplication (Anti-DRY):** Logika login setup hanya ada di 1 file helper.
+2. **Fleksibel:** Jika kredensial login atau endpoint auth berubah, cukup update 1 baris di `helpers/setup.helper.js`.
+3. **File Test Bersih:** Skenario test langsung fokus pada alur pengujian tanpa terganggu kode persiapan.
+
+
 
 
 
