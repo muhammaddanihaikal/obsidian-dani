@@ -3,10 +3,12 @@
 Dokumen ini melacak perjalanan belajar *QA Automation* menggunakan Playwright dan Pytest.
 
 ### 📅 3 November 2026
-**Data-Driven Testing (DDT) & Standardisasi Arsitektur k6 (API Service Pattern)**
+**Data-Driven Testing (DDT), Arsitektur k6 & Pola Alur Pengujian Industri**
 - **DDT via `SharedArray`**: Optimalisasi memori laptop agar dataset `users.json` hanya dibaca 1 kali di memori dan diakses bersama oleh seluruh VU.
 - **Logika Distribusi Akun (`__VU` & Modulo)**: Memahami ID unik robot (`__VU`), iterasi awal (`__ITER === 0`), dan rumus rotasi akun `(__VU - 1) % users.length` (sistem modulo komidi putar/uang pecahan).
 - **Arsitektur Framework k6 vs POM Playwright**: Pemetaan lapisan `data/`, `services/` (pengganti POM), dan `tests/` (skenario bersih & DRY).
+- **Katalog 8 Pola Alur (Flow Patterns)**: Standardisasi 8 alur kerja nyata (Browsing, Transaction, Burst Spike, Admin CRUD, Heavy Export, Auth Refresh, Bulk Action, Webhook Callback).
+- **Tagged Thresholds per Endpoint**: Mengatur ambang batas SLA/KKM yang berbeda untuk masing-masing API dalam satu skenario (`http_req_duration{name:...}`).
 
 ### 📅 2 November 2026
 **Advanced k6: POST JSON, API Chaining & Scope Prioritization**

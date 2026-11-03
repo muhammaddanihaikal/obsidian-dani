@@ -372,4 +372,72 @@ export default function () {
 }
 ```
 
+---
+
+## 15. Katalog 8 Pola Alur Pengujian (Flow Patterns) di Industri
+
+Di dunia nyata, hampir semua aplikasi web/mobile diuji menggunakan **8 Pola Alur Standar** ini:
+
+| No | Pola Alur (Flow Pattern) | Karakteristik Beban | Pola Urutan Kodingan | File Skenario |
+| :--- | :--- | :--- | :--- | :--- |
+| **1** | **Browsing & Discovery** *(Paling Sering)* | **Trafik Sangat Tinggi (GET Heavy)** | `Login` $\rightarrow$ `Search Keyword` $\rightarrow$ `Filter Harga/Kategori` $\rightarrow$ `Detail Produk` | `browse-flow.test.js` |
+| **2** | **Transaction / Conversion** *(Jalur Duit)* | **Kritis & Rawan Race Condition (POST/PUT)** | `Pilih Barang` $\rightarrow$ `Masuk Keranjang` $\rightarrow$ `Pilih Kurir` $\rightarrow$ `Bayar (Lock Stok)` | `checkout-flow.test.js` |
+| **3** | **Burst / Spike Event** *(Jam Masuk)* | **Lonjakan Instan Ribuan Orang** | `Absen Masuk HRIS Pagi` ATAU `Klaim Kupon Diskon 99%` | `burst-spike.test.js` |
+| **4** | **Admin CRUD Lifecycle** *(Operasional)* | **Trafik Rendah, Database Heavy** | `Login Admin` $\rightarrow$ `Create Data Tumbal` $\rightarrow$ `Update Status` $\rightarrow$ `Delete (Teardown)` | `admin-crud.test.js` |
+| **5** | **Heavy Export & Reporting** | **Beban CPU Database Berat (Jarang)** | `Pilih Rentang Tanggal 1 Tahun` $\rightarrow$ `Request Export Excel/PDF` | `report-export.test.js` |
+| **6** | **Auth & Token Refresh Lifecycle** | **Validasi Stabilitas Keamanan Sesi** | `Login` $\rightarrow$ `Tunggu Token Expired` $\rightarrow$ `POST /refresh-token` $\rightarrow$ `Logout` | `auth-lifecycle.test.js` |
+| **7** | **Bulk Action / Batch Import** | **Uji Proses Antrean Latar Belakang** | `Upload CSV 1.000 Baris` $\rightarrow$ `Bulk Approve 100 Data` $\rightarrow$ `Bulk Delete` | `bulk-action.test.js` |
+| **8** | **Webhook & Third-Party Callback** | **Simulasi Respon Mitra Pembayaran** | `Trigger Transaksi` $\rightarrow$ `Simulasi Webhook Notifikasi Bayar (Midtrans/Xendit)` | `webhook-callback.test.js` |
+
+> [!TIP]
+> **Aturan Pembagian File:**
+> Masing-masing pola di atas dibuatkan **1 file test mandiri** di folder `tests/`, karena alur cerita dan perilaku penggunanya berbeda-beda.
+
+---
+
+## 16. Cara Mengatur SLA (Thresholds) Berbeda untuk Tiap Endpoint API
+
+Di industri nyata:
+* **Service (`services/`):** **TIDAK memiliki options!** Service murni kumpulan fungsi pemanggil API saja.
+* **Options (`options`):** Milik file skenario di `tests/`.
+
+Namun, dalam 1 skenario, **tiap endpoint API sering kali memiliki standar KKM/SLA kecepatan yang berbeda-beda**:
+* API Pencarian (GET): Wajib sangat cepat $\rightarrow$ `p(95) < 300ms`.
+* API Checkout (POST): Boleh lebih lambat karena memproses transaksi $\rightarrow$ `p(95) < 2000ms`.
+
+### Solusi k6: Tagging Endpoint (`tags: { name: ... }`)
+
+Di fungsi service atau request, berikan label tag `name`:
+```javascript
+// 1. Tagging API Pencarian
+http.get("https://api.com/products?search=phone", {
+  tags: { name: "SearchAPI" },
+});
+
+// 2. Tagging API Checkout
+http.post("https://api.com/checkout", payload, {
+  headers: { ... },
+  tags: { name: "CheckoutAPI" },
+});
+```
+
+Lalu di file `config/options.js`, tentukan KKM spesifik per endpoint:
+```javascript
+export const options = {
+  stages: [ ... ],
+  thresholds: {
+    // KKM Khusus API Pencarian: Harus kilat di bawah 300ms
+    'http_req_duration{name:SearchAPI}': ['p(95)<300'],
+
+    // KKM Khusus API Checkout: Toleransi sampai 2 detik
+    'http_req_duration{name:CheckoutAPI}': ['p(95)<2000'],
+
+    // KKM Total Seluruh Sistem: Error harus 0%
+    'http_req_failed': ['rate==0'],
+  },
+};
+```
+Dengan teknik **Tagged Thresholds** ini, laporan k6 di terminal akan memisahkan rapor kelulusan per masing-masing API secara presisi tanpa campur aduk!
+
+
 
