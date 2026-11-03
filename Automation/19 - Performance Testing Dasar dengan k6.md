@@ -439,5 +439,88 @@ export const options = {
 ```
 Dengan teknik **Tagged Thresholds** ini, laporan k6 di terminal akan memisahkan rapor kelulusan per masing-masing API secara presisi tanpa campur aduk!
 
+---
+
+## 17. Pola Konfigurasi "1 Service 1 Option" (Microservices Options Hub)
+
+Saat menguji arsitektur Microservices atau modul terisolasi, setiap Service memiliki karakteristik beban dan batasan yang berbeda secara mandiri:
+* **Auth Service:** Beban sedang (100 VUs), waktu respons wajib < 1 detik.
+* **Product Catalog Service:** Beban sangat tinggi (500 VUs), waktu respons wajib kilat < 300 ms.
+* **Checkout Service:** Beban kecil-menengah (50 VUs), waktu respons transaksi boleh < 2 detik.
+
+Agar pengaturan beban per service ini tetap terpusat dan tidak duplikasi (**100% DRY**), standarnya disimpan di dalam satu file repositori konfigurasi.
+
+### A. Repositori Pusat: `config/service-options.js`
+
+```javascript
+// config/service-options.js
+
+export const serviceOptions = {
+  // 1. Opsi Khusus Service Auth (Login)
+  auth: {
+    vus: 100,
+    duration: "30s",
+    thresholds: {
+      http_req_duration: ["p(95)<1000"], // Login wajib < 1 detik
+      http_req_failed: ["rate==0"],
+    },
+  },
+
+  // 2. Opsi Khusus Service Produk (Katalog/Pencarian)
+  product: {
+    vus: 500, // Diserbu lebih banyak user
+    duration: "1m",
+    thresholds: {
+      http_req_duration: ["p(95)<300"], // Pencarian wajib kilat < 300ms
+      http_req_failed: ["rate==0"],
+    },
+  },
+
+  // 3. Opsi Khusus Service Transaksi / Checkout
+  checkout: {
+    vus: 50, // User lebih sedikit tapi proses database berat
+    duration: "30s",
+    thresholds: {
+      http_req_duration: ["p(95)<2000"], // Toleransi transaksi sampai 2 detik
+      http_req_failed: ["rate==0"],
+    },
+  },
+};
+```
+
+### B. Cara Penggunaan di Masing-masing File Test (1 Baris Saja)
+
+Di setiap file skenario pengetesan spesifik service, cukup mengimpor opsi miliknya:
+
+* **File `tests/auth.test.js`:**
+  ```javascript
+  import { serviceOptions } from "../config/service-options.js";
+
+  // Langsung gunakan opsi khusus Auth
+  export const options = serviceOptions.auth;
+
+  export default function () {
+    // Jalankan pengetesan API Auth
+  }
+  ```
+
+* **File `tests/product.test.js`:**
+  ```javascript
+  import { serviceOptions } from "../config/service-options.js";
+
+  // Langsung gunakan opsi khusus Product
+  export const options = serviceOptions.product;
+
+  export default function () {
+    // Jalankan pengetesan API Product
+  }
+  ```
+
+### Keunggulan Arsitektur Ini:
+1. **Separation of Concerns:** Beban dan batasan tiap service terdefinisi jelas sesuai kapasitas modul masing-masing.
+2. **Single Source of Truth:** Jika ada perubahan target user (misal produk dinaikkan ke 1.000 VUs), cukup edit 1 baris di `config/service-options.js`.
+3. **File Test Bersih:** File test tidak terbebani oleh puluhan baris konfigurasi JSON options.
+
+
 
 

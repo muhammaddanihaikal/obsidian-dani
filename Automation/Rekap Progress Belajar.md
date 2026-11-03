@@ -9,6 +9,7 @@ Dokumen ini melacak perjalanan belajar *QA Automation* menggunakan Playwright da
 - **Arsitektur Framework k6 vs POM Playwright**: Pemetaan lapisan `data/`, `services/` (pengganti POM), dan `tests/` (skenario bersih & DRY).
 - **Katalog 8 Pola Alur (Flow Patterns)**: Standardisasi 8 alur kerja nyata (Browsing, Transaction, Burst Spike, Admin CRUD, Heavy Export, Auth Refresh, Bulk Action, Webhook Callback).
 - **Tagged Thresholds per Endpoint**: Mengatur ambang batas SLA/KKM yang berbeda untuk masing-masing API dalam satu skenario (`http_req_duration{name:...}`).
+- **Pola "1 Service 1 Option" (DRY Config Hub)**: Manajemen konfigurasi beban mandiri per service via `config/service-options.js` untuk testing microservices terisolasi.
 
 ### 📅 2 November 2026
 **Advanced k6: POST JSON, API Chaining & Scope Prioritization**
