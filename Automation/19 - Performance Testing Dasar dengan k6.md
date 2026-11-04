@@ -688,15 +688,14 @@ flowchart LR
 
 ---
 
-## 23. Standar Baku Environment (.env) & Hub Terpusat (config/options.js)
+## 23. Konfigurasi Environment & Inline Options (Self-Contained Test)
 
-Untuk mencegah duplikasi (*DRY Violation*) dan memudahkan penggantian target server (Staging vs Production):
+Untuk mencegah duplikasi URL target dan menjaga script test tetap bersih, transparan, dan mudah dipahami:
 
 ### 1. Manajemen Target Server (`.env` & `config/config.js`)
 * **File `.env` di Root:**
   ```env
   BASE_URL=https://dummyjson.com
-  TYPE=smoke
   ```
 * **Jembatan Pembaca (`config/config.js`):**
   ```javascript
@@ -705,70 +704,78 @@ Untuk mencegah duplikasi (*DRY Violation*) dan memudahkan penggantian target ser
   ```
 * **Pemakaian di Service:** Cukup `import { BASE_URL } from "../config/config.js";`.
 
-### 2. Opsi per Service dengan 2 Mode Praktis: Smoke vs Load (`config/options/`)
-Di industri, dua mode yang paling sering dipakai adalah **`smoke`** (test flat konstan) dan **`load`** (test bertahap naik-turun menggunakan stages). Dikelola langsung di file opsi masing-masing service:
+### 2. Pendekatan Inline Options di File Test (Self-Contained & Anti-Pusing)
+Untuk menjaga keterbacaan kode saat belajar dan kemudahan debugging, **`options` didefinisikan langsung di dalam masing-masing file test**:
+* **Kelebihan Utama:**
+  1. **Zero Indirection:** Tidak perlu bolak-balik buka folder konfigurasi hanya untuk melihat berapa VU, durasi, dan SLA yang dipakai.
+  2. **1 File = 1 Konteks Lengkap:** Setiap file test mandiri menyajikan 3 komponen k6 sekaligus:
+     - **1. Opsi Beban & SLA (`options`):** VUs, durasi, thresholds.
+     - **2. Setup Awal (`setup` - jika butuh token/login):** Dijalankan 1x di awal.
+     - **3. Skenario Utama (`default function`):** Eksekusi request API & check.
 
-* **File `config/options/auth.options.js`:**
+* **Format Baku di File Test (Contoh: `tests/auth/login.test.js`):**
   ```javascript
-  const type = __ENV.TYPE || "smoke";
+  import { check, sleep } from "k6";
+  import { login } from "../../services/auth.service.js";
 
-  const types = {
-    // 1. Test Biasa (Flat)
-    smoke: { vus: 1, duration: "5s" },
-    // 2. Test Bertahap (Stages)
-    load: {
-      stages: [
-        { duration: "3s", target: 5 },
-        { duration: "5s", target: 5 },
-        { duration: "2s", target: 0 },
-      ],
-    },
-  };
-
-  export const authOptions = {
-    ...types[type],
+  // 1. Opsi Beban & SLA (Langsung Terlihat di Sini)
+  export const options = {
+    vus: 2,
+    duration: "5s",
     thresholds: {
       http_req_duration: ["p(95)<1000"], // SLA Auth: < 1 detik
       http_req_failed: ["rate==0"],      // Error harus 0%
     },
   };
+
+  // 2. Skenario Uji Login
+  export default function () {
+    const res = login("emilys", "emilyspass");
+    check(res, {
+      "login berhasil (200)": (r) => r.status === 200,
+      "token didapatkan": (r) => r.json("accessToken") !== undefined,
+    });
+    sleep(1);
+  }
   ```
 
-* **File `config/options/product.options.js`:**
+* **Format Baku Test Beruntun/Journey (Contoh: `tests/journeys/fast-checkout.test.js`):**
   ```javascript
-  const type = __ENV.TYPE || "smoke";
+  import { check, sleep } from "k6";
+  import { authSetup } from "../../helpers/setup.helper.js";
+  import { searchProducts, addCart } from "../../services/product.service.js";
 
-  const types = {
-    // 1. Test Biasa (Flat)
-    smoke: { vus: 2, duration: "5s" },
-    // 2. Test Bertahap (Stages)
-    load: {
-      stages: [
-        { duration: "3s", target: 10 },
-        { duration: "5s", target: 10 },
-        { duration: "2s", target: 0 },
-      ],
-    },
-  };
-
-  export const productOptions = {
-    ...types[type],
+  // 1. Opsi Beban & SLA (Langsung di sini)
+  export const options = {
+    vus: 5,
+    duration: "5s",
     thresholds: {
-      http_req_duration: ["p(95)<1500"], // SLA Product: < 1.5 detik
+      http_req_duration: ["p(95)<1500"], // Respon alur < 1.5 detik
       http_req_failed: ["rate==0"],      // Error harus 0%
     },
   };
+
+  // 2. Login 1x di awal untuk ambil token bersama
+  export const setup = authSetup;
+
+  // 3. Skenario Utama Alur Cepat
+  export default function (data) {
+    const searchRes = searchProducts("laptop");
+    const productId = searchRes.json("products.0.id");
+
+    const cartRes = addCart(data.userId, productId, data.token);
+    check(cartRes, {
+      "checkout berhasil": (r) => r.status === 200 || r.status === 201,
+    });
+    sleep(1);
+  }
   ```
 
-### 3. Pemakaian di Seluruh File Test (Transparan & 100% DRY)
-Semua file test langsung meng-import opsi spesifik service yang bersangkutan:
-```javascript
-import { productOptions } from "../../config/options/product.options.js";
-
-export const options = productOptions;
-```
-* **Jalankan Default (Smoke / Biasa):** `k6 run tests/product/search-filter.test.js`
-* **Jalankan Stage (Load / Bertahap):** `k6 run -e TYPE=load tests/product/search-filter.test.js`
+### 3. Kapan Harus Ekstraksi ke Folder `config/options/`?
+Ekstraksi `options` ke file config terpisah baru disarankan ketika:
+* Proyek sudah memiliki **puluhan skenario uji** yang berbagi konfigurasi SLA dan profil beban yang 100% identik.
+* Tim QA membutuhkan mekanisme CI/CD terpusat untuk mengganti profil beban dinamis via command-line flag (`-e TYPE=load` / `-e TYPE=stress`).
+Untuk tahap belajar dan skala skenario puluhan API, **pendekatan inline adalah yang paling bersih, transparan, dan mudah dipelihara**.
 
 
 ---
