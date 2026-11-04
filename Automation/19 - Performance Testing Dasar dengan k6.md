@@ -794,6 +794,49 @@ Sebagai referensi teori, di industri ada 6 tipe pengujian beban (diibaratkan uji
 * **Soak Testing (Uji Ketahanan Durasi Panjang):** Beban stabil dijalankan berjam-jam (4–24 jam) untuk mendeteksi *Memory Leak*.
 * **Breakpoint Testing (Uji Titik Hancur):** Beban dinaikkan terus-menerus tanpa batas sampai server mati total untuk mencari batas fisik hardware.
 
+---
+
+## 25. Cara Praktis Membaca Output Terminal k6 & Rahasia Persentil p(95)
+
+Ketika menjalankan tes k6 di terminal, terdapat metrik-metrik krusial yang wajib dipahami oleh QA Engineer:
+
+### 1. Kamus Cepat Metrik Terminal k6
+* **`checks` (Validasi Fungsional):** Persentase keberhasilan assertion status kode atau body response (contoh: `status 200`, `dapat accessToken`).
+* **`http_req_duration` (Waktu Bolak-balik / RTT):** Murni durasi dari request dikirim, diproses server, hingga seluruh respon selesai diunduh. Durasi `sleep()` **TIDAK** dihitung di sini.
+* **`iteration_duration` (Durasi 1 Putaran Penuh):** Waktu bolak-balik request + waktu jeda `sleep(1)` + waktu eksekusi kode JavaScript.
+* **`http_reqs: 351 (55.8/s)` (Throughput / RPS):**
+  * `351`: Total request yang berhasil dikirim seluruh robot selama pengetesan.
+  * `55.8/s`: *Requests Per Second* (RPS), kecepatan server memproses rata-rata 55 transaksi per detik.
+* **`running (06.3s)` vs `duration: "5s"` (Graceful Stop):** Batas `5s` adalah batas waktu k6 memulai iterasi baru. Jika ada request yang kepalang berjalan di detik ke-4.9, k6 memberi toleransi waktu sejenak (*gracefulStop*) agar request selesai dengan wajar (total waktu menjadi 6.3 detik).
+
+---
+
+### 2. Membedah Tuntas Konsep Persentil `p(95)` (Bukan Rata-rata!)
+`p(95)` adalah **nilai batas pada urutan ranking ke-95%** setelah seluruh data request diurutkan dari yang paling cepat ke paling lambat.
+
+#### A. Yang Diurutkan Adalah TOTAL REQUEST, Bukan Jumlah VU:
+* Virtual Users (VU) hanyalah kurir yang bolak-balik mengirim request.
+* Jika 100 VU menghasilkan 351 request, maka **351 catatan waktu request itulah yang dijejerkan**:
+  $$\text{Ranking Target} = \text{Total Request} \times 95\% = 351 \times 0.95 = 333$$
+* k6 cukup melihat catatan waktu milik request di **ranking ke-333**. Nilai waktu itulah yang menjadi `p(95) = 1.32s`.
+
+#### B. Mengapa Cukup Memeriksa 1 Request di Ranking 95?
+Karena datanya sudah diurutkan dari yang tercepat ke yang terlelet:
+* Jika request di posisi ke-95% saja berhasil selesai di bawah 1 detik (`< 1000ms`), maka **seluruh 94% request di depannya PASTI lebih cepat dari 1 detik**.
+* **Analogi Kelas Ujian:** Jika syarat kelulusan kelas adalah nilai minimal 75, dan anak di urutan ke-95% nilainya 80, maka otomatis 95% anak di kelas tersebut dinyatakan lulus!
+
+---
+
+### 3. Mengapa Industri Menggunakan `p(95)` daripada Rata-rata (`avg`)?
+* **Jebakan Rata-rata (The "Raffi Ahmad" Effect):**
+  * Rata-rata sangat mudah dimanipulasi oleh angka ekstrem (*outlier*).
+  * Di warkop ada 9 pengangguran (penghasilan Rp 0) dan 1 konglomerat (penghasilan Rp 1 Miliar). Rata-rata penghasilan warkop menjadi Rp 100 Juta/orang, padahal 90% orang tidak punya uang.
+  * Di server: Jika 95 request super cepat (0.1 detik) tetapi 5 request macet total (10 detik), nilai rata-rata akan bias dan menipu.
+* **Jaminan Pengalaman Nyata (Golden Sweet Spot):**
+  * `p(95)` menjamin **95% mayoritas pengguna mendapatkan pengalaman cepat dan mulus**.
+  * Industri memaklumi 5% anomali jaringan di internet publik tanpa perlu membuang biaya server triliunan rupiah demi mengejar p100 (100% sempurna tanpa cela).
+
+
 
 
 
