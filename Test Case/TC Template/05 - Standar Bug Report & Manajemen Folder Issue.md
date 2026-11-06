@@ -310,3 +310,67 @@ Setiap ada penambahan issue baru atau pembaruan retest:
 4. **Git Versioning:**
    * Lakukan commit git lokal pada vault `D:\Obsidian\dani` setiap kali selesai menambahkan atau memperbarui status issue:
      `git commit -m "docs(<project>): log new bug <No> - <Judul>"`
+---
+
+## 📋 4. Template Resmi Tim (Huly Official Team Template)
+
+> **PENTING**: Template ini berlaku untuk SEMUA issue baru mulai berlakunya standar ini. Issue lama dibiarkan as-is dengan format lama.
+
+### Template Baku `report.txt` (New Team Format):
+
+```
+🐛 [BUG] | {Short Summary}
+
+Priority: Select One (Urgent 🔴 | High 🟠 | Normal 🟡 | Low 🔵)
+
+Label: bug triage-needed [Module Name]
+
+Linked Issue/PR: # (If applicable)
+
+📖 Overview
+
+> {Give a 1-2 sentence high-level summary of the failure.}
+
+* **Impact:** {What does this stop the user from doing?}
+* **Frequency:** {e.g., 100% of the time, intermittent, only on first load}
+
+🛠 Steps to Reproduce
+
+1. Log in to the workspace.
+2. Navigate to {Specific Page/Sidebar}.
+3. Perform action: {e.g., Click 'Save'}.
+4. Observe the result.
+
+🔍 Technical Context
+
+| Field | Detail |
+|---|---|
+| **Expected** | {What should have happened?} |
+| **Actual** | {What did happen? Include error codes if any} |
+| **Environment** | {Production / Staging / Local} |
+| **Device/OS** | {e.g., macOS Sonoma / Chrome 122} |
+| **User Role** | {e.g., Admin / Guest / Member} |
+
+🪵 Logs & Media
+
+* **Screenshots:** (Drag and drop images here)
+* **Console Logs:**
+
+✅ Checklist for Fix
+
+* [ ] Reproduce locally.
+* [ ] Add regression test.
+* [ ] Verify fix in Staging.
+* [ ] Update documentation (if behavior changed).
+```
+
+### Aturan Tambahan untuk Template Tim:
+
+1. **Emoji Bug**: Gunakan 🐛 (bug emoji) BUKAN 🐞 (beetle emoji) — sesuai screenshot template tim.
+2. **Overview Section**: Gunakan blockquote (`> `) untuk kalimat ringkasan — ini bagian dari format template tim, bukan styling Huly biasa.
+3. **Steps to Reproduce (STR)**:
+   * Sertakan STR default (4 langkah) untuk SEMUA issue baru.
+   * Jika STR **kompleks/panjang** (lebih dari 4-5 langkah custom), tampilkan draf STR ke user dan **minta approval** sebelum memasukkan ke report.txt.
+   * Untuk bug sederhana (1-2 klik), AI boleh mengusulkan skip STR dan menunggu konfirmasi user.
+4. **Screenshots / Evidence**: Di Huly, gambar di-drag-drop langsung ke bagian "🪵 Logs & Media → Screenshots". Catbox links TIDAK dipakai di bagian ini — hanya di Obsidian tracker dan report.txt lokal jika diperlukan referensi.
+5. **Template Lama**: Issue-issue sebelumnya (format lama) dibiarkan AS-IS, tidak perlu dikonversi.
