@@ -318,45 +318,50 @@ Setiap ada penambahan issue baru atau pembaruan retest:
 
 ### Template Baku `report.txt` (New Team Format):
 
-```
+```markdown
 🐛 [BUG] | {Short Summary}
 
-Priority: Select One (Urgent 🔴 | High 🟠 | Normal 🟡 | Low 🔵)
+**Priority:** Select One (Urgent 🔴 | High 🟠 | Normal 🟡 | Low 🔵 )
 
-Label: bug triage-needed [Module Name]
+**Label:** `bug` `triage-needed` `[Module Name]`
 
-Linked Issue/PR: # (If applicable)
+**Linked Issue/PR:** # (If applicable)
 
-📖 Overview
+## 📖 Overview
 
 > {Give a 1-2 sentence high-level summary of the failure.}
 
-* **Impact:** {What does this stop the user from doing?}
-* **Frequency:** {e.g., 100% of the time, intermittent, only on first load}
+* **Impact:** What does this stop the user from doing?
+* **Frequency:** (e.g., 100% of the time, intermittent, only on first load)
 
-🛠 Steps to Reproduce
+## 🛠 Steps to Reproduce
 
 1. Log in to the workspace.
-2. Navigate to {Specific Page/Sidebar}.
-3. Perform action: {e.g., Click 'Save'}.
+2. Navigate to **[Specific Page/Sidebar]**.
+3. Perform action: **[e.g., Click 'Save']**.
 4. Observe the result.
 
-🔍 Technical Context
+## 🔍 Technical Context
 
 | Field | Detail |
 |---|---|
-| **Expected** | {What should have happened?} |
-| **Actual** | {What did happen? Include error codes if any} |
-| **Environment** | {Production / Staging / Local} |
-| **Device/OS** | {e.g., macOS Sonoma / Chrome 122} |
-| **User Role** | {e.g., Admin / Guest / Member} |
+| **Expected** | What *should* have happened? |
+| **Actual** | What *did* happen? (Include error codes if any) |
+| **Environment** | [e.g., Production / Staging / Local] |
+| **Device/OS** | [e.g., macOS Sonoma / Chrome 122] |
+| **User Role** | [e.g., Admin / Guest / Member] |
 
-🪵 Logs & Media
+## 🪵 Logs & Media
 
 * **Screenshots:** (Drag and drop images here)
 * **Console Logs:**
 
-✅ Checklist for Fix
+```bash
+# Paste any relevant stack traces or console errors here
+Uncaught TypeError: Cannot read properties of undefined (reading 'id')
+```
+
+## ✅ Checklist for Fix
 
 * [ ] Reproduce locally.
 * [ ] Add regression test.
