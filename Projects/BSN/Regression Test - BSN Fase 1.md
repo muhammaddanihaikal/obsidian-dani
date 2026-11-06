@@ -63,6 +63,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence Awal**:
 >   * Figma Stok Unit: [https://files.catbox.moe/pie7mg.png](https://files.catbox.moe/pie7mg.png)
 >   * App Nama Nomor Unit: [https://files.catbox.moe/yaqejq.png](https://files.catbox.moe/yaqejq.png)
+<br>
+
+### 🐞 [BUG] | Gagal Menambah Aset Baru Muncul Error
+
+> * **Menu**: Stock Management → Aset Baru
+> * **Status**: Open
+> * **Overview**: Sistem memunculkan error "Oops something went wrong" saat user menekan tombol "Selesai dan Ajukan Aset", sehingga proses penambahan aset baru gagal disimpan.
+> * **Expected**: Aset baru berhasil diajukan dan tersimpan ke sistem tanpa memunculkan pesan error
+> * **Actual**: Muncul toast error "Oops something went wrong, Contact Developer for the issue" dengan Support ID: 88f79a1f1f4b8aa999a25427101dc922
+> * **Evidence Awal**:
+>   * Toast Error Ajukan Aset: [https://files.catbox.moe/ugr7f1.png](https://files.catbox.moe/ugr7f1.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
 
 ---
 
