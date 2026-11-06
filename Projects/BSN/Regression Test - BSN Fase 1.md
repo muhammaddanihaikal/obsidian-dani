@@ -38,7 +38,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 6 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| **Total** | | **36** | **0 Reported / 36 Pending** | |
+| **Total** | | **37** | **0 Reported / 37 Pending** | |
 
 ---
 
@@ -47,9 +47,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 33 | 19 Issue Internal, 14 Issue External |
+| 🔴 **Open** | 34 | 19 Issue Internal, 14 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 0 | - |
+
+---
+
+### 🐛 [BUG] | Field Nama / Nomor Unit Aset Belum Diganti Menjadi Stok Unit
+
+> * **Menu**: Stock Management → Aset Baru
+> * **Status**: Open
+> * **Overview**: Field "Nama / Nomor Unit Aset" pada form tambah Aset Baru masih tampil di aplikasi, padahal di desain Figma sudah diganti menjadi field "Stok Unit" beserta helper text "Jumlah Stok Unit".
+> * **Expected**: Field "Stok Unit" dengan helper text "Jumlah Stok Unit" tampil sesuai desain Figma
+> * **Actual**: Field "Nama / Nomor Unit Aset" dengan placeholder "Contoh: Blok B3 No. 12" masih tampil
+> * **Evidence Awal**:
+>   * Figma Stok Unit: [https://files.catbox.moe/pie7mg.png](https://files.catbox.moe/pie7mg.png)
+>   * App Nama Nomor Unit: [https://files.catbox.moe/yaqejq.png](https://files.catbox.moe/yaqejq.png)
 
 ---
 

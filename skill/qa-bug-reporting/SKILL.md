@@ -145,3 +145,64 @@ Saat menyajikan daftar issue kepada user untuk di-copas ke board Huly:
      git -C "D:\Obsidian\dani" commit -am "docs(QA): <ringkasan update>"
      git -C "D:\Obsidian\dani" push origin main
      ```
+---
+
+## 🐛 7. Template Resmi Tim Huly (Berlaku untuk Issue Baru)
+
+> Template lama (format `report.txt` dengan Catbox) tetap berlaku untuk issue-issue yang sudah dibuat sebelumnya. Semua issue BARU wajib menggunakan template tim berikut.
+
+### Template Baku `report.txt` (New Team Format):
+
+```
+🐛 [BUG] | {Short Summary}
+
+Priority: Select One (Urgent 🔴 | High 🟠 | Normal 🟡 | Low 🔵)
+
+Label: bug triage-needed [Module Name]
+
+Linked Issue/PR: # (If applicable)
+
+📖 Overview
+
+> {Give a 1-2 sentence high-level summary of the failure.}
+
+* **Impact:** {What does this stop the user from doing?}
+* **Frequency:** {e.g., 100% of the time, intermittent, only on first load}
+
+🛠 Steps to Reproduce
+
+1. Log in to the workspace.
+2. Navigate to {Specific Page/Sidebar}.
+3. Perform action: {e.g., Click 'Save'}.
+4. Observe the result.
+
+🔍 Technical Context
+
+| Field | Detail |
+|---|---|
+| **Expected** | {What should have happened?} |
+| **Actual** | {What did happen? Include error codes if any} |
+| **Environment** | {Production / Staging / Local} |
+| **Device/OS** | {e.g., macOS Sonoma / Chrome 122} |
+| **User Role** | {e.g., Admin / Guest / Member} |
+
+🪵 Logs & Media
+
+* **Screenshots:** (Drag and drop images here)
+* **Console Logs:**
+
+✅ Checklist for Fix
+
+* [ ] Reproduce locally.
+* [ ] Add regression test.
+* [ ] Verify fix in Staging.
+* [ ] Update documentation (if behavior changed).
+```
+
+### Aturan Penting Template Tim:
+
+1. **Emoji Bug**: 🐛 (bukan 🐞) — sesuai template resmi tim.
+2. **Overview blockquote**: `> ` BOLEH dipakai di sini karena ini bagian dari struktur template tim.
+3. **Steps to Reproduce**: Selalu sertakan. Jika STR perlu langkah custom yang panjang, tampilkan draf ke user dan tunggu approval sebelum finalisasi.
+4. **Screenshots di Huly**: Drag-and-drop langsung ke bagian Logs & Media — BUKAN link Catbox di bagian ini.
+5. **Issue lama**: Dibiarkan as-is dengan format lama, tidak perlu dikonversi.
