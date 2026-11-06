@@ -319,7 +319,7 @@ Setiap ada penambahan issue baru atau pembaruan retest:
 ### Template Baku `report.txt` (New Team Format):
 
 ```markdown
-🐛 [BUG] | {Short Summary}
+🐞 [BUG] | {Short Summary}
 
 **Priority:** Select One (Urgent 🔴 | High 🟠 | Normal 🟡 | Low 🔵 )
 
@@ -371,7 +371,7 @@ Uncaught TypeError: Cannot read properties of undefined (reading 'id')
 
 ### Aturan Tambahan untuk Template Tim:
 
-1. **Emoji Bug**: Gunakan 🐛 (bug emoji) BUKAN 🐞 (beetle emoji) — sesuai screenshot template tim.
+1. **Emoji Bug**: Gunakan 🐞 (bug emoji) BUKAN 🐞 (beetle emoji) — sesuai screenshot template tim.
 2. **Overview Section**: Gunakan blockquote (`> `) untuk kalimat ringkasan — ini bagian dari format template tim, bukan styling Huly biasa.
 3. **Steps to Reproduce (STR)**:
    * Sertakan STR default (4 langkah) untuk SEMUA issue baru.

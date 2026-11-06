@@ -147,14 +147,14 @@ Saat menyajikan daftar issue kepada user untuk di-copas ke board Huly:
      ```
 ---
 
-## 🐛 7. Template Resmi Tim Huly (Berlaku untuk Issue Baru)
+## 🐞 7. Template Resmi Tim Huly (Berlaku untuk Issue Baru)
 
 > Template lama (format `report.txt` dengan Catbox) tetap berlaku untuk issue-issue yang sudah dibuat sebelumnya. Semua issue BARU wajib menggunakan template tim berikut.
 
 ### Template Baku `report.txt` (New Team Format):
 
 ```markdown
-🐛 [BUG] | {Short Summary}
+🐞 [BUG] | {Short Summary}
 
 **Priority:** Select One (Urgent 🔴 | High 🟠 | Normal 🟡 | Low 🔵 )
 
@@ -206,7 +206,7 @@ Uncaught TypeError: Cannot read properties of undefined (reading 'id')
 
 ### Aturan Penting Template Tim:
 
-1. **Emoji Bug**: 🐛 (bukan 🐞) — sesuai template resmi tim.
+1. **Emoji Bug**: 🐞 (bukan 🐞) — sesuai template resmi tim.
 2. **Overview blockquote**: `> ` BOLEH dipakai di sini karena ini bagian dari struktur template tim.
 3. **Steps to Reproduce**: Selalu sertakan. Jika STR perlu langkah custom yang panjang, tampilkan draf ke user dan tunggu approval sebelum finalisasi.
 4. **Screenshots di Huly**: Drag-and-drop langsung ke bagian Logs & Media — BUKAN link Catbox di bagian ini.

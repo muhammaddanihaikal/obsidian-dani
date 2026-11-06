@@ -9,20 +9,20 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 | No | Menu | Sub Menu | Status |
 |----|------|----------|--------|
-| 1 | Authentication | Logout | 🐛 Bug |
-| 2 | Authentication | Login | 🐛 Bug |
-| 3 | User Management | Role | 🐛 Bug |
-| 4 | User Management | User | 🐛 Bug & 🟢 Done |
-| 5 | Office Management | Office Type | 🐛 Bug |
-| 6 | Authentication (External) | Register Nasabah | 🐛 Bug |
-| 7 | Authentication (External) | Login | 🐛 Bug |
-| 8 | Beranda (External) | Home Page | 🐛 Bug |
-| 9 | Developer | List Developer | 🐛 Bug |
-| 10 | Media & Information | FAQ | 🐛 Bug |
-| 11 | Media & Information | Article | 🐛 Bug |
-| 12 | Media & Information | Banner Setting | 🐛 Bug |
-| 13 | User Management | User Block | 🐛 Bug |
-| 14 | User Management | User External | 🐛 Bug |
+| 1 | Authentication | Logout | 🐞 Bug |
+| 2 | Authentication | Login | 🐞 Bug |
+| 3 | User Management | Role | 🐞 Bug |
+| 4 | User Management | User | 🐞 Bug & 🟢 Done |
+| 5 | Office Management | Office Type | 🐞 Bug |
+| 6 | Authentication (External) | Register Nasabah | 🐞 Bug |
+| 7 | Authentication (External) | Login | 🐞 Bug |
+| 8 | Beranda (External) | Home Page | 🐞 Bug |
+| 9 | Developer | List Developer | 🐞 Bug |
+| 10 | Media & Information | FAQ | 🐞 Bug |
+| 11 | Media & Information | Article | 🐞 Bug |
+| 12 | Media & Information | Banner Setting | 🐞 Bug |
+| 13 | User Management | User Block | 🐞 Bug |
+| 14 | User Management | User External | 🐞 Bug |
 
 ---
 
@@ -53,7 +53,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ---
 
-### 🐛 [BUG] | Field Nama / Nomor Unit Aset Belum Diganti Menjadi Stok Unit
+### 🐞 [BUG] | Field Nama / Nomor Unit Aset Belum Diganti Menjadi Stok Unit
 
 > * **Menu**: Stock Management → Aset Baru
 > * **Status**: Open
@@ -66,7 +66,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 ---
 
-## 🐛 Bug Report / Isu Temuan
+## 🐞 Bug Report / Isu Temuan
 
 ### 🐞 [BUG] | Gagal Logout Akun dan Muncul Halaman Error
 
