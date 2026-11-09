@@ -38,7 +38,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 6 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| **Total** | | **39** | **0 Reported / 39 Pending** | |
+| **Total** | | **40** | **0 Reported / 40 Pending** | |
 
 ---
 
@@ -47,7 +47,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 36 | 19 Issue Internal, 14 Issue External |
+| 🔴 **Open** | 37 | 19 Issue Internal, 14 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -85,6 +85,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Muncul toast error "Oops something went wrong, Contact Developer for the issue" dengan Support ID: 53ee322503b6b74edde680b93f606f95
 > * **Evidence Awal**:
 >   * Toast Error Simpan Draf: [https://files.catbox.moe/rbbzha.png](https://files.catbox.moe/rbbzha.png)
+<br>
+
+### 🐞 [BUG] | Urutan dan Waktu Riwayat Aktivitas Aset Tidak Sesuai
+
+> * **Menu**: Stock Management → Aset Baru
+> * **Status**: Open
+> * **Overview**: Timeline pada Riwayat Aktivitas Aset tidak menampilkan urutan dan waktu yang sesuai, di mana aktivitas terbaru seperti "Menunggu Verifikasi" setelah edit aset justru tampil di bawah dan jamnya tidak ter-update.
+> * **Expected**: Riwayat Aktivitas Aset terurut kronologis dari aktivitas terbaru di paling atas dengan tanggal dan jam yang akurat
+> * **Actual**: Aktivitas baru "Menunggu Verifikasi" tampil di bawah status "Terverifikasi" lama dan jamnya tidak ter-update sesuai waktu edit (hanya status "Terverifikasi" yang urutan dan jamnya benar)
+> * **Evidence Awal**:
+>   * Urutan Riwayat Aktivitas Salah: [https://files.catbox.moe/6goyhu.png](https://files.catbox.moe/6goyhu.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
