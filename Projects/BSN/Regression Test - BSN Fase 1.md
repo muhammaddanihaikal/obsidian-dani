@@ -38,7 +38,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 6 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| **Total** | | **40** | **0 Reported / 40 Pending** | |
+| **Total** | | **41** | **0 Reported / 41 Pending** | |
 
 ---
 
@@ -47,7 +47,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 37 | 19 Issue Internal, 14 Issue External |
+| 🔴 **Open** | 38 | 19 Issue Internal, 14 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -96,6 +96,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Aktivitas baru "Menunggu Verifikasi" tampil di bawah status "Terverifikasi" lama dan jamnya tidak ter-update sesuai waktu edit (hanya status "Terverifikasi" yang urutan dan jamnya benar)
 > * **Evidence Awal**:
 >   * Urutan Riwayat Aktivitas Salah: [https://files.catbox.moe/6goyhu.png](https://files.catbox.moe/6goyhu.png)
+<br>
+
+### 🐞 [BUG] | Label Dokumen Legalitas pada Detail Aset Belum Sesuai Berkas yang Dipilih
+
+> * **Menu**: Stock Management → Aset Baru
+> * **Status**: Open
+> * **Overview**: Pada section Dokumen Legalitas & Perizinan di detail aset, kartu berkas yang diunggah hanya menampilkan label statis "Dokumen", bukan nama jenis berkas legalitas yang dipilih saat penginputan (seperti "Akta Jual Beli (AJB)" atau "Akta Kuasa Menjual (SKM/KUM)").
+> * **Expected**: Setiap kartu berkas menampilkan nama jenis dokumen legalitas yang sesuai dengan pilihan saat upload (misal: "Akta Jual Beli (AJB)" dan "Akta Kuasa Menjual (SKM/KUM)")
+> * **Actual**: Seluruh kartu berkas hanya menampilkan label umum statis "Dokumen"
+> * **Evidence Awal**:
+>   * Form Pilihan Berkas Legalitas: [https://files.catbox.moe/onrymc.png](https://files.catbox.moe/onrymc.png)
+>   * Detail Aset Label Dokumen: [https://files.catbox.moe/4e7ege.png](https://files.catbox.moe/4e7ege.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
