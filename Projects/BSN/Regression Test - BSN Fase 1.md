@@ -38,7 +38,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 6 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| **Total** | | **38** | **0 Reported / 38 Pending** | |
+| **Total** | | **39** | **0 Reported / 39 Pending** | |
 
 ---
 
@@ -47,7 +47,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 35 | 19 Issue Internal, 14 Issue External |
+| 🔴 **Open** | 36 | 19 Issue Internal, 14 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -74,6 +74,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Muncul toast error "Oops something went wrong, Contact Developer for the issue" dengan Support ID: 88f79a1f1f4b8aa999a25427101dc922
 > * **Evidence Awal**:
 >   * Toast Error Ajukan Aset: [https://files.catbox.moe/ugr7f1.png](https://files.catbox.moe/ugr7f1.png)
+<br>
+
+### 🐞 [BUG] | Gagal Menyimpan Draf Aset Baru Muncul Error
+
+> * **Menu**: Stock Management → Aset Baru
+> * **Status**: Open
+> * **Overview**: Sistem memunculkan error "Oops something went wrong" saat user menekan tombol "Simpan sebagai Draft", sehingga draf aset baru gagal disimpan.
+> * **Expected**: Draf aset baru berhasil disimpan ke sistem tanpa memunculkan pesan error
+> * **Actual**: Muncul toast error "Oops something went wrong, Contact Developer for the issue" dengan Support ID: 53ee322503b6b74edde680b93f606f95
+> * **Evidence Awal**:
+>   * Toast Error Simpan Draf: [https://files.catbox.moe/rbbzha.png](https://files.catbox.moe/rbbzha.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
