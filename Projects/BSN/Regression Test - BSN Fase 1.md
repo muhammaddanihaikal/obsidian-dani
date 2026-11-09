@@ -38,7 +38,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 6 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| **Total** | | **41** | **0 Reported / 41 Pending** | |
+| **Total** | | **42** | **0 Reported / 42 Pending** | |
 
 ---
 
@@ -47,7 +47,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 38 | 19 Issue Internal, 14 Issue External |
+| 🔴 **Open** | 39 | 19 Issue Internal, 14 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -108,6 +108,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence Awal**:
 >   * Form Pilihan Berkas Legalitas: [https://files.catbox.moe/onrymc.png](https://files.catbox.moe/onrymc.png)
 >   * Detail Aset Label Dokumen: [https://files.catbox.moe/4e7ege.png](https://files.catbox.moe/4e7ege.png)
+<br>
+
+### 🐞 [BUG] | Field Spesifikasi Dimensi dan Ruang Utama Belum Memiliki Tanda Bintang
+
+> * **Menu**: Stock Management → Aset Baru
+> * **Status**: Open
+> * **Overview**: Pada form tambah Aset Baru section Spesifikasi Dimensi & Ruang Utama, field Luas Tanah, Jumlah Lantai, Kamar Tidur, dan Kamar Mandi tidak menampilkan tanda bintang merah (*), padahal seluruh field tersebut bersifat wajib diisi (mandatory) dan memicu validasi error "Wajib diisi".
+> * **Expected**: Seluruh label field mandatory (Luas Tanah, Jumlah Lantai, Kamar Tidur, dan Kamar Mandi) menampilkan tanda bintang merah (*) penanda wajib diisi
+> * **Actual**: Label field Luas Tanah, Jumlah Lantai, Kamar Tidur, dan Kamar Mandi tidak memiliki tanda bintang merah (*), meskipun memunculkan pesan validasi "Wajib diisi"
+> * **Evidence Awal**:
+>   * Field Tanpa Bintang Mandatory: [https://files.catbox.moe/u6o9ia.png](https://files.catbox.moe/u6o9ia.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
