@@ -363,10 +363,10 @@ Uncaught TypeError: Cannot read properties of undefined (reading 'id')
 
 ## ✅ Checklist for Fix
 
-* [ ] Reproduce locally.
-* [ ] Add regression test.
-* [ ] Verify fix in Staging.
-* [ ] Update documentation (if behavior changed).
+• [ ] Reproduce locally.
+• [ ] Add regression test.
+• [ ] Verify fix in Staging.
+• [ ] Update documentation (if behavior changed).
 ```
 
 ### Aturan Tambahan untuk Template Tim:
