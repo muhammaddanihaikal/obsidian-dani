@@ -176,3 +176,4 @@ Perlu inspect live di `https://terasrumah-sandbox.zegen.app`:
 | 2026-10-26 | Adopsi gaya OrangeHRM + BasePage + Skeleton 10 TC User Management & testcase .md |
 | 2026-10-26 | TC-INT-AUTH-01 PASSED: Modular Mailpit OTP helper + DashboardPage + MFA login flow (commit `75494f9`) |
 | 2026-11-10 | Skeleton Stock Management (Aset Baru) dibuat: 5 dummy images + Page Objects (Wizard 6 Langkah) + Test Skeleton + tc_stock_management.md |
+| 2026-11-10 | Fix Mailpit Stale OTP: Polling berbasis initial ID pembanding agar tidak mengambil OTP dari run sebelumnya |
