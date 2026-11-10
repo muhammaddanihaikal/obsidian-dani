@@ -20,7 +20,7 @@
 | 0b | Reconnaisance (inspect live selectors) | ✅ Done | Selector login, OTP, dashboard verified |
 | 1 | Internal Auth (login, MFA, logout) | 🔄 In Progress | TC-INT-AUTH-01 PASSED (Login + MFA OTP) |
 | 2 | Internal User Management (CRUD) | ⏳ Ready (Skeleton) | 10 TC Skeleton siap diisi Dani |
-| 3 | Internal modul lain | 🔲 Todo | - |
+| 3 | Stock Management - Aset Baru (Wizard 6 Langkah) | 🔄 In Progress | Skeleton Page Objects, Test, & 5 Dummy Images Siap |
 | 4 | External Portal | 🔲 Todo | Setelah internal stable |
 | 5 | CI/CD Pipeline | 🔲 Todo | GitHub Actions |
 
@@ -54,6 +54,9 @@ Automation Test/
 │   │   ├── navbar.py         ← Navbar & Logout Internal
 │   │   ├── dashboard/
 │   │   │   └── dashboard_page.py ← Dashboard Internal
+│   │   ├── stock_management/
+│   │   │   ├── asset_list_page.py ← List & Navigasi Input Aset
+│   │   │   └── create_asset_page.py ← Form Wizard 6 Langkah
 │   │   └── user_management/
 │   │       ├── user_list_page.py
 │   │       ├── add_user_page.py
@@ -63,12 +66,15 @@ Automation Test/
 ├── tests/
 │   ├── internal/
 │   │   ├── test_auth.py      ← TC-INT-AUTH-01..04
+│   │   ├── stock_management/
+│   │   │   └── test_create_asset.py ← TC-INT-STOCK-01 (Pola AAA)
 │   │   └── user_management/
 │   │       └── test_user.py  ← TC-INT-USER-01..10 (Pola AAA)
 │   └── external/
 └── testcase/
     └── internal/
         ├── tc_auth.md        ← Dokumentasi Test Case Auth
+        ├── tc_stock_management.md ← Dokumentasi Test Case Aset Baru (Wizard 6 Langkah)
         └── tc_user_management.md ← Dokumentasi Test Case User Management (10 TC)
 ```
 
@@ -166,3 +172,4 @@ Perlu inspect live di `https://terasrumah-sandbox.zegen.app`:
 | 2026-10-26 | Phase 0a selesai: setup project, git init, commit pertama |
 | 2026-10-26 | Adopsi gaya OrangeHRM + BasePage + Skeleton 10 TC User Management & testcase .md |
 | 2026-10-26 | TC-INT-AUTH-01 PASSED: Modular Mailpit OTP helper + DashboardPage + MFA login flow (commit `75494f9`) |
+| 2026-11-10 | Skeleton Stock Management (Aset Baru) dibuat: 5 dummy images + Page Objects (Wizard 6 Langkah) + Test Skeleton + tc_stock_management.md |
