@@ -52,6 +52,7 @@ Automation Test/
 │   ├── internal/
 │   │   ├── login_page.py     ← Inherit BasePage
 │   │   ├── navbar.py         ← Navbar & Logout Internal
+│   │   ├── sidebar.py        ← Sidebar Navigasi Menu Portal Internal
 │   │   ├── dashboard/
 │   │   │   └── dashboard_page.py ← Dashboard Internal
 │   │   ├── stock_management/
