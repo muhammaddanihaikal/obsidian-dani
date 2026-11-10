@@ -55,8 +55,9 @@ Automation Test/
 │   │   ├── dashboard/
 │   │   │   └── dashboard_page.py ← Dashboard Internal
 │   │   ├── stock_management/
-│   │   │   ├── asset_list_page.py ← List & Navigasi Input Aset
-│   │   │   └── create_asset_page.py ← Form Wizard 6 Langkah
+│   │   │   └── aset_baru/
+│   │   │       ├── asset_baru_list_page.py ← List & Navigasi Input Aset
+│   │   │       └── create_asset_baru_page.py ← Form Wizard 6 Langkah (Skeleton)
 │   │   └── user_management/
 │   │       ├── user_list_page.py
 │   │       ├── add_user_page.py
@@ -67,14 +68,15 @@ Automation Test/
 │   ├── internal/
 │   │   ├── test_auth.py      ← TC-INT-AUTH-01..04
 │   │   ├── stock_management/
-│   │   │   └── test_create_asset.py ← TC-INT-STOCK-01 (Pola AAA)
+│   │   │   └── aset_baru/
+│   │   │       └── test_create_asset_baru.py ← TC-INT-STOCK-01 (Skeleton AAA)
 │   │   └── user_management/
 │   │       └── test_user.py  ← TC-INT-USER-01..10 (Pola AAA)
 │   └── external/
 └── testcase/
     └── internal/
         ├── tc_auth.md        ← Dokumentasi Test Case Auth
-        ├── tc_stock_management.md ← Dokumentasi Test Case Aset Baru (Wizard 6 Langkah)
+        ├── tc_aset_baru.md   ← Dokumentasi Test Case Aset Baru (Wizard 6 Langkah)
         └── tc_user_management.md ← Dokumentasi Test Case User Management (10 TC)
 ```
 
