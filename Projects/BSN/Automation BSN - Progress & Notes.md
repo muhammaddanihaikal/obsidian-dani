@@ -183,3 +183,4 @@ Perlu inspect live di `https://terasrumah-sandbox.zegen.app`:
 | 2026-11-10 | Step 2 (Harga & Promo Coret) PASSED + Real Images Step 3 Galeri (commit 04d9a2a) |
 | 2026-11-11 | Standarisasi Navigasi: Pemisahan smoke test sidebar (test_navigation.py) dan Direct URL entry point |
 | 2026-11-11 | Step 3 (Upload Batch 5 Foto, Checkpoints, Mode Eksplisit 1-per-1, Smart Wait state=hidden) PASSED (commit `bac8c41`) |
+| 2026-11-11 | Step 4 (Dummy PDF AJB & Akta Kuasa Menjual + Dataset Update) Siap (commit `4438993`) |
