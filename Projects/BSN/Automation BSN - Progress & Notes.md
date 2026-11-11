@@ -184,3 +184,4 @@ Perlu inspect live di `https://terasrumah-sandbox.zegen.app`:
 | 2026-11-11 | Standarisasi Navigasi: Pemisahan smoke test sidebar (test_navigation.py) dan Direct URL entry point |
 | 2026-11-11 | Step 3 (Upload Batch 5 Foto, Checkpoints, Mode Eksplisit 1-per-1, Smart Wait state=hidden) PASSED (commit `bac8c41`) |
 | 2026-11-11 | Step 4 (Upload Legalitas PDF via Scoped Locator & Smart Timeout File Visibility) PASSED (commit `b17af67`) |
+| 2026-11-11 | Step 5 (Persiapan Dataset Lokasi & Skeleton Action Method) Siap (commit `311a2ff`) |
