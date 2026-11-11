@@ -182,4 +182,4 @@ Perlu inspect live di `https://terasrumah-sandbox.zegen.app`:
 | 2026-11-10 | Step 1 (Informasi Dasar Aset Baru) & Navigasi Sidebar PASSED (commit a4d5d3b) |
 | 2026-11-10 | Step 2 (Harga & Promo Coret) PASSED + Real Images Step 3 Galeri (commit 04d9a2a) |
 | 2026-11-11 | Standarisasi Navigasi: Pemisahan smoke test sidebar (test_navigation.py) dan Direct URL entry point |
-| 2026-11-11 | Step 3 (Upload Batch 5 Foto & Kategori Denah) PASSED (16.25 detik) |
+| 2026-11-11 | Step 3 (Upload Batch 5 Foto, Dynamic Category Mapping, Single-Anchor Checkpoints) PASSED (commit `41eb658`) |
