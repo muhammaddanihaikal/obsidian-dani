@@ -20,7 +20,7 @@
 | 0b | Reconnaisance (inspect live selectors) | ✅ Done | Selector login, OTP, dashboard verified |
 | 1 | Internal Auth (login, MFA, logout) | 🔄 In Progress | TC-INT-AUTH-01 PASSED (Login + MFA OTP) |
 | 2 | Internal User Management (CRUD) | ⏳ Ready (Skeleton) | 10 TC Skeleton siap diisi Dani |
-| 3 | Stock Management - Aset Baru (Wizard 6 Langkah) | 🔄 In Progress | Step 1 & Step 2 (Harga) PASSED |
+| 3 | Stock Management - Aset Baru (Wizard 6 Langkah) | 🔄 In Progress | Step 1, 2, & Step 3 (Galeri Foto & Denah) PASSED |
 | 4 | External Portal | 🔲 Todo | Setelah internal stable |
 | 5 | CI/CD Pipeline | 🔲 Todo | GitHub Actions |
 
@@ -182,3 +182,4 @@ Perlu inspect live di `https://terasrumah-sandbox.zegen.app`:
 | 2026-11-10 | Step 1 (Informasi Dasar Aset Baru) & Navigasi Sidebar PASSED (commit a4d5d3b) |
 | 2026-11-10 | Step 2 (Harga & Promo Coret) PASSED + Real Images Step 3 Galeri (commit 04d9a2a) |
 | 2026-11-11 | Standarisasi Navigasi: Pemisahan smoke test sidebar (test_navigation.py) dan Direct URL entry point |
+| 2026-11-11 | Step 3 (Upload Batch 5 Foto & Kategori Denah) PASSED (16.25 detik) |
