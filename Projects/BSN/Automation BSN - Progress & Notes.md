@@ -118,6 +118,8 @@ user_list_page.open()  # Otomatis goto BASE_URL + PATH
 | Fixture naming | `logged_in_internal` | Eksplisit per portal |
 | OTP source | Mailpit API | Sandbox email catcher |
 | Naming data tumbal | `[AUTO-QA] <Nama> <Timestamp>` | Isolasi data test |
+| Navigasi Modul | Direct URL (`open()`) | Mencegah cascade failure, Single Responsibility |
+| Navigasi Sidebar | Smoke Test (`test_navigation.py`) | Uji klik rute sidebar tanpa membebani test fitur |
 | Self-healing | ❌ DILARANG tanpa izin user | Anti fake-green |
 
 ---
@@ -179,3 +181,4 @@ Perlu inspect live di `https://terasrumah-sandbox.zegen.app`:
 | 2026-11-10 | Fix Mailpit Stale OTP: Polling berbasis initial ID pembanding agar tidak mengambil OTP dari run sebelumnya |
 | 2026-11-10 | Step 1 (Informasi Dasar Aset Baru) & Navigasi Sidebar PASSED (commit a4d5d3b) |
 | 2026-11-10 | Step 2 (Harga & Promo Coret) PASSED + Real Images Step 3 Galeri (commit 04d9a2a) |
+| 2026-11-11 | Standarisasi Navigasi: Pemisahan smoke test sidebar (test_navigation.py) dan Direct URL entry point |
