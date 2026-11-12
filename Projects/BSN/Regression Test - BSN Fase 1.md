@@ -38,7 +38,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 6 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| **Total** | | **43** | **0 Reported / 43 Pending** | |
+| **Total** | | **44** | **0 Reported / 44 Pending** | |
 
 ---
 
@@ -47,7 +47,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 40 | 19 Issue Internal, 14 Issue External |
+| 🔴 **Open** | 41 | 19 Issue Internal, 14 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -131,6 +131,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence Awal**:
 >   * Search Tipe Aset Tidak Berfungsi: [https://files.catbox.moe/wwbw8q.png](https://files.catbox.moe/wwbw8q.png)
 >   * Pilihan Klaster Tanpa Search: [https://files.catbox.moe/zpu7zl.png](https://files.catbox.moe/zpu7zl.png)
+<br>
+
+### 🐞 [BUG] | Urutan Opsi Dropdown Tipe Aset Belum Sesuai Ketentuan
+
+> * **Menu**: Stock Management → Aset Baru
+> * **Status**: Open
+> * **Overview**: Urutan opsi pada dropdown Tipe Aset belum sesuai aturan prioritas 3 teratas (1. Rumah, 2. Apartemen, 3. Ruko). Saat ini urutan opsi pada sistem masih menampilkan Apartemen, Gedung Kantor, Gudang, Hotel, dst.
+> * **Expected**: Tiga opsi teratas pada dropdown Tipe Aset berurutan: 1. Rumah, 2. Apartemen, 3. Ruko (diikuti tipe aset lainnya)
+> * **Actual**: Urutan opsi dropdown Tipe Aset belum sesuai aturan prioritas (menampilkan Apartemen, Gedung Kantor, Gudang, dst.)
+> * **Evidence Awal**:
+>   * Urutan Dropdown Tipe Aset: [https://files.catbox.moe/8n0yoi.png](https://files.catbox.moe/8n0yoi.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
