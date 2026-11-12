@@ -27,7 +27,27 @@ Dokumen ini adalah aturan wajib (SOP) untuk penulisan kode automation testing me
 Mengikuti standar umum *programmer* Python:
 - **Nama File & Folder:** Gunakan huruf kecil semua dengan garis bawah (contoh: `login_page.py`, `test_login.py`).
 - **Nama Class:** Gunakan *PascalCase* (contoh: `LoginPage`, `DashboardPage`).
-- **Nama Fungsi & Variabel:** Gunakan *snake_case* (contoh: `test_login_valid`, `error_message`, `login_button`).
+- **Nama Fungsi & Variabel:** Gunakan *snake_case* (contoh: `test_login_valid`, `error_message`, `login_btn`).
+
+### 2.1 Konvensi Akhiran Variabel Locator (Suffix Dictionary)
+Untuk membedakan jenis elemen secara visual tanpa harus membaca definisi lokatornya, gunakan akhiran baku berikut:
+
+| Tipe Elemen UI | Suffix Baku | Contoh Variabel | Alasan / Standar |
+|---|---|---|---|
+| **Button / Tombol** | `_btn` | `submit_btn`, `tambah_destinasi_btn`, `batal_btn` | Singkat, standar umum dev & QA |
+| **Input Text / Number** | `_input` | `alamat_input`, `koordinat_input`, `email_input` | Jelas untuk field ketik |
+| **Dropdown / Select** | `_select` | `provinsi_select`, `kota_select`, `role_select` | Khusus elemen dropdown/combo |
+| **Checkbox** | `_checkbox` | `syarat_ketentuan_checkbox`, `dokumen_checkbox` | Khusus kotak centang |
+| **Radio Button** | `_radio` | `gender_male_radio`, `pembayaran_cash_radio` | Khusus pilihan radio |
+| **Toggle / Switch** | `_switch` | `promo_switch`, `aktif_switch` | Khusus on/off switch |
+| **Textarea (Multiline)** | `_textarea` | `catatan_textarea`, `deskripsi_textarea` | Membedakan dari input 1 baris |
+| **File Upload Input** | `_file_input` | `dokumen_file_input`, `foto_file_input` | Input tersembunyi `type="file"` |
+| **Modal / Dialog** | `_modal` | `destinasi_modal`, `konfirmasi_modal` | Kontainer popup/dialog |
+| **Card / Box / Wrapper** | `_card` | `dokumen_card`, `aset_card` | Komponen kartu pembungkus |
+| **Table** | `_table` | `user_table`, `aset_table` | Elemen tabel data |
+| **Link / Hyperlink** | `_link` | `lupa_password_link`, `bantuan_link` | Elemen anchor navigasi |
+| **Tab Bar / Menu Tab** | `_tab` | `informasi_tab`, `riwayat_tab` | Tab navigasi form/halaman |
+| **Toast / Alert Banner** | `_toast` / `_alert` | `success_toast`, `warning_alert` | Notifikasi mengambang/banner |
 
 ## 3. Strategi Pencarian Elemen (Locator)
 Pencarian elemen **WAJIB** mengikuti urutan prioritas di bawah ini (dari yang paling diutamakan sampai pilihan terakhir):
