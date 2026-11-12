@@ -38,7 +38,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 6 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| **Total** | | **42** | **0 Reported / 42 Pending** | |
+| **Total** | | **43** | **0 Reported / 43 Pending** | |
 
 ---
 
@@ -47,7 +47,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 39 | 19 Issue Internal, 14 Issue External |
+| 🔴 **Open** | 40 | 19 Issue Internal, 14 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -119,6 +119,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Label field Luas Tanah, Jumlah Lantai, Kamar Tidur, dan Kamar Mandi tidak memiliki tanda bintang merah (*), meskipun memunculkan pesan validasi "Wajib diisi"
 > * **Evidence Awal**:
 >   * Field Tanpa Bintang Mandatory: [https://files.catbox.moe/u6o9ia.png](https://files.catbox.moe/u6o9ia.png)
+<br>
+
+### 🐞 [BUG] | Fitur Search pada Field Tipe Aset dan Pilihan Klaster Bermasalah
+
+> * **Menu**: Stock Management → Aset Baru
+> * **Status**: Open
+> * **Overview**: Terdapat kendala pada fitur pencarian form Aset Baru: search pada field Tipe Aset belum berfungsi (opsi tidak terfilter saat mengetik), dan belum tersedia fitur search pada field Pilihan Klaster.
+> * **Expected**: Pencarian pada field Tipe Aset berfungsi memfilter opsi dropdown, dan field Pilihan Klaster menyediakan fitur search
+> * **Actual**: Search pada field Tipe Aset belum berfungsi memfilter data, serta field Pilihan Klaster belum memiliki fitur search
+> * **Evidence Awal**:
+>   * Search Tipe Aset Tidak Berfungsi: [https://files.catbox.moe/wwbw8q.png](https://files.catbox.moe/wwbw8q.png)
+>   * Pilihan Klaster Tanpa Search: [https://files.catbox.moe/zpu7zl.png](https://files.catbox.moe/zpu7zl.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
