@@ -185,3 +185,4 @@ Perlu inspect live di `https://terasrumah-sandbox.zegen.app`:
 | 2026-11-11 | Step 3 (Upload Batch 5 Foto, Checkpoints, Mode Eksplisit 1-per-1, Smart Wait state=hidden) PASSED (commit `bac8c41`) |
 | 2026-11-11 | Step 4 (Upload Legalitas PDF via Scoped Locator & Smart Timeout File Visibility) PASSED (commit `b17af67`) |
 | 2026-11-11 | Step 5 (Cascading Dropdown Wilayah & Tambah 2 Destinasi Strategis via Modal) PASSED (commit `7c9f9fc`) |
+| 2026-11-12 | Menambahkan CHEATSHEET.md di root project untuk command running & codegen session reuse (commit `e2a6514`) |
