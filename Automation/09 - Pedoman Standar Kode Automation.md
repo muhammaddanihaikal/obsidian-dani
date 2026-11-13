@@ -78,4 +78,5 @@ Pencarian elemen **WAJIB** mengikuti urutan prioritas di bawah ini (dari yang pa
   - **WAJIB** ada di setiap fungsi Page (cukup 1 baris ringkas) untuk *hover tooltip* di VS Code.
   - Di fungsi Test, jika sudah ada `@allure.title(...)`, docstring dihilangkan agar tidak redundan.
 - **Komentar Biasa (`#`):**
-  - Digunakan untuk pembatas pola **AAA** (`# 1. Arrange (persiapan)`, `# 2. Act (aksi)`, `# 3. Assert (validasi)`) dan catatan teknis langkah demi langkah di dalam baris kodingan.
+  - **Comment the WHY, Not the WHAT (Wajib 1 Baris):** Jangan mengulang hal yang sudah jelas dari nama variabel (contoh salah: `# Isi harga` di atas `self.harga_input.fill()`). Tulis komentar HANYA untuk menjelaskan alasan teknis non-obvious (seperti tabrakan ID modal, index array non-nol, atau formatting backend).
+  - Digunakan untuk pembatas pola **AAA** (`# 1. Arrange (persiapan)`, `# 2. Act (aksi)`, `# 3. Assert (validasi)`) dan pengelompokan blok langkah logis di Page Object.
