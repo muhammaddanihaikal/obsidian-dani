@@ -20,7 +20,7 @@
 | 0b | Reconnaisance (inspect live selectors) | ✅ Done | Selector login, OTP, dashboard verified |
 | 1 | Internal Auth (login, MFA, logout) | 🔄 In Progress | TC-INT-AUTH-01 PASSED (Login + MFA OTP) |
 | 2 | Internal User Management (CRUD) | ⏳ Ready (Skeleton) | 10 TC Skeleton siap diisi Dani |
-| 3 | Stock Management - Aset Baru (Wizard 6 Langkah) | 🔄 In Progress | Step 1 s/d 5 PASSED (Lokasi & 2 Destinasi Strategis) |
+| 3 | Stock Management - Aset Baru (Wizard 6 Langkah) | ✅ Done | TC-INT-STOCK-01 PASSED (Full 6 Langkah + Submit + Detail Aset 100%) |
 | 4 | External Portal | 🔲 Todo | Setelah internal stable |
 | 5 | CI/CD Pipeline | 🔲 Todo | GitHub Actions |
 
@@ -187,3 +187,4 @@ Perlu inspect live di `https://terasrumah-sandbox.zegen.app`:
 | 2026-11-11 | Step 5 (Cascading Dropdown Wilayah & Tambah 2 Destinasi Strategis via Modal) PASSED (commit `7c9f9fc`) |
 | 2026-11-12 | Menambahkan CHEATSHEET.md di root project untuk command running & codegen session reuse (commit `e2a6514`) |
 | 2026-11-12 | Standarisasi suffix locator tombol `_btn` & pengembalian locator modal berbasis `data-testid` (commit `2f79070`) |
+| 2026-11-13 | Selesai implementasi Step 6 Fasilitas & Golden Anchors Detail Page, TC-INT-STOCK-01 Full E2E PASSED (commit `e077849`) |
