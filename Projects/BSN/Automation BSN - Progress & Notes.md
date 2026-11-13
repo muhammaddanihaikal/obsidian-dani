@@ -188,3 +188,4 @@ Perlu inspect live di `https://terasrumah-sandbox.zegen.app`:
 | 2026-11-12 | Menambahkan CHEATSHEET.md di root project untuk command running & codegen session reuse (commit `e2a6514`) |
 | 2026-11-12 | Standarisasi suffix locator tombol `_btn` & pengembalian locator modal berbasis `data-testid` (commit `2f79070`) |
 | 2026-11-13 | Selesai implementasi Step 6 Fasilitas & Golden Anchors Detail Page, TC-INT-STOCK-01 Full E2E PASSED (commit `e077849`) |
+| 2026-11-13 | Refactor optimasi locator Langkah 1-3 (#description & standarisasi suffix _input) PASSED (commit `6b66604`) |
