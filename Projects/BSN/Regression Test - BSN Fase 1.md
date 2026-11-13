@@ -23,6 +23,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 12 | Media & Information | Banner Setting | 🐞 Bug |
 | 13 | User Management | User Block | 🐞 Bug |
 | 14 | User Management | User External | 🐞 Bug |
+| 15 | Stock Management | Aset Baru | 🐞 Bug |
+| 16 | Aset Baru (External) | Filter Pencarian | 🐞 Bug |
 
 ---
 
@@ -38,7 +40,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 6 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| **Total** | | **44** | **0 Reported / 44 Pending** | |
+| 9 | **Stock Management** | 8 | ⏳ Pending (0/8) | Aset Baru (8) |
+| 10 | **Aset Baru (External)** | 1 | ⏳ Pending (0/1) | Filter Pencarian (1) |
+| **Total** | | **45** | **0 Reported / 45 Pending** | |
 
 ---
 
@@ -47,7 +51,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 41 | 19 Issue Internal, 14 Issue External |
+| 🔴 **Open** | 42 | 27 Issue Internal, 15 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -142,30 +146,6 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Urutan opsi dropdown Tipe Aset belum sesuai aturan prioritas (menampilkan Apartemen, Gedung Kantor, Gudang, dst.)
 > * **Evidence Awal**:
 >   * Urutan Dropdown Tipe Aset: [https://files.catbox.moe/8n0yoi.png](https://files.catbox.moe/8n0yoi.png)
-> * **Bukti Retest (Done)**:
->   * -
-> * **Catatan Retest**:
->   * -
-> * **Bukti Retest (Done)**:
->   * -
-> * **Catatan Retest**:
->   * -
-> * **Bukti Retest (Done)**:
->   * -
-> * **Catatan Retest**:
->   * -
-> * **Bukti Retest (Done)**:
->   * -
-> * **Catatan Retest**:
->   * -
-> * **Bukti Retest (Done)**:
->   * -
-> * **Catatan Retest**:
->   * -
-> * **Bukti Retest (Done)**:
->   * -
-> * **Catatan Retest**:
->   * -
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
@@ -755,6 +735,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Total user pada statistik tetap 0 dan tabel User External kosong dengan keterangan "Belum ada user external" meskipun registrasi user external telah dilakukan.
 > * **Evidence Awal**:
 >   * Tabel User External Kosong: [https://files.catbox.moe/ofj739.png](https://files.catbox.moe/ofj739.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Filter Jenis Properti Belum Berfungsi
+
+> * **Menu**: Aset Baru (External) → Filter Pencarian
+> * **Status**: Open
+> * **Overview**: Pada panel Filter Pencarian di halaman Aset Baru (External), filter berdasarkan Jenis Properti belum berfungsi untuk menyaring daftar aset, sedangkan filter lainnya sudah berfungsi.
+> * **Expected**: Memilih opsi pada filter Jenis Properti dapat menyaring daftar aset sesuai jenis properti yang dipilih
+> * **Actual**: Filter Jenis Properti belum berfungsi saat digunakan untuk menyaring daftar aset
+> * **Evidence Awal**:
+>   * Filter Jenis Properti: [https://files.catbox.moe/gfmuer.png](https://files.catbox.moe/gfmuer.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
