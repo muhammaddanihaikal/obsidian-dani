@@ -25,6 +25,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 14 | User Management | User External | 🐞 Bug |
 | 15 | Stock Management | Aset Baru | 🐞 Bug |
 | 16 | Aset Baru (External) | Filter Pencarian | 🐞 Bug |
+| 17 | Aset Baru (External) | Card Aset | 🐞 Bug |
 
 ---
 
@@ -41,8 +42,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
 | 9 | **Stock Management** | 8 | ⏳ Pending (0/8) | Aset Baru (8) |
-| 10 | **Aset Baru (External)** | 1 | ⏳ Pending (0/1) | Filter Pencarian (1) |
-| **Total** | | **45** | **0 Reported / 45 Pending** | |
+| 10 | **Aset Baru (External)** | 2 | ⏳ Pending (0/2) | Filter Pencarian (1), Card Aset (1) |
+| **Total** | | **46** | **0 Reported / 46 Pending** | |
 
 ---
 
@@ -51,7 +52,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 42 | 27 Issue Internal, 15 Issue External |
+| 🔴 **Open** | 43 | 27 Issue Internal, 16 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 0 | - |
 
@@ -750,6 +751,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Filter Jenis Properti belum berfungsi saat digunakan untuk menyaring daftar aset
 > * **Evidence Awal**:
 >   * Filter Jenis Properti: [https://files.catbox.moe/gfmuer.png](https://files.catbox.moe/gfmuer.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Informasi Developer, Proyek, Klaster, Tipe, Harga Coret, dan Label Harga pada Card Aset Belum Sesuai
+
+> * **Menu**: Aset Baru (External) → Card Aset
+> * **Status**: Open
+> * **Overview**: Pada halaman Aset Baru (External), tampilan card aset belum sesuai: nama developer, proyek, klaster, dan tipe unit belum muncul (masih tampil "Developer Rekanan BSN" dan angka seperti "12"); harga coret & badge "Hemat Rp ..." belum tampil; serta label harga masih tertulis "Harga Awal" (seharusnya "Harga Aset").
+> * **Expected**: Card aset menampilkan nama developer & proyek, klaster & tipe unit, harga coret beserta badge "Hemat Rp ...", dan label "Harga Aset"
+> * **Actual**: Card aset hanya menampilkan "Developer Rekanan BSN" dengan judul angka ("12"), harga coret & keterangan hemat belum tampil, serta label harga masih tertulis "Harga Awal"
+> * **Evidence Awal**:
+>   * App Card Aset: [https://files.catbox.moe/9keqxm.png](https://files.catbox.moe/9keqxm.png)
+>   * Figma Card Aset: [https://files.catbox.moe/ycciri.png](https://files.catbox.moe/ycciri.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
