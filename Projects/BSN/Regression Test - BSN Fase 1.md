@@ -774,18 +774,19 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Urutan informasi card belum sesuai Figma (seharusnya baris atas "Nama Developer • Nama Proyek" dan baris judul "Klaster - Tipe"). Di tampilan card kotak & memanjang, nama proyek masih tergabung ke baris judul, baris atas "Nama Developer • Nama Proyek" belum sesuai/belum ada, dan harga coret belum ada.
 <br>
 
-### 🐞 [BUG] | Tampilan Header dan Map pada Detail Aset Baru Belum Sesuai
+### 🐞 [BUG] | Tampilan Header, Spesifikasi, dan Map pada Detail Aset Baru Belum Sesuai
 
 > * **Menu**: Aset Baru (External) → Detail Aset
 > * **Status**: Open
-> * **Overview**: Pada halaman Detail Aset Baru (External), terdapat ketidaksesuaian dengan desain Figma: Header (judul seharusnya cukup "Klaster - Tipe" tanpa nama proyek, dan baris bawahnya dibuat sejajar 1 baris: icon pin + Nama Proyek, Lokasi • Kode Listing) serta Aksesibilitas & Lokasi Strategis (peta belum tampil dan masih muncul "Koordinat lokasi tidak tersedia").
-> * **Expected**: Judul tampil "Klaster - Tipe", baris bawah sejajar 1 baris (icon pin + Nama Proyek, Lokasi • Kode Listing), dan peta lokasi tampil
-> * **Actual**: Nama proyek masih ikut di judul, baris lokasi tanpa icon pin/nama proyek dengan Kode Listing turun baris, dan peta belum tampil
+> * **Overview**: Pada halaman Detail Aset Baru (External), terdapat ketidaksesuaian dengan desain Figma: Header (judul seharusnya cukup "Klaster - Tipe" tanpa nama proyek, dan baris bawahnya sejajar 1 baris: icon pin + Nama Proyek, Lokasi • Kode Listing), Spesifikasi & Dimensi Fisik Aset (Luas Tanah & Luas Bangunan masih "-"), serta Aksesibilitas & Lokasi Strategis (peta belum tampil dan masih muncul "Koordinat lokasi tidak tersedia").
+> * **Expected**: Judul tampil "Klaster - Tipe", baris bawah sejajar 1 baris (icon pin + Nama Proyek, Lokasi • Kode Listing), nilai Luas Tanah & Luas Bangunan tampil sesuai data aset, dan peta lokasi tampil
+> * **Actual**: Nama proyek masih ikut di judul, baris lokasi tanpa icon pin/nama proyek dengan Kode Listing turun baris, nilai Luas Tanah & Luas Bangunan masih "-", dan peta belum tampil
 > * **Evidence Awal**:
 >   * App Header Detail Aset: [https://files.catbox.moe/tii786.png](https://files.catbox.moe/tii786.png)
 >   * App Map Tidak Tampil: [https://files.catbox.moe/0k8ekb.png](https://files.catbox.moe/0k8ekb.png)
 >   * Figma Header Detail Aset: [https://files.catbox.moe/8kaim1.png](https://files.catbox.moe/8kaim1.png)
 >   * Figma Map Detail Aset: [https://files.catbox.moe/pvgl13.png](https://files.catbox.moe/pvgl13.png)
+>   * App Luas Tanah & Bangunan Kosong: [https://files.catbox.moe/p2v3h1.png](https://files.catbox.moe/p2v3h1.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
