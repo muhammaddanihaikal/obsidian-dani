@@ -26,6 +26,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 15 | Stock Management | Aset Baru | 🐞 Bug |
 | 16 | Aset Baru (External) | Filter Pencarian | 🐞 Bug |
 | 17 | Aset Baru (External) | Card Aset | 🐞 Bug |
+| 18 | Aset Baru (External) | Detail Aset | 🐞 Bug |
 
 ---
 
@@ -42,8 +43,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
 | 9 | **Stock Management** | 8 | ⏳ Pending (0/8) | Aset Baru (8) |
-| 10 | **Aset Baru (External)** | 2 | ⏳ Pending (0/2) | Filter Pencarian (1), Card Aset (1) |
-| **Total** | | **46** | **0 Reported / 46 Pending** | |
+| 10 | **Aset Baru (External)** | 3 | ⏳ Pending (0/3) | Filter Pencarian (1), Card Aset (1), Detail Aset (1) |
+| **Total** | | **47** | **0 Reported / 47 Pending** | |
 
 ---
 
@@ -52,7 +53,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 42 | 27 Issue Internal, 15 Issue External |
+| 🔴 **Open** | 43 | 27 Issue Internal, 16 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 1 | `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai |
 
@@ -771,3 +772,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Disimpan lokal (`retest_reopen_01_card_kotak.jpg`, `retest_reopen_02_card_memanjang.jpg`) & copas langsung di Huly
 > * **Catatan Retest**:
 >   * Urutan informasi card belum sesuai Figma (seharusnya baris atas "Nama Developer • Nama Proyek" dan baris judul "Klaster - Tipe"). Di tampilan card kotak & memanjang, nama proyek masih tergabung ke baris judul, baris atas "Nama Developer • Nama Proyek" belum sesuai/belum ada, dan harga coret belum ada.
+<br>
+
+### 🐞 [BUG] | Tampilan Header dan Map pada Detail Aset Baru Belum Sesuai
+
+> * **Menu**: Aset Baru (External) → Detail Aset
+> * **Status**: Open
+> * **Overview**: Pada halaman Detail Aset Baru (External), terdapat ketidaksesuaian dengan desain Figma: Header (judul seharusnya cukup "Klaster - Tipe" tanpa nama proyek, dan baris bawahnya dibuat sejajar 1 baris: icon pin + Nama Proyek, Lokasi • Kode Listing) serta Aksesibilitas & Lokasi Strategis (peta belum tampil dan masih muncul "Koordinat lokasi tidak tersedia").
+> * **Expected**: Judul tampil "Klaster - Tipe", baris bawah sejajar 1 baris (icon pin + Nama Proyek, Lokasi • Kode Listing), dan peta lokasi tampil
+> * **Actual**: Nama proyek masih ikut di judul, baris lokasi tanpa icon pin/nama proyek dengan Kode Listing turun baris, dan peta belum tampil
+> * **Evidence Awal**:
+>   * App Header Detail Aset: [https://files.catbox.moe/tii786.png](https://files.catbox.moe/tii786.png)
+>   * App Map Tidak Tampil: [https://files.catbox.moe/0k8ekb.png](https://files.catbox.moe/0k8ekb.png)
+>   * Figma Header Detail Aset: [https://files.catbox.moe/8kaim1.png](https://files.catbox.moe/8kaim1.png)
+>   * Figma Map Detail Aset: [https://files.catbox.moe/pvgl13.png](https://files.catbox.moe/pvgl13.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
