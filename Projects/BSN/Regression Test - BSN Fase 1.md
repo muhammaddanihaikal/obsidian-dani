@@ -770,4 +770,4 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Bukti Retest (Re-Open)**:
 >   * Disimpan lokal (`retest_reopen_01_card_kotak.jpg`, `retest_reopen_02_card_memanjang.jpg`) & copas langsung di Huly
 > * **Catatan Retest**:
->   * Proyek, klaster, dan tipe sudah tampil sesuai. Namun pada tampilan card kotak informasi developer belum sesuai & harga coret belum ada; pada tampilan card memanjang informasi developer dan harga coret belum ada.
+>   * Urutan informasi card belum sesuai Figma (seharusnya baris atas "Nama Developer • Nama Proyek" dan baris judul "Klaster - Tipe"). Di tampilan card kotak & memanjang, nama proyek masih tergabung ke baris judul, baris atas "Nama Developer • Nama Proyek" belum sesuai/belum ada, dan harga coret belum ada.
