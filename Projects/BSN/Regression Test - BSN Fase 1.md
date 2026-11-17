@@ -52,9 +52,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 43 | 27 Issue Internal, 16 Issue External |
+| 🔴 **Open** | 42 | 27 Issue Internal, 15 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
-| 🔄 **Re-Open** | 0 | - |
+| 🔄 **Re-Open** | 1 | `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai |
 
 ---
 
@@ -760,14 +760,14 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Informasi Developer, Proyek, Klaster, Tipe, Harga Coret, dan Label Harga pada Card Aset Belum Sesuai
 
 > * **Menu**: Aset Baru (External) → Card Aset
-> * **Status**: Open
+> * **Status**: Re-Open
 > * **Overview**: Pada halaman Aset Baru (External), tampilan card aset belum sesuai: nama developer, proyek, klaster, dan tipe unit belum muncul (masih tampil "Developer Rekanan BSN" dan angka seperti "12"); harga coret & badge "Hemat Rp ..." belum tampil; serta label harga masih tertulis "Harga Awal" (seharusnya "Harga Aset").
 > * **Expected**: Card aset menampilkan nama developer & proyek, klaster & tipe unit, harga coret beserta badge "Hemat Rp ...", dan label "Harga Aset"
 > * **Actual**: Card aset hanya menampilkan "Developer Rekanan BSN" dengan judul angka ("12"), harga coret & keterangan hemat belum tampil, serta label harga masih tertulis "Harga Awal"
 > * **Evidence Awal**:
 >   * App Card Aset: [https://files.catbox.moe/9keqxm.png](https://files.catbox.moe/9keqxm.png)
 >   * Figma Card Aset: [https://files.catbox.moe/ycciri.png](https://files.catbox.moe/ycciri.png)
-> * **Bukti Retest (Done)**:
->   * -
+> * **Bukti Retest (Re-Open)**:
+>   * Disimpan lokal (`retest_reopen_01_card_kotak.jpg`, `retest_reopen_02_card_memanjang.jpg`) & copas langsung di Huly
 > * **Catatan Retest**:
->   * -
+>   * Proyek, klaster, dan tipe sudah tampil sesuai. Namun pada tampilan card kotak informasi developer belum sesuai & harga coret belum ada; pada tampilan card memanjang informasi developer dan harga coret belum ada.
