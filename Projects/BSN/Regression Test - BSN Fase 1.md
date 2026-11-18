@@ -27,6 +27,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 16 | Aset Baru (External) | Filter Pencarian | 🐞 Bug |
 | 17 | Aset Baru (External) | Card Aset | 🐞 Bug |
 | 18 | Aset Baru (External) | Detail Aset | 🐞 Bug |
+| 19 | Simulasi Pembiayaan (External) | Form Simulasi | 🐞 Bug |
 
 ---
 
@@ -44,7 +45,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
 | 9 | **Stock Management** | 8 | ⏳ Pending (0/8) | Aset Baru (8) |
 | 10 | **Aset Baru (External)** | 3 | ⏳ Pending (0/3) | Filter Pencarian (1), Card Aset (1), Detail Aset (1) |
-| **Total** | | **47** | **0 Reported / 47 Pending** | |
+| 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
+| **Total** | | **48** | **0 Reported / 48 Pending** | |
 
 ---
 
@@ -53,7 +55,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 43 | 27 Issue Internal, 16 Issue External |
+| 🔴 **Open** | 44 | 27 Issue Internal, 17 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 1 | `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai |
 
@@ -787,6 +789,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Figma Header Detail Aset: [https://files.catbox.moe/8kaim1.png](https://files.catbox.moe/8kaim1.png)
 >   * Figma Map Detail Aset: [https://files.catbox.moe/pvgl13.png](https://files.catbox.moe/pvgl13.png)
 >   * App Luas Tanah & Bangunan Kosong: [https://files.catbox.moe/p2v3h1.png](https://files.catbox.moe/p2v3h1.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Gagal Menghitung Simulasi KPR Syariah Muncul Error
+
+> * **Menu**: Simulasi Pembiayaan (External) → Form Simulasi
+> * **Status**: Open
+> * **Overview**: Saat mencoba menghitung simulasi KPR Syariah, hasil perhitungan tidak muncul dan sistem justru menampilkan toast error.
+> * **Expected**: Hasil simulasi angsuran KPR Syariah berhasil dihitung dan ditampilkan
+> * **Actual**: Muncul toast error "Terjadi kesalahan saat menghitung KPR Syariah" dan hasil perhitungan tidak tampil
+> * **Evidence Awal**:
+>   * Toast Error Simulasi KPR: [https://files.catbox.moe/2yqjv2.png](https://files.catbox.moe/2yqjv2.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
