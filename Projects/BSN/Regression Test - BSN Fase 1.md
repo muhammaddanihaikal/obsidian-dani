@@ -29,6 +29,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 18 | Aset Baru (External) | Detail Aset | 🐞 Bug |
 | 19 | Simulasi Pembiayaan (External) | Form Simulasi | 🐞 Bug |
 | 20 | Daftar Developer (External) | Card Developer | 🐞 Bug |
+| 21 | Daftar Developer (External) | Pendaftaran Mitra Developer | 🐞 Bug |
 
 ---
 
@@ -47,8 +48,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 9 | **Stock Management** | 8 | ⏳ Pending (0/8) | Aset Baru (8) |
 | 10 | **Aset Baru (External)** | 3 | ⏳ Pending (0/3) | Filter Pencarian (1), Card Aset (1), Detail Aset (1) |
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
-| 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
-| **Total** | | **49** | **0 Reported / 49 Pending** | |
+| 12 | **Daftar Developer (External)** | 2 | ⏳ Pending (0/2) | Card Developer (1), Pendaftaran Mitra Developer (1) |
+| **Total** | | **50** | **0 Reported / 50 Pending** | |
 
 ---
 
@@ -57,7 +58,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 45 | 27 Issue Internal, 18 Issue External |
+| 🔴 **Open** | 46 | 27 Issue Internal, 19 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 1 | `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai |
 
@@ -821,6 +822,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Logo masih inisial ("HPN"), label masih tertulis "Developer", dan jumlah aset properti masih 0
 > * **Evidence Awal**:
 >   * Card Daftar Developer: [https://files.catbox.moe/1la023.png](https://files.catbox.moe/1la023.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Halaman Pendaftaran Mitra Developer Stuck Menampilkan Riwayat Pengajuan
+
+> * **Menu**: Daftar Developer (External) → Pendaftaran Mitra Developer
+> * **Status**: Open
+> * **Overview**: Setelah pernah melakukan pendaftaran sebelumnya, halaman Pendaftaran Mitra Developer Baru terus menampilkan status riwayat pengajuan ("Pengajuan Anda telah disetujui") meskipun halaman sudah di-hard refresh (Ctrl+Shift+R). Akibatnya, user tidak bisa membuka form untuk mendaftar lagi.
+> * **Expected**: Halaman menampilkan form Pendaftaran Mitra Developer Baru agar user dapat melakukan pendaftaran baru
+> * **Actual**: Halaman stuck menampilkan kartu status riwayat pengajuan sebelumnya ("Pengajuan Anda telah disetujui") dan tidak bisa mendaftar lagi meski sudah Ctrl+Shift+R
+> * **Evidence Awal**:
+>   * Stuck Riwayat Pengajuan: [https://files.catbox.moe/ytr00b.png](https://files.catbox.moe/ytr00b.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
