@@ -769,9 +769,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * App Card Aset: [https://files.catbox.moe/9keqxm.png](https://files.catbox.moe/9keqxm.png)
 >   * Figma Card Aset: [https://files.catbox.moe/ycciri.png](https://files.catbox.moe/ycciri.png)
 > * **Bukti Retest (Re-Open)**:
->   * Disimpan lokal (`retest_reopen_01_card_kotak.jpg`, `retest_reopen_02_card_memanjang.jpg`) & copas langsung di Huly
+>   * Disimpan lokal (`retest_reopen_01_card_kotak.jpg`, `retest_reopen_02_card_memanjang.jpg`, `retest_reopen_03_card_memanjang_detail_ui.png`) & copas langsung di Huly
 > * **Catatan Retest**:
->   * Urutan informasi card belum sesuai Figma (seharusnya baris atas "Nama Developer • Nama Proyek" dan baris judul "Klaster - Tipe"). Di tampilan card kotak & memanjang, nama proyek masih tergabung ke baris judul, baris atas "Nama Developer • Nama Proyek" belum sesuai/belum ada, dan harga coret belum ada.
+>   * Informasi developer & urutan judul ("Nama Developer • Nama Proyek" dan "Klaster - Tipe") sudah sesuai. Namun pada Card Memanjang (List) masih ada 8 temuan UI: (1) keterangan "Diperbarui: ..." seharusnya tidak ada, (2) "Kamar" seharusnya "K. Tidur", (3) "Toilet" seharusnya "K. Mandi", (4) "Rp300 Juta" kurang spasi, (5) icon Favorit masih bookmark (harusnya love), (6) tombol "Beli Sekarang ->" harusnya "Ajukan Peminatan ->", (7) belum ada tombol "Simulasi", (8) belum ada perhitungan "Angsuran est.".
 <br>
 
 ### 🐞 [BUG] | Tampilan Header, Spesifikasi, dan Map pada Detail Aset Baru Belum Sesuai
