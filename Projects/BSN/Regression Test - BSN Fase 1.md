@@ -39,7 +39,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Authentication** | 4 | ⏳ Pending (0/4) | Logout (2), Login (1), Lupa Kata Sandi (1) |
 | 2 | **User Management** | 9 | ⏳ Pending (0/9) | Role (4), User (2), User Block (2), User External (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
-| 4 | **Developer** | 1 | ⏳ Pending (0/1) | List Developer (1) |
+| 4 | **Developer** | 2 | ⏳ Pending (0/2) | List Developer (2) |
 | 5 | **Media & Information** | 3 | ⏳ Pending (0/3) | FAQ (1), Article (1), Banner Setting (1) |
 | 6 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
@@ -48,7 +48,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 10 | **Aset Baru (External)** | 3 | ⏳ Pending (0/3) | Filter Pencarian (1), Card Aset (1), Detail Aset (1) |
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
-| **Total** | | **49** | **0 Reported / 49 Pending** | |
+| **Total** | | **50** | **0 Reported / 50 Pending** | |
 
 ---
 
@@ -57,7 +57,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 45 | 27 Issue Internal, 18 Issue External |
+| 🔴 **Open** | 46 | 28 Issue Internal, 18 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 1 | `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai |
 
@@ -821,6 +821,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Logo masih inisial ("HPN"), label masih tertulis "Developer", dan jumlah aset properti masih 0
 > * **Evidence Awal**:
 >   * Card Daftar Developer: [https://files.catbox.moe/1la023.png](https://files.catbox.moe/1la023.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Pilihan Segmen Properti Utama Terintegrasi Belum Bisa Memilih Dua Opsi
+
+> * **Menu**: Developer (Internal) → List Developer
+> * **Status**: Open
+> * **Overview**: Pada field Segmen Properti Utama Terintegrasi, seharusnya user bisa memilih 2 opsi sekaligus ("Subsidi" dan "Non Subsidi"), tetapi saat ini belum bisa.
+> * **Expected**: User bisa memilih 2 opsi sekaligus ("Subsidi" dan "Non Subsidi")
+> * **Actual**: Saat ini belum bisa memilih 2 opsi sekaligus (hanya bisa memilih satu opsi)
+> * **Evidence Awal**:
+>   * Pilihan Segmen Properti: [https://files.catbox.moe/f77cwa.png](https://files.catbox.moe/f77cwa.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
