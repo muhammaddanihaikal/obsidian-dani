@@ -28,6 +28,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 17 | Aset Baru (External) | Card Aset | 🐞 Bug |
 | 18 | Aset Baru (External) | Detail Aset | 🐞 Bug |
 | 19 | Simulasi Pembiayaan (External) | Form Simulasi | 🐞 Bug |
+| 20 | Daftar Developer (External) | Card Developer | 🐞 Bug |
 
 ---
 
@@ -46,7 +47,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 9 | **Stock Management** | 8 | ⏳ Pending (0/8) | Aset Baru (8) |
 | 10 | **Aset Baru (External)** | 3 | ⏳ Pending (0/3) | Filter Pencarian (1), Card Aset (1), Detail Aset (1) |
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
-| **Total** | | **48** | **0 Reported / 48 Pending** | |
+| 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
+| **Total** | | **49** | **0 Reported / 49 Pending** | |
 
 ---
 
@@ -55,7 +57,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 44 | 27 Issue Internal, 17 Issue External |
+| 🔴 **Open** | 45 | 27 Issue Internal, 18 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 1 | `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai |
 
@@ -804,6 +806,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Muncul toast error "Terjadi kesalahan saat menghitung KPR Syariah" dan hasil perhitungan tidak tampil
 > * **Evidence Awal**:
 >   * Toast Error Simulasi KPR: [https://files.catbox.moe/2yqjv2.png](https://files.catbox.moe/2yqjv2.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Logo, Segmen, dan Jumlah Aset pada Card Developer Belum Sesuai
+
+> * **Menu**: Daftar Developer (External) → Card Developer
+> * **Status**: Open
+> * **Overview**: Pada card developer di halaman Daftar Developer, masih ada beberapa tampilan yang belum sesuai: (1) logo developer belum tampil (masih inisial "HPN"), (2) label kategori masih tertulis "Developer" (seharusnya "Subsidi" atau "Non Subsidi"), (3) Jumlah Aset Properti masih tampil 0.
+> * **Expected**: Card menampilkan logo developer, label segmen ("Subsidi" / "Non Subsidi"), dan jumlah aset properti sesuai data
+> * **Actual**: Logo masih inisial ("HPN"), label masih tertulis "Developer", dan jumlah aset properti masih 0
+> * **Evidence Awal**:
+>   * Card Daftar Developer: [https://files.catbox.moe/1la023.png](https://files.catbox.moe/1la023.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
