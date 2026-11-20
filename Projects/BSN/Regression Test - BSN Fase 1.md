@@ -39,7 +39,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Authentication** | 4 | ⏳ Pending (0/4) | Logout (2), Login (1), Lupa Kata Sandi (1) |
 | 2 | **User Management** | 9 | ⏳ Pending (0/9) | Role (4), User (2), User Block (2), User External (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
-| 4 | **Developer** | 2 | ⏳ Pending (0/2) | List Developer (2) |
+| 4 | **Developer** | 3 | ⏳ Pending (0/3) | List Developer (3) |
 | 5 | **Media & Information** | 3 | ⏳ Pending (0/3) | FAQ (1), Article (1), Banner Setting (1) |
 | 6 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
@@ -48,7 +48,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 10 | **Aset Baru (External)** | 3 | ⏳ Pending (0/3) | Filter Pencarian (1), Card Aset (1), Detail Aset (1) |
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
-| **Total** | | **50** | **0 Reported / 50 Pending** | |
+| **Total** | | **51** | **0 Reported / 51 Pending** | |
 
 ---
 
@@ -57,7 +57,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 46 | 28 Issue Internal, 18 Issue External |
+| 🔴 **Open** | 47 | 29 Issue Internal, 18 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 1 | `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai |
 
@@ -836,6 +836,23 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Saat ini belum bisa memilih 2 opsi sekaligus (hanya bisa memilih satu opsi)
 > * **Evidence Awal**:
 >   * Pilihan Segmen Properti: [https://files.catbox.moe/f77cwa.png](https://files.catbox.moe/f77cwa.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Data Statistik, Kolom Tabel, dan Filter pada List Developer Belum Sesuai
+
+> * **Menu**: Developer (Internal) → List Developer
+> * **Status**: Open
+> * **Overview**: Pada halaman List Developer, masih ditemukan beberapa ketidaksesuaian data dan opsi filter: (1) Kartu TOTAL ASET PROYEK masih tampil "0 Aset Proyek", (2) Filter Semua Segmen belum punya opsi "Subsidi & Non Subsidi", (3) Filter Semua Kantor Wilayah hanya menampilkan "KCS Makassar", (4) Kolom Segmen pada tabel masih "Segmen belum diisi", dan (5) Data Unit masih tampil "0 Unit".
+> * **Expected**: Total aset proyek, data segmen, dan jumlah unit tampil sesuai data sebenarnya; filter segmen menyediakan opsi "Subsidi & Non Subsidi"; dan filter kantor wilayah menampilkan seluruh kantor terdaftar
+> * **Actual**: Total aset proyek tampil 0, data segmen tertulis belum diisi, jumlah unit tampil 0, filter segmen belum ada opsi gabungan, dan filter kantor wilayah hanya menampilkan "KCS Makassar"
+> * **Evidence Awal**:
+>   * Total Aset Proyek, Segmen, & Unit Kosong: [https://files.catbox.moe/7ui0n0.png](https://files.catbox.moe/7ui0n0.png)
+>   * Filter Segmen Kurang Opsi Gabungan: [https://files.catbox.moe/qe3yw1.png](https://files.catbox.moe/qe3yw1.png)
+>   * Filter Kantor Hanya Makassar: [https://files.catbox.moe/6rls01.png](https://files.catbox.moe/6rls01.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
