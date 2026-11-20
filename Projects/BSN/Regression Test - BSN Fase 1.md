@@ -57,9 +57,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 47 | 29 Issue Internal, 18 Issue External |
+| 🔴 **Open** | 46 | 29 Issue Internal, 17 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
-| 🔄 **Re-Open** | 1 | `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai |
+| 🔄 **Re-Open** | 2 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi |
 
 ---
 
@@ -750,16 +750,16 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Filter Jenis Properti Belum Berfungsi
 
 > * **Menu**: Aset Baru (External) → Filter Pencarian
-> * **Status**: Open
+> * **Status**: Re-Open
 > * **Overview**: Pada panel Filter Pencarian di halaman Aset Baru (External), filter berdasarkan Jenis Properti belum berfungsi untuk menyaring daftar aset, sedangkan filter lainnya sudah berfungsi.
 > * **Expected**: Memilih opsi pada filter Jenis Properti dapat menyaring daftar aset sesuai jenis properti yang dipilih
 > * **Actual**: Filter Jenis Properti belum berfungsi saat digunakan untuk menyaring daftar aset
 > * **Evidence Awal**:
 >   * Filter Jenis Properti: [https://files.catbox.moe/gfmuer.png](https://files.catbox.moe/gfmuer.png)
-> * **Bukti Retest (Done)**:
->   * -
+> * **Bukti Retest (Re-Open)**:
+>   * Disimpan lokal (`retest_reopen_01_opsi_lain_hilang.jpg`, `retest_reopen_02_opsi_belum_semua.jpg`) & copas langsung di Huly
 > * **Catatan Retest**:
->   * -
+>   * Filter sudah menyaring data, namun setelah memilih 1 opsi properti (misal "Apartemen") opsi lainnya hilang. Usulan: tampilkan semua jenis properti dengan 5 teratas terlebih dahulu + tombol "Lihat Semua" / "Lebih Sedikit".
 <br>
 
 ### 🐞 [BUG] | Informasi Developer, Proyek, Klaster, Tipe, Harga Coret, dan Label Harga pada Card Aset Belum Sesuai
