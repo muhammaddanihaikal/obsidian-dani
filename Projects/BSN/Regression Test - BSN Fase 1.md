@@ -57,9 +57,9 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 46 | 29 Issue Internal, 17 Issue External |
+| 🔴 **Open** | 45 | 29 Issue Internal, 16 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
-| 🔄 **Re-Open** | 2 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi |
+| 🔄 **Re-Open** | 3 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi<br>• `External/Daftar Developer/Card Developer/01`: Logo, Segmen, dan Jumlah Aset Belum Sesuai |
 
 ---
 
@@ -815,16 +815,16 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 ### 🐞 [BUG] | Logo, Segmen, dan Jumlah Aset pada Card Developer Belum Sesuai
 
 > * **Menu**: Daftar Developer (External) → Card Developer
-> * **Status**: Open
+> * **Status**: Re-Open
 > * **Overview**: Pada card developer di halaman Daftar Developer, masih ada beberapa tampilan yang belum sesuai: (1) logo developer belum tampil (masih inisial "HPN"), (2) label kategori masih tertulis "Developer" (seharusnya "Subsidi" atau "Non Subsidi"), (3) Jumlah Aset Properti masih tampil 0.
 > * **Expected**: Card menampilkan logo developer, label segmen ("Subsidi" / "Non Subsidi"), dan jumlah aset properti sesuai data
 > * **Actual**: Logo masih inisial ("HPN"), label masih tertulis "Developer", dan jumlah aset properti masih 0
 > * **Evidence Awal**:
 >   * Card Daftar Developer: [https://files.catbox.moe/1la023.png](https://files.catbox.moe/1la023.png)
-> * **Bukti Retest (Done)**:
->   * -
+> * **Bukti Retest (Re-Open)**:
+>   * Disimpan lokal (`retest_reopen_01_card_developer.png`) & copas langsung di Huly
 > * **Catatan Retest**:
->   * -
+>   * Logo belum muncul, segmen baru menampilkan "Non Subsidi" semua (belum sesuai pilihan masing-masing developer: Subsidi / Non Subsidi / keduanya), dan Jumlah Aset Properti masih 0.
 <br>
 
 ### 🐞 [BUG] | Pilihan Segmen Properti Utama Terintegrasi Belum Bisa Memilih Dua Opsi
