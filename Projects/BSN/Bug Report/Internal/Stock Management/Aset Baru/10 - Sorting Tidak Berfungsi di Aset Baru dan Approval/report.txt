@@ -1,0 +1,50 @@
+🐞 [BUG] | Sorting pada Tabel Aset Baru dan Approval Aset Baru Tidak Berfungsi
+
+**Priority:** High 🟠
+
+**Label:** `bug` `triage-needed` `Stock Management`
+
+**Linked Issue/PR:** # -
+
+## 📖 Overview
+
+> Tombol urutkan (sorting) di tabel Aset Baru dan tabel Approval Aset Baru tidak bekerja. Ada yang diklik tapi urutannya tidak berubah sama sekali, ada juga yang berubah tapi urutannya acak. Dari 12 kolom yang dicoba di kedua tabel, tidak ada satu pun yang mengurutkan dengan benar.
+
+* **Impact:** User tidak bisa mengurutkan data dari termurah, terkecil, atau terbaru, jadi harus memeriksa baris satu per satu secara manual.
+* **Frequency:** 100% of the time
+
+## 🛠 Steps to Reproduce
+
+Menu Aset Baru (Stock Management → Aset Baru):
+1. Log in to the workspace (Internal, role Superadmin).
+2. Navigate to Stock Management → Aset Baru.
+3. Klik header kolom "Nilai Harga Agunan" dua kali: urutan baris tidak berubah sama sekali (tetap diawali MKSS-10013 Rp 350.000.000, JKHS-10015 Rp 0, JPMS-10001 Rp 450.000.000, MKSS-10011 Rp 345.000.000, JKHS-10014 Rp 500.000.000).
+4. Klik header kolom "Developer & Proyek" dua kali: urutan juga tidak berubah sama sekali.
+5. Klik header kolom "Kode & Unit Aset": urutan berubah tetapi acak (diawali MKSS-10005, MKSS-10011, JKHS-10002, JKHS-10001, ...), bukan A–Z; klik kedua menghasilkan urutan acak yang berbeda, bukan kebalikannya.
+6. Klik header kolom "Status Verifikasi": urutan berubah acak dan status tidak mengelompok; klik kedua menghasilkan urutan yang sama persis (tidak ada pergantian arah urutan).
+
+Menu Approval Aset Baru (Stock Management → Approval Aset Baru, tab Pengajuan Masuk):
+7. Klik header kolom "Harga Pengajuan" (satu-satunya kolom berikon sort di menu ini) dua kali: urutan tidak berubah sama sekali (tetap diawali Rp 450.000.000, Rp 345.000.000, Rp 500.000.000, ...).
+8. Klik header kolom lain, termasuk "Tanggal Diajukan": tidak ada kolom yang mengubah urutan.
+
+## 🔍 Technical Context
+
+| Field | Detail |
+|---|---|
+| **Expected** | Setiap kolom berikon sort mengurutkan baris secara benar: klik pertama menaik (A–Z / termurah / terlama), klik kedua menurun (kebalikannya). |
+| **Actual** | Hasil audit per kolom — Aset Baru: Harga = mati total, Developer & Proyek = mati total, Kode = urutan acak bukan alfabetis, Status Verifikasi = urutan acak dan tidak berganti arah. Approval Aset Baru: semua kolom mati total, termasuk Harga Pengajuan yang berikon sort dan Tanggal Diajukan. |
+| **Environment** | Staging (terasrumah-sandbox.zegen.app) |
+| **Device/OS** | Web / Chrome |
+| **User Role** | Admin (Superadmin) |
+
+## 🪵 Logs & Media
+
+* **Screenshots:** (Drag and drop images here) — file draft lokal: evidence_01_sorting_harga.png (asli) dan versi kotak merah pada header Nilai Harga Agunan
+* **Console Logs:** -
+
+## ✅ Checklist for Fix
+
+• [ ] Reproduce locally.
+• [ ] Add regression test.
+• [ ] Verify fix in Staging.
+• [ ] Update documentation (if behavior changed).

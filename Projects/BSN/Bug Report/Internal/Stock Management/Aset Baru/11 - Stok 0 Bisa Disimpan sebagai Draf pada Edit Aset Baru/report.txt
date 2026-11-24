@@ -1,0 +1,45 @@
+🐞 [BUG] | Stok 0 Tetap Bisa Disimpan sebagai Draf pada Edit Aset Baru
+
+**Priority:** Normal 🟡
+
+**Label:** `bug` `triage-needed` `Stock Management`
+
+**Linked Issue/PR:** # -
+
+## 📖 Overview
+
+> Saat mengedit aset, stok diisi 0 itu sebenarnya tidak boleh — tombol Selanjutnya saja yang menolaknya. Tapi tombol "Simpan sebagai Draft" tidak ikut memeriksa: modal konfirmasi tetap muncul dan draf dengan stok 0 tetap bisa disimpan.
+
+* **Impact:** Data yang jelas tidak valid bisa tersimpan sebagai draf dan baru ketahuan bermasalah di tahap berikutnya.
+* **Frequency:** 100% of the time
+
+## 🛠 Steps to Reproduce
+
+1. Log in to the workspace (Internal, role Superadmin).
+2. Navigate to Stock Management → Aset Baru.
+3. Buka Edit pada aset draf (contoh data uji MKSS-10013), Langkah 1 Informasi.
+4. Ubah "Stok Unit" menjadi 0 — muncul pesan inline "Isi angka bulat minimal 1" dan tombol Selanjutnya terblokir.
+5. Klik tombol "Simpan sebagai Draft".
+6. Observe the result: modal konfirmasi "Apakah Anda yakin ingin menyimpan sebagai draf?" tetap muncul tanpa peringatan validasi, sehingga draf tidak valid dapat dikonfirmasi untuk disimpan.
+
+## 🔍 Technical Context
+
+| Field | Detail |
+|---|---|
+| **Expected** | Klik "Simpan sebagai Draft" menjalankan validasi yang sama seperti tombol Selanjutnya; jika ada isian tidak valid, penyimpanan ditolak dan user diarahkan ke field yang salah. |
+| **Actual** | Modal konfirmasi penyimpanan draf muncul meskipun stok 0 (tidak valid); validasi hanya berjalan pada tombol Selanjutnya. |
+| **Environment** | Staging (terasrumah-sandbox.zegen.app) |
+| **Device/OS** | Web / Chrome |
+| **User Role** | Admin (Superadmin) |
+
+## 🪵 Logs & Media
+
+* **Screenshots:** (Drag and drop images here) — file draft lokal: evidence_01_simpan_draf_stok0.png (asli) dan versi kotak merah
+* **Console Logs:** -
+
+## ✅ Checklist for Fix
+
+• [ ] Reproduce locally.
+• [ ] Add regression test.
+• [ ] Verify fix in Staging.
+• [ ] Update documentation (if behavior changed).

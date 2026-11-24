@@ -1,0 +1,58 @@
+🐞 [BUG] | Filter pada Menu Approval Aset Baru Menampilkan Hasil Kosong
+
+**Priority:** High 🟠
+
+**Label:** `bug` `triage-needed` `Stock Management`
+
+**Linked Issue/PR:** # -
+
+## 📖 Overview
+
+> Filter di menu Approval Aset Baru tidak bisa dipercaya, ada 3 kejadian:
+> - Tab "Disetujui" menulis ada 4 pengajuan, tapi saat diklik daftarnya kosong.
+> - Filter tipe "Rumah" hasilnya kosong, padahal semua 16 pengajuan tipenya Rumah.
+> - Pencarian di tab Pengajuan ikut mengubah angka di tab Pengurangan Unit dari 2 menjadi 0, padahal tab itu tidak sedang diutak-atik.
+
+* **Impact:** Reviewer tidak bisa menyaring antrean untuk mencari pengajuan tertentu, dan angka di tab lain berubah tanpa sebab yang jelas.
+* **Frequency:** 100% of the time
+
+## 🛠 Steps to Reproduce
+
+Kasus 1 — Tab status:
+1. Log in to the workspace (Internal, role Superadmin).
+2. Navigate to Stock Management → Approval Aset Baru, tab Pengajuan Masuk (16 pengajuan).
+3. Klik tab "Disetujui 4".
+4. Observe the result: tabel menampilkan "Tidak ada pengajuan yang cocok dengan filter" (0 baris), padahal card ringkasan tetap menunjukkan DISETUJUI (TERVERIFIKASI) 4.
+
+Kasus 2 — Filter Tipe Aset:
+5. Klik "Semua Pengajuan" untuk memulihkan daftar, lalu atur filter Tipe Aset menjadi "Rumah" dan klik "Terapkan Filter".
+6. Observe the result: tabel kembali kosong (0 baris), padahal ke-16 pengajuan seluruhnya bertipe Rumah.
+
+Kasus 3 — Pencarian bocor antar-tab:
+7. Reset filter, ketik "JPMS" pada kolom pencarian, lalu klik "Terapkan Filter".
+8. Observe the result: tab Pengajuan benar menyisakan 1 baris (JPMS-10001), tetapi angka tab "Approval Pengurangan Unit" ikut berubah dari 2 menjadi 0.
+
+Kasus terkait — Reset:
+9. Setelah Kasus 1, klik tombol "Reset": tab "Disetujui" tetap aktif dan tabel tetap kosong; daftar hanya pulih setelah mengklik tab "Semua Pengajuan".
+
+## 🔍 Technical Context
+
+| Field | Detail |
+|---|---|
+| **Expected** | Tab "Disetujui" menampilkan 4 pengajuan Terverifikasi; filter Tipe Aset "Rumah" menampilkan 16 pengajuan; pencarian pada tab Pengajuan tidak mengubah angka tab Pengurangan Unit (tetap 2); tombol Reset membersihkan seluruh filter termasuk tab status aktif. |
+| **Actual** | Tab "Disetujui" dan filter Tipe Aset "Rumah" sama-sama menghasilkan 0 baris; pencarian "JPMS" mengubah angka tab Pengurangan Unit menjadi 0; Reset tidak membersihkan tab status yang aktif. |
+| **Environment** | Staging (terasrumah-sandbox.zegen.app) |
+| **Device/OS** | Web / Chrome |
+| **User Role** | Admin (Superadmin) |
+
+## 🪵 Logs & Media
+
+* **Screenshots:** (Drag and drop images here) — file draft lokal: evidence_01_chip_disetujui.png, evidence_02_filter_tipe_aset.png, evidence_03_search_bocor_antar_tab.png (masing-masing ada versi kotak merah)
+* **Console Logs:** -
+
+## ✅ Checklist for Fix
+
+• [ ] Reproduce locally.
+• [ ] Add regression test.
+• [ ] Verify fix in Staging.
+• [ ] Update documentation (if behavior changed).

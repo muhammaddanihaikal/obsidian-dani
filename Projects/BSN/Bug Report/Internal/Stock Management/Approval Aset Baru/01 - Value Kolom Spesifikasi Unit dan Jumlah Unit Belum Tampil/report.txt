@@ -1,0 +1,44 @@
+🐞 [BUG] | Value pada Kolom Spesifikasi Unit dan Jumlah Unit di Menu Approval Aset Baru Belum Tampil
+
+**Priority:** High 🟠
+
+**Label:** `bug` `triage-needed` `Stock Management`
+
+**Linked Issue/PR:** # -
+
+## 📖 Overview
+
+> Di daftar Approval Aset Baru, kolom SPESIFIKASI UNIT dan JUMLAH UNIT isinya hanya tanda strip di semua baris. Padahal data aslinya ada, misalnya luas tanah/bangunan dan jumlah unit tampil normal di halaman Aset Baru dan di halaman detail.
+
+* **Impact:** Reviewer tidak bisa melihat luas dan jumlah unit langsung dari daftar, jadi harus membuka detail satu per satu untuk memeriksa pengajuan.
+* **Frequency:** 100% of the time (16 dari 16 baris)
+
+## 🛠 Steps to Reproduce
+
+1. Log in to the workspace (Internal, role Superadmin).
+2. Navigate to Stock Management → Approval Aset Baru.
+3. Perhatikan kolom SPESIFIKASI UNIT dan JUMLAH UNIT pada tabel antrean.
+4. Observe the result: semua baris menampilkan "Rumah LT - / LB -" (atau "Apartemen LT - / LB -") dan "- Tersedia: -".
+5. Bandingkan dengan Stock Management → Aset Baru: aset yang sama (contoh JPMS-10001) memiliki LT 100 / LB 90 dan 34 Unit. Halaman detail approval aset yang sama juga menampilkan nilai aslinya.
+
+## 🔍 Technical Context
+
+| Field | Detail |
+|---|---|
+| **Expected** | Kolom SPESIFIKASI UNIT menampilkan LT/LB asli dan kolom JUMLAH UNIT menampilkan jumlah unit asli, sama seperti di Daftar Aset Baru. |
+| **Actual** | Kedua kolom selalu berisi tanda strip untuk semua 16 pengajuan, meskipun data sumbernya ada dan tampil benar di halaman lain. |
+| **Environment** | Staging (terasrumah-sandbox.zegen.app) |
+| **Device/OS** | Web / Chrome |
+| **User Role** | Admin (Superadmin) |
+
+## 🪵 Logs & Media
+
+* **Screenshots:** (Drag and drop images here) — file draft lokal: evidence_01_approval_kolom_kosong.png (asli) dan versi kotak merah
+* **Console Logs:** -
+
+## ✅ Checklist for Fix
+
+• [ ] Reproduce locally.
+• [ ] Add regression test.
+• [ ] Verify fix in Staging.
+• [ ] Update documentation (if behavior changed).

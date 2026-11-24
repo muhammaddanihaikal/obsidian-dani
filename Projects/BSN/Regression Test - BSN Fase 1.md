@@ -29,6 +29,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 18 | Aset Baru (External) | Detail Aset | 🐞 Bug |
 | 19 | Simulasi Pembiayaan (External) | Form Simulasi | 🐞 Bug |
 | 20 | Daftar Developer (External) | Card Developer | 🐞 Bug |
+| 21 | Stock Management | Approval Aset Baru | 🐞 Bug |
 
 ---
 
@@ -44,11 +45,11 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 6 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| 9 | **Stock Management** | 8 | ⏳ Pending (0/8) | Aset Baru (8) |
+| 9 | **Stock Management** | 14 | ✅ Reported (6/14) | Aset Baru (11), Approval Aset Baru (3) — 6 issue sudah diinput ke Huly: BSN_I-169 s.d. BSN_I-174 |
 | 10 | **Aset Baru (External)** | 3 | ⏳ Pending (0/3) | Filter Pencarian (1), Card Aset (1), Detail Aset (1) |
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
-| **Total** | | **51** | **0 Reported / 51 Pending** | |
+| **Total** | | **57** | **6 Reported / 51 Pending** | |
 
 ---
 
@@ -57,7 +58,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 45 | 29 Issue Internal, 16 Issue External |
+| 🔴 **Open** | 51 | 35 Issue Internal, 16 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 3 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi<br>• `External/Daftar Developer/Card Developer/01`: Logo, Segmen, dan Jumlah Aset Belum Sesuai |
 
@@ -156,6 +157,104 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * -
 > * **Catatan Retest**:
 >   * -
+
+### 🐞 [BUG] | Total pada Card Stok Unit Tersedia Tidak Sesuai
+
+> * **Menu**: Stock Management → Aset Baru
+> * **Status**: Open
+> * **Huly**: BSN_I-169 (sudah diinput ke Huly)
+> * **Overview**: Card "STOK UNIT TERSEDIA" di halaman Aset Baru menulis total 547 unit sebagai stok katalog. Padahal angka itu adalah jumlah unit dari semua aset, termasuk yang masih Draf dan belum tayang di katalog. Jadi angka di card lebih besar dari stok yang sebenarnya tersedia.
+> * **Expected**: Card STOK UNIT TERSEDIA menampilkan total unit yang benar-benar tersedia di katalog (aset Terverifikasi / Published)
+> * **Actual**: Card menampilkan 547 unit, yaitu total unit dari semua status aset termasuk Draf dan Menunggu Verifikasi
+> * **Evidence Awal**:
+>   * Card Stok 547: evidence_01_chip_stok.png (file lokal di folder issue `Internal/Stock Management/Aset Baru/09`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Sorting pada Tabel Aset Baru dan Approval Aset Baru Tidak Berfungsi
+
+> * **Menu**: Stock Management → Aset Baru dan Approval Aset Baru
+> * **Status**: Open
+> * **Huly**: BSN_I-170 (sudah diinput ke Huly)
+> * **Overview**: Tombol urutkan (sorting) di tabel Aset Baru dan tabel Approval Aset Baru tidak bekerja. Ada yang diklik tapi urutannya tidak berubah sama sekali, ada juga yang berubah tapi urutannya acak. Dari 12 kolom yang dicoba di kedua tabel, tidak ada satu pun yang mengurutkan dengan benar.
+> * **Expected**: Setiap kolom berikon sort mengurutkan baris dengan benar, klik pertama menaik dan klik kedua menurun
+> * **Actual**: Harga dan Developer mati total, Kode dan Status Verifikasi acak, dan seluruh kolom di Approval Aset Baru mati total
+> * **Evidence Awal**:
+>   * Header Sorting Harga: evidence_01_sorting_harga.png (file lokal di folder issue `Internal/Stock Management/Aset Baru/10`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Stok 0 Tetap Bisa Disimpan sebagai Draf pada Edit Aset Baru
+
+> * **Menu**: Stock Management → Aset Baru
+> * **Status**: Open
+> * **Huly**: BSN_I-172 (sudah diinput ke Huly)
+> * **Overview**: Saat mengedit aset, stok diisi 0 itu sebenarnya tidak boleh — tombol Selanjutnya saja yang menolaknya. Tapi tombol "Simpan sebagai Draft" tidak ikut memeriksa: modal konfirmasi tetap muncul dan draf dengan stok 0 tetap bisa disimpan.
+> * **Expected**: Tombol Simpan sebagai Draft menjalankan validasi yang sama seperti tombol Selanjutnya dan menolak penyimpanan stok 0
+> * **Actual**: Modal konfirmasi simpan draf tetap muncul meskipun stok 0, sehingga draf tidak valid dapat disimpan
+> * **Evidence Awal**:
+>   * Modal Konfirmasi Stok 0: evidence_01_simpan_draf_stok0.png (file lokal di folder issue `Internal/Stock Management/Aset Baru/11`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Value pada Kolom Spesifikasi Unit dan Jumlah Unit di Menu Approval Aset Baru Belum Tampil
+
+> * **Menu**: Stock Management → Approval Aset Baru (Tab Pengajuan Masuk)
+> * **Status**: Open
+> * **Huly**: BSN_I-171 (sudah diinput ke Huly)
+> * **Overview**: Di daftar Approval Aset Baru, kolom SPESIFIKASI UNIT dan JUMLAH UNIT isinya hanya tanda strip di semua baris. Padahal data aslinya ada, misalnya luas tanah/bangunan dan jumlah unit tampil normal di halaman Aset Baru dan di halaman detail.
+> * **Expected**: Kolom SPESIFIKASI UNIT menampilkan LT/LB dan kolom JUMLAH UNIT menampilkan jumlah unit sesuai data aset
+> * **Actual**: Kedua kolom tampil tanda strip di seluruh 16 baris antrean
+> * **Evidence Awal**:
+>   * Kolom Approval Strip: evidence_01_approval_kolom_kosong.png (file lokal di folder issue `Internal/Stock Management/Approval Aset Baru/01`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Filter pada Menu Approval Aset Baru Menampilkan Hasil Kosong
+
+> * **Menu**: Stock Management → Approval Aset Baru (Tab Pengajuan Masuk)
+> * **Status**: Open
+> * **Huly**: BSN_I-173 (sudah diinput ke Huly)
+> * **Overview**: Filter di menu Approval Aset Baru tidak bisa dipercaya, ada 3 kejadian: (1) Tab "Disetujui" menulis ada 4 pengajuan, tapi saat diklik daftarnya kosong, (2) Filter tipe "Rumah" hasilnya kosong, padahal semua 16 pengajuan tipenya Rumah, (3) Pencarian di tab Pengajuan ikut mengubah angka di tab Pengurangan Unit dari 2 menjadi 0, padahal tab itu tidak sedang diutak-atik.
+> * **Expected**: Tab Disetujui menampilkan 4 pengajuan, filter Rumah menampilkan 16 pengajuan, dan pencarian di tab Pengajuan tidak mengubah angka tab Pengurangan Unit
+> * **Actual**: Tab Disetujui dan filter Rumah menghasilkan 0 baris, pencarian "JPMS" mengubah angka tab Pengurangan Unit dari 2 menjadi 0, dan tombol Reset tidak membersihkan tab status yang aktif
+> * **Evidence Awal**:
+>   * Tab Disetujui Kosong: evidence_01_chip_disetujui.png (file lokal di folder issue `Internal/Stock Management/Approval Aset Baru/02`, drag & drop ke Huly)
+>   * Filter Rumah Kosong: evidence_02_filter_tipe_aset.png (file lokal di folder issue yang sama, drag & drop ke Huly)
+>   * Search Bocor Antar Tab: evidence_03_search_bocor_antar_tab.png (file lokal di folder issue yang sama, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | File Bukti pada Approval Pengurangan Unit Tidak Bisa Dibuka
+
+> * **Menu**: Stock Management → Approval Aset Baru (Tab Pengurangan Unit)
+> * **Status**: Open
+> * **Huly**: BSN_I-174 (sudah diinput ke Huly)
+> * **Overview**: Di tab Approval Pengurangan Unit, file bukti penjualan (SPR/kuitansi) hanya tampil sebagai nama file biasa yang tidak bisa diklik, dan tidak ada tombol untuk melihat detailnya. Jadi reviewer tidak bisa membuka bukti sama sekali, tapi tetap harus memilih Setujui atau Tolak.
+> * **Expected**: Nama file bukti dapat diklik untuk dibuka/diunduh, atau tersedia tombol Detail untuk memeriksa bukti sebelum memutuskan
+> * **Actual**: Nama file hanya teks mati dan tidak ada tombol Detail; satu-satunya aksi pada baris adalah Setujui dan Tolak
+> * **Evidence Awal**:
+>   * Bukti Pengurangan Teks Mati: evidence_01_bukti_pengurangan.png (file lokal di folder issue `Internal/Stock Management/Approval Aset Baru/03`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
 
 ---
 

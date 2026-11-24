@@ -1,0 +1,44 @@
+🐞 [BUG] | Total pada Card Stok Unit Tersedia Tidak Sesuai
+
+**Priority:** High 🟠
+
+**Label:** `bug` `triage-needed` `Stock Management`
+
+**Linked Issue/PR:** # -
+
+## 📖 Overview
+
+> Card "STOK UNIT TERSEDIA" di halaman Aset Baru menulis total 547 unit sebagai stok katalog. Padahal angka itu adalah jumlah unit dari semua aset, termasuk yang masih Draf dan belum tayang di katalog. Jadi angka di card lebih besar dari stok yang sebenarnya tersedia.
+
+* **Impact:** User membaca stok katalog jauh lebih besar dari stok yang benar-benar bisa dijual, sehingga angka di card menyesatkan.
+* **Frequency:** 100% of the time
+
+## 🛠 Steps to Reproduce
+
+1. Log in to the workspace (Internal, role Superadmin).
+2. Navigate to Stock Management → Aset Baru.
+3. Perhatikan card "STOK UNIT TERSEDIA": tercatat 547 Unit Total dengan keterangan "Stok Unit Katalog".
+4. Bandingkan dengan komposisi aset: hanya 4 aset berstatus Terverifikasi Aktif / Published yang tayang di katalog, sedangkan 547 adalah total unit dari seluruh 20 aset (4 Published, 11 Menunggu Verifikasi, 4 Draf Pengajuan termasuk 7 unit data uji MKSS-10013, 1 Butuh Revisi).
+5. Klik tab quick-filter "Stok": hasil yang ditampilkan 0, tidak konsisten dengan angka 547 pada card.
+
+## 🔍 Technical Context
+
+| Field | Detail |
+|---|---|
+| **Expected** | Card "STOK UNIT TERSEDIA" menampilkan total unit yang benar-benar tersedia di katalog (aset Terverifikasi / Published), konsisten dengan definisi "Stok Unit Katalog" dan dengan hasil filter Stok. |
+| **Actual** | Card menampilkan 547 Unit, yaitu total unit dari semua status aset (termasuk Draf dan Menunggu Verifikasi yang belum tayang), sementara filter Stok menampilkan 0 — kedua angka saling bertentangan. |
+| **Environment** | Staging (terasrumah-sandbox.zegen.app) |
+| **Device/OS** | Web / Chrome |
+| **User Role** | Admin (Superadmin) |
+
+## 🪵 Logs & Media
+
+* **Screenshots:** (Drag and drop images here) — file draft lokal: evidence_01_chip_stok.png (asli) dan versi kotak merah pada card STOK UNIT TERSEDIA
+* **Console Logs:** -
+
+## ✅ Checklist for Fix
+
+• [ ] Reproduce locally.
+• [ ] Add regression test.
+• [ ] Verify fix in Staging.
+• [ ] Update documentation (if behavior changed).

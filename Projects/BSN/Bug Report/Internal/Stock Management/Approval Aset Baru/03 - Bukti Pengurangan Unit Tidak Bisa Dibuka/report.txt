@@ -1,0 +1,44 @@
+🐞 [BUG] | File Bukti pada Approval Pengurangan Unit Tidak Bisa Dibuka
+
+**Priority:** High 🟠
+
+**Label:** `bug` `triage-needed` `Stock Management`
+
+**Linked Issue/PR:** # -
+
+## 📖 Overview
+
+> Di tab Approval Pengurangan Unit, file bukti penjualan (SPR/kuitansi) hanya tampil sebagai nama file biasa yang tidak bisa diklik, dan tidak ada tombol untuk melihat detailnya. Jadi reviewer tidak bisa membuka bukti sama sekali, tapi tetap harus memilih Setujui atau Tolak.
+
+* **Impact:** Pengurangan stok disetujui atau ditolak tanpa memeriksa bukti penjualan, sehingga berisiko menyetujui pengurangan yang tidak sah.
+* **Frequency:** 100% of the time
+
+## 🛠 Steps to Reproduce
+
+1. Log in to the workspace (Internal, role Superadmin).
+2. Navigate to Stock Management → Approval Aset Baru, tab "Approval Pengurangan Unit" (2 permohonan Menunggu Verifikasi).
+3. Perhatikan kolom "Bukti Pengesahan (SPR / Kuitansi)": nama file (mis. "auto-qa-dummy.pdf" dan "Test File PDF.pdf") tampil sebagai teks biasa dengan ikon file.
+4. Klik nama file tersebut.
+5. Observe the result: tidak terjadi apa-apa — file tidak terbuka dan tidak terunduh. Pada kolom Aksi hanya tersedia tombol "Setujui" dan "Tolak", tidak ada tombol Detail atau Lihat Bukti di baris mana pun.
+
+## 🔍 Technical Context
+
+| Field | Detail |
+|---|---|
+| **Expected** | Nama file bukti dapat diklik untuk membuka/mengunduh SPR atau kuitansi, atau tersedia tombol Detail yang menampilkan bukti, sebelum reviewer memutuskan Setujui/Tolak. |
+| **Actual** | Nama file adalah teks mati (tidak ada tautan/aksi klik) dan tidak ada tombol Detail; satu-satunya aksi pada baris adalah Setujui dan Tolak. |
+| **Environment** | Staging (terasrumah-sandbox.zegen.app) |
+| **Device/OS** | Web / Chrome |
+| **User Role** | Admin (Superadmin) |
+
+## 🪵 Logs & Media
+
+* **Screenshots:** (Drag and drop images here) — file draft lokal: evidence_01_bukti_pengurangan.png (asli) dan versi kotak merah pada nama file bukti dan tombol Setujui/Tolak
+* **Console Logs:** -
+
+## ✅ Checklist for Fix
+
+• [ ] Reproduce locally.
+• [ ] Add regression test.
+• [ ] Verify fix in Staging.
+• [ ] Update documentation (if behavior changed).
