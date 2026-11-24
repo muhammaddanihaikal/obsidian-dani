@@ -379,3 +379,38 @@ Uncaught TypeError: Cannot read properties of undefined (reading 'id')
    * Untuk bug sederhana (1-2 klik), AI boleh mengusulkan skip STR dan menunggu konfirmasi user.
 4. **Screenshots / Evidence**: Di Huly, gambar di-drag-drop langsung ke bagian "🪵 Logs & Media → Screenshots". Catbox links TIDAK dipakai di bagian ini — hanya di Obsidian tracker dan report.txt lokal jika diperlukan referensi.
 5. **Template Lama**: Issue-issue sebelumnya (format lama) dibiarkan AS-IS, tidak perlu dikonversi.
+
+---
+
+## 📤 Cara Input Issue Baru ke Huly (Praktik Lapangan)
+
+> Hasil praktik langsung saat menginput issue BSN_I-169 s.d. BSN_I-174 ke Huly (23 November 2026, semua terverifikasi tampil rapi setelah reload). Bagian ini soal CARA mengoperasikan Huly-nya; format isi issue tetap mengikuti template report.txt di atas.
+
+### A. Persiapan
+1. Issue hanya diinput setelah draft report.txt di-ACC user (approval gate tetap berlaku penuh).
+2. Buka Huly di project.zegenbox.com, workspace "BSN Lelang".
+3. Pilih project sesuai portal bug-nya: BSN LELANG (INTERNAL) atau BSN LELANG (EXTERNAL).
+
+### B. Membuat Issue Baru
+1. Masuk ke menu Issues, lalu klik New issue.
+2. Isi Title persis sama dengan judul di report.txt (format Golden Formula: 🐞 [BUG] | ...).
+3. Isi Description dengan jalur PASTE di editor Huly (paste / fill-with-paste dari isi report.txt). Jalur ini membuat markdown terkonversi dan tampil rapi: bold, label chips, heading, blockquote Overview, bullet list, dan tabel Technical Context (Field | Detail) jadi tabel beneran.
+   * JANGAN memasukkan description secara mentah / programmatic (ketik atau insert teks langsung): karakter markdown seperti ** dan ## akan tampil literal sebagai teks mentah, bukan format.
+   * Acuan tampilan rapi: issue contoh BSN_I-111.
+4. Field lain di panel kanan (Status, Priority, Assignee, Label, Parent) DIBIARKAN DEFAULT, tidak perlu diisi. Priority dan Label pada template tim hanya berupa teks di dalam description, bukan pengisian field Huly.
+5. Screenshot / evidence TIDAK di-attach dan TIDAK di-insert oleh AI ke Huly. User menaruh gambar evidence secara inline sendiri setelah issue dibuat (keputusan user, 23 November 2026).
+6. Klik Create untuk menyimpan issue.
+
+### C. Setelah Issue Terbuat
+1. Catat kode issue yang terbentuk (format: BSN_I-xxx).
+2. Tulis kode itu ke master tracker Obsidian (Projects/BSN/Regression Test - BSN Fase 1.md): tambahkan baris Huly pada entri issue terkait dan perbarui tabel Status Input Issue ke Huly (jumlah Reported / Pending).
+3. Commit dan push vault Obsidian seperti biasa agar sinkron untuk semua agent / tools yang membaca vault.
+
+### D. Mengedit Description Issue yang Sudah Ada
+1. Buka issue, edit description, lalu paste ulang isinya lewat editor (jalur paste yang sama seperti issue baru).
+2. Setelah paste, tambahkan 1 keystroke kecil (misalnya 1 spasi di akhir teks) untuk memicu autosave. Paste saja kadang TIDAK memicu penyimpanan, dan hasil edit bisa hilang saat panel ditutup.
+3. Wajib verify dengan reload halaman: description harus tampil terformat penuh dan tidak ada sisa karakter **, ##, atau | mentah. Pastikan juga ada catatan Activity "changed description" sebagai bukti tersimpan.
+
+### E. Bukti Berhasil
+* BSN_I-169: Total pada Card Stok Unit Tersedia Tidak Sesuai (description diperbaiki via jalur paste + keystroke autosave, terverifikasi setelah reload).
+* BSN_I-170 s.d. BSN_I-174: dibuat langsung dengan jalur paste di dialog New issue, masing-masing terverifikasi render rapi dan tersimpan di server.
