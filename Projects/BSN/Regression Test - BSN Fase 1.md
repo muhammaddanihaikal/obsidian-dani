@@ -30,6 +30,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 19 | Simulasi Pembiayaan (External) | Form Simulasi | 🐞 Bug |
 | 20 | Daftar Developer (External) | Card Developer | 🐞 Bug |
 | 21 | Stock Management | Approval Aset Baru | 🐞 Bug |
+| 22 | Aset Baru (External) | Katalog | 🐞 Bug |
+| 23 | Aset Baru (External) | Form Pengajuan Peminatan | 🐞 Bug |
 
 ---
 
@@ -46,10 +48,10 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
 | 9 | **Stock Management** | 14 | ✅ Reported (6/14) | Aset Baru (11), Approval Aset Baru (3) — 6 issue sudah diinput ke Huly: BSN_I-169 s.d. BSN_I-174 |
-| 10 | **Aset Baru (External)** | 3 | ⏳ Pending (0/3) | Filter Pencarian (1), Card Aset (1), Detail Aset (1) |
+| 10 | **Aset Baru (External)** | 5 | ✅ Reported (2/5) | Filter Pencarian (1), Card Aset (1), Detail Aset (1), Katalog (1) — HULY-109, Form Pengajuan Peminatan (1) — HULY-110 |
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
-| **Total** | | **57** | **6 Reported / 51 Pending** | |
+| **Total** | | **59** | **8 Reported / 51 Pending** | |
 
 ---
 
@@ -58,7 +60,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 51 | 35 Issue Internal, 16 Issue External |
+| 🔴 **Open** | 53 | 35 Issue Internal, 18 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 3 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi<br>• `External/Daftar Developer/Card Developer/01`: Logo, Segmen, dan Jumlah Aset Belum Sesuai |
 
@@ -952,6 +954,38 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Total Aset Proyek, Segmen, & Unit Kosong: [https://files.catbox.moe/7ui0n0.png](https://files.catbox.moe/7ui0n0.png)
 >   * Filter Segmen Kurang Opsi Gabungan: [https://files.catbox.moe/qe3yw1.png](https://files.catbox.moe/qe3yw1.png)
 >   * Filter Kantor Hanya Makassar: [https://files.catbox.moe/6rls01.png](https://files.catbox.moe/6rls01.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+### 🐞 [BUG] | Aset yang Belum Publish Tampil di Katalog External
+
+> * **Menu**: Aset Baru (External) → Katalog
+> * **Status**: Open
+> * **Huly**: HULY-109 (sudah diinput ke Huly, proyek BSN LELANG (EXTERNAL))
+> * **Overview**: Katalog Aset Baru di portal External menampilkan 6 aset. Padahal aset yang sudah publish di Internal hanya 4. Dua aset yang belum publish (JKHS-10001 dan JKHS-10004) ikut tampil, detailnya bisa dibuka, dan bisa diajukan peminatan.
+> * **Expected**: Katalog External hanya menampilkan 4 aset yang sudah Published di Internal. Aset yang belum publish tidak tampil dan tidak bisa diakses dari External.
+> * **Actual**: Katalog External menampilkan 6 aset. JKHS-10001 dan JKHS-10004 yang belum publish ikut tampil, detailnya bisa dibuka, dan peminatan bisa diajukan.
+> * **Evidence Awal**:
+>   * Katalog 6 Aset: evidence_01_total-6-aset_redbox.png (file lokal di folder issue `External/Aset Baru/Katalog/01`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Form Pengajuan Peminatan Belum Sesuai Desain Figma
+
+> * **Menu**: Aset Baru (External) → Form Pengajuan Peminatan
+> * **Status**: Open
+> * **Huly**: HULY-110 (sudah diinput ke Huly, proyek BSN LELANG (EXTERNAL))
+> * **Overview**: Form pengajuan peminatan aset baru di portal External saat ini tampil dalam satu halaman panjang, semua bagian form ditumpuk di satu halaman. Tampilan ini belum sesuai desain Figma terbaru yang membagi form menjadi beberapa step.
+> * **Expected**: Form pengajuan peminatan tampil bertahap sesuai desain Figma: satu step dalam satu halaman, mulai dari Step 1 Data Properti & Akad sampai Step 4 Dokumen Pendukung.
+> * **Actual**: Form tampil dalam satu halaman panjang dan belum dibagi per step seperti desain Figma.
+> * **Evidence Awal**:
+>   * Form Saat Ini: evidence_21_form-saat-ini.png (file lokal di folder issue `External/Aset Baru/Form Pengajuan Peminatan/01`, drag & drop ke Huly)
+>   * Desain Figma: evidence_20_figma-form-baru.png (file lokal di folder issue yang sama, drag & drop ke Huly)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
