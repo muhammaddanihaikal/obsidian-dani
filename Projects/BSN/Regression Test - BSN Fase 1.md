@@ -53,8 +53,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 10 | **Aset Baru (External)** | 5 | ✅ Reported (2/5) | Filter Pencarian (1), Card Aset (1), Detail Aset (1), Katalog (1) — HULY-109, Form Pengajuan Peminatan (1) — HULY-110 |
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
-| 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (6/6) | Tiket Aset Baru (3) — BSN_I-182 s.d. BSN_I-184, Leads Aset Baru (3) — BSN_I-185 s.d. BSN_I-187 |
-| **Total** | | **65** | **14 Reported / 51 Pending** | |
+| 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (5/6) | Tiket Aset Baru (3) — BSN_I-183, BSN_I-184 (BSN_I-182 dihapus dari Huly 25 Nov, tiket sudah terbentuk), Leads Aset Baru (3) — BSN_I-185 s.d. BSN_I-187 |
+| **Total** | | **65** | **13 Reported / 52 Pending** | |
 
 ---
 
@@ -261,10 +261,11 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * -
 <br>
 
-### 🐞 [BUG] | Tiket Tidak Terbentuk setelah Lead Ditindaklanjuti (BSN_I-182)
+### 🐞 [BUG] | Tiket Tidak Terbentuk setelah Lead Ditindaklanjuti
 
 > * **Menu**: Stock Management → Tiket Aset Baru
 > * **Status**: Open
+> * **Huly**: BSN_I-182 — DIHAPUS dari Huly 25 Nov 2026 atas arahan Muhammad, karena tiket lead tes akhirnya terbentuk (25 Nov 2026 pukul 11:53); issue tidak dilanjutkan
 > * **Overview**: Lead tes #ENT-01m8-8153 yang sudah ditindaklanjuti dan berstatus Terverifikasi tidak membentuk tiket di Tiket Aset Baru, baik di Board, Tabel, maupun pencarian.
 > * **Expected**: Setelah lead Terverifikasi, tiket terbentuk otomatis di Tiket Aset Baru dan lead dapat diproses ke tahap berikutnya
 > * **Actual**: Tidak ada tiket untuk lead tes di Board, Tabel, maupun pencarian Tiket Aset Baru
