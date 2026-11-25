@@ -2,6 +2,7 @@
 
 > Ditulis oleh Muse (agen AI Meta, "Pak Muse") pada 25 Nov 2026 atas perintah Muhammad, supaya Antigravity bisa membaca dokumen ini dan meniru cara Muse mengeksplorasi aplikasi.
 > Baca bagian 1–8 sebelum mengeksplorasi. Bagian 9 adalah log kerja nyata Muse (terutama kerja malam) sebagai contoh penerapan metodenya.
+> **Diperbarui 26 Nov 2026:** log kerja ditambah eksplorasi Profil External (25 Nov malam), dan **semua laporan lengkap kini tersimpan di repo ini** di `Projects/BSN/Laporan & Audit Muse/` — pemahaman project, laporan eksplorasi per area, audit TC, inventaris locator, recheck, retest, dan draft bug report.
 
 ## 0. Model kerja
 
@@ -100,6 +101,7 @@ Aturan khusus project **BSN** (mengalahkan aturan umum):
 - **Auth rusak berkepanjangan (banner "Unable to locate the column", 24 Nov 23:00 → 25 Nov 11:35):** pakai **cek berkala terjadwal** — interval 15–30 menit, maks 2 percobaan kode per run, **diam total di jam tidur Muhammad** kecuali peringatan lockout, dan ada batas waktu keseluruhan yang disepakati (putaran 1: berhenti 07:00 setelah 16 run gagal; putaran 2: tanpa batas sampai pulih, pulih di run ke-5 setelah 4 run halaman /internal blank total). Begitu login berhasil, verifikasi ulang langsung dikerjakan read-only di run yang sama.
 - **Kode TOTP kedaluwarsa di perjalanan:** jangan mencantumkan kode di teks tugas ke browser. Pola yang benar: browser berjalan sampai form kode dan **menunggu**, kode fresh dibuat dan dijawabkan saat itu juga, submit tepat 1x. Kode duplikat/kedaluwarsa menghasilkan penolakan eksplisit "kode tidak valid" — bedakan dari pola rusak server (penolakan diam-diam + banner error).
 - **Playwright lokal tidak bisa mencapai situs (proxy tunnel mati) sedangkan situsnya hidup:** verifikasi locator dialihkan ke browser cloud secara read-only. Yang tidak bisa diinspeksi dari browser cloud (atribut #id/data-testid di DOM) dicatat sebagai **belum terkonfirmasi**, tidak diklaim terverifikasi.
+- **Rekaman video repro belum bisa dari cloud Muse (dicoba 25 Nov 2026):** browser eksplorasi cloud hanya menghasilkan screenshot, bukan video. Playwright memang punya fitur rekam bawaan (`record_video`), tapi Chromium lokal dari VM Muse gagal mencapai situs luar — proxy egress menolak tunnel CONNECT (`ERR_TUNNEL_CONNECTION_FAILED`, 3x percobaan termasuk 2 varian proxy; curl dari VM yang sama jalan). Jalur yang masuk akal untuk video repro: Simular Box (desktop cloud Muhammad, egress bebas) atau laptop Muhammad — keduanya belum teruji untuk ini. Selama belum ada jalur yang terbukti, bukti issue tetap screenshot full + kotak merah.
 - **Screenshot gagal tersimpan (cek ulang 25 Nov):** verdict tetap dicatat live lengkap dengan nilai + jam, dan kegagalan penyimpanannya dilaporkan terbuka ke Muhammad di pesan yang sama — hasil cek tidak ditahan hanya karena buktinya kurang.
 - **Temuan bisa berubah belakangan:** tiket lead tes yang disimpulkan "tidak terbentuk" ternyata muncul belakangan (issue-nya dihapus dari Huly, BSN_I-182). Karena itu verdict selalu menyebut **jam pengamatan**, dan kesimpulan "tidak ada X" selalu berarti "tidak ada X sampai jam pengamatan terakhir".
 
@@ -159,6 +161,15 @@ Aturan khusus project **BSN** (mengalahkan aturan umum):
 - **15 issue + 3 catatan minor**, antara lain: klik Hitung kedua tidak menghitung ulang; tenor selalu 180 bulan; DP hasil selalu Rp10.000.000 padahal panel kiri halaman yang sama menghitung dengan benar; plafon maksimal tidak masuk akal (Rp1.500.000); tabel Detail Angsuran berbasis pokok tetap Rp140.000.000; biaya produk MRB berupa angka dummy urut (Rp10, 11, 12, 13...); tanpa validasi harga kosong/0; label akad tertukar (Murabahah ≠ MMQ); nama produk "Produk Sub" tampil ke nasabah.
 - Status: laporan selesai, **belum didraf ke Huly** — menunggu review Muhammad.
 
+### 25 Nov 2026 (malam) — External: Profil Nasabah (bug hunter, eksplorasi saja)
+- Perintah Muhammad (20:59): eksplorasi profil External saja, mode **bug hunter**; tanpa locator dan tanpa test case. Batasan tegas: **Ubah Password jangan disentuh**, data sensitif jangan disentuh — halaman hanya dibaca.
+- Login: Muhammad mengetik password 1x lewat takeover browser; kode OTP diambil Muse sendiri dari Mailpit (email paling baru, subjek "Kode Masuk") dan diverifikasi — tidak perlu takeover kedua. Catatan sesi: login External **tidak persisten antar window browser**, jadi pola ini berulang tiap sesi baru.
+- 4 halaman dijelajahi read-only: Daftar Peminatan (`/profiles/daftar-pesanan/`), Favorit (`/profiles/favorit/`), Profil & Berkas (`/profiles/biodata/`), Pengaturan & Keamanan (`/profiles/akun/`).
+- **19 temuan dugaan (B01–B19).** Terberat: akun dilabeli "Investor Terverifikasi / Tier 1 Priority" padahal seluruh data KYC kosong ("-"); semua tombol Unggah dokumen mati (diklik tanpa respons); foto properti rusak "No Images Found" di Daftar Peminatan padahal tampil normal di Favorit; tahun Hijriah salah ("1446 H" pada 25 Nov 2026, seharusnya ±1448 H); status 2FA bertentangan dengan dirinya sendiri; kriteria kekuatan sandi tercentang hijau semua padahal kolom sandi kosong.
+- Kejujuran batasan: formulir Ubah Kata Sandi ternyata tampil **inline** di halaman `/profiles/akun/` — terlihat saat halaman dibuka, tapi tidak ada satu pun field yang diisi/diklik; temuan kriteria sandi (B10) murni observasi pasif.
+- Tidak ada data dibuat/diubah/dihapus; tidak logout. Bukti sesi berupa tangkapan full-page; screenshot PNG per issue gagal disimpan ke file (keterbatasan browser cloud yang sama seperti cek ulang 25 Nov) — temuan dicatat dengan nilai persis + lokasi layarnya di laporan.
+- Laporan: `Projects/BSN/Laporan & Audit Muse/External Profil/LAPORAN-PROFIL-EXTERNAL-2026-11-25.md`. Status: **menunggu review Muhammad**; belum ada draft bug report (gerbang ACC).
+
 ### Berjalan terus
 - Laporan mingguan update Google Antigravity: setiap Senin 10:00 WIB ke WhatsApp Muhammad.
 - BSN_I-168 (List Developer): draft komentar retest Huly untuk 2 poin filter (opsi gabungan "Subsidi & Non Subsidi" tidak ada di filter Segmen; filter Kantor Wilayah hanya menampilkan 1 kantor — seharusnya mengikuti kantor yang benar-benar ada di tabel).
@@ -167,7 +178,7 @@ Aturan khusus project **BSN** (mengalahkan aturan umum):
 
 - **Repo ini (obsidian-dani):** folder resmi bug report di `Projects/BSN/Bug Report/[Portal]/[Modul]/[Sub Menu]/`; tracker di `Projects/BSN/Regression Test - BSN Fase 1.md`; standar TC BSN di `Projects/BSN/SIT BSN - Format & Standar Penulisan Test Case.md`.
 - **Repo automation:** `muhammaddanihaikal/bsn-automation` — Playwright + pytest + uv, pola POM, login 1x via storage_state, data test `[AUTO-QA] <Nama> <Timestamp>`, environment terkunci sandbox/localhost.
-- **Laporan lengkap di workspace cloud Muse** (bukan di repo ini): `LAPORAN-LEADS-TIKET-2026-11-24.md`, `RECHECK-2026-11-24.md` (riwayat lengkap 21 run cek berkala + hasil verifikasi), `LAPORAN-SIMULASI-KPR-2026-11-25.md`, `AUDIT-TC-ASET-BARU-APPROVAL.md`, `AUDIT-TC-LEADS-TIKET.md`, `LOCATOR.md`, `LOCATOR-LEADS-TIKET.md`, dan ringkasan issue untuk Muhammad `ringkasan-issue-leads-tiket-2026-11-25.md`.
+- **Laporan lengkap kini tersimpan di repo ini** (sejak 26 Nov 2026) di `Projects/BSN/Laporan & Audit Muse/`, dikelompokkan per area: `Pemahaman Project/` (BSN-PEMAHAMAN, standar TC & bug report, pemahaman repo automation), `Aset Baru & Approval/`, `External Aset Baru/`, `Leads & Tiket/` (termasuk `RECHECK-2026-11-24.md` — riwayat lengkap 21 run cek berkala + hasil verifikasi), `Simulasi KPR/`, `External Profil/`, `Retest/`, `Draft Bug Report/`, dan ringkasan issue untuk Muhammad `ringkasan-issue-leads-tiket-2026-11-25.md`. File aslinya tetap juga ada di workspace cloud Muse (`~/workspace/bsn/...`).
 - **Kredensial tidak pernah ditulis di dokumen mana pun.** Login BSN Internal tersimpan di Secure Vault Muse; secret TOTP hanya ada di .env repo automation lokal (gitignored).
 
 ---
