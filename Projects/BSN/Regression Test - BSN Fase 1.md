@@ -32,6 +32,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 21 | Stock Management | Approval Aset Baru | 🐞 Bug |
 | 22 | Aset Baru (External) | Katalog | 🐞 Bug |
 | 23 | Aset Baru (External) | Form Pengajuan Peminatan | 🐞 Bug |
+| 24 | Stock Management | Leads Aset Baru | 🐞 Bug |
+| 25 | Stock Management | Tiket Aset Baru | 🐞 Bug |
 
 ---
 
@@ -51,7 +53,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 10 | **Aset Baru (External)** | 5 | ✅ Reported (2/5) | Filter Pencarian (1), Card Aset (1), Detail Aset (1), Katalog (1) — HULY-109, Form Pengajuan Peminatan (1) — HULY-110 |
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
-| **Total** | | **59** | **8 Reported / 51 Pending** | |
+| 13 | **Leads & Tiket Aset Baru** | 6 | ⏳ Pending (0/6) | Leads Aset Baru (3), Tiket Aset Baru (3) |
+| **Total** | | **65** | **8 Reported / 57 Pending** | |
 
 ---
 
@@ -60,7 +63,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 53 | 35 Issue Internal, 18 Issue External |
+| 🔴 **Open** | 59 | 41 Issue Internal, 18 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 3 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi<br>• `External/Daftar Developer/Card Developer/01`: Logo, Segmen, dan Jumlah Aset Belum Sesuai |
 
@@ -252,6 +255,96 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Nama file hanya teks mati dan tidak ada tombol Detail; satu-satunya aksi pada baris adalah Setujui dan Tolak
 > * **Evidence Awal**:
 >   * Bukti Pengurangan Teks Mati: evidence_01_bukti_pengurangan.png (file lokal di folder issue `Internal/Stock Management/Approval Aset Baru/03`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Tiket Tidak Terbentuk setelah Lead Ditindaklanjuti
+
+> * **Menu**: Stock Management → Tiket Aset Baru
+> * **Status**: Open
+> * **Overview**: Lead tes #ENT-01m8-8153 yang sudah ditindaklanjuti dan berstatus Terverifikasi tidak membentuk tiket di Tiket Aset Baru, baik di Board, Tabel, maupun pencarian.
+> * **Expected**: Setelah lead Terverifikasi, tiket terbentuk otomatis di Tiket Aset Baru dan lead dapat diproses ke tahap berikutnya
+> * **Actual**: Tidak ada tiket untuk lead tes di Board, Tabel, maupun pencarian Tiket Aset Baru
+> * **Evidence Awal**:
+>   * Tiket Tidak Terbentuk: evidence_01_tiket-tidak-terbentuk_redbox.png (file lokal di folder issue `Internal/Stock Management/Tiket Aset Baru/01`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Nomor Tiket Duplikat pada Dua Lead Berbeda
+
+> * **Menu**: Stock Management → Tiket Aset Baru
+> * **Status**: Open
+> * **Overview**: Lead tes #ENT-01m8-8153 dan lead Elina sama-sama menampilkan nomor tiket #TKT-2024-0891. Tahun pada nomor tiket adalah 2024, padahal lead dibuat tahun 2026.
+> * **Expected**: Setiap lead / tiket memiliki nomor tiket unik yang berbeda, dengan tahun sesuai tahun pembuatan
+> * **Actual**: Kedua lead menampilkan nomor tiket yang sama: #TKT-2024-0891
+> * **Evidence Awal**:
+>   * Nomor Tiket Duplikat: evidence_02_nomor-tiket-duplikat_redbox.png (file lokal di folder issue `Internal/Stock Management/Tiket Aset Baru/02`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Kolom Nomor Tiket Menampilkan ID Lead dan Card VOA Menampilkan Rp0
+
+> * **Menu**: Stock Management → Tiket Aset Baru
+> * **Status**: Open
+> * **Overview**: Kolom Nomor Tiket pada tabel Tiket menampilkan ENT-01m7-2727, yaitu ID lead Elina, bukan nomor tiket. Card VOA Nilai Tiket Aset Baru menampilkan Rp0, padahal ada tiket Elina senilai Rp300.000.000 yang sedang tahap Proses.
+> * **Expected**: Kolom Nomor Tiket menampilkan nomor tiket (format #TKT-...) dan card VOA menampilkan total nilai tiket aktif (Rp300.000.000)
+> * **Actual**: Kolom Nomor Tiket menampilkan ID lead ENT-01m7-2727 dan card VOA menampilkan Rp0
+> * **Evidence Awal**:
+>   * Nomor Tiket ID Lead: evidence_08_nomor-tiket-id-lead-voa-nol_redbox.png (file lokal di folder issue `Internal/Stock Management/Tiket Aset Baru/03`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Simulasi DP dan Angsuran pada Drawer Leads Tidak Sesuai Harga Aset
+
+> * **Menu**: Stock Management → Leads Aset Baru
+> * **Status**: Open
+> * **Overview**: Nilai simulasi DP dan angsuran pada drawer Leads sama untuk harga aset yang berbeda: lead tes (aset Rp500.000.000) dan lead Elina (aset Rp300.000.000) sama-sama tampil DP Rp85.000.000 dan angsuran Rp6.380.000/bln. Nilai yang benar untuk lead tes: DP 10% x Rp500.000.000 = Rp50.000.000; sebagai pembanding, detail tiket Elina menampilkan angka yang benar (DP Rp30.000.000).
+> * **Expected**: DP tampil 10% dari harga aset masing-masing lead (lead tes Rp50.000.000, Elina Rp30.000.000) dan angsuran dihitung dari plafon serta tenor lead tersebut
+> * **Actual**: Kedua lead menampilkan DP Rp85.000.000 dan angsuran Rp6.380.000/bln yang sama persis
+> * **Evidence Awal**:
+>   * Simulasi DP Sama: evidence_03_simulasi-dp-dummy_redbox.png (file lokal di folder issue `Internal/Stock Management/Leads Aset Baru/01`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Card Perlu Tindak Lanjut Tidak Berubah setelah Tindak Lanjut Disimpan
+
+> * **Menu**: Stock Management → Leads Aset Baru
+> * **Status**: Open
+> * **Overview**: Setelah tindak lanjut lead tes disimpan, tab berubah benar menjadi Tindak Lanjut 2 / Terverifikasi 2, tapi card Perlu Tindak Lanjut tetap menampilkan 4 dengan keterangan "2 SLA Kritis" (harusnya 2). Card juga tidak berubah saat filter dipakai: tetap 4 walaupun hasil filter 0 lead.
+> * **Expected**: Card Perlu Tindak Lanjut ikut berubah mengikuti data terbaru (menjadi 2, sama seperti tab Tindak Lanjut)
+> * **Actual**: Card tetap menampilkan 4 ("2 SLA Kritis") setelah tindak lanjut disimpan, dan tetap 4 saat hasil filter 0 lead
+> * **Evidence Awal**:
+>   * Card Tidak Berubah: evidence_04_kartu-tindak-lanjut-tidak-update_redbox.png (file lokal di folder issue `Internal/Stock Management/Leads Aset Baru/02`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Sorting pada Tabel Leads Hanya Berfungsi di 2 Kolom
+
+> * **Menu**: Stock Management → Leads Aset Baru
+> * **Status**: Open
+> * **Overview**: Sorting pada tabel Leads hanya tersedia di 2 kolom: ID Pesanan dan Kode Asset. Kolom Peminat, Waktu Peminatan, dan Status Lead tidak memiliki kontrol sorting.
+> * **Expected**: Kolom Peminat, Waktu Peminatan, dan Status Lead memiliki kontrol sorting seperti kolom ID Pesanan dan Kode Asset
+> * **Actual**: Sorting hanya ada di kolom ID Pesanan dan Kode Asset; tiga kolom lain tidak memiliki kontrol sorting
+> * **Evidence Awal**:
+>   * Sorting Terbatas: evidence_06_sorting-terbatas_redbox.png (file lokal di folder issue `Internal/Stock Management/Leads Aset Baru/03`, drag & drop ke Huly)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:

@@ -1,0 +1,51 @@
+🐞 [BUG] | Sorting pada Tabel Leads Hanya Berfungsi di 2 Kolom
+
+**Priority:** Low 🔵
+
+**Label:** `bug` `triage-needed` `Leads`
+
+**Linked Issue/PR:** # (If applicable)
+
+## 📖 Overview
+
+> Sorting pada tabel Leads hanya tersedia di 2 kolom, kolom lain tidak memiliki kontrol sorting.
+>
+> * Kolom yang bisa di-sort: ID Pesanan dan Kode Asset.
+> * Kolom yang tidak ada kontrol sorting-nya: Peminat, Waktu Peminatan, dan Status Lead.
+
+* **Impact:** Staff tidak bisa mengurutkan lead berdasarkan peminat, waktu peminatan, atau status dari tabel
+* **Frequency:** 100% of the time
+
+## 🛠 Steps to Reproduce
+
+1. Login ke workspace (Internal, role Superadmin).
+2. Buka menu **Leads Aset Baru**.
+3. Lakukan aksi: **Periksa kontrol sorting pada header kolom Peminat, Waktu Peminatan, dan Status Lead**.
+4. Amati hasil yang tampil.
+
+## 🔍 Technical Context
+
+| Field | Detail |
+|---|---|
+| **Expected** | Kolom Peminat, Waktu Peminatan, dan Status Lead memiliki kontrol sorting seperti kolom ID Pesanan dan Kode Asset |
+| **Actual** | Sorting hanya ada di kolom ID Pesanan dan Kode Asset; tiga kolom lain tidak memiliki kontrol sorting |
+| **Environment** | Staging (Sandbox) |
+| **Device/OS** | Web / Chrome |
+| **User Role** | Admin Internal (Superadmin) |
+
+## 🪵 Logs & Media
+
+* **Screenshots:** (Drag and drop images here)
+* **Console Logs:**
+
+```bash
+# Paste any relevant stack traces or console errors here
+Uncaught TypeError: Cannot read properties of undefined (reading 'id')
+```
+
+## ✅ Checklist for Fix
+
+• [ ] Reproduce locally.
+• [ ] Add regression test.
+• [ ] Verify fix in Staging.
+• [ ] Update documentation (if behavior changed).
