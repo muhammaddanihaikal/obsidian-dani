@@ -53,8 +53,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 10 | **Aset Baru (External)** | 5 | ✅ Reported (2/5) | Filter Pencarian (1), Card Aset (1), Detail Aset (1), Katalog (1) — HULY-109, Form Pengajuan Peminatan (1) — HULY-110 |
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
-| 13 | **Leads & Tiket Aset Baru** | 6 | ⏳ Pending (0/6) | Leads Aset Baru (3), Tiket Aset Baru (3) |
-| **Total** | | **65** | **8 Reported / 57 Pending** | |
+| 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (6/6) | Tiket Aset Baru (3) — BSN_I-182 s.d. BSN_I-184, Leads Aset Baru (3) — BSN_I-185 s.d. BSN_I-187 |
+| **Total** | | **65** | **14 Reported / 51 Pending** | |
 
 ---
 
@@ -261,7 +261,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * -
 <br>
 
-### 🐞 [BUG] | Tiket Tidak Terbentuk setelah Lead Ditindaklanjuti
+### 🐞 [BUG] | Tiket Tidak Terbentuk setelah Lead Ditindaklanjuti (BSN_I-182)
 
 > * **Menu**: Stock Management → Tiket Aset Baru
 > * **Status**: Open
@@ -276,7 +276,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * -
 <br>
 
-### 🐞 [BUG] | Nomor Tiket Duplikat pada Dua Lead Berbeda
+### 🐞 [BUG] | Nomor Tiket Duplikat pada Dua Lead Berbeda (BSN_I-183)
 
 > * **Menu**: Stock Management → Tiket Aset Baru
 > * **Status**: Open
@@ -291,7 +291,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * -
 <br>
 
-### 🐞 [BUG] | Kolom Nomor Tiket Menampilkan ID Lead dan Card VOA Menampilkan Rp0
+### 🐞 [BUG] | Kolom Nomor Tiket Menampilkan ID Lead dan Card VOA Menampilkan Rp0 (BSN_I-184)
 
 > * **Menu**: Stock Management → Tiket Aset Baru
 > * **Status**: Open
@@ -306,7 +306,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * -
 <br>
 
-### 🐞 [BUG] | Simulasi DP dan Angsuran pada Drawer Leads Tidak Sesuai Harga Aset
+### 🐞 [BUG] | Simulasi DP dan Angsuran pada Drawer Leads Tidak Sesuai Harga Aset (BSN_I-185)
 
 > * **Menu**: Stock Management → Leads Aset Baru
 > * **Status**: Open
@@ -321,7 +321,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * -
 <br>
 
-### 🐞 [BUG] | Card Perlu Tindak Lanjut Tidak Berubah setelah Tindak Lanjut Disimpan
+### 🐞 [BUG] | Card Perlu Tindak Lanjut Tidak Berubah setelah Tindak Lanjut Disimpan (BSN_I-186)
 
 > * **Menu**: Stock Management → Leads Aset Baru
 > * **Status**: Open
@@ -336,7 +336,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * -
 <br>
 
-### 🐞 [BUG] | Sorting pada Tabel Leads Hanya Berfungsi di 2 Kolom
+### 🐞 [BUG] | Sorting pada Tabel Leads Hanya Berfungsi di 2 Kolom (BSN_I-187)
 
 > * **Menu**: Stock Management → Leads Aset Baru
 > * **Status**: Open
