@@ -53,8 +53,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 10 | **Aset Baru (External)** | 5 | ✅ Reported (2/5) | Filter Pencarian (1), Card Aset (1), Detail Aset (1), Katalog (1) — HULY-109, Form Pengajuan Peminatan (1) — HULY-110 |
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
-| 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (5/6) | Tiket Aset Baru (3) — BSN_I-183, BSN_I-184 (BSN_I-182 dihapus dari Huly 25 Nov, tiket sudah terbentuk), Leads Aset Baru (3) — BSN_I-185 s.d. BSN_I-187 |
-| **Total** | | **65** | **13 Reported / 52 Pending** | |
+| 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (2/6) | Tiket Aset Baru (3) — ketiganya dihapus dari Huly 25 Nov (BSN_I-182, BSN_I-183, BSN_I-184), Leads Aset Baru (3) — BSN_I-185, BSN_I-186 (BSN_I-187 dihapus dari Huly 25 Nov) |
+| **Total** | | **65** | **10 Reported / 55 Pending** | |
 
 ---
 
@@ -277,10 +277,11 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * -
 <br>
 
-### 🐞 [BUG] | Nomor Tiket Duplikat pada Dua Lead Berbeda (BSN_I-183)
+### 🐞 [BUG] | Nomor Tiket Duplikat pada Dua Lead Berbeda
 
 > * **Menu**: Stock Management → Tiket Aset Baru
 > * **Status**: Open
+> * **Huly**: BSN_I-183 — DIHAPUS dari Huly 25 Nov 2026 atas arahan Muhammad
 > * **Overview**: Lead tes #ENT-01m8-8153 dan lead Elina sama-sama menampilkan nomor tiket #TKT-2024-0891. Tahun pada nomor tiket adalah 2024, padahal lead dibuat tahun 2026.
 > * **Expected**: Setiap lead / tiket memiliki nomor tiket unik yang berbeda, dengan tahun sesuai tahun pembuatan
 > * **Actual**: Kedua lead menampilkan nomor tiket yang sama: #TKT-2024-0891
@@ -292,10 +293,11 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * -
 <br>
 
-### 🐞 [BUG] | Kolom Nomor Tiket Menampilkan ID Lead dan Card VOA Menampilkan Rp0 (BSN_I-184)
+### 🐞 [BUG] | Kolom Nomor Tiket Menampilkan ID Lead dan Card VOA Menampilkan Rp0
 
 > * **Menu**: Stock Management → Tiket Aset Baru
 > * **Status**: Open
+> * **Huly**: BSN_I-184 — DIHAPUS dari Huly 25 Nov 2026 atas arahan Muhammad
 > * **Overview**: Kolom Nomor Tiket pada tabel Tiket menampilkan ENT-01m7-2727, yaitu ID lead Elina, bukan nomor tiket. Card VOA Nilai Tiket Aset Baru menampilkan Rp0, padahal ada tiket Elina senilai Rp300.000.000 yang sedang tahap Proses.
 > * **Expected**: Kolom Nomor Tiket menampilkan nomor tiket (format #TKT-...) dan card VOA menampilkan total nilai tiket aktif (Rp300.000.000)
 > * **Actual**: Kolom Nomor Tiket menampilkan ID lead ENT-01m7-2727 dan card VOA menampilkan Rp0
@@ -337,10 +339,11 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * -
 <br>
 
-### 🐞 [BUG] | Sorting pada Tabel Leads Hanya Berfungsi di 2 Kolom (BSN_I-187)
+### 🐞 [BUG] | Sorting pada Tabel Leads Hanya Berfungsi di 2 Kolom
 
 > * **Menu**: Stock Management → Leads Aset Baru
 > * **Status**: Open
+> * **Huly**: BSN_I-187 — DIHAPUS dari Huly 25 Nov 2026 atas arahan Muhammad
 > * **Overview**: Sorting pada tabel Leads hanya tersedia di 2 kolom: ID Pesanan dan Kode Asset. Kolom Peminat, Waktu Peminatan, dan Status Lead tidak memiliki kontrol sorting.
 > * **Expected**: Kolom Peminat, Waktu Peminatan, dan Status Lead memiliki kontrol sorting seperti kolom ID Pesanan dan Kode Asset
 > * **Actual**: Sorting hanya ada di kolom ID Pesanan dan Kode Asset; tiga kolom lain tidak memiliki kontrol sorting
