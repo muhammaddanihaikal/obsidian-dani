@@ -1145,13 +1145,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 > * **Menu**: Aset Saya (Developer) → Pengajuan Aset Baru
 > * **Status**: Open
-> * **Overview**: Pada Step 1 Informasi Aset di formulir pengajuan aset baru portal Developer, beberapa tampilan dan validasi field belum mengikuti portal Internal: (1) urutan 3 opsi teratas Tipe Aset masih Apartemen, Gedung Kantor, Gudang; (2) field Kode Aset masih bisa diklik kursor; (3) Stok Unit tampil sebelum Tipe Unit; (4) Stok Unit masih bisa diisi selain angka; (5) inputan Luas Bangunan masih muncul; (6) Jenis Kategori diletakkan di bawah Spesifikasi Dimensi, bukan setelah Stok Unit. Harusnya: seluruh tampilan, urutan, dan validasi field pada Step 1 mengikuti portal Internal.
-> * **Expected**: Mengikuti portal Internal: Tipe Aset diawali Rumah, Ruko, Apartemen; Kode Aset berstatus disabled; Tipe Unit tampil sebelum Stok Unit; Stok Unit hanya bisa diisi angka; tidak ada input Luas Bangunan; dan Jenis Kategori diletakkan setelah Stok Unit
-> * **Actual**: Tipe Aset diawali Apartemen, Gedung Kantor, Gudang; Kode Aset masih bisa diklik kursor; Stok Unit tampil sebelum Tipe Unit dan masih bisa diisi selain angka; input Luas Bangunan masih ada; serta Jenis Kategori berada di bawah Spesifikasi Dimensi
+> * **Overview**: Pada Step 1 Informasi Aset di formulir pengajuan aset baru portal Developer, beberapa tampilan dan validasi field belum mengikuti portal Internal: (1) field Kode Aset masih bisa diklik kursor; (2) urutan 3 opsi teratas Tipe Aset masih Apartemen, Gedung Kantor, Gudang; (3) Stok Unit tampil sebelum Tipe Unit; (4) Stok Unit masih bisa diisi selain angka; (5) inputan Luas Bangunan masih muncul; (6) Jenis Kategori diletakkan di bawah Spesifikasi Dimensi, bukan setelah Stok Unit. Harusnya: seluruh tampilan, urutan, dan validasi field pada Step 1 mengikuti portal Internal.
+> * **Expected**: Mengikuti portal Internal: Kode Aset berstatus disabled; Tipe Aset diawali Rumah, Ruko, Apartemen; Tipe Unit tampil sebelum Stok Unit; Stok Unit hanya bisa diisi angka; tidak ada input Luas Bangunan; dan Jenis Kategori diletakkan setelah Stok Unit
+> * **Actual**: Kode Aset masih bisa diklik kursor; Tipe Aset diawali Apartemen, Gedung Kantor, Gudang; Stok Unit tampil sebelum Tipe Unit dan masih bisa diisi selain angka; input Luas Bangunan masih ada; serta Jenis Kategori berada di bawah Spesifikasi Dimensi
 > * **Evidence Awal (Litterbox 72h, karena Catbox utama 0-byte)**:
+>   * Kode Aset Bisa Diklik: [https://litter.catbox.moe/1ta8a2.png](https://litter.catbox.moe/1ta8a2.png)
 >   * Developer Tipe Aset: [https://litter.catbox.moe/zp6x0g.png](https://litter.catbox.moe/zp6x0g.png)
 >   * Internal Tipe Aset: [https://litter.catbox.moe/rg9am0.png](https://litter.catbox.moe/rg9am0.png)
->   * Kode Aset Bisa Diklik: [https://litter.catbox.moe/1ta8a2.png](https://litter.catbox.moe/1ta8a2.png)
 >   * Stok Sebelum Tipe & Non-Angka: [https://litter.catbox.moe/jwrfe5.png](https://litter.catbox.moe/jwrfe5.png)
 >   * Internal Tipe Sebelum Stok: [https://litter.catbox.moe/rkou0m.png](https://litter.catbox.moe/rkou0m.png)
 >   * Developer Ada Luas Bangunan: [https://litter.catbox.moe/bdiawy.png](https://litter.catbox.moe/bdiawy.png)
