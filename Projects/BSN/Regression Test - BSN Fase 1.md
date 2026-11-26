@@ -1123,16 +1123,16 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 <br>
 
-### 🐞 [BUG] | Link Kebijakan Privasi Mengarah ke BTN dan Form Pendaftaran Tanpa Konfirmasi Kata Sandi
+### 🐞 [BUG] | Link Kebijakan Privasi Mengarah ke Halaman BTN
 
 > * **Menu**: Authentication (External) → Register Nasabah
 > * **Huly**: HULY-123 (Parent: HULY-35)
 > * **Status**: Open
-> * **Overview**: Pada form pendaftaran akun baru, link Kebijakan Privasi mengarah ke website BTN (bukan BSN), teks persetujuan diawali tanda kutip berlebih, dan field Konfirmasi Kata Sandi belum tersedia. Harusnya: Link Kebijakan Privasi mengarah ke halaman BSN, teks persetujuan bersih, dan tersedia field Konfirmasi Kata Sandi.
-> * **Expected**: Link "Kebijakan Privasi" mengarah ke halaman Kebijakan Privasi BSN, teks checkbox bersih tanpa tanda kutip berlebih, dan tersedia field "Konfirmasi Kata Sandi"
-> * **Actual**: Link "Kebijakan Privasi" mengarah ke website BTN, label checkbox diawali tanda kutip berlebih, dan tidak ada field "Konfirmasi Kata Sandi"
+> * **Overview**: Pada form pendaftaran akun baru, saat user mengklik link Kebijakan Privasi pada checkbox persetujuan, halaman malah diarahkan ke website BTN. Harusnya: Link Kebijakan Privasi mengarah ke halaman Kebijakan Privasi BSN.
+> * **Expected**: Link "Kebijakan Privasi" mengarah ke halaman Kebijakan Privasi BSN ("/privacy-kebijakan/")
+> * **Actual**: Link "Kebijakan Privasi" mengarah ke website eksternal BTN (https://www.btn.co.id/Privacy-Policy)
 > * **Evidence Awal**:
->   * Kebijakan Privasi BTN & Form Daftar: [https://files.catbox.moe/b8hqio.png](https://files.catbox.moe/b8hqio.png)
+>   * Link Kebijakan Privasi BTN: [https://files.catbox.moe/wdlpgl.png](https://files.catbox.moe/wdlpgl.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
