@@ -1230,7 +1230,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 
 > * **Menu**: Aset Saya (Developer) → Pengajuan Aset Baru
 > * **Status**: Open
-> * **Overview**: Pada Step 6 Fasilitas & Spesifikasi Tambahan di formulir pengajuan aset baru portal Developer, field dan opsi fasilitas belum sesuai portal Internal: (1) field spesifikasi atas menampilkan Luas Tanah, Daya Listrik (input teks), dan Sumber Air Bersih (*) alih-alih Jalan Depan, Arah Mata Angin, Daya Listrik (VA) dropdown, dan Sumber Air Bersih; (2) Fasilitas Unit Properti belum memiliki tanda (*) dan toggle "Pilih semua"; (3) Fasilitas Umum & Kawasan tidak ada tanda (*) & toggle "Pilih semua" serta hanya menampilkan 7 dari 15 opsi; (4) masih ada field Kondisi Fisik dan Garansi di bagian bawah.
+> * **Overview**: Pada Step 6 Fasilitas portal Developer, tampilan dan field belum sesuai portal Internal: (1) field atas masih Luas Tanah & teks Daya Listrik (harusnya Jalan Depan, Arah Mata Angin, dropdown Daya Listrik VA); (2) Fasilitas Unit Properti belum ada (*) & "Pilih semua"; (3) Fasilitas Umum & Kawasan belum ada (*) & "Pilih semua" serta baru 7 dari 15 opsi; (4) masih ada field Kondisi Fisik & Garansi di bawah.
 > * **Expected**: Mengikuti portal Internal: menampilkan Jalan Depan, Arah Mata Angin, Daya Listrik (VA) dropdown, Sumber Air Bersih; tanda wajib (*) & toggle "Pilih semua" pada kedua grup fasilitas; 15 opsi lengkap Fasilitas Umum & Kawasan; serta tanpa field Kondisi Fisik dan Garansi
 > * **Actual**: Menampilkan Luas Tanah, Daya Listrik input teks, dan Sumber Air Bersih (*); tidak ada tanda (*) & toggle "Pilih semua"; Fasilitas Umum & Kawasan hanya 7 opsi; serta masih ada field Kondisi Fisik (*) dan Garansi
 > * **Evidence Awal**:
