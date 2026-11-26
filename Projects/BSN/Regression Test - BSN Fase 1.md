@@ -46,7 +46,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
 | 4 | **Developer** | 3 | ⏳ Pending (0/3) | List Developer (3) |
 | 5 | **Media & Information** | 3 | ⏳ Pending (0/3) | FAQ (1), Article (1), Banner Setting (1) |
-| 6 | **Authentication (External)** | 13 | ⏳ Pending (0/13) | Register Nasabah (4), Login (7), Lupa Kata Sandi (2) |
+| 6 | **Authentication (External)** | 16 | ✅ Reported (3/16) | Register Nasabah (7), Login (7), Lupa Kata Sandi (2) — 3 issue Register Nasabah diinput ke Huly: HULY-121, HULY-123, HULY-124 (parent HULY-35) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
 | 9 | **Stock Management** | 14 | ✅ Reported (6/14) | Aset Baru (11), Approval Aset Baru (3) — 6 issue sudah diinput ke Huly: BSN_I-169 s.d. BSN_I-174 |
@@ -54,7 +54,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
 | 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (2/6) | Tiket Aset Baru (3) — ketiganya dihapus dari Huly 25 Nov (BSN_I-182, BSN_I-183, BSN_I-184), Leads Aset Baru (3) — BSN_I-185, BSN_I-186 (BSN_I-187 dihapus dari Huly 25 Nov) |
-| **Total** | | **65** | **10 Reported / 55 Pending** | |
+| **Total** | | **68** | **13 Reported / 55 Pending** | |
 
 ---
 
@@ -63,7 +63,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 59 | 41 Issue Internal, 18 Issue External |
+| 🔴 **Open** | 62 | 41 Issue Internal, 21 Issue External |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 3 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi<br>• `External/Daftar Developer/Card Developer/01`: Logo, Segmen, dan Jumlah Aset Belum Sesuai |
 
@@ -1083,6 +1083,56 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence Awal**:
 >   * Form Saat Ini: evidence_21_form-saat-ini.png (file lokal di folder issue `External/Aset Baru/Form Pengajuan Peminatan/01`, drag & drop ke Huly)
 >   * Desain Figma: evidence_20_figma-form-baru.png (file lokal di folder issue yang sama, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Pendaftaran dengan Email Terdaftar Tidak Menampilkan Pesan Error
+
+> * **Menu**: Authentication (External) → Register Nasabah
+> * **Huly**: HULY-121 (Parent: HULY-35)
+> * **Status**: Open
+> * **Overview**: Saat user mendaftar memakai email yang sudah terdaftar, sistem langsung mengosongkan kata sandi dan menghapus centang persetujuan tanpa menampilkan pesan error apa pun. Harusnya: Sistem menampilkan pesan peringatan bahwa email sudah terdaftar.
+> * **Expected**: Sistem menampilkan pesan validasi atau notifikasi yang jelas bahwa email sudah terdaftar
+> * **Actual**: Field "Kata Sandi" dikosongkan, checkbox "Syarat & Ketentuan" tidak tercentang, dan tidak ada pesan error atau toast apa pun
+> * **Evidence Awal**:
+>   * Email Terdaftar Tanpa Error: [https://files.catbox.moe/fhplsg.png](https://files.catbox.moe/fhplsg.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Halaman Verifikasi OTP Pendaftaran Tidak Menampilkan Tujuan dan Pesan Error Masih Bahasa Inggris
+
+> * **Menu**: Authentication (External) → Register Nasabah
+> * **Huly**: HULY-124 (Parent: HULY-35)
+> * **Status**: Open
+> * **Overview**: Pada halaman verifikasi OTP setelah daftar, tidak ada informasi tujuan pengiriman kode, pesan error kode salah/kosong masih berbahasa Inggris dan mentah, serta tombol kirim ulang kode tidak memberi notifikasi atau timer. Harusnya: Halaman OTP menampilkan tujuan pengiriman kode, pesan error berbahasa Indonesia yang jelas, serta notifikasi dan timer saat kirim ulang kode.
+> * **Expected**: Halaman OTP menampilkan tujuan pengiriman kode, pesan error berbahasa Indonesia yang jelas, serta notifikasi dan timer saat klik "Kirim ulang kode"
+> * **Actual**: Tujuan pengiriman kode tidak tampil, pesan error masih berbahasa Inggris/mentah ("The code is wrong or has expired." / "Isian code tidak boleh kosong."), dan "Kirim ulang kode" tidak memberikan feedback atau timer
+> * **Evidence Awal**:
+>   * Halaman OTP Pendaftaran: [https://files.catbox.moe/ftv2qw.png](https://files.catbox.moe/ftv2qw.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+
+<br>
+
+### 🐞 [BUG] | Link Kebijakan Privasi Mengarah ke BTN dan Form Pendaftaran Tanpa Konfirmasi Kata Sandi
+
+> * **Menu**: Authentication (External) → Register Nasabah
+> * **Huly**: HULY-123 (Parent: HULY-35)
+> * **Status**: Open
+> * **Overview**: Pada form pendaftaran akun baru, link Kebijakan Privasi mengarah ke website BTN (bukan BSN), teks persetujuan diawali tanda kutip berlebih, dan field Konfirmasi Kata Sandi belum tersedia. Harusnya: Link Kebijakan Privasi mengarah ke halaman BSN, teks persetujuan bersih, dan tersedia field Konfirmasi Kata Sandi.
+> * **Expected**: Link "Kebijakan Privasi" mengarah ke halaman Kebijakan Privasi BSN, teks checkbox bersih tanpa tanda kutip berlebih, dan tersedia field "Konfirmasi Kata Sandi"
+> * **Actual**: Link "Kebijakan Privasi" mengarah ke website BTN, label checkbox diawali tanda kutip berlebih, dan tidak ada field "Konfirmasi Kata Sandi"
+> * **Evidence Awal**:
+>   * Kebijakan Privasi BTN & Form Daftar: [https://files.catbox.moe/b8hqio.png](https://files.catbox.moe/b8hqio.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
