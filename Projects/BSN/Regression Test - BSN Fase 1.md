@@ -1141,16 +1141,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * -
 <br>
 
-### 🐞 [BUG] | Urutan Pilihan Tipe Aset Belum Sesuai
+### 🐞 [BUG] | Tampilan dan Urutan Field Step 1 Informasi Aset Belum Sesuai
 
 > * **Menu**: Aset Saya (Developer) → Pengajuan Aset Baru
 > * **Status**: Open
-> * **Overview**: Pada form pengajuan aset baru di portal Developer, urutan 3 opsi teratas pada dropdown Tipe Aset masih belum mengikuti portal Internal (saat ini masih diawali Apartemen, Gedung Kantor, Gudang). Harusnya: 3 urutan teratas menampilkan Rumah, Ruko, lalu Apartemen seperti di portal Internal.
-> * **Expected**: Urutan 3 opsi teratas pada dropdown Tipe Aset menampilkan: 1. Rumah, 2. Ruko, 3. Apartemen (mengikuti portal Internal)
-> * **Actual**: Urutan dropdown masih urut abjad dimulai dari Apartemen, Gedung Kantor, Gudang
+> * **Overview**: Pada Step 1 Informasi Aset di formulir pengajuan aset baru portal Developer, beberapa tampilan dan validasi field belum mengikuti portal Internal: (1) urutan 3 opsi teratas Tipe Aset masih Apartemen, Gedung Kantor, Gudang; (2) field Kode Aset masih bisa diklik kursor; (3) Stok Unit tampil sebelum Tipe Unit; (4) Stok Unit masih bisa diisi selain angka; (5) inputan Luas Bangunan masih muncul; (6) Jenis Kategori diletakkan di bawah Spesifikasi Dimensi, bukan setelah Stok Unit. Harusnya: seluruh tampilan, urutan, dan validasi field pada Step 1 mengikuti portal Internal.
+> * **Expected**: Mengikuti portal Internal: Tipe Aset diawali Rumah, Ruko, Apartemen; Kode Aset berstatus disabled; Tipe Unit tampil sebelum Stok Unit; Stok Unit hanya bisa diisi angka; tidak ada input Luas Bangunan; dan Jenis Kategori diletakkan setelah Stok Unit
+> * **Actual**: Tipe Aset diawali Apartemen, Gedung Kantor, Gudang; Kode Aset masih bisa diklik kursor; Stok Unit tampil sebelum Tipe Unit dan masih bisa diisi selain angka; input Luas Bangunan masih ada; serta Jenis Kategori berada di bawah Spesifikasi Dimensi
 > * **Evidence Awal**:
->   * Portal Developer (Salah): [https://files.catbox.moe/yiv4kn.png](https://files.catbox.moe/yiv4kn.png)
->   * Portal Internal (Benar): [https://files.catbox.moe/x96vme.png](https://files.catbox.moe/x96vme.png)
+>   * Developer Tipe Aset: [https://files.catbox.moe/yiv4kn.png](https://files.catbox.moe/yiv4kn.png)
+>   * Internal Tipe Aset: [https://files.catbox.moe/x96vme.png](https://files.catbox.moe/x96vme.png)
+>   * Kode Aset Bisa Diklik: [https://files.catbox.moe/9899ev.png](https://files.catbox.moe/9899ev.png)
+>   * Stok Sebelum Tipe & Non-Angka: [https://files.catbox.moe/c407zp.png](https://files.catbox.moe/c407zp.png)
+>   * Internal Tipe Sebelum Stok: [https://files.catbox.moe/9b1hzz.png](https://files.catbox.moe/9b1hzz.png)
+>   * Developer Ada Luas Bangunan: [https://files.catbox.moe/lcylqj.png](https://files.catbox.moe/lcylqj.png)
+>   * Internal Tanpa Luas Bangunan: [https://files.catbox.moe/gkdhwc.png](https://files.catbox.moe/gkdhwc.png)
+>   * Posisi Jenis Kategori: [https://files.catbox.moe/yap4mx.png](https://files.catbox.moe/yap4mx.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
