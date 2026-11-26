@@ -76,10 +76,17 @@ Aturan khusus project **BSN** (mengalahkan aturan umum):
    - **Priority = satu nilai terpilih** yang ditulis di teks report (contoh: issue "Tiket Tidak Terbentuk" = Urgent).
    - **Steps to Reproduce ditulis dalam Bahasa Indonesia**, struktur 4 langkah sesuai template.
    - **Overview faktual dan dipangkas**: tanpa detail proses verifikasi (mis. "dicek 3x sampai 6 menit") dan tanpa spekulasi penyebab (mis. "dugaan static frontend / API belum tersedia"). Isi multi-poin Overview masuk **di dalam blockquote Overview**, bukan sebagai bullet lepas di bawahnya; Impact/Frequency tetap di luar.
+   - **Overview PENDEK dan sederhana** (koreksi Muhammad 26 Nov 2026): cukup ±2 kalimat inti yang langsung menyebut masalahnya, ditutup 1 baris "Harusnya: ...". Teks error mentah TIDAK dikutip di Overview — sebutkan jenis masalahnya saja.
    - Linked Issue/PR tetap `# (If applicable)`.
 4. Prefix kode Huly: **Internal = BSN_I-**, **External = HULY-**. Pastikan project-nya benar sebelum membuat (pernah kejadian issue External terbuat di project Internal — harus dihapus dan dibuat ulang di project yang benar).
-5. Tracker di repo ini (`Projects/BSN/Regression Test - BSN Fase 1.md`) diperbarui setiap ada issue baru/retest.
-6. Push ke GitHub lewat konektor Muse hanya bisa **file teks** — PNG evidence tidak bisa ikut ter-push dan tinggal di clone lokal.
+5. **Cara membuat issue di aplikasi Huly (mekanis):**
+   - Kalau issue punya parent: buka issue parent-nya, lalu buat lewat tombol **"Add sub-issue" (+)** supaya langsung terhubung sebagai sub-issue (contoh: HULY-118 dibuat di bawah HULY-35 — [Autentikasi] Register Nasabah).
+   - Judul diisi persis dari draft yang sudah di-ACC.
+   - Deskripsi ditempel (paste) dari isi `report.txt`; setelah paste, lakukan satu ketukan/edit kecil agar autosave terpicu, lalu **reload halaman dan verifikasi** deskripsi tersimpan dan render rapi (heading, blockquote Overview, tabel Technical Context, checklist).
+   - Field panel kanan dibiarkan default: status Backlog, tanpa priority, tanpa assignee, tanpa label — Priority dan Label hidup di dalam teks deskripsi.
+   - Screenshot tidak pernah dilampirkan Muse (aturan tetap) — Muhammad menaruhnya sendiri setelah issue jadi.
+6. Tracker di repo ini (`Projects/BSN/Regression Test - BSN Fase 1.md`) diperbarui setiap ada issue baru/retest.
+7. Push ke GitHub lewat konektor Muse hanya bisa **file teks** — PNG evidence tidak bisa ikut ter-push dan tinggal di clone lokal.
 
 ## 7. Mode kerja (perintah singkat Muhammad)
 
