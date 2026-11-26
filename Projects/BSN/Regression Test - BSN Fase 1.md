@@ -55,8 +55,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
 | 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (2/6) | Tiket Aset Baru (3) — ketiganya dihapus dari Huly 25 Nov (BSN_I-182, BSN_I-183, BSN_I-184), Leads Aset Baru (3) — BSN_I-185, BSN_I-186 (BSN_I-187 dihapus dari Huly 25 Nov) |
-| 14 | **Aset Saya (Developer)** | 1 | ⏳ Pending (0/1) | Pengajuan Aset Baru (1) |
-| **Total** | | **69** | **13 Reported / 56 Pending** | |
+| 14 | **Aset Saya (Developer)** | 2 | ⏳ Pending (0/2) | Pengajuan Aset Baru (2) |
+| **Total** | | **70** | **13 Reported / 57 Pending** | |
 
 ---
 
@@ -65,7 +65,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 63 | 41 Issue Internal, 21 Issue External, 1 Issue Developer |
+| 🔴 **Open** | 64 | 41 Issue Internal, 21 Issue External, 2 Issue Developer |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 3 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi<br>• `External/Daftar Developer/Card Developer/01`: Logo, Segmen, dan Jumlah Aset Belum Sesuai |
 
@@ -1157,6 +1157,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Developer Ada Luas Bangunan: [https://litter.catbox.moe/bdiawy.png](https://litter.catbox.moe/bdiawy.png)
 >   * Internal Tanpa Luas Bangunan: [https://litter.catbox.moe/kte8td.png](https://litter.catbox.moe/kte8td.png)
 >   * Posisi Jenis Kategori: [https://litter.catbox.moe/dke26g.png](https://litter.catbox.moe/dke26g.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Tab Step Formulir Pengajuan Aset Dapat Dilompati
+
+> * **Menu**: Aset Saya (Developer) → Pengajuan Aset Baru
+> * **Status**: Open
+> * **Overview**: Step 2 hingga Step 6 dapat langsung diklik tanpa mengisi Step 1 terlebih dahulu. Harusnya pengisian berjalan berurutan mulai dari Step 1 seperti portal Internal.
+> * **Expected**: Mengikuti portal Internal: user wajib mengisi Step 1 terlebih dahulu dan tidak bisa melompat ke Step 2–6 sebelum step sebelumnya terisi
+> * **Actual**: Tab Step 2–6 dapat diklik bebas dan langsung berpindah halaman meskipun Step 1 masih kosong
+> * **Evidence Awal**:
+>   * Developer Lompat ke Step 4: `evidence_01_developer_lompat_ke_step4.png` (file lokal di folder issue `Developer/Aset Saya/Pengajuan Aset Baru/02 - Tab Step Formulir Pengajuan Aset Dapat Dilompati`, drag & drop ke Huly)
+>   * Internal Tertahan Step 1: `evidence_02_internal_tertahan_step1.png` (file lokal di folder issue yang sama, drag & drop ke Huly)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
