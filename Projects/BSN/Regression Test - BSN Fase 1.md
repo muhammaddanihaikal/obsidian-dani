@@ -50,13 +50,13 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 6 | **Authentication (External)** | 16 | ✅ Reported (3/16) | Register Nasabah (7), Login (7), Lupa Kata Sandi (2) — 3 issue Register Nasabah diinput ke Huly: HULY-121, HULY-123, HULY-124 (parent HULY-35) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
-| 9 | **Stock Management** | 14 | ✅ Reported (6/14) | Aset Baru (11), Approval Aset Baru (3) — 6 issue sudah diinput ke Huly: BSN_I-169 s.d. BSN_I-174 |
+| 9 | **Stock Management** | 15 | ✅ Reported (6/15) | Aset Baru (12), Approval Aset Baru (3) — 6 issue sudah diinput ke Huly: BSN_I-169 s.d. BSN_I-174 |
 | 10 | **Aset Baru (External)** | 5 | ✅ Reported (2/5) | Filter Pencarian (1), Card Aset (1), Detail Aset (1), Katalog (1) — HULY-109, Form Pengajuan Peminatan (1) — HULY-110 |
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
 | 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (2/6) | Tiket Aset Baru (3) — ketiganya dihapus dari Huly 25 Nov (BSN_I-182, BSN_I-183, BSN_I-184), Leads Aset Baru (3) — BSN_I-185, BSN_I-186 (BSN_I-187 dihapus dari Huly 25 Nov) |
 | 14 | **Aset Saya (Developer)** | 2 | ⏳ Pending (0/2) | Pengajuan Aset Baru (2) |
-| **Total** | | **70** | **13 Reported / 57 Pending** | |
+| **Total** | | **71** | **13 Reported / 58 Pending** | |
 
 ---
 
@@ -65,7 +65,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 64 | 41 Issue Internal, 21 Issue External, 2 Issue Developer |
+| 🔴 **Open** | 65 | 42 Issue Internal, 21 Issue External, 2 Issue Developer |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 3 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi<br>• `External/Daftar Developer/Card Developer/01`: Logo, Segmen, dan Jumlah Aset Belum Sesuai |
 
@@ -1173,6 +1173,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence Awal**:
 >   * Developer Lompat ke Step 4: `evidence_01_developer_lompat_ke_step4.png` (file lokal di folder issue `Developer/Aset Saya/Pengajuan Aset Baru/02 - Tab Step Formulir Pengajuan Aset Dapat Dilompati`, drag & drop ke Huly)
 >   * Internal Tertahan Step 1: `evidence_02_internal_tertahan_step1.png` (file lokal di folder issue yang sama, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Batas Maksimal dan Label Persentase DP Belum Sesuai
+
+> * **Menu**: Stock Management → Aset Baru
+> * **Status**: Open
+> * **Overview**: Pada Step 2 Informasi Harga Aset, input Persentase DP (%) masih dibatasi maksimal 30% dan berlabel "Min. 0% - 30%". Harusnya input Persentase DP bebas diisi 1–100%, dan kata "Min." diganti menjadi "Rekomendasi" (rekomendasi sampai 30%).
+> * **Expected**: Input Persentase DP (%) bebas diisi pada rentang 1–100% dan label "Min." diganti menjadi "Rekomendasi" (rekomendasi sampai 30%, misalnya "Rekomendasi 0% - 30%")
+> * **Actual**: Input Persentase DP (%) hanya bisa diisi 1–30% dan label masih bertuliskan "Min. 0% - 30%"
+> * **Evidence Awal**:
+>   * Persentase DP Dibatasi 30%: `evidence_01_persentase_dp_dibatasi_30.png` (file lokal di folder issue `Internal/Stock Management/Aset Baru/09 - Batas Maksimal dan Label Persentase DP Belum Sesuai`, drag & drop ke Huly)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
