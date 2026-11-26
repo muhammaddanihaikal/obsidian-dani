@@ -34,6 +34,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 23 | Aset Baru (External) | Form Pengajuan Peminatan | 🐞 Bug |
 | 24 | Stock Management | Leads Aset Baru | 🐞 Bug |
 | 25 | Stock Management | Tiket Aset Baru | 🐞 Bug |
+| 26 | Aset Saya (Developer) | Pengajuan Aset Baru | 🐞 Bug |
 
 ---
 
@@ -54,7 +55,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
 | 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (2/6) | Tiket Aset Baru (3) — ketiganya dihapus dari Huly 25 Nov (BSN_I-182, BSN_I-183, BSN_I-184), Leads Aset Baru (3) — BSN_I-185, BSN_I-186 (BSN_I-187 dihapus dari Huly 25 Nov) |
-| **Total** | | **68** | **13 Reported / 55 Pending** | |
+| 14 | **Aset Saya (Developer)** | 1 | ⏳ Pending (0/1) | Pengajuan Aset Baru (1) |
+| **Total** | | **69** | **13 Reported / 56 Pending** | |
 
 ---
 
@@ -63,7 +65,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 62 | 41 Issue Internal, 21 Issue External |
+| 🔴 **Open** | 63 | 41 Issue Internal, 21 Issue External, 1 Issue Developer |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 3 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi<br>• `External/Daftar Developer/Card Developer/01`: Logo, Segmen, dan Jumlah Aset Belum Sesuai |
 
@@ -1133,6 +1135,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Link "Kebijakan Privasi" mengarah ke website eksternal BTN (https://www.btn.co.id/Privacy-Policy)
 > * **Evidence Awal**:
 >   * Link Kebijakan Privasi BTN: [https://files.catbox.moe/wdlpgl.png](https://files.catbox.moe/wdlpgl.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Urutan Pilihan Tipe Aset Belum Sesuai
+
+> * **Menu**: Aset Saya (Developer) → Pengajuan Aset Baru
+> * **Status**: Open
+> * **Overview**: Pada form pengajuan aset baru di portal Developer, urutan 3 opsi teratas pada dropdown Tipe Aset masih belum mengikuti portal Internal (saat ini masih diawali Apartemen, Gedung Kantor, Gudang). Harusnya: 3 urutan teratas menampilkan Rumah, Ruko, lalu Apartemen seperti di portal Internal.
+> * **Expected**: Urutan 3 opsi teratas pada dropdown Tipe Aset menampilkan: 1. Rumah, 2. Ruko, 3. Apartemen (mengikuti portal Internal)
+> * **Actual**: Urutan dropdown masih urut abjad dimulai dari Apartemen, Gedung Kantor, Gudang
+> * **Evidence Awal**:
+>   * Portal Developer (Salah): [https://files.catbox.moe/yiv4kn.png](https://files.catbox.moe/yiv4kn.png)
+>   * Portal Internal (Benar): [https://files.catbox.moe/x96vme.png](https://files.catbox.moe/x96vme.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
