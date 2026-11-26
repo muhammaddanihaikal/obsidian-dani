@@ -1141,7 +1141,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * -
 <br>
 
-### 🐞 [BUG] | Tampilan dan Urutan Field Step 1 Informasi Aset Belum Sesuai
+### 🐞 [BUG] | Issue Form Aset Baru Step 1
 
 > * **Menu**: Aset Saya (Developer) → Pengajuan Aset Baru
 > * **Status**: Open
