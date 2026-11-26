@@ -55,8 +55,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
 | 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (2/6) | Tiket Aset Baru (3) — ketiganya dihapus dari Huly 25 Nov (BSN_I-182, BSN_I-183, BSN_I-184), Leads Aset Baru (3) — BSN_I-185, BSN_I-186 (BSN_I-187 dihapus dari Huly 25 Nov) |
-| 14 | **Aset Saya (Developer)** | 3 | ⏳ Pending (0/3) | Pengajuan Aset Baru (3) |
-| **Total** | | **72** | **13 Reported / 59 Pending** | |
+| 14 | **Aset Saya (Developer)** | 4 | ⏳ Pending (0/4) | Pengajuan Aset Baru (4) |
+| **Total** | | **73** | **13 Reported / 60 Pending** | |
 
 ---
 
@@ -65,7 +65,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 66 | 42 Issue Internal, 21 Issue External, 3 Issue Developer |
+| 🔴 **Open** | 67 | 42 Issue Internal, 21 Issue External, 4 Issue Developer |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 3 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi<br>• `External/Daftar Developer/Card Developer/01`: Logo, Segmen, dan Jumlah Aset Belum Sesuai |
 
@@ -1205,6 +1205,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 >   * Harga Coret Toggle OFF: [https://litter.catbox.moe/uetjo4.png](https://litter.catbox.moe/uetjo4.png)
 >   * Persentase DP > 100%: [https://litter.catbox.moe/guoq8h.png](https://litter.catbox.moe/guoq8h.png)
 >   * Hasil Kalkulasi Bisa Diklik: [https://litter.catbox.moe/xtoa6m.png](https://litter.catbox.moe/xtoa6m.png)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Tombol Tambah Destinasi Strategis Tidak Dapat Digunakan
+
+> * **Menu**: Aset Saya (Developer) → Pengajuan Aset Baru
+> * **Status**: Open
+> * **Overview**: Pada Step 5 Lokasi & Geospasial, kategori destinasi gagal dimuat dengan pesan "Kategori destinasi belum bisa dimuat dari API." sehingga tombol "+ Tambah Destinasi" nonaktif dan tidak dapat digunakan.
+> * **Expected**: Kategori destinasi berhasil dimuat dari API dan tombol "+ Tambah Destinasi" aktif serta dapat digunakan untuk menambah destinasi strategis
+> * **Actual**: Muncul pesan "Kategori destinasi belum bisa dimuat dari API." sehingga tombol "+ Tambah Destinasi" nonaktif dan tidak dapat digunakan
+> * **Evidence Awal**:
+>   * Tambah Destinasi Gagal API: `evidence_01_tambah_destinasi_gagal_api.png` (file lokal di folder issue `Developer/Aset Saya/Pengajuan Aset Baru/04 - Tombol Tambah Destinasi Strategis Tidak Dapat Digunakan`, drag & drop ke Huly)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
