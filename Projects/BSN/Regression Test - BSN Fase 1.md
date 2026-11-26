@@ -55,8 +55,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
 | 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (2/6) | Tiket Aset Baru (3) — ketiganya dihapus dari Huly 25 Nov (BSN_I-182, BSN_I-183, BSN_I-184), Leads Aset Baru (3) — BSN_I-185, BSN_I-186 (BSN_I-187 dihapus dari Huly 25 Nov) |
-| 14 | **Aset Saya (Developer)** | 2 | ⏳ Pending (0/2) | Pengajuan Aset Baru (2) |
-| **Total** | | **71** | **13 Reported / 58 Pending** | |
+| 14 | **Aset Saya (Developer)** | 3 | ⏳ Pending (0/3) | Pengajuan Aset Baru (3) |
+| **Total** | | **72** | **13 Reported / 59 Pending** | |
 
 ---
 
@@ -65,7 +65,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 65 | 42 Issue Internal, 21 Issue External, 2 Issue Developer |
+| 🔴 **Open** | 66 | 42 Issue Internal, 21 Issue External, 3 Issue Developer |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 3 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi<br>• `External/Daftar Developer/Card Developer/01`: Logo, Segmen, dan Jumlah Aset Belum Sesuai |
 
@@ -1188,6 +1188,23 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Input Persentase DP (%) hanya bisa diisi 1–30% dan label masih bertuliskan "Min. 0% - 30%"
 > * **Evidence Awal**:
 >   * Persentase DP Dibatasi 30%: `evidence_01_persentase_dp_dibatasi_30.png` (file lokal di folder issue `Internal/Stock Management/Aset Baru/09 - Batas Maksimal dan Label Persentase DP Belum Sesuai`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Issue Form Aset Baru Step 2
+
+> * **Menu**: Aset Saya (Developer) → Pengajuan Aset Baru
+> * **Status**: Open
+> * **Overview**: Pada Step 2 Informasi Harga Aset di formulir pengajuan aset baru portal Developer, terdapat 3 kendala validasi dan status field: (1) Harga Normal / Coret bisa diisi saat toggle Aktifkan Promo Coret OFF; (2) Persentase DP (%) bisa diisi melebihi 100%; (3) Hasil Kalkulasi Nominal Uang Muka masih bisa diklik kursor. Harusnya harga coret terkunci saat toggle OFF, Persentase DP maksimal 100%, dan hasil kalkulasi berstatus disabled.
+> * **Expected**: Harga Normal / Coret terkunci saat toggle Promo Coret OFF dan aktif saat ON; Persentase DP (%) dibatasi maksimal 100%; Hasil Kalkulasi Nominal Uang Muka berstatus disabled (tidak bisa diklik kursor)
+> * **Actual**: Harga Normal / Coret tetap bisa diisi saat toggle OFF; Persentase DP (%) menerima angka > 100%; Hasil Kalkulasi Nominal Uang Muka masih bisa diklik kursor
+> * **Evidence Awal (Litterbox 72h, karena Catbox utama 0-byte)**:
+>   * Harga Coret Toggle OFF: [https://litter.catbox.moe/uetjo4.png](https://litter.catbox.moe/uetjo4.png)
+>   * Persentase DP > 100%: [https://litter.catbox.moe/guoq8h.png](https://litter.catbox.moe/guoq8h.png)
+>   * Hasil Kalkulasi Bisa Diklik: [https://litter.catbox.moe/xtoa6m.png](https://litter.catbox.moe/xtoa6m.png)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
