@@ -55,8 +55,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
 | 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (2/6) | Tiket Aset Baru (3) — ketiganya dihapus dari Huly 25 Nov (BSN_I-182, BSN_I-183, BSN_I-184), Leads Aset Baru (3) — BSN_I-185, BSN_I-186 (BSN_I-187 dihapus dari Huly 25 Nov) |
-| 14 | **Aset Saya (Developer)** | 4 | ⏳ Pending (0/4) | Pengajuan Aset Baru (4) |
-| **Total** | | **73** | **13 Reported / 60 Pending** | |
+| 14 | **Aset Saya (Developer)** | 5 | ⏳ Pending (0/5) | Pengajuan Aset Baru (5) |
+| **Total** | | **74** | **13 Reported / 61 Pending** | |
 
 ---
 
@@ -65,7 +65,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 67 | 42 Issue Internal, 21 Issue External, 4 Issue Developer |
+| 🔴 **Open** | 68 | 42 Issue Internal, 21 Issue External, 5 Issue Developer |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 3 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi<br>• `External/Daftar Developer/Card Developer/01`: Logo, Segmen, dan Jumlah Aset Belum Sesuai |
 
@@ -1220,6 +1220,22 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Muncul pesan "Kategori destinasi belum bisa dimuat dari API." sehingga tombol "+ Tambah Destinasi" nonaktif dan tidak dapat digunakan
 > * **Evidence Awal**:
 >   * Tambah Destinasi Gagal API: `evidence_01_tambah_destinasi_gagal_api.png` (file lokal di folder issue `Developer/Aset Saya/Pengajuan Aset Baru/04 - Tombol Tambah Destinasi Strategis Tidak Dapat Digunakan`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Issue Form Aset Baru Step 6
+
+> * **Menu**: Aset Saya (Developer) → Pengajuan Aset Baru
+> * **Status**: Open
+> * **Overview**: Pada Step 6 Fasilitas & Spesifikasi Tambahan di formulir pengajuan aset baru portal Developer, field dan opsi fasilitas belum sesuai portal Internal: (1) field spesifikasi atas menampilkan Luas Tanah, Daya Listrik (input teks), dan Sumber Air Bersih (*) alih-alih Jalan Depan, Arah Mata Angin, Daya Listrik (VA) dropdown, dan Sumber Air Bersih; (2) Fasilitas Unit Properti belum memiliki tanda (*) dan toggle "Pilih semua"; (3) Fasilitas Umum & Kawasan tidak ada tanda (*) & toggle "Pilih semua" serta hanya menampilkan 7 dari 15 opsi; (4) masih ada field Kondisi Fisik dan Garansi di bagian bawah.
+> * **Expected**: Mengikuti portal Internal: menampilkan Jalan Depan, Arah Mata Angin, Daya Listrik (VA) dropdown, Sumber Air Bersih; tanda wajib (*) & toggle "Pilih semua" pada kedua grup fasilitas; 15 opsi lengkap Fasilitas Umum & Kawasan; serta tanpa field Kondisi Fisik dan Garansi
+> * **Actual**: Menampilkan Luas Tanah, Daya Listrik input teks, dan Sumber Air Bersih (*); tidak ada tanda (*) & toggle "Pilih semua"; Fasilitas Umum & Kawasan hanya 7 opsi; serta masih ada field Kondisi Fisik (*) dan Garansi
+> * **Evidence Awal**:
+>   * Developer Step 6 Belum Sesuai: `evidence_01_developer_step6_belum_sesuai.png` (file lokal di folder issue `Developer/Aset Saya/Pengajuan Aset Baru/05 - Issue Form Aset Baru Step 6`, drag & drop ke Huly)
+>   * Internal Step 6 Acuan: `evidence_02_internal_step6_acuan.png` (file lokal di folder issue yang sama, drag & drop ke Huly)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
