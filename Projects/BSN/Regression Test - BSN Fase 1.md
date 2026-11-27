@@ -35,6 +35,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 24 | Stock Management | Leads Aset Baru | 🐞 Bug |
 | 25 | Stock Management | Tiket Aset Baru | 🐞 Bug |
 | 26 | Aset Saya (Developer) | Pengajuan Aset Baru | 🐞 Bug |
+| 27 | User Profile (External) | Profil dan Berkas Tersimpan | 🐞 Bug |
 
 ---
 
@@ -49,14 +50,14 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 5 | **Media & Information** | 3 | ⏳ Pending (0/3) | FAQ (1), Article (1), Banner Setting (1) |
 | 6 | **Authentication (External)** | 18 | ✅ Reported (3/18) | Register Nasabah (8), Login (8), Lupa Kata Sandi (2) — 3 issue Register Nasabah diinput ke Huly: HULY-121, HULY-123, HULY-124 (parent HULY-35) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
-| 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
+| 8 | **User Profile (External)** | 2 | ⏳ Pending (0/2) | Profile Tabs (1), Profil dan Berkas Tersimpan (1) |
 | 9 | **Stock Management** | 15 | ✅ Reported (6/15) | Aset Baru (12), Approval Aset Baru (3) — 6 issue sudah diinput ke Huly: BSN_I-169 s.d. BSN_I-174 |
 | 10 | **Aset Baru (External)** | 5 | ✅ Reported (2/5) | Filter Pencarian (1), Card Aset (1), Detail Aset (1), Katalog (1) — HULY-109, Form Pengajuan Peminatan (1) — HULY-110 |
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
 | 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (2/6) | Tiket Aset Baru (3) — ketiganya dihapus dari Huly 25 Nov (BSN_I-182, BSN_I-183, BSN_I-184), Leads Aset Baru (3) — BSN_I-185, BSN_I-186 (BSN_I-187 dihapus dari Huly 25 Nov) |
 | 14 | **Aset Saya (Developer)** | 5 | ⏳ Pending (0/5) | Pengajuan Aset Baru (5) |
-| **Total** | | **76** | **13 Reported / 63 Pending** | |
+| **Total** | | **77** | **13 Reported / 64 Pending** | |
 
 ---
 
@@ -65,7 +66,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 70 | 42 Issue Internal, 23 Issue External, 5 Issue Developer |
+| 🔴 **Open** | 71 | 42 Issue Internal, 24 Issue External, 5 Issue Developer |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 3 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi<br>• `External/Daftar Developer/Card Developer/01`: Logo, Segmen, dan Jumlah Aset Belum Sesuai |
 
@@ -1266,6 +1267,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Setelah pendaftaran dengan akun Google selesai, user masih diarahkan ke halaman Login
 > * **Evidence Awal**:
 >   * Daftar dengan Google: `evidence_01_daftar_dengan_google.png` (file lokal di folder issue `External/Authentication/Register Nasabah/08 - Pendaftaran dengan Akun Google Tidak Langsung Mengarahkan ke Beranda`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Button Lihat File Berkas Tersimpan Tidak Berfungsi
+
+> * **Menu**: User Profile (External) → Profil dan Berkas Tersimpan
+> * **Status**: Open
+> * **Overview**: Pada halaman Profil & Berkas Tersimpan, button ikon mata untuk melihat berkas yang sudah diunggah (pada Berkas Identitas Digital Terlampir dan Dokumen Pendukung Finansial) nonaktif dan belum bisa membuka file.
+> * **Expected**: Button ikon mata aktif dan dapat diklik untuk membuka atau melihat pratinjau file yang telah diunggah
+> * **Actual**: Button ikon mata nonaktif dan file berkas yang sudah tersimpan belum bisa dilihat
+> * **Evidence Awal**:
+>   * Button Lihat File Tidak Berfungsi: `evidence_01_button_lihat_file_tidak_berfungsi.png` (file lokal di folder issue `External/User Profile/Profil dan Berkas Tersimpan/01 - Button Lihat File Berkas Tersimpan Tidak Berfungsi`, drag & drop ke Huly)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
