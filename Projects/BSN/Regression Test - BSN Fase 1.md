@@ -47,7 +47,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
 | 4 | **Developer** | 3 | ⏳ Pending (0/3) | List Developer (3) |
 | 5 | **Media & Information** | 3 | ⏳ Pending (0/3) | FAQ (1), Article (1), Banner Setting (1) |
-| 6 | **Authentication (External)** | 17 | ✅ Reported (3/17) | Register Nasabah (7), Login (8), Lupa Kata Sandi (2) — 3 issue Register Nasabah diinput ke Huly: HULY-121, HULY-123, HULY-124 (parent HULY-35) |
+| 6 | **Authentication (External)** | 18 | ✅ Reported (3/18) | Register Nasabah (8), Login (8), Lupa Kata Sandi (2) — 3 issue Register Nasabah diinput ke Huly: HULY-121, HULY-123, HULY-124 (parent HULY-35) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 1 | ⏳ Pending (0/1) | Profile Tabs (1) |
 | 9 | **Stock Management** | 15 | ✅ Reported (6/15) | Aset Baru (12), Approval Aset Baru (3) — 6 issue sudah diinput ke Huly: BSN_I-169 s.d. BSN_I-174 |
@@ -56,7 +56,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
 | 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (2/6) | Tiket Aset Baru (3) — ketiganya dihapus dari Huly 25 Nov (BSN_I-182, BSN_I-183, BSN_I-184), Leads Aset Baru (3) — BSN_I-185, BSN_I-186 (BSN_I-187 dihapus dari Huly 25 Nov) |
 | 14 | **Aset Saya (Developer)** | 5 | ⏳ Pending (0/5) | Pengajuan Aset Baru (5) |
-| **Total** | | **75** | **13 Reported / 62 Pending** | |
+| **Total** | | **76** | **13 Reported / 63 Pending** | |
 
 ---
 
@@ -65,7 +65,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 69 | 42 Issue Internal, 22 Issue External, 5 Issue Developer |
+| 🔴 **Open** | 70 | 42 Issue Internal, 23 Issue External, 5 Issue Developer |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 3 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi<br>• `External/Daftar Developer/Card Developer/01`: Logo, Segmen, dan Jumlah Aset Belum Sesuai |
 
@@ -1251,6 +1251,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Button "Daftar gratis sekarang" tidak dapat membuka halaman Daftar setelah melakukan pendaftaran dengan akun Google
 > * **Evidence Awal**:
 >   * Button Daftar Gratis Tidak Berfungsi: `evidence_01_button_daftar_gratis_tidak_berfungsi.png` (file lokal di folder issue `External/Authentication/Login/08 - Button Daftar Gratis Sekarang Gagal Membuka Halaman Daftar`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Pendaftaran dengan Akun Google Tidak Langsung Mengarahkan ke Beranda
+
+> * **Menu**: Authentication (External) → Register Nasabah
+> * **Status**: Open
+> * **Overview**: Setelah melakukan pendaftaran dengan akun Google, sistem masih mengarahkan user ke halaman Login dan belum langsung masuk ke halaman Beranda.
+> * **Expected**: Setelah pendaftaran dengan akun Google berhasil, user langsung otomatis login dan diarahkan ke halaman Beranda
+> * **Actual**: Setelah pendaftaran dengan akun Google selesai, user masih diarahkan ke halaman Login
+> * **Evidence Awal**:
+>   * Daftar dengan Google: `evidence_01_daftar_dengan_google.png` (file lokal di folder issue `External/Authentication/Register Nasabah/08 - Pendaftaran dengan Akun Google Tidak Langsung Mengarahkan ke Beranda`, drag & drop ke Huly)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
