@@ -36,6 +36,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 25 | Stock Management | Tiket Aset Baru | 🐞 Bug |
 | 26 | Aset Saya (Developer) | Pengajuan Aset Baru | 🐞 Bug |
 | 27 | User Profile (External) | Profil dan Berkas Tersimpan | 🐞 Bug |
+| 28 | Authentication (External) | Logout | 🐞 Bug |
 
 ---
 
@@ -48,7 +49,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
 | 4 | **Developer** | 3 | ⏳ Pending (0/3) | List Developer (3) |
 | 5 | **Media & Information** | 3 | ⏳ Pending (0/3) | FAQ (1), Article (1), Banner Setting (1) |
-| 6 | **Authentication (External)** | 18 | ✅ Reported (3/18) | Register Nasabah (8), Login (8), Lupa Kata Sandi (2) — 3 issue Register Nasabah diinput ke Huly: HULY-121, HULY-123, HULY-124 (parent HULY-35) |
+| 6 | **Authentication (External)** | 19 | ✅ Reported (3/19) | Register Nasabah (8), Login (8), Lupa Kata Sandi (2), Logout (1) — 3 issue Register Nasabah diinput ke Huly: HULY-121, HULY-123, HULY-124 (parent HULY-35) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
 | 8 | **User Profile (External)** | 2 | ⏳ Pending (0/2) | Profile Tabs (1), Profil dan Berkas Tersimpan (1) |
 | 9 | **Stock Management** | 15 | ✅ Reported (6/15) | Aset Baru (12), Approval Aset Baru (3) — 6 issue sudah diinput ke Huly: BSN_I-169 s.d. BSN_I-174 |
@@ -57,7 +58,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
 | 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (2/6) | Tiket Aset Baru (3) — ketiganya dihapus dari Huly 25 Nov (BSN_I-182, BSN_I-183, BSN_I-184), Leads Aset Baru (3) — BSN_I-185, BSN_I-186 (BSN_I-187 dihapus dari Huly 25 Nov) |
 | 14 | **Aset Saya (Developer)** | 6 | ⏳ Pending (0/6) | Pengajuan Aset Baru (6) |
-| **Total** | | **78** | **13 Reported / 65 Pending** | |
+| **Total** | | **79** | **13 Reported / 66 Pending** | |
 
 ---
 
@@ -66,7 +67,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 72 | 42 Issue Internal, 24 Issue External, 6 Issue Developer |
+| 🔴 **Open** | 73 | 42 Issue Internal, 25 Issue External, 6 Issue Developer |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 3 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi<br>• `External/Daftar Developer/Card Developer/01`: Logo, Segmen, dan Jumlah Aset Belum Sesuai |
 
@@ -1298,6 +1299,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence Awal**:
 >   * Developer Tanpa Validasi Site Plan: `evidence_01_developer_tanpa_validasi_site_plan.png` (file lokal di folder issue `Developer/Aset Saya/Pengajuan Aset Baru/06 - Validasi Wajib Site Plan atau Denah Tidak Muncul`, drag & drop ke Huly)
 >   * Internal Validasi Wajib Denah: `evidence_02_internal_validasi_wajib_denah.png` (file lokal di folder issue yang sama, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Button Tidak pada Konfirmasi Logout Tetap Mengeluarkan Akun
+
+> * **Menu**: Authentication (External) → Logout *(berlaku juga di portal Developer)*
+> * **Status**: Open
+> * **Overview**: Saat melakukan logout di portal External Nasabah maupun portal Developer, menekan button "Tidak" pada konfirmasi "Apakah Anda Yakin?" tetap mengeluarkan (logout) akun user. Harusnya sesi tetap aktif dan user kembali ke portal.
+> * **Expected**: Mengklik button "Tidak" membatalkan proses logout dan mengembalikan user ke halaman portal dalam kondisi tetap login
+> * **Actual**: Mengklik button "Tidak" tetap me-logout akun user dari portal
+> * **Evidence Awal**:
+>   * Konfirmasi Logout Button Tidak: `evidence_01_konfirmasi_logout_button_tidak.png` (file lokal di folder issue `External/Authentication/Logout/01 - Button Tidak pada Konfirmasi Logout Tetap Mengeluarkan Akun`, drag & drop ke Huly)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
