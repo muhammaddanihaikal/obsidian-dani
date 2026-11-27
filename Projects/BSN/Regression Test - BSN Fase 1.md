@@ -57,8 +57,8 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 11 | **Simulasi Pembiayaan (External)** | 1 | ⏳ Pending (0/1) | Form Simulasi (1) |
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
 | 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (2/6) | Tiket Aset Baru (3) — ketiganya dihapus dari Huly 25 Nov (BSN_I-182, BSN_I-183, BSN_I-184), Leads Aset Baru (3) — BSN_I-185, BSN_I-186 (BSN_I-187 dihapus dari Huly 25 Nov) |
-| 14 | **Aset Saya (Developer)** | 6 | ⏳ Pending (0/6) | Pengajuan Aset Baru (6) |
-| **Total** | | **79** | **13 Reported / 66 Pending** | |
+| 14 | **Aset Saya (Developer)** | 7 | ⏳ Pending (0/7) | Pengajuan Aset Baru (7) |
+| **Total** | | **80** | **13 Reported / 67 Pending** | |
 
 ---
 
@@ -67,7 +67,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 73 | 42 Issue Internal, 25 Issue External, 6 Issue Developer |
+| 🔴 **Open** | 74 | 42 Issue Internal, 25 Issue External, 7 Issue Developer |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 3 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi<br>• `External/Daftar Developer/Card Developer/01`: Logo, Segmen, dan Jumlah Aset Belum Sesuai |
 
@@ -1314,6 +1314,21 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Actual**: Mengklik button "Tidak" tetap me-logout akun user dari portal
 > * **Evidence Awal**:
 >   * Konfirmasi Logout Button Tidak: `evidence_01_konfirmasi_logout_button_tidak.png` (file lokal di folder issue `External/Authentication/Logout/01 - Button Tidak pada Konfirmasi Logout Tetap Mengeluarkan Akun`, drag & drop ke Huly)
+> * **Bukti Retest (Done)**:
+>   * -
+> * **Catatan Retest**:
+>   * -
+<br>
+
+### 🐞 [BUG] | Tab Step Form Edit Aset Masih Bisa Diklik Langsung
+
+> * **Menu**: Aset Saya (Developer) → Pengajuan Aset Baru
+> * **Status**: Open
+> * **Overview**: Saat mengedit aset di portal Developer, tab step 1 hingga 6 masih bisa langsung diklik secara bebas. Harusnya tab step tidak bisa diklik langsung dan harus mengikuti alur berurutan seperti pada form tambah aset.
+> * **Expected**: Mengikuti perilaku form tambah aset: tab step tidak dapat diklik langsung dan perpindahan antar step berjalan berurutan
+> * **Actual**: Pada mode edit aset, seluruh tab step 1–6 masih dapat langsung diklik untuk melompat antar step
+> * **Evidence Awal**:
+>   * Edit Aset Tab Step Bisa Diklik: `evidence_01_edit_aset_tab_step_bisa_diklik.png` (file lokal di folder issue `Developer/Aset Saya/Pengajuan Aset Baru/07 - Tab Step Form Edit Aset Masih Bisa Diklik Langsung`, drag & drop ke Huly)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
