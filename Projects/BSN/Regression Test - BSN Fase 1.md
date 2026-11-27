@@ -46,7 +46,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 1 | **Authentication** | 4 | ⏳ Pending (0/4) | Logout (2), Login (1), Lupa Kata Sandi (1) |
 | 2 | **User Management** | 9 | ⏳ Pending (0/9) | Role (4), User (2), User Block (2), User External (1) |
 | 3 | **Office Management** | 3 | ⏳ Pending (0/3) | Office Type (3) |
-| 4 | **Developer** | 4 | ⏳ Pending (0/4) | List Developer (4) |
+| 4 | **Developer** | 3 | ⏳ Pending (0/3) | List Developer (3) |
 | 5 | **Media & Information** | 3 | ⏳ Pending (0/3) | FAQ (1), Article (1), Banner Setting (1) |
 | 6 | **Authentication (External)** | 18 | ✅ Reported (3/18) | Register Nasabah (8), Login (8), Lupa Kata Sandi (2) — 3 issue Register Nasabah diinput ke Huly: HULY-121, HULY-123, HULY-124 (parent HULY-35) |
 | 7 | **Beranda (External)** | 2 | ⏳ Pending (0/2) | Header (2) |
@@ -57,7 +57,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | 12 | **Daftar Developer (External)** | 1 | ⏳ Pending (0/1) | Card Developer (1) |
 | 13 | **Leads & Tiket Aset Baru** | 6 | ✅ Reported (2/6) | Tiket Aset Baru (3) — ketiganya dihapus dari Huly 25 Nov (BSN_I-182, BSN_I-183, BSN_I-184), Leads Aset Baru (3) — BSN_I-185, BSN_I-186 (BSN_I-187 dihapus dari Huly 25 Nov) |
 | 14 | **Aset Saya (Developer)** | 6 | ⏳ Pending (0/6) | Pengajuan Aset Baru (6) |
-| **Total** | | **79** | **13 Reported / 66 Pending** | |
+| **Total** | | **78** | **13 Reported / 65 Pending** | |
 
 ---
 
@@ -66,7 +66,7 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 | Status | Total | Rincian Issue |
 |--------|:-----:|---------------|
 | 🟢 **Done** | 1 | `Internal/User Management/User/01`: Dropdown Kantor pada Form Tambah User Kosong |
-| 🔴 **Open** | 73 | 43 Issue Internal, 24 Issue External, 6 Issue Developer |
+| 🔴 **Open** | 72 | 42 Issue Internal, 24 Issue External, 6 Issue Developer |
 | 🟡 **Catatan / Klarifikasi** | 2 | • `External/Authentication/Register Nasabah/03`: Validasi Kata Sandi Breached Muncul di Akhir<br>• `External/Authentication/Login/05`: Label Banner Login External Tertulis Sistem Portal Internal |
 | 🔄 **Re-Open** | 3 | • `External/Aset Baru/Card Aset/01`: Informasi Developer & Harga Coret Belum Sesuai<br>• `External/Aset Baru/Filter Pencarian/01`: Filter Jenis Properti Belum Berfungsi<br>• `External/Daftar Developer/Card Developer/01`: Logo, Segmen, dan Jumlah Aset Belum Sesuai |
 
@@ -1298,21 +1298,6 @@ Tracking progres regression test dan bug yang ditemukan selama sesi pengetesan.
 > * **Evidence Awal**:
 >   * Developer Tanpa Validasi Site Plan: `evidence_01_developer_tanpa_validasi_site_plan.png` (file lokal di folder issue `Developer/Aset Saya/Pengajuan Aset Baru/06 - Validasi Wajib Site Plan atau Denah Tidak Muncul`, drag & drop ke Huly)
 >   * Internal Validasi Wajib Denah: `evidence_02_internal_validasi_wajib_denah.png` (file lokal di folder issue yang sama, drag & drop ke Huly)
-> * **Bukti Retest (Done)**:
->   * -
-> * **Catatan Retest**:
->   * -
-<br>
-
-### 🐞 [BUG] | Daftar Klaster Proyek Tidak Tampil Semua
-
-> * **Menu**: Developer → List Developer
-> * **Status**: Open
-> * **Overview**: Pada detail proyek developer (contoh: Alam Sutera), label menunjukkan "3 Klaster Terdaftar", tetapi daftar di bawahnya hanya menampilkan 1 klaster (Klaster Sutera Jelita) sehingga 2 klaster lainnya tidak muncul.
-> * **Expected**: Seluruh klaster yang sudah terdaftar pada proyek tersebut (3 klaster) tampil lengkap di daftar proyek
-> * **Actual**: Hanya 1 klaster yang ditampilkan di daftar meskipun label mencatat ada 3 Klaster Terdaftar
-> * **Evidence Awal**:
->   * Klaster Proyek Tidak Tampil Semua: `evidence_01_klaster_proyek_tidak_tampil_semua.png` (file lokal di folder issue `Internal/Developer/List Developer/04 - Daftar Klaster Proyek Tidak Tampil Semua`, drag & drop ke Huly)
 > * **Bukti Retest (Done)**:
 >   * -
 > * **Catatan Retest**:
